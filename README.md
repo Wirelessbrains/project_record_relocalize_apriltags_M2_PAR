@@ -13,6 +13,9 @@
 
 This project presents an autonomous navigation system for the AgileX LIMO robot, developed in ROS 2, which utilizes AprilTags as visual fiducial markers. The system implements a "Teach, Replay & Resume" methodology, enabling the robot to: (1) Learn a route via manual teleoperation; (2) Replay the route autonomously; and (3) Localize itself and resume the route from any point on the path. The entire development process is first validated in a Gazebo simulation environment before deployment on the physical hardware.
 
+1. **Teach** – Learn a route via manual teleoperation using a joystick.  
+2. **Replay** – Follow the learned route autonomously based on recorded AprilTag positions.  
+3. **Resume** – Localize itself from the nearest tag and continue the route from any point on the path.
 ---
 
 ### 👥 Authors
@@ -31,13 +34,23 @@ All detailed project documentation has been moved to the `/docs` folder.
 
 | Document | Description |
 | :--- | :--- |
-| **[Project Specifications](./docs/cahier_des_charges.md)** | The project specifications: objectives and functional/non-functional requirements. |
+| **[Project Specifications](./docs/project_specifications.md)** | The project specifications: objectives and functional/non-functional requirements. |
 | **[System Architecture](./docs/architecture.md)** | The core methodology (Teach, Replay, Resume) and software architecture (ROS Nodes). |
 | **[Project Timeline](./docs/gantt.png)** | The gantt chart detailing the project plan and task division. |
 | **[Experiments & Results](./docs/experiments.md)** | Demonstration GIFs, videos, and validation of the system. |
 | **[References](./docs/references.bib)** | All scientific and technical references in BibTeX format. |
 
+
 ---
+
+## Workspace Overview
+
+> The workspace follows a **multi-package ROS 2 structure**, enabling modular development by task:
+> - **limo_mapping:** teach-run and AprilTag logging  
+> - **limo_route_follow:** autonomous path replay  
+> - **limo_relocalization:** localization and resume behavior  
+> - **limo_simulation:** Gazebo & RViz configuration for testing
+
 
 ## Code Structure
 
