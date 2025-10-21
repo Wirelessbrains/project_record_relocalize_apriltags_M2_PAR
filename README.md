@@ -18,7 +18,7 @@ This project presents an autonomous navigation system for the AgileX LIMO robot,
 3. **Resume** – Localize itself from the nearest tag and continue the route from any point on the path.
 ---
 
-### 👥 Authors
+## Authors
 
 | Name | Role | Contact |
 |------|------|----------|
