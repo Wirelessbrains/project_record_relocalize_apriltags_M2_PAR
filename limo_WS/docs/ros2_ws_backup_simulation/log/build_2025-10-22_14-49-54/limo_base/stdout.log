@@ -1,0 +1,83 @@
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 1.3.12 (/home/yann/ros2_humble/install/ament_cmake/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Found rclcpp: 16.0.15 (/home/yann/ros2_humble/install/rclcpp/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 3.1.7 (/home/yann/ros2_humble/install/rosidl_generator_c/share/rosidl_generator_c/cmake)
+-- Found rosidl_adapter: 3.1.7 (/home/yann/ros2_humble/install/rosidl_adapter/share/rosidl_adapter/cmake)
+-- Found rosidl_generator_cpp: 3.1.7 (/home/yann/ros2_humble/install/rosidl_generator_cpp/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 6.1.2 (/home/yann/ros2_humble/install/rmw_implementation_cmake/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 6.2.9 (/home/yann/ros2_humble/install/rmw_fastrtps_cpp/share/rmw_fastrtps_cpp/cmake)
+-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+-- Found FastRTPS: /home/yann/ros2_humble/install/fastrtps/include  
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Found geometry_msgs: 4.9.0 (/home/yann/ros2_humble/install/geometry_msgs/share/geometry_msgs/cmake)
+-- Found nav_msgs: 4.9.0 (/home/yann/ros2_humble/install/nav_msgs/share/nav_msgs/cmake)
+-- Found sensor_msgs: 4.9.0 (/home/yann/ros2_humble/install/sensor_msgs/share/sensor_msgs/cmake)
+-- Found tf2: 0.25.16 (/home/yann/ros2_humble/install/tf2/share/tf2/cmake)
+-- Found tf2_ros: 0.25.16 (/home/yann/ros2_humble/install/tf2_ros/share/tf2_ros/cmake)
+-- Found limo_msgs: 0.0.0 (/home/yann/ros2_ws/install/limo_msgs/share/limo_msgs/cmake)
+-- Found tf2_geometry_msgs: 0.25.16 (/home/yann/ros2_humble/install/tf2_geometry_msgs/share/tf2_geometry_msgs/cmake)
+-- Found eigen3_cmake_module: 0.1.1 (/home/yann/ros2_humble/install/eigen3_cmake_module/share/eigen3_cmake_module/cmake)
+-- Found Eigen3: TRUE (found version "3.4.0") 
+-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+-- Found turtlesim: 1.4.3 (/home/yann/ros2_humble/install/turtlesim/share/turtlesim/cmake)
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/yann/ros2_ws/build/limo_base
+[ 66%] [32mBuilding CXX object CMakeFiles/limo_base.dir/src/serial_port.cpp.o[0m
+[ 66%] [32mBuilding CXX object CMakeFiles/limo_base.dir/src/limo_base_node.cpp.o[0m
+[ 66%] [32mBuilding CXX object CMakeFiles/limo_base.dir/src/limo_driver.cpp.o[0m
+[ 66%] [32mBuilding CXX object CMakeFiles/tf_pub.dir/src/tf_pub.cpp.o[0m
+[ 83%] [32m[1mLinking CXX executable tf_pub[0m
+[ 83%] Built target tf_pub
+[100%] [32m[1mLinking CXX executable limo_base[0m
+[100%] Built target limo_base
+-- Install configuration: ""
+-- Execute custom install script
+-- Symlinking: /home/yann/ros2_ws/install/limo_base/include/limo_base/limo_driver.h
+-- Symlinking: /home/yann/ros2_ws/install/limo_base/include/limo_base/limo_protocol.h
+-- Symlinking: /home/yann/ros2_ws/install/limo_base/include/limo_base/serial_port.h
+-- Symlinking: /home/yann/ros2_ws/install/limo_base/lib/limo_base/limo_base
+-- Symlinking: /home/yann/ros2_ws/install/limo_base/lib/limo_base/tf_pub
+-- Symlinking: /home/yann/ros2_ws/install/limo_base/share/limo_base//launch/limo_base.launch.py
+-- Symlinking: /home/yann/ros2_ws/install/limo_base/share/limo_base//launch/open_ydlidar_launch.py
+-- Symlinking: /home/yann/ros2_ws/install/limo_base/share/limo_base//launch/start_limo.launch.py
+-- Symlinking: /home/yann/ros2_ws/install/limo_base/share/limo_base//src/limo_base_node.cpp
+-- Symlinking: /home/yann/ros2_ws/install/limo_base/share/limo_base//src/limo_driver.cpp
+-- Symlinking: /home/yann/ros2_ws/install/limo_base/share/limo_base//src/serial_port.cpp
+-- Symlinking: /home/yann/ros2_ws/install/limo_base/share/limo_base//src/tf_pub.cpp
+-- Symlinking: /home/yann/ros2_ws/install/limo_base/share/ament_index/resource_index/package_run_dependencies/limo_base
+-- Symlinking: /home/yann/ros2_ws/install/limo_base/share/ament_index/resource_index/parent_prefix_path/limo_base
+-- Symlinking: /home/yann/ros2_ws/install/limo_base/share/limo_base/environment/ament_prefix_path.sh
+-- Symlinking: /home/yann/ros2_ws/install/limo_base/share/limo_base/environment/ament_prefix_path.dsv
+-- Symlinking: /home/yann/ros2_ws/install/limo_base/share/limo_base/environment/path.sh
+-- Symlinking: /home/yann/ros2_ws/install/limo_base/share/limo_base/environment/path.dsv
+-- Symlinking: /home/yann/ros2_ws/install/limo_base/share/limo_base/local_setup.bash
+-- Symlinking: /home/yann/ros2_ws/install/limo_base/share/limo_base/local_setup.sh
+-- Symlinking: /home/yann/ros2_ws/install/limo_base/share/limo_base/local_setup.zsh
+-- Symlinking: /home/yann/ros2_ws/install/limo_base/share/limo_base/local_setup.dsv
+-- Symlinking: /home/yann/ros2_ws/install/limo_base/share/limo_base/package.dsv
+-- Symlinking: /home/yann/ros2_ws/install/limo_base/share/ament_index/resource_index/packages/limo_base
+-- Symlinking: /home/yann/ros2_ws/install/limo_base/share/limo_base/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Symlinking: /home/yann/ros2_ws/install/limo_base/share/limo_base/cmake/limo_baseConfig.cmake
+-- Symlinking: /home/yann/ros2_ws/install/limo_base/share/limo_base/cmake/limo_baseConfig-version.cmake
+-- Symlinking: /home/yann/ros2_ws/install/limo_base/share/limo_base/package.xml
