@@ -1,0 +1,62 @@
+apriltag_node:
+  ros__parameters:
+    # --- TÓPICOS DE ENTRADA ---
+    # Os tópicos onde o nó espera receber a imagem e as informações da câmera.
+    image_topic: '/camera/image_rect'          # Tópico da imagem retificada.
+    camera_info_topic: '/camera/camera_info'   # Tópico das informações da câmera.
+
+    # --- SINC. & IMAGEM ---
+    # Parâmetros de sincronização
+    sync_approximate: True
+    # Se 'False' (padrão), usa sincronização exata, que é mais rigorosa.
+    # 'True' (sincronização aproximada) é geralmente necessário para câmeras USB/Webcam.
+    
+    # Este parâmetro garante que a tolerância seja aplicada corretamente:
+    use_image_transport: True
+    # Usa image_transport para lidar com diferentes formatos de imagem (ex: raw, compressed).
+
+    # --- TAGS DE ENTRADA ---
+    # Família de tags a ser detectada.
+    tag_family: 'tag36h11'
+    # Opções comuns: 'tag36h11', 'tag25h9', 'tag16h5', etc.
+    
+    # Tamanho da tag: **CRUCIAL**
+    tag_size: 0.025 # Use o tamanho da **ARESTA DO QUADRADO PRETO** em METROS! (0.025m = 2.5cm)
+    
+    # IDs das tags a serem ignoradas (opcional)
+    # ignore_ids: [0, 5, 10]
+    
+    # --- FRAMES DE SAÍDA ---
+    # O frame de referência (pai) para a transformação publicada (TF).
+    # Geralmente é o frame óptico da câmera.
+    camera_frame: 'camera_link_optical'
+    
+    # O prefixo do frame para as tags detectadas. 
+    # O frame final será: <tag_frame_prefix><tag_id> (ex: 'tag_36h11_0')
+    tag_frame_prefix: 'tag_' 
+
+    # --- AJUSTE FINO (OPCIONAL) ---
+    # Parâmetros de ajuste do detector AprilTag para melhorar a velocidade ou robustez.
+    
+    # Decimação de Quadrantes: Aumenta a velocidade ao processar uma imagem menor.
+    # - 1.0 (padrão): Sem decimação. Mais lento, mais preciso.
+    # - 2.0 ou 3.0: Mais rápido, mas reduz o alcance de detecção.
+    quad_decimate: 1.0 
+    
+    # Sigma (Desvio Padrão) Gaussiano para suavização da imagem.
+    # Aumentar para imagens ruidosas.
+    quad_sigma: 0.0 
+    
+    # Número de threads (núcleos) para usar na detecção.
+    # Defina como o número de núcleos da sua CPU para maior velocidade, se não houver outros nós intensivos.
+    nthreads: 4 
+    
+    # --- FILTROS (OPCIONAL) ---
+    # Define o número mínimo de pixels que um quadrado de tag deve ter.
+    # Útil para filtrar detecções falsas ou tags muito distantes.
+    # min_tag_border_pixels: 5
+
+    # --- SAÍDAS DE DEBUG (OPCIONAL) ---
+    # Publica a imagem com os contornos e IDs das tags desenhados (útil para debug).
+    publish_detected_image: True
+    # Tópico: /apriltag_node/image_detections
