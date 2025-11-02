@@ -10,8 +10,8 @@ This package relies on the **`limo_ros2`** package being installed and configure
 
 * **TUTORIAL PATH:** [LIMO ROS2 HUMBLE CONFIGURATION](https://github.com/Wirelessbrains/limo_autonomy_project_M2_PAR/blob/versionyk/tutorials/cofig_Limo_ROS2_Humble_eviroment.md)
 
-* **Or copy and paste the folder** [limo_ros2](https://github.com/Wirelessbrains/limo_autonomy_project_M2_PAR/blob/versionyk/PC_WS/src/limo_ros2) **and build it in your** `workspace/src`
----
+** **Or copy and paste the folder** [limo_ros2](https://github.com/Wirelessbrains/limo_autonomy_project_M2_PAR/blob/versionyk/PC_WS/src/limo_ros2) **and build it in your** `workspace/src`
+
 * **Before proceeding**, make sure your system is up to date and install the required ROS2 packages for the joystick configuration:
 
 ```bash
