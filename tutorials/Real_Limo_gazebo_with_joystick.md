@@ -57,7 +57,7 @@ ros2 topic echo /joy
 #### Comand bash 
 
 ```bash
-ros2 run teleop_twist_joy teleop_node --ros-args --params-file /home/yann/ros2_ws/src/limo_teleop_config/config/xbox_limo.yaml
+ros2 run teleop_twist_joy teleop_node --ros-args --params-file <Directore of file .yaml>
 ```
 
 ### 2.2) With the prompt
@@ -66,13 +66,13 @@ ros2 run teleop_twist_joy teleop_node --ros-args --params-file /home/yann/ros2_w
 ros2 run teleop_twist_joy teleop_node --ros-args \
   -p axis_linear.x:=1 \
   -p axis_angular.yaw:=2 \
-  -p enable_button:=7 \
+  -p enable_button:=5 \
   -p scale_linear.x:=0.8
 ```
 
 
-# Try in limo gazebo simulatio
+# Start Limo Robot
 
 ```bash
-ros2 launch limo_description gazebo_models_diff.launch.py
+ros2 launch limo_base limo_base.lauch.py
 ```
