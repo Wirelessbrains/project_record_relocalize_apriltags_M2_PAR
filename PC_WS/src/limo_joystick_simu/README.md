@@ -6,9 +6,9 @@ It extends the basic ROS 2 teleoperation capabilities by implementing a **custom
 ### **⚠️ IMPORTANT PREREQUISITE**
 This package relies on the **`limo_ros2`** (or `limo_description`) package being installed and configured in your workspace for the simulation models to be loaded correctly. Please refer to the specific configuration guide for your environment:
 
-**TUTORIAL PATH:** [LIMO ROS2 HUMBLE CONFIGURATION] (tutorial/cofig_Limo_ROS2_Humble_eviroment.md)
+**TUTORIAL PATH:** [LIMO ROS2 HUMBLE CONFIGURATION] (https://github.com/Wirelessbrains/limo_autonomy_project_M2_PAR/blob/versionyk/tutorials/cofig_Limo_ROS2_Humble_eviroment.md)
 
-**Or copy and pas teh folder  [Limo_ros2] (tutorial/cofig_Limo_ROS2_Humble_eviroment.md) and build in your workspace/src
+** Or copy and pas teh folder  [Limo_ros2] (https://github.com/Wirelessbrains/limo_autonomy_project_M2_PAR/blob/versionyk/PC_WS/src/limo_ros2) and build in your workspace/src
 ---
 
 ### 🧭 **Motion Control Overview**
