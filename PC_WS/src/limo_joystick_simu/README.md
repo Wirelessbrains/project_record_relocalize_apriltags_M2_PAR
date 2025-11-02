@@ -4,10 +4,20 @@ The `limo_joystick_simu` package provides a robust solution for **simulation, te
 It extends the basic ROS 2 teleoperation capabilities by implementing a **custom state machine** that enables recording and playback of movement commands with precision and flexibility.
 
 ### **⚠️ IMPORTANT PREREQUISITE**
-This package relies on the **`limo_ros2`** (or `limo_description`) package being installed and configured in your workspace for the simulation models to be loaded correctly. Please refer to the specific configuration guide for your environment:
+This package relies on the **`limo_ros2`** package being installed and configured in your workspace for the simulation models to be loaded correctly. Please refer to the specific configuration guide for your environment:
 
-**TUTORIAL PATH:** [LIMO ROS2 HUMBLE CONFIGURATION](https://github.com/Wirelessbrains/limo_autonomy_project_M2_PAR/blob/versionyk/tutorials/cofig_Limo_ROS2_Humble_eviroment.md)
+* **TUTORIAL PATH:** [LIMO ROS2 HUMBLE CONFIGURATION](https://github.com/Wirelessbrains/limo_autonomy_project_M2_PAR/blob/versionyk/tutorials/cofig_Limo_ROS2_Humble_eviroment.md)
 
+** **Or copy and paste (clone) the folder** [limo_ros2](https://github.com/Wirelessbrains/limo_autonomy_project_M2_PAR/blob/versionyk/PC_WS/src/limo_ros2) **and build it in your** `workspace/src`
+
+* **Before proceeding**, make sure your system is up to date and install the required ROS2 packages for the joystick configuration:
+
+```bash
+sudo apt update
+sudo apt install ros-humble-joy \
+                 ros-humble-joy-linux \
+                 ros-humble-teleop-twist-joy
+```
 ---
 
 ### 🧭 **Motion Control Overview**
