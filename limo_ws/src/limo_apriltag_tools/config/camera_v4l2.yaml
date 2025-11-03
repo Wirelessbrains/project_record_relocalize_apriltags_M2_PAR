@@ -1,0 +1,10 @@
+v4l2_camera_node:
+  ros__parameters:
+    video_device: "/dev/video0"
+    image_size: [640, 480]
+    pixel_format: "YUYV"
+    time_per_frame: [1, 30]
+    use_sensor_data_qos: true
+    camera_frame_id: "camera"
+    camera_info_url: "file:///home/agilex/limo_autonomy_project_M2_PAR/limo_ws/src/limo_apriltag_tools/config/webcam_calibration.yaml"
+
