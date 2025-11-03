@@ -55,50 +55,171 @@ All detailed project documentation has been moved to the `/docs` folder.
 ## Code Structure
 
 ```bash
-limo_ws/
 ├── docs
 │   ├── architecture.md
 │   ├── experiments.md
 │   ├── gantt.md
 │   ├── project_specifications.md
 │   ├── references.bib
-│   └── system_architecture.png
+│   ├── Report
+│   ├── system_architecture.png
+│   └── tasks.md
 ├── LICENSE
 ├── limo_ws
 │   ├── docs
 │   └── src
-│       ├── limo_apriltag_tools
-│       │   ├── config
-│       │   │   ├── apriltag_params.yaml
-│       │   │   └── webcam_calibration.yaml
+│       └── limo_apriltag_tools
+│           ├── config
+│           │   ├── apriltag_params.yaml
+│           │   ├── camera_v4l2.yaml
+│           │   └── webcam_calibration.yaml
+│           ├── launch
+│           │   └── apriltag_full_v4l2_yuyv.launch.py
+│           ├── limo_apriltag_tools
+│           │   ├── __init__.py
+│           │   └── yuyv_to_mono_node.py
+│           ├── package.xml
+│           ├── README.md
+│           ├── resource
+│           │   └── limo_apriltag_tools
+│           ├── setup.cfg
+│           └── setup.py
+├── limo_WS
+│   ├── docs
+│   │   └── ros2_ws_backup_simulation
+│   │       └── src
+│   │           └── limo_ros2
+│   └── src
+│       ├── limo_joystick
 │       │   ├── launch
-│       │   │   └── apriltag_webcam_full.launch.py
-│       │   ├── limo_apriltag_tools
-│       │   │   ├── camera_info_publisher.py
+│       │   │   ├── limo_joystick.launch.py
+│       │   │   └── mode_limo_joystick.launch.py
+│       │   ├── limo_joystick
 │       │   │   ├── __init__.py
-│       │   │   └── __pycache__
-│       │   │       ├── camera_info_publisher.cpython-310.pyc
-│       │   │       └── __init__.cpython-310.pyc
+│       │   │   └── mode_controller_node.py
 │       │   ├── package.xml
 │       │   ├── README.md
 │       │   ├── resource
-│       │   │   └── limo_apriltag_tools
-│       │   ├── scripts
-│       │   │   └── camera_info_publisher_node
-│       │   └── setup.py
-│       ├── limo_mapping
+│       │   │   └── limo_joystick
+│       │   ├── setup.cfg
+│       │   ├── setup.py
+│       │   └── test
+│       │       ├── test_copyright.py
+│       │       ├── test_flake8.py
+│       │       └── test_pep257.py
+│       └── limo_ros2
+├── pc_WS
+│   └── src
+│       ├── limo_joystick_simu
 │       │   ├── config
 │       │   ├── launch
-│       │   └── src
-│       ├── limo_relocalization
-│       │   ├── launch
-│       │   └── src
-│       ├── limo_route_follow
-│       │   ├── config
-│       │   ├── launch
-│       │   └── src
-│       └── limo_simulation
-│           ├── rviz
-│           └── worlds
-└── README.md
+│       │   │   ├── simu_and_mode_joystick.launch.py
+│       │   │   └── simu_and_teleop.launch.py
+│       │   ├── limo_joystick_simu
+│       │   │   ├── __init__.py
+│       │   │   └── mode_controller_node.py
+│       │   ├── package.xml
+│       │   ├── README.md
+│       │   ├── resource
+│       │   │   └── limo_joystick_simu
+│       │   ├── setup.cfg
+│       │   ├── setup.py
+│       │   └── test
+│       │       ├── test_copyright.py
+│       │       ├── test_flake8.py
+│       │       └── test_pep257.py
+│       └── limo_ros2
+│           ├── limo_base
+│           │   ├── CMakeLists.txt
+│           │   ├── include
+│           │   │   └── limo_base
+│           │   │       ├── limo_driver.h
+│           │   │       ├── limo_protocol.h
+│           │   │       └── serial_port.h
+│           │   ├── launch
+│           │   │   ├── limo_base.launch.py
+│           │   │   ├── open_ydlidar_launch.py
+│           │   │   └── start_limo.launch.py
+│           │   ├── package.xml
+│           │   ├── scripts
+│           │   │   └── tf_pub.py
+│           │   └── src
+│           │       ├── limo_base_node.cpp
+│           │       ├── limo_driver.cpp
+│           │       ├── serial_port.cpp
+│           │       └── tf_pub.cpp
+│           ├── limo_car
+│           │   ├── CMakeLists.txt
+│           │   ├── gazebo
+│           │   │   ├── ackermann_with_sensor.xacro
+│           │   │   ├── ackermann.xacro
+│           │   │   └── sensor.xacro
+│           │   ├── launch
+│           │   │   ├── ackermann_gazebo.launch.py
+│           │   │   ├── ackermann.launch.py
+│           │   │   └── display_ackermann.launch.py
+│           │   ├── meshes
+│           │   │   ├── limo_base.dae
+│           │   │   ├── limo_base.stl
+│           │   │   ├── limo_wheel.dae
+│           │   │   └── limo_wheel.stl
+│           │   ├── package.xml
+│           │   ├── Readme.md
+│           │   ├── README.txt
+│           │   ├── rviz
+│           │   │   ├── gazebo.rviz
+│           │   │   └── urdf.rviz
+│           │   ├── src
+│           │   ├── urdf
+│           │   │   ├── limo_ackerman_base.xacro
+│           │   │   ├── limo_anteil.xacro
+│           │   │   └── limo_steering_hinge.xacro
+│           │   └── worlds
+│           ├── limo_description
+│           │   ├── CMakeLists.txt
+│           │   ├── launch
+│           │   │   ├── display_models_diff.launch.py
+│           │   │   └── gazebo_models_diff.launch.py
+│           │   ├── meshes
+│           │   │   ├── limo_base.dae
+│           │   │   ├── limo_base.stl
+│           │   │   ├── limo_wheel.dae
+│           │   │   └── limo_wheel.stl
+│           │   ├── package.xml
+│           │   ├── rviz
+│           │   │   ├── model_display.rviz
+│           │   │   └── urdf.rviz
+│           │   └── urdf
+│           │       ├── limo_ackerman.gazebo
+│           │       ├── limo_ackerman.xacro
+│           │       ├── limo_four_diff_2.gazebo
+│           │       ├── limo_four_diff.gazebo
+│           │       ├── limo_four_diff.xacro
+│           │       ├── limo_gazebo.gazebo
+│           │       ├── limo_steering_hinge.xacro
+│           │       └── limo_xacro.xacro
+│           ├── limo_msgs
+│           │   ├── CMakeLists.txt
+│           │   ├── msg
+│           │   │   └── LimoStatus.msg
+│           │   └── package.xml
+│           └── Readme.md
+├── README.md
+├── tutorials
+│   ├── cofig_Limo_ROS2_Humble_eviroment.md
+│   ├── Exemple_LIMO_gazebo_with_joystick.md
+│   └── Real_Limo_gazebo_with_joystick.md
+└── venv
+    ├── bin
+    │   ├── python -> python3
+    │   ├── python3 -> /usr/bin/python3
+    │   └── python3.10 -> python3
+    ├── include
+    ├── lib
+    │   └── python3.10
+    │       └── site-packages
+    ├── lib64 -> lib
+    └── pyvenv.cfg
+
+
 
