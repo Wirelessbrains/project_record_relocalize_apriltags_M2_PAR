@@ -10,8 +10,8 @@ gantt
 
   section M1 – Mapping (Teach)
   Environment setup + docs       :a1, 2025-10-21, 7d
-  Teach-run (manual teleoperation) :a2, after a1, 10d
-  AprilTag detection & calibration :a3, after a2, 8d
+  Teach-run (manual teleoperation) :a2, after a1, 8d
+  AprilTag detection & calibration :a3, after a2, 10d
   Dataset recording & validation   :a4, after a3, 5d
   Deliverable M1 (docs + demo)     :milestone, after a4, 0d
 
