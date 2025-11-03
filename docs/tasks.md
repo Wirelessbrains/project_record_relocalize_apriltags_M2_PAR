@@ -6,28 +6,28 @@
 
 | Micro-Task | Responsible | Status | Estimated Duration |
 | :--- | :--- | :--- | :--- |
-| Set up Git repository and folder structure. | **João** | :arrows_counterclockwise: Active | 1 day |
-| Install ROS/Package dependencies in the development environment. | **Both** | :arrows_counterclockwise: Active | 2 days |
-| Create and configure initial README and Docs template. | **João** | :large_blue_circle: To Do | 2 days |
-| Test basic communication between hardware and environment. | **Both** | :arrows_counterclockwise: Active | 2 days |
+| Set up Git repository and folder structure. | **João** | :arrows_counterclockwise: Done | 1 day |
+| Install ROS/Package dependencies in the development environment. | **Both** | :arrows_counterclockwise: Done | 2 days |
+| Create and configure initial README and Docs template. | **João** | :large_blue_circle: To Do | 2 Done |
+| Test basic communication between hardware and environment. | **Both** | :arrows_counterclockwise: Done| 2 days |
 
 ### 1.2 AprilTag Detection and Calibration (Primary Lead: João)
 
 | Micro-Task | Responsible | Status | Estimated Duration |
 | :--- | :--- | :--- | :--- |
-| Select and integrate the AprilTag Detection package. | **João** | :large_blue_circle: To Do | 3 days |
-| Implement the camera reading node and Tag publication. | **João** | :large_blue_circle: To Do | 4 days |
-| Create intrinsic and extrinsic camera calibration routine. | **João** | :large_blue_circle: To Do | 3 days |
-| Validate detection accuracy at different distances/angles. | **Both** | :large_blue_circle: To Do | 2 days |
+| Select and integrate the AprilTag Detection package. | **João** | :large_blue_circle: Active | 3 days |
+| Implement the camera reading node and Tag publication. | **João** | :large_blue_circle: Active | 4 days |
+| Create intrinsic and extrinsic camera calibration routine. | **João** | :large_blue_circle: Active | 3 days |
+| Validate detection accuracy at different distances/angles. | **Both** | :large_blue_circle: Active | 2 days |
 
 ### 1.3 Teach Run Manual Teleoperation (Primary Lead: Yann)
 
 | Micro-Task | Responsible | Status | Estimated Duration |
 | :--- | :--- | :--- | :--- |
-| Configure and test joystick/keyboard interface for teleoperation. | **Yann** | :large_blue_circle: To Do | 2 days |
-| Implement node for recording odometry topic and commands. | **Yann** | :large_blue_circle: To Do | 4 days |
-| Define and document the standard procedure for "Teach Run." | **Yann** | :large_blue_circle: To Do | 2 days |
-| Field test of teleoperation and initial recording. | **Both** | :large_blue_circle: To Do | 2 days |
+| Configure and test joystick/keyboard interface for teleoperation. | **Yann** | :large_blue_circle: Done | 2 days |
+| Implement node for recording odometry topic and commands. | **Yann** | :large_blue_circle: Done | 4 days |
+| Define and document the standard procedure for "Teach Run." | **Yann** | :large_blue_circle: Done | 2 days |
+| Field test of teleoperation and initial recording. | **Both** | :large_blue_circle: Done | 2 days |
 
 ### 1.4 Dataset Recording and Validation (Primary Lead: )
 
