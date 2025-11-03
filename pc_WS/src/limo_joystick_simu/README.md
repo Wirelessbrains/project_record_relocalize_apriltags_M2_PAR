@@ -1,14 +1,14 @@
-# 🏎️ Package `limo_joystick_simu`: Advanced LIMO Simulation and Control
+#  Package `limo_joystick_simu`: Advanced LIMO Simulation and Control
 
 The `limo_joystick_simu` package provides a robust solution for **simulation, teleoperation, and trajectory automation** of the LIMO robot.  
 It extends the basic ROS 2 teleoperation capabilities by implementing a **custom state machine** that enables recording and playback of movement commands with precision and flexibility.
 
-### **⚠️ IMPORTANT PREREQUISITE**
+### ** IMPORTANT PREREQUISITE**
 This package relies on the **`limo_ros2`** package being installed and configured in your workspace for the simulation models to be loaded correctly. Please refer to the specific configuration guide for your environment:
 
 * **TUTORIAL PATH:** [LIMO ROS2 HUMBLE CONFIGURATION](https://github.com/Wirelessbrains/limo_autonomy_project_M2_PAR/blob/versionyk/tutorials/cofig_Limo_ROS2_Humble_eviroment.md)
 
-** **Or copy and paste (clone) the folder** [limo_ros2](https://github.com/Wirelessbrains/limo_autonomy_project_M2_PAR/blob/versionyk/PC_WS/src/limo_ros2) **and build it in your** `workspace/src`
+  * **Or copy and paste (clone) the folder** [limo_ros2](https://github.com/Wirelessbrains/limo_autonomy_project_M2_PAR/blob/versionyk/PC_WS/src/limo_ros2) **and build it in your** `workspace/src`
 
 * **Before proceeding**, make sure your system is up to date and install the required ROS2 packages for the joystick configuration:
 
@@ -20,7 +20,7 @@ sudo apt install ros-humble-joy \
 ```
 ---
 
-### 🧭 **Motion Control Overview**
+###  **Motion Control Overview**
 The LIMO robot operates in **differential drive mode** (`diff_drive`), where velocity messages (`/cmd_vel`) are interpreted as:
 - **Linear velocity** (`linear.x`)
 - **Angular velocity** (`angular.z`)  
@@ -28,7 +28,7 @@ These parameters are used to compute the wheel speeds that control the robot’s
 
 ---
 
-## ⚙️ Main Components
+##  Main Components
 
 This package manages both the **ROS 2** and **Gazebo** environments and is built around one custom node and two main launch files:
 
@@ -40,7 +40,7 @@ This package manages both the **ROS 2** and **Gazebo** environments and is built
 
 ---
 
-## 🎮 Joystick Configuration
+##  Joystick Configuration
 
 The package is **preconfigured for a standard Xbox controller**, but unlike typical setups that rely on a `.yaml` file,  
 **this configuration is done directly in the code or within the launch command**.
@@ -62,14 +62,14 @@ The mappings for axes and buttons can be customized according to your hardware a
 
 ---
 
-## 🚀 How to Run
+##  How to Run
 
 Choose one of the available modes.  
 In both cases, the **Gazebo simulation** and **joystick driver (`joy_node`)** are automatically launched.
 
 ---
 
-### 1. 🤖 **Advanced Mode: Trajectory Recording and Playback**  
+### 1.  **Advanced Mode: Trajectory Recording and Playback**  
 (`simu_and_mode_joystick.launch.py`)
 
 This mode launches the **custom `mode_controller_node`**, which acts as a **state machine** enabling:
@@ -86,7 +86,7 @@ ros2 launch limo_joystick_simu simu_and_mode_joystick.launch.py
 | State Control | `mode_controller_node` (Custom) | Enables **FREE**, **RECORD**, and **PLAY** modes through joystick buttons. |
 | Monitors | `xterm` (/joy, /cmd_vel) | Displays joystick inputs and robot velocity commands. |
 
-#### ⚙️ Detailed Operation
+####  Detailed Operation
 
 **FREE Mode (Button A):**
 - Default starting state.
@@ -112,7 +112,7 @@ ros2 launch limo_joystick_simu simu_and_mode_joystick.launch.py
 
 ---
 
-### 2. 🕹️ **Simple Mode: Direct Manual Control Only**  
+### 2.  **Simple Mode: Direct Manual Control Only**  
 (`simu_and_teleop.launch.py`)
 
 This mode runs **without the custom state machine** — it provides only **direct joystick control** of the robot.  
@@ -127,7 +127,7 @@ ros2 launch limo_joystick_simu simu_and_teleop.launch.py
 | Motion Control | `teleop_twist_joy` (Standard ROS 2 Node) | Direct mapping of joystick axes to `/cmd_vel`. |
 | Monitors | `xterm` (/joy, /cmd_vel) | Displays joystick and velocity data in real time. |
 
-#### ⚙️ Detailed Operation
+####  Detailed Operation
 - The `teleop_twist_joy` node **does not include state logic** (no recording or playback).  
 - The robot is controlled directly via joystick axes.
 - Motion is **enabled only** when the **enable_button** (e.g., Button 5) is pressed — providing a built-in safety feature.
@@ -135,7 +135,7 @@ ros2 launch limo_joystick_simu simu_and_teleop.launch.py
 
 ---
 
-## 🧠 Node Details: `ModeController` (Advanced Mode Only)
+##  Node Details: `ModeController` (Advanced Mode Only)
 
 The `mode_controller_node` handles:
 - Reading joystick button inputs.
@@ -145,7 +145,7 @@ The `mode_controller_node` handles:
 
 ---
 
-### 🕹️ State Machine Summary
+###  State Machine Summary
 
 | Mode | State | Control Type | Description |
 | :--- | :--- | :--- | :--- |
@@ -155,14 +155,14 @@ The `mode_controller_node` handles:
 
 ---
 
-## 🛑 Process Management
+##  Process Management
 
 The node uses Python’s **`subprocess`** module to launch and terminate `rosbag` processes safely.  
 It sends `SIGINT` signals to ensure clean transitions and prevent background processes from persisting.
 
 ---
 
-## ⚠️ Safe Terminal Shutdown
+##  Safe Terminal Shutdown
 
 Both launch files include a **shutdown routine** that ensures all `xterm` topic monitoring windows (`/joy`, `/cmd_vel`) close properly.
 
@@ -181,7 +181,7 @@ Both launch files include a **shutdown routine** that ensures all `xterm` topic 
 
 ---
 
-💡 **Final Summary**
+ **Final Summary**
 
 `limo_joystick_simu` provides a **complete and modular simulation system** for the LIMO robot, offering:
 - Full **Gazebo integration**

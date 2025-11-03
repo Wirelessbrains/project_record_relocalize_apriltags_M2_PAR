@@ -5,12 +5,12 @@ It includes two different modes of operation, each launched through separate lau
 
 ---
 
-### **⚠️ IMPORTANT PREREQUISITE**
+### ** IMPORTANT PREREQUISITE**
 This package relies on the **`limo_ros2`** package being installed and configured in your workspace for the simulation models to be loaded correctly. Please refer to the specific configuration guide for your environment:
 
 * **TUTORIAL PATH:** [LIMO ROS2 HUMBLE CONFIGURATION](https://github.com/Wirelessbrains/limo_autonomy_project_M2_PAR/blob/versionyk/tutorials/cofig_Limo_ROS2_Humble_eviroment.md)
 
-** **Or copy and paste (clone) the folder** [limo_ros2](https://github.com/Wirelessbrains/limo_autonomy_project_M2_PAR/blob/versionyk/PC_WS/src/limo_ros2) **and build it in your** `workspace/src`
+  * **Or copy and paste (clone) the folder** [limo_ros2](https://github.com/Wirelessbrains/limo_autonomy_project_M2_PAR/blob/versionyk/PC_WS/src/limo_ros2) **and build it in your** `workspace/src`
 
 * **Before proceeding**, make sure your system is up to date and install the required ROS2 packages for the joystick configuration:
 
@@ -22,7 +22,7 @@ sudo apt install ros-humble-joy \
 ```
 
 ---
-## 📁 Package Overview
+##  Package Overview
 
 **Package name:** `limo_joystick`  
 **Main node:** `mode_controller`  
@@ -30,9 +30,9 @@ sudo apt install ros-humble-joy \
 
 ---
 
-## 🚀 Launch Files
+##  Launch Files
 
-### 1️⃣ Teleoperation Mode (Basic Control)
+###  Teleoperation Mode (Basic Control)
 
 **File:** `limo_joystick.launch.py`  
 
@@ -50,7 +50,7 @@ ros2 launch limo_joystick limo_joystick.launch.py
 
 ---
 
-### 2️⃣ CSV Mode (Real Trajectory Recording & Playback)
+###  CSV Mode (Real Trajectory Recording & Playback)
 
 **File:** `mode_limo_joystick.launch.py`  
 
@@ -69,7 +69,7 @@ ros2 launch limo_joystick mode_limo_joystick.launch.py
 
 ---
 
-## 🎮 Default Xbox Controller Mapping
+##  Default Xbox Controller Mapping
 
 | Action | Button | Description |
 |:--------|:--------:|:-------------|
@@ -78,11 +78,11 @@ ros2 launch limo_joystick mode_limo_joystick.launch.py
 | **Record mode** | B (1) | Start/stop recording to CSV |
 | **Play mode** | Y (4) | Start/stop playback from CSV |
 
-> ⚙️ These button indices and axis parameters can be changed in the launch file.
+>  These button indices and axis parameters can be changed in the launch file.
 
 ---
 
-## 🗂️ CSV File Output
+##  CSV File Output
 
 When in **Record Mode**, the node creates a file named:
 
@@ -100,7 +100,7 @@ This file is then used automatically when entering **Play Mode** to reproduce th
 
 ---
 
-## 💡 Notes
+##  Notes
 
 - The **recorded file** is overwritten each time a new recording starts.  
 - If the **Enable button (RB)** is not pressed, motion is set to zero even if the joystick is moved.  
@@ -109,7 +109,7 @@ This file is then used automatically when entering **Play Mode** to reproduce th
 
 ---
 
-## ✅ Summary
+##  Summary
 
 | Mode | Description | Command |
 |:------|:-------------|:---------|
