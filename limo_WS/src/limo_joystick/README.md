@@ -78,7 +78,7 @@ ros2 launch limo_joystick mode_limo_joystick.launch.py
 | **Record mode** | B (1) | Start/stop recording to CSV |
 | **Play mode** | Y (4) | Start/stop playback from CSV |
 
-> ⚙️ These button indices and axis parameters can be changed in the launch file.
+>  These button indices and axis parameters can be changed in the launch file.
 
 ---
 
