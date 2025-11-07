@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Wrapper para o ros2 launch (libexec). Chama o entry point Python oficial.
+exec "$(dirname "$0")/../../bin/camera_info_publisher_node" "$@"
+

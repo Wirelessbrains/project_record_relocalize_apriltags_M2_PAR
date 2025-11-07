@@ -1,0 +1,26 @@
+image_width: 640
+image_height: 480
+camera_name: integrated_camera:_integrated_c
+camera_matrix:
+  rows: 3
+  cols: 3
+  data: [603.67263,   0.     , 320.84156,
+           0.     , 606.30059, 260.08701,
+           0.     ,   0.     ,   1.     ]
+distortion_model: plumb_bob
+distortion_coefficients:
+  rows: 1
+  cols: 5
+  data: [-0.135126, 0.173000, 0.000361, -0.001631, 0.000000]
+rectification_matrix:
+  rows: 3
+  cols: 3
+  data: [1., 0., 0.,
+         0., 1., 0.,
+         0., 0., 1.]
+projection_matrix:
+  rows: 3
+  cols: 4
+  data: [587.85211,   0.     , 319.40004,   0.     ,
+           0.     , 594.3891 , 260.18351,   0.     ,
+           0.     ,   0.     ,   1.     ,   0.     ]

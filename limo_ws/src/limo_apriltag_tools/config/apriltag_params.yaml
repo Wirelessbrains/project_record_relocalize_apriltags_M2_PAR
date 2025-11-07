@@ -1,0 +1,25 @@
+apriltag_node:
+  ros__parameters:
+    # ---- Detecção ----
+    tag_family: 'tag36h11'
+    tag_size: 0.100             # <--- MEÇA E CONFIRME!
+    quad_decimate: 2.0          # 1.0 = mais preciso; 2.0 = mais rápido
+    quad_sigma: 0.0
+    nthreads: 4
+
+    # ---- Sincronização / transporte ----
+    sync_approximate: true
+    use_image_transport: true
+
+    # ---- Frames ----
+    camera_frame: 'camera'
+    tag_frame_prefix: 'target_'
+
+    # ---- Saídas (ESSENCIAL p/ distância) ----
+    publish_tag_detections: true
+    publish_tag_detections_pose: true
+    publish_tf: true
+
+    # ---- Visual debug (opcional) ----
+    publish_detected_image: true
+
