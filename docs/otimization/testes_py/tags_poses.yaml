@@ -1,0 +1,4 @@
+fixed_tags:
+  tag_0: [-0.5, 0.5, 2.0]  # Esquerda Superior (x, y, z)
+  tag_1: [0.5, 0.5, 2.0]   # Direita Superior
+  tag_2: [0.0, -0.5, 2.0]  # Centro Inferior

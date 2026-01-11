@@ -1,0 +1,82 @@
+world_frame: "world"
+anchor_tag: "tag36h11:0"
+
+path_type: "waypoints"
+camera_path:
+  # Caminho circular (raio ~3 m) atravessando “portais” de duas tags (uma interna e outra externa) a cada 60°.
+  start_position: {x: 3.0, y: 0.0, z: 0.2}
+  speed: 0.35
+  loop: true
+  yaw_mode: "path"      # mantém a câmera tangente à trajetória
+  fov_angle: 60
+  max_distance: 3.0
+  waypoints:
+    - {x: 3.000, y: 0.000, z: 0.2}
+    - {x: 2.772, y: 1.148, z: 0.2}
+    - {x: 2.121, y: 2.121, z: 0.2}
+    - {x: 1.148, y: 2.772, z: 0.2}
+    - {x: 0.000, y: 3.000, z: 0.2}
+    - {x: -1.148, y: 2.772, z: 0.2}
+    - {x: -2.121, y: 2.121, z: 0.2}
+    - {x: -2.772, y: 1.148, z: 0.2}
+    - {x: -3.000, y: 0.000, z: 0.2}
+    - {x: -2.772, y: -1.148, z: 0.2}
+    - {x: -2.121, y: -2.121, z: 0.2}
+    - {x: -1.148, y: -2.772, z: 0.2}
+    - {x: -0.000, y: -3.000, z: 0.2}
+    - {x: 1.148, y: -2.772, z: 0.2}
+    - {x: 2.121, y: -2.121, z: 0.2}
+    - {x: 2.772, y: -1.148, z: 0.2}
+    - {x: 3.000, y: 0.000, z: 0.2}
+
+tags:
+  # 6 “portais” (pares de tags) distribuídos a cada 60°. Cada par tem uma tag interna (r≈2.6 m) e uma externa (r≈3.4 m),
+  # levemente defasadas no sentido do movimento (uma um pouco à frente, outra um pouco atrás). Isso garante que,
+  # ao passar pelo portal, a câmera veja no mínimo 2 tags.
+  tag36h11:0:
+    position: {x: 2.600, y: 0.250, z: 0.5}
+    orientation: {x: 0.7063, y: 0.0339, z: 0.0339, w: 0.7063}
+
+  tag36h11:1:
+    position: {x: 3.400, y: -0.250, z: 0.5}
+    orientation: {x: 0.7066, y: -0.0259, z: -0.0259, w: 0.7066}
+
+  tag36h11:2:
+    position: {x: 1.083, y: 2.377, z: 0.5}
+    orientation: {x: 0.5947, y: 0.3826, z: 0.3826, w: 0.5947}
+
+  tag36h11:3:
+    position: {x: 1.917, y: 2.819, z: 0.5}
+    orientation: {x: 0.6250, y: 0.3308, z: 0.3308, w: 0.6250}
+
+  tag36h11:4:
+    position: {x: -1.517, y: 2.127, z: 0.5}
+    orientation: {x: 0.3238, y: 0.6286, z: 0.6286, w: 0.3238}
+
+  tag36h11:5:
+    position: {x: -1.483, y: 3.069, z: 0.5}
+    orientation: {x: 0.3758, y: 0.5990, z: 0.5990, w: 0.3758}
+
+  tag36h11:6:
+    position: {x: -2.600, y: -0.250, z: 0.5}
+    orientation: {x: -0.0339, y: 0.7063, z: 0.7063, w: -0.0339}
+
+  tag36h11:7:
+    position: {x: -3.400, y: 0.250, z: 0.5}
+    orientation: {x: 0.0259, y: 0.7066, z: 0.7066, w: 0.0259}
+
+  tag36h11:8:
+    position: {x: -1.083, y: -2.377, z: 0.5}
+    orientation: {x: -0.3826, y: 0.5947, z: 0.5947, w: -0.3826}
+
+  tag36h11:9:
+    position: {x: -1.917, y: -2.819, z: 0.5}
+    orientation: {x: -0.3308, y: 0.6250, z: 0.6250, w: -0.3308}
+
+  tag36h11:10:
+    position: {x: 1.517, y: -2.127, z: 0.5}
+    orientation: {x: 0.6286, y: -0.3238, z: -0.3238, w: 0.6286}
+
+  tag36h11:11:
+    position: {x: 1.483, y: -3.069, z: 0.5}
+    orientation: {x: 0.5990, y: -0.3758, z: -0.3758, w: 0.5990}

@@ -1,0 +1,553 @@
+import yaml
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.optimize import least_squares
+from scipy.spatial.transform import Rotation as R
+from scipy.sparse import lil_matrix
+import sys
+import time
+
+
+def _quat_to_xyzw(q_dict):
+    """Normaliza um quaternion vindo do YAML para [x, y, z, w]."""
+    if q_dict is None:
+        raise KeyError("Orientation ausente.")
+
+    # Formato comum: x,y,z,w
+    if all(k in q_dict for k in ("x", "y", "z", "w")):
+        return [q_dict["x"], q_dict["y"], q_dict["z"], q_dict["w"]]
+
+    # Formato alternativo: w,x,y,z
+    if all(k in q_dict for k in ("w", "x", "y", "z")):
+        return [q_dict["x"], q_dict["y"], q_dict["z"], q_dict["w"]]
+
+    # Formato com prefixo q (qx,qy,qz,qw)
+    if all(k in q_dict for k in ("qx", "qy", "qz", "qw")):
+        return [q_dict["qx"], q_dict["qy"], q_dict["qz"], q_dict["qw"]]
+
+    raise KeyError(f"Orientation sem campos esperados: {list(q_dict.keys())}")
+
+
+def _extract_pose(frame):
+    """
+    Lê posição e orientação do frame, aceitando tanto 'ground_truth_pose' quanto 'pose'.
+    Retorna (pos_vec, Rotation).
+    """
+    pose = frame.get("ground_truth_pose") or frame.get("pose")
+    if not pose:
+        raise KeyError("Frame sem 'pose' ou 'ground_truth_pose'.")
+
+    pos = pose.get("position")
+    ori = pose.get("orientation")
+    if not pos or not ori:
+        raise KeyError("Pose sem 'position' ou 'orientation'.")
+
+    P = np.array([pos["x"], pos["y"], pos["z"]], dtype=float)
+    R_cam = R.from_quat(_quat_to_xyzw(ori))
+    return P, R_cam
+
+# ==========================================
+# 1. SETUP E CARREGAMENTO DE DADOS
+# ==========================================
+print("Carregando dataset de medições...")
+try:
+    filename = 'circle_dense_truth.yaml'
+    with open(filename, 'r') as f:
+        dataset = yaml.safe_load(f)
+except Exception as e:
+    print(f"Erro ao abrir arquivo '{filename}': {e}")
+    sys.exit(1)
+
+frames = dataset['frames']
+num_frames = len(frames)
+
+ground_truth_traj = [] 
+tag_id_map = {} 
+next_tag_idx = 0
+reverse_tag_map = {} 
+
+obs_cam_idxs = []
+obs_tag_idxs = []
+obs_measurements = []
+
+gt_rel_pos = [] 
+gt_rel_rot = [] 
+
+first_observation_data = None
+first_frame_with_detection = -1
+anchor_tag_name = None # Vai guardar o nome da "Tag Zero"
+
+print(f"Processando {num_frames} frames...")
+
+for i, frame in enumerate(frames):
+    # GT Absoluto (aceita chaves 'pose' ou 'ground_truth_pose')
+    P_c_gt, R_c_gt = _extract_pose(frame)
+    ground_truth_traj.append(P_c_gt)
+
+    # Extrair Observações
+    if frame.get('detections'):
+        if first_frame_with_detection == -1:
+             first_frame_with_detection = i
+             
+        for tag_name, pose_data in frame['detections'].items():
+            if tag_name not in tag_id_map:
+                tag_id_map[tag_name] = next_tag_idx
+                reverse_tag_map[next_tag_idx] = tag_name
+                next_tag_idx += 1
+                
+            meas_local = np.array([pose_data['position']['x'], pose_data['position']['y'], pose_data['position']['z']])
+
+            # Define a âncora (Tag Zero) na primeira deteção
+            if i == first_frame_with_detection and first_observation_data is None:
+                first_observation_data = {
+                    'cam_gt_rot': R_c_gt,
+                    'meas_local': meas_local,
+                    'tag_name': tag_name
+                }
+                anchor_tag_name = tag_name # "Tag Zero" identificada
+            
+            obs_cam_idxs.append(i)
+            obs_tag_idxs.append(tag_id_map[tag_name])
+            obs_measurements.append(meas_local)
+    
+    # Preparar Movimento Relativo
+    if i < num_frames - 1:
+        curr_P, curr_R = _extract_pose(frames[i])
+        next_P, next_R = _extract_pose(frames[i + 1])
+
+        delta_P = curr_R.inv().apply(next_P - curr_P)
+        delta_R = (curr_R.inv() * next_R).as_rotvec()
+
+        gt_rel_pos.append(delta_P)
+        gt_rel_rot.append(delta_R)
+
+# Converter para NumPy
+obs_cam_idxs = np.array(obs_cam_idxs, dtype=np.int32)
+obs_tag_idxs = np.array(obs_tag_idxs, dtype=np.int32)
+obs_measurements = np.array(obs_measurements, dtype=np.float64)
+ground_truth_traj = np.array(ground_truth_traj)
+gt_rel_pos = np.array(gt_rel_pos)
+gt_rel_rot = np.array(gt_rel_rot)
+
+num_tags = len(tag_id_map)
+num_observations = len(obs_cam_idxs)
+offset_cam_rot = num_frames * 3
+
+# ==========================================
+# 3. CONFIGURAÇÃO DE PESOS
+# ==========================================
+WEIGHT_ANCHOR    = 1000.0  
+WEIGHT_OBS       = 20.0     
+WEIGHT_SMOOTH_P  = 80.0     
+WEIGHT_SMOOTH_R  = 50.0     
+
+# ==========================================
+# 4. FUNÇÕES DE CUSTO
+# ==========================================
+
+def fun_tags_only(x_tags, c_pos_fixed, c_rot_fixed):
+    t_pos = x_tags.reshape(num_tags, 3)
+    batch_c_pos = c_pos_fixed[obs_cam_idxs]
+    batch_t_pos = t_pos[obs_tag_idxs]
+    batch_R_cam = R.from_rotvec(c_rot_fixed[obs_cam_idxs])
+    P_diff = batch_t_pos - batch_c_pos
+    P_local_est = batch_R_cam.inv().apply(P_diff)
+    res_obs = (P_local_est - obs_measurements).ravel() * WEIGHT_OBS
+    return res_obs
+
+def fun_traj_smooth(x_traj, t_pos_fixed):
+    c_pos = x_traj[:offset_cam_rot].reshape(num_frames, 3)
+    c_rot = x_traj[offset_cam_rot:].reshape(num_frames, 3)
+
+    # 1. Âncora
+    res_anchor_pos = (c_pos[first_frame_with_detection] - start_pos_vec) * WEIGHT_ANCHOR
+    res_anchor_rot = (c_rot[first_frame_with_detection] - r_vec_start) * WEIGHT_ANCHOR
+    
+    # 2. Observações
+    batch_c_pos = c_pos[obs_cam_idxs]
+    batch_t_pos = t_pos_fixed[obs_tag_idxs]
+    batch_R_cam = R.from_rotvec(c_rot[obs_cam_idxs])
+    
+    P_diff = batch_t_pos - batch_c_pos
+    P_local_est = batch_R_cam.inv().apply(P_diff)
+    res_obs = (P_local_est - obs_measurements).ravel() * WEIGHT_OBS
+    
+    # 3. Suavização
+    curr_pos = c_pos[:-1]; next_pos = c_pos[1:]
+    R_curr = R.from_rotvec(c_rot[:-1])
+    R_next = R.from_rotvec(c_rot[1:])
+    R_rel_gt = R.from_rotvec(gt_rel_rot) 
+    
+    # Posição: P_next = P_curr + R_curr * delta_P_local
+    pred_next_pos = curr_pos + R_curr.apply(gt_rel_pos)
+    res_smooth_pos = (next_pos - pred_next_pos).ravel() * WEIGHT_SMOOTH_P
+
+    # Rotação: R_next = R_curr * R_rel_gt
+    R_next_pred = R_curr * R_rel_gt
+    R_diff = R_next_pred.inv() * R_next
+    res_smooth_rot = R_diff.as_rotvec().ravel() * WEIGHT_SMOOTH_R
+
+    return np.concatenate([res_anchor_pos, res_anchor_rot, res_obs, res_smooth_pos, res_smooth_rot])
+
+# ==========================================
+# 5. INICIALIZAÇÃO
+# ==========================================
+print(f"Gerando estimativa inicial (Tag Âncora: {anchor_tag_name})...")
+if first_observation_data is None:
+    print("ERRO: Nenhuma tag detectada."); sys.exit(1)
+
+P_tag_anchor_world = np.zeros(3)
+R_cam_anchor = first_observation_data['cam_gt_rot']
+P_tag_local = first_observation_data['meas_local']
+start_pos_vec = P_tag_anchor_world - R_cam_anchor.apply(P_tag_local)
+r_vec_start = R_cam_anchor.as_rotvec()
+idx_start = first_frame_with_detection
+
+x0_cam_pos = np.zeros((num_frames, 3))
+x0_cam_rot = np.zeros((num_frames, 3))
+x0_tag_pos = np.zeros((num_tags, 3))
+
+x0_cam_pos[idx_start] = start_pos_vec
+x0_cam_rot[idx_start] = r_vec_start
+
+# Backward Pass
+for i in range(idx_start - 1, -1, -1):
+    R_nxt_est = R.from_rotvec(x0_cam_rot[i+1])
+    d_pos = gt_rel_pos[i]; d_rot = gt_rel_rot[i]
+    R_inc = R.from_rotvec(d_rot)
+    R_curr = R_nxt_est * R_inc.inv()
+    x0_cam_pos[i] = x0_cam_pos[i+1] - R_curr.apply(d_pos)
+    x0_cam_rot[i] = R_curr.as_rotvec()
+
+# Forward Pass
+for i in range(idx_start + 1, num_frames):
+    R_prev_est = R.from_rotvec(x0_cam_rot[i-1])
+    d_pos = gt_rel_pos[i-1]; d_rot = gt_rel_rot[i-1]
+    R_inc = R.from_rotvec(d_rot)
+    x0_cam_pos[i] = x0_cam_pos[i-1] + R_prev_est.apply(d_pos)
+    x0_cam_rot[i] = (R_prev_est * R_inc).as_rotvec()
+
+# Init Tags
+for i in range(num_observations):
+    t_idx = obs_tag_idxs[i]; c_idx = obs_cam_idxs[i]
+    if t_idx not in tag_id_map: continue
+    R_cam_est = R.from_rotvec(x0_cam_rot[c_idx])
+    tag_pos_world = x0_cam_pos[c_idx] + R_cam_est.apply(obs_measurements[i])
+    t_name = reverse_tag_map.get(t_idx)
+    if t_name == anchor_tag_name: x0_tag_pos[t_idx] = P_tag_anchor_world 
+    else: x0_tag_pos[t_idx] = tag_pos_world
+             
+x0_raw_cam_pos = x0_cam_pos
+x0_raw_cam_rot = x0_cam_rot
+
+# ==========================================
+# 6. OTIMIZAÇÃO SEQUENCIAL
+# ==========================================
+
+# --- STEP 1: TAGS ---
+print("\n[PASSO 1/2] Otimizando Mapa (Tags)...")
+x0_tags = x0_tag_pos.ravel()
+sparsity_step1 = lil_matrix((num_observations * 3, num_tags * 3), dtype=int)
+row_idx = 0
+for i in range(num_observations):
+    sparsity_step1[row_idx:row_idx+3, obs_tag_idxs[i]*3 : (obs_tag_idxs[i]+1)*3] = 1
+    row_idx += 3
+
+result_step1 = least_squares(
+    fun_tags_only, x0_tags, jac_sparsity=sparsity_step1, verbose=0, method='trf', 
+    x_scale='jac', args=(x0_raw_cam_pos, x0_raw_cam_rot)
+)
+est_tag_pos = result_step1.x.reshape(num_tags, 3)
+
+# --- STEP 2: TRAJECTORY ---
+print("\n[PASSO 2/2] Otimizando Trajetória Suave...")
+x0_traj = np.hstack([x0_raw_cam_pos.ravel(), x0_raw_cam_rot.ravel()])
+start_time_step2 = time.time()
+
+n_smooth_res = (num_frames - 1) * 6 
+m_step2 = 6 + num_observations * 3 + n_smooth_res 
+n_step2 = num_frames * 6 
+
+sparsity_step2 = lil_matrix((m_step2, n_step2), dtype=int)
+row_idx = 0
+
+# Anchor
+sparsity_step2[0:6, idx_start*3 : (idx_start+1)*3] = 1
+sparsity_step2[0:6, num_frames*3 + idx_start*3 : num_frames*3 + (idx_start+1)*3] = 1
+row_idx += 6
+
+# Observations
+for i in range(num_observations):
+    c_idx = obs_cam_idxs[i]
+    sparsity_step2[row_idx:row_idx+3, c_idx*3 : (c_idx+1)*3] = 1
+    sparsity_step2[row_idx:row_idx+3, num_frames*3 + c_idx*3 : num_frames*3 + (c_idx+1)*3] = 1
+    row_idx += 3
+
+# Smoothing
+for i in range(num_frames - 1):
+    idx_pos_i = i * 3; idx_pos_next = (i + 1) * 3
+    idx_rot_i = num_frames * 3 + i * 3; idx_rot_next = num_frames * 3 + (i + 1) * 3
+    
+    sparsity_step2[row_idx:row_idx+3, idx_pos_i:idx_pos_i+3] = 1        
+    sparsity_step2[row_idx:row_idx+3, idx_pos_next:idx_pos_next+3] = 1 
+    sparsity_step2[row_idx:row_idx+3, idx_rot_i:idx_rot_i+3] = 1        
+    row_idx += 3
+    sparsity_step2[row_idx:row_idx+3, idx_rot_i:idx_rot_i+3] = 1        
+    sparsity_step2[row_idx:row_idx+3, idx_rot_next:idx_rot_next+3] = 1 
+    row_idx += 3
+
+result_step2 = least_squares(
+    fun_traj_smooth, x0_traj, jac_sparsity=sparsity_step2, verbose=0, method='trf', 
+    ftol=1e-12, xtol=1e-12, x_scale='jac', args=(est_tag_pos,)
+)
+end_time_step2 = time.time()
+print(f"PASSO 2 CONCLUÍDO | Tempo: {end_time_step2 - start_time_step2:.2f}s | Custo: {result_step2.cost:.4f}")
+
+est_cam_pos_opt = result_step2.x[:offset_cam_rot].reshape(num_frames, 3)
+est_cam_rot_opt = result_step2.x[offset_cam_rot:].reshape(num_frames, 3)
+
+# ==========================================
+# 7. ALINHAMENTO CORRIGIDO (USANDO TAGS)
+# ==========================================
+print("\nRealizando Alinhamento Global baseando-se nas TAGS...")
+
+# Carregar GT das Tags
+gt_tags_file = '/home/jpdark/limo_autonomy_project_M2_PAR/limo_ws/validation_archive/test/circle/circle_tags_scenario_dense.yaml'
+gt_tags_map_align = {}
+
+try:
+    with open(gt_tags_file, 'r') as f:
+        gt_scenario_data = yaml.safe_load(f)
+    
+    tags_list = []
+    if 'tags' in gt_scenario_data:
+        if isinstance(gt_scenario_data['tags'], dict):
+            tags_list = [{'tag_name': k, 'position': v['position']} for k, v in gt_scenario_data['tags'].items()]
+        elif isinstance(gt_scenario_data['tags'], list):
+            tags_list = gt_scenario_data['tags']
+    else:
+        tags_list = [{'tag_name': k, 'position': v['position']} for k, v in gt_scenario_data.items() if 'position' in v]
+
+    for t_item in tags_list:
+        t_name = t_item.get('tag_name')
+        p = t_item['position']
+        if t_name:
+            gt_tags_map_align[t_name] = np.array([p['x'], p['y'], p['z']])
+except Exception as e:
+    print(f"AVISO: Não foi possível carregar '{gt_tags_file}' para alinhamento: {e}")
+    sys.exit(1)
+
+# Preparar pontos para Procrustes
+src_pts = [] 
+dst_pts = [] 
+
+for i in range(num_tags):
+    t_name = reverse_tag_map.get(i)
+    if t_name in gt_tags_map_align:
+        src_pts.append(est_tag_pos[i])
+        dst_pts.append(gt_tags_map_align[t_name])
+
+src_pts = np.array(src_pts)
+dst_pts = np.array(dst_pts)
+
+def align_procrustes_optimized(source, target):
+    source_centroid = np.mean(source, axis=0)
+    target_centroid = np.mean(target, axis=0)
+    source_centered = source - source_centroid
+    target_centered = target - target_centroid
+    H = source_centered.T @ target_centered
+    U, S, Vt = np.linalg.svd(H)
+    R_opt = Vt.T @ U.T
+    if np.linalg.det(R_opt) < 0: Vt[2,:] *= -1; R_opt = Vt.T @ U.T
+    t_opt = target_centroid - R_opt @ source_centroid
+    return R_opt, t_opt
+
+if len(src_pts) >= 3:
+    R_align, t_align = align_procrustes_optimized(src_pts, dst_pts)
+else:
+    print("ERRO: Menos de 3 tags para alinhar. Usando identidade.")
+    R_align, t_align = np.eye(3), np.zeros(3)
+
+est_tag_pos_aligned = (R_align @ est_tag_pos.T).T + t_align
+aligned_cam_pos = (R_align @ est_cam_pos_opt.T).T + t_align
+
+diff_aligned = aligned_cam_pos - ground_truth_traj
+rmse_aligned = np.sqrt(np.mean(np.linalg.norm(diff_aligned, axis=1)**2))
+
+print("\n" + "="*70)
+print(f"{'RESULTADOS FINAIS':^70}")
+print("="*70)
+print(f"RMSE da Trajetória (Alinhada pelas Tags): {rmse_aligned:.4f} m")
+
+# ==========================================
+# 8. CÁLCULO DE POSES PROJETADAS
+# ==========================================
+projected_poses = []
+R_align_obj = R.from_matrix(R_align) 
+
+for i in range(num_observations):
+    c_idx = obs_cam_idxs[i]
+    t_idx = obs_tag_idxs[i]
+    r_vec_opt = est_cam_rot_opt[c_idx]
+    R_opt_local = R.from_rotvec(r_vec_opt)
+    R_cam_aligned = R_align_obj * R_opt_local 
+    
+    P_tag_world = est_tag_pos_aligned[t_idx]
+    P_meas_local = obs_measurements[i]
+    P_cam_proj = P_tag_world - R_cam_aligned.apply(P_meas_local)
+    projected_poses.append(P_cam_proj)
+projected_poses = np.array(projected_poses)
+
+# ==========================================
+# 9. PLOTAGEM (LÓGICA CORRIGIDA: TAG ZERO)
+# ==========================================
+# LÓGICA: Encontrar o índice do frame da PRIMEIRA vez que vemos a tag ancora
+# e o índice da ÚLTIMA vez que vemos essa mesma tag.
+start_frame_idx = -1
+end_frame_idx = -1
+
+# Procura o primeiro e o último frame onde 'anchor_tag_name' aparece
+for i, frame in enumerate(frames):
+    if frame.get('detections') and anchor_tag_name in frame['detections']:
+        if start_frame_idx == -1:
+            start_frame_idx = i # Primeiro encontro
+        end_frame_idx = i       # Vai atualizando até o último encontro
+
+# Fallback se algo der errado (usa primeiro e ultimo frame absolutos)
+if start_frame_idx == -1: start_frame_idx = 0
+if end_frame_idx == -1: end_frame_idx = num_frames - 1
+
+plt.figure(figsize=(10, 8))
+
+# 1. Trajetória GT e SLAM
+plt.plot(ground_truth_traj[:, 0], ground_truth_traj[:, 1], 'k:', linewidth=1.5, alpha=0.6, label='Ground Truth')
+plt.plot(aligned_cam_pos[:, 0], aligned_cam_pos[:, 1], 'b-', linewidth=2.5, label='SLAM Trajectory')
+
+# 2. Poses Projetadas (Câmeras)
+if len(projected_poses) > 0:
+    plt.scatter(projected_poses[:, 0], projected_poses[:, 1], c='green', marker='^', s=30, alpha=0.2, label='Camera Poses')
+
+# 3. Tags
+plt.scatter(est_tag_pos_aligned[:, 0], est_tag_pos_aligned[:, 1], c='red', marker='x', s=100, zorder=5, label='Tags Est.')
+
+# 4. DESTAQUE: START & END baseados na VISIBILIDADE DA TAG ZERO
+start_pt = aligned_cam_pos[start_frame_idx]
+end_pt = aligned_cam_pos[end_frame_idx]
+
+# Ponto de Início (Círculo Verde)
+plt.scatter(start_pt[0], start_pt[1], c='lime', s=250, marker='o', edgecolors='black', linewidth=2, zorder=10, label=f'START (See {anchor_tag_name})')
+plt.text(start_pt[0], start_pt[1], "  START", fontsize=11, fontweight='bold', color='green')
+
+# Ponto Final (Quadrado Vermelho)
+plt.scatter(end_pt[0], end_pt[1], c='red', s=250, marker='s', edgecolors='black', linewidth=2, zorder=10, label=f'END (See {anchor_tag_name})')
+plt.text(end_pt[0], end_pt[1], "  END", fontsize=11, fontweight='bold', color='darkred')
+
+# 5. Nomes das Tags
+for i in range(num_tags):
+    tag_name = reverse_tag_map.get(i, f"ID_{i}")
+    pos = est_tag_pos_aligned[i]
+    plt.text(pos[0] + 0.05, pos[1] + 0.05, tag_name, fontsize=8, color='darkred', weight='bold')
+
+plt.title(f"Visual SLAM Final - RMSE Traj: {rmse_aligned:.4f}m\n(Start/End defined by {anchor_tag_name} visibility)")
+plt.xlabel("Posição X (m)")
+plt.ylabel("Posição Y (m)")
+plt.legend(loc='best')
+plt.grid(True)
+plt.axis('equal') 
+plt.tight_layout()
+
+print("Salvando plot 'slam_final_graph.png'...")
+plt.savefig('slam_final_graph.png', dpi=300, bbox_inches='tight')
+print("Plot salvo.")
+
+# ==========================================
+# 10. EXPORTAÇÃO YAML
+# ==========================================
+print("\nSalvando 'dataset_otimizado_final.yaml'...")
+
+yaml_output = {
+    'map_tags': [],           
+    'frames': []  
+}
+
+# Tags Otimizadas
+for i in range(num_tags):
+    name = reverse_tag_map.get(i)
+    pos = est_tag_pos_aligned[i]
+    yaml_output['map_tags'].append({
+        'tag_name': name,
+        'position': {
+            'x': float(pos[0]), 'y': float(pos[1]), 'z': float(pos[2])
+        }
+    })
+
+# Trajetória Otimizada
+for i in range(num_frames):
+    pos = aligned_cam_pos[i]
+    
+    r_vec_local = est_cam_rot_opt[i]
+    r_obj_local = R.from_rotvec(r_vec_local)
+    r_final = R_align_obj * r_obj_local 
+    qx, qy, qz, qw = r_final.as_quat()
+    
+    original_ts = frames[i].get('timestamp', 0.0)
+    
+    frame_entry = {
+        'timestamp': original_ts,
+        'pose': { 
+            'position': {'x': float(pos[0]), 'y': float(pos[1]), 'z': float(pos[2])},
+            'orientation': {'x': float(qx), 'y': float(qy), 'z': float(qz), 'w': float(qw)}
+        }
+    }
+    yaml_output['frames'].append(frame_entry)
+
+with open('dataset_otimizado_final.yaml', 'w') as f:
+    yaml.dump(yaml_output, f, default_flow_style=False, sort_keys=False)
+
+print("Arquivo YAML salvo com sucesso!")
+
+# ==========================================
+# 11. ANÁLISE DE ERRO DAS TAGS
+# ==========================================
+print("\n" + "="*70)
+print(f"{'TAG ESTIMATION ERROR ANALYSIS':^70}")
+print("="*70)
+print(f"{'Tag Name':<15} | {'Est (x,y,z)':<22} | {'True (x,y,z)':<22} | {'Error (m)':<10}")
+print("-" * 75)
+
+tag_errors_list = [] # Lista para armazenar erros
+count_tags = 0
+
+for i in range(num_tags):
+    t_name = reverse_tag_map.get(i)
+    est_pos = est_tag_pos_aligned[i]
+    
+    if t_name in gt_tags_map_align:
+        true_pos = gt_tags_map_align[t_name]
+        err = np.linalg.norm(est_pos - true_pos)
+        
+        tag_errors_list.append(err) 
+        count_tags += 1
+        
+        est_str = f"{est_pos[0]:.2f},{est_pos[1]:.2f},{est_pos[2]:.2f}"
+        true_str = f"{true_pos[0]:.2f},{true_pos[1]:.2f},{true_pos[2]:.2f}"
+        
+        print(f"{t_name:<15} | {est_str:<22} | {true_str:<22} | {err:.4f}")
+    else:
+        print(f"{t_name:<15} | Not found in GT Scenario file")
+
+print("-" * 75)
+if len(tag_errors_list) > 0:
+    avg_tag_err = np.mean(tag_errors_list)
+    min_tag_err = np.min(tag_errors_list)
+    max_tag_err = np.max(tag_errors_list)
+    
+    print(f"Stats for {count_tags} tags:")
+    print(f"  > Average Error: {avg_tag_err:.4f} m")
+    print(f"  > Min Error:     {min_tag_err:.4f} m")
+    print(f"  > Max Error:     {max_tag_err:.4f} m")
+else:
+    print("Nenhuma tag correspondente encontrada para cálculo de erro.")
+
+print("="*70)
+plt.show()

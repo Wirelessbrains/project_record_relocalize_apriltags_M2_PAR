@@ -1,0 +1,7744 @@
+frames:
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: -0.97
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970947.1985428
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: -0.94
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970947.2984009
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: -0.9099999999999999
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970947.398745
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: -0.8799999999999999
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970947.4987469
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: -0.8499999999999999
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970947.5984251
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: -0.8199999999999998
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970947.6984074
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: -0.7899999999999998
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970947.7988968
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: -0.7599999999999998
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970947.898552
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: -0.7299999999999998
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970947.9983335
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: -0.6999999999999997
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970948.0983975
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: -0.6699999999999997
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970948.1984227
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: -0.6399999999999997
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970948.2984645
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: -0.6099999999999997
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970948.3984437
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: -0.5799999999999996
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970948.4984343
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: -0.5499999999999996
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970948.5985203
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: -0.5199999999999996
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970948.6985252
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: -0.48999999999999955
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970948.7983205
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: -0.4599999999999995
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970948.8984296
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: -0.4299999999999995
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970948.9983883
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: -0.39999999999999947
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970949.0983934
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: -0.36999999999999944
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970949.198382
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: -0.3399999999999994
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970949.2984188
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: -0.3099999999999994
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970949.3984249
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: -0.27999999999999936
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970949.4985816
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: -0.24999999999999936
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970949.598342
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: -0.21999999999999936
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970949.6984043
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: -0.18999999999999936
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970949.7984662
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: -0.15999999999999936
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970949.8983665
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: -0.12999999999999937
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970949.9984233
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: -0.09999999999999937
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970950.0989728
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: -0.06999999999999937
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970950.1985786
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: -0.03999999999999937
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970950.2986252
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: -0.00999999999999937
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970950.398352
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 0.02000000000000063
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970950.49838
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 0.05000000000000063
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970950.598445
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 0.08000000000000063
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970950.6987524
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 0.11000000000000063
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970950.7991288
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 0.14000000000000062
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970950.8985195
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 0.17000000000000062
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970950.9984176
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 0.20000000000000062
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970951.0985441
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 0.23000000000000062
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970951.1983287
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 0.2600000000000006
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970951.2984154
+- detections:
+    tag36h11:1:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.7099999999999995
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 0.2900000000000006
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970951.3983924
+- detections:
+    tag36h11:1:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.6799999999999993
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 0.3200000000000006
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970951.4984035
+- detections:
+    tag36h11:1:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.6499999999999995
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 0.35000000000000064
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970951.598357
+- detections:
+    tag36h11:1:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.619999999999999
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 0.38000000000000067
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970951.6983616
+- detections:
+    tag36h11:1:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.5899999999999994
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 0.4100000000000007
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970951.7983925
+- detections:
+    tag36h11:1:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.559999999999999
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 0.4400000000000007
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970951.8987951
+- detections:
+    tag36h11:1:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.5299999999999994
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 0.47000000000000075
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970951.9983315
+- detections:
+    tag36h11:1:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.499999999999999
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 0.5000000000000008
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970952.0983343
+- detections:
+    tag36h11:1:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.4699999999999993
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 0.5300000000000008
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970952.1983404
+- detections:
+    tag36h11:1:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.439999999999999
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 0.5600000000000008
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970952.2983482
+- detections:
+    tag36h11:1:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.4099999999999993
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 0.5900000000000009
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970952.3984811
+- detections:
+    tag36h11:1:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.379999999999999
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 0.6200000000000009
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970952.4984171
+- detections:
+    tag36h11:1:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.349999999999999
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 0.6500000000000009
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970952.5984163
+- detections:
+    tag36h11:1:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.319999999999999
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 0.6800000000000009
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970952.6990485
+- detections:
+    tag36h11:1:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.289999999999999
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 0.710000000000001
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970952.7983456
+- detections:
+    tag36h11:1:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.259999999999999
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 0.740000000000001
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970952.898363
+- detections:
+    tag36h11:1:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.229999999999999
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 0.770000000000001
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970952.998358
+- detections:
+    tag36h11:1:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.229999999999999
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 0.800000000000001
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970953.098366
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 0.8300000000000011
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970953.1983616
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 0.8600000000000011
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970953.298473
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 0.8900000000000011
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970953.398478
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 0.9200000000000012
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970953.4984322
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 0.9500000000000012
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970953.598377
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 0.9800000000000012
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970953.6983695
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 1.0100000000000011
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970953.79842
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 1.0400000000000011
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970953.8984098
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 1.0700000000000012
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970953.9984453
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 1.1000000000000012
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970954.0987306
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 1.1300000000000012
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970954.198471
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 1.1600000000000013
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970954.2985575
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 1.1900000000000013
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970954.3983545
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 1.2200000000000013
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970954.4984639
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 1.2500000000000013
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970954.598491
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 1.2800000000000014
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970954.6984847
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 1.3100000000000014
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970954.7984917
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 1.3400000000000014
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970954.8989735
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 1.3700000000000014
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970954.9984531
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 1.4000000000000015
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970955.0987113
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 1.4300000000000015
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970955.1983569
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 1.4600000000000015
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970955.2984416
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 1.4900000000000015
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970955.3985405
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 1.5200000000000016
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970955.4987109
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 1.5500000000000016
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970955.5984354
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 1.5800000000000016
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970955.6984787
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 1.6100000000000017
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970955.7985296
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 1.6400000000000017
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970955.898718
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 1.6700000000000017
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970955.9983938
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 1.7000000000000017
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970956.0984867
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 1.7300000000000018
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970956.1984038
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 1.7600000000000018
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970956.298454
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 1.7900000000000018
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970956.3984904
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 1.8200000000000018
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970956.498458
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 1.8500000000000019
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970956.5990922
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 1.880000000000002
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970956.6984596
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 1.910000000000002
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970956.798382
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 1.940000000000002
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970956.898355
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 1.970000000000002
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970956.9984877
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 2.0000000000000018
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970957.0984366
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 2.0300000000000016
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970957.198475
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 2.0600000000000014
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970957.2985196
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 2.090000000000001
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970957.3985763
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 2.120000000000001
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970957.4984806
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 2.150000000000001
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970957.598357
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 2.1800000000000006
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970957.6984322
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 2.2100000000000004
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970957.7984676
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 2.24
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970957.8986712
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 2.27
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970957.998727
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 2.3
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970958.0984833
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 2.3299999999999996
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970958.1984107
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 2.3599999999999994
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970958.298719
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 2.3899999999999992
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970958.3984935
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 2.419999999999999
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970958.4984784
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 2.449999999999999
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970958.5984728
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 2.4799999999999986
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970958.6984015
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 2.5099999999999985
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970958.7983665
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 2.5399999999999983
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970958.898423
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 2.569999999999998
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970958.9983642
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 2.599999999999998
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970959.0983634
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 2.6299999999999977
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970959.1983476
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 2.6599999999999975
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970959.2983856
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 2.6899999999999973
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970959.3984675
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 2.719999999999997
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970959.4985127
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 2.749999999999997
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970959.5984719
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 2.7799999999999967
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970959.6985145
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 2.8099999999999965
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970959.7984955
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 2.8399999999999963
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970959.8985744
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 2.869999999999996
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970959.9984097
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 2.899999999999996
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970960.098457
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 2.9299999999999957
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970960.1984646
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 2.9599999999999955
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970960.2984822
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 2.9899999999999953
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970960.398378
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 3.019999999999995
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970960.4984636
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 3.049999999999995
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970960.598356
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 3.0799999999999947
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970960.6984289
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 3.1099999999999945
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970960.7983751
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 3.1399999999999944
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970960.8984802
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 3.169999999999994
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970960.9984658
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 3.199999999999994
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970961.0983348
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 3.2299999999999938
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970961.1983504
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 3.2599999999999936
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970961.2984405
+- detections:
+    tag36h11:2:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.7100000000000066
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 3.2899999999999934
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970961.3986855
+- detections:
+    tag36h11:2:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.680000000000007
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 3.319999999999993
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970961.4984953
+- detections:
+    tag36h11:2:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.650000000000007
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 3.349999999999993
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970961.5983667
+- detections:
+    tag36h11:2:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.620000000000007
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 3.379999999999993
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970961.6984477
+- detections:
+    tag36h11:2:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.5900000000000074
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 3.4099999999999926
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970961.798458
+- detections:
+    tag36h11:2:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.5600000000000076
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 3.4399999999999924
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970961.8984814
+- detections:
+    tag36h11:2:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.530000000000008
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 3.469999999999992
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970961.9985218
+- detections:
+    tag36h11:2:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.500000000000008
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 3.499999999999992
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970962.0984652
+- detections:
+    tag36h11:2:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.470000000000008
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 3.529999999999992
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970962.1986506
+- detections:
+    tag36h11:2:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.4400000000000084
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 3.5599999999999916
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970962.298562
+- detections:
+    tag36h11:2:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.4100000000000086
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 3.5899999999999914
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970962.3983693
+- detections:
+    tag36h11:2:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.3800000000000088
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 3.6199999999999912
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970962.4984834
+- detections:
+    tag36h11:2:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.350000000000009
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 3.649999999999991
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970962.598488
+- detections:
+    tag36h11:2:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.320000000000009
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 3.679999999999991
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970962.6986315
+- detections:
+    tag36h11:2:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.2900000000000094
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 3.7099999999999906
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970962.798476
+- detections:
+    tag36h11:2:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.2600000000000096
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 3.7399999999999904
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970962.8984098
+- detections:
+    tag36h11:2:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.2300000000000098
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 3.7699999999999902
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970962.9984848
+- detections:
+    tag36h11:2:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.2300000000000098
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 3.79999999999999
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970963.098544
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 3.82999999999999
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970963.198374
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 3.8599999999999897
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970963.298386
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 3.8899999999999895
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970963.3984706
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 3.9199999999999893
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970963.498397
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 3.949999999999989
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970963.598397
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 3.979999999999989
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970963.6984072
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 4.009999999999989
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970963.7984407
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 4.039999999999989
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970963.8985267
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 4.06999999999999
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970963.998361
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 4.09999999999999
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970964.098406
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 4.12999999999999
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970964.1983612
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 4.15999999999999
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970964.2983441
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 4.189999999999991
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970964.398431
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 4.219999999999991
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970964.4983423
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 4.249999999999991
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970964.5988348
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 4.279999999999991
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970964.6983905
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 4.309999999999992
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970964.7983696
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 4.339999999999992
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970964.8984773
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 4.369999999999992
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970964.9984257
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 4.399999999999992
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970965.098529
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 4.429999999999993
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970965.1984665
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 4.459999999999993
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970965.2984614
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 4.489999999999993
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970965.3983803
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 4.519999999999993
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970965.4985697
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 4.549999999999994
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970965.598366
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 4.579999999999994
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970965.698428
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 4.609999999999994
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970965.7984235
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 4.639999999999994
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970965.8983643
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 4.669999999999995
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970965.9984646
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 4.699999999999995
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970966.0983644
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 4.729999999999995
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970966.1987612
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 4.759999999999995
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970966.2984567
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 4.789999999999996
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970966.398392
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 4.819999999999996
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970966.4984264
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 4.849999999999996
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970966.5984988
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 4.879999999999996
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970966.6986194
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 4.909999999999997
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970966.798911
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 4.939999999999997
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970966.8985186
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 4.969999999999997
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970966.999123
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 4.999999999999997
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970967.0985382
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 5.029999999999998
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970967.1983373
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 5.059999999999998
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970967.2984507
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 5.089999999999998
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970967.3984659
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 5.119999999999998
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970967.4984238
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 5.149999999999999
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970967.598663
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 5.179999999999999
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970967.6985772
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 5.209999999999999
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970967.798487
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 5.239999999999999
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970967.8985765
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 5.27
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970967.9983518
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 5.3
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970968.0984898
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 5.33
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970968.198461
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 5.36
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970968.2983768
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 5.390000000000001
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970968.3983762
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 5.420000000000001
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970968.4988773
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 5.450000000000001
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970968.5984623
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 5.480000000000001
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970968.6986287
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 5.510000000000002
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970968.7983735
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 5.540000000000002
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970968.898469
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 5.570000000000002
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970968.9984627
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 5.600000000000002
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970969.0984313
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 5.630000000000003
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970969.1986604
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 5.660000000000003
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970969.2990012
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 5.690000000000003
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970969.399044
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 5.720000000000003
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970969.4986453
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 5.7500000000000036
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970969.5983303
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 5.780000000000004
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970969.698464
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 5.810000000000004
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970969.7984955
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 5.840000000000004
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970969.8983471
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 5.8700000000000045
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970969.9985049
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 5.900000000000005
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970970.0985196
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 5.930000000000005
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970970.1985514
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 5.960000000000005
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970970.2985203
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 5.9900000000000055
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970970.3983617
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 6.020000000000006
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970970.49847
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 6.050000000000006
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970970.5985575
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 6.080000000000006
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970970.6984563
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 6.1100000000000065
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970970.798373
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 6.140000000000007
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970970.898352
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 6.170000000000007
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970970.99845
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 6.200000000000007
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970971.0984473
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 6.2300000000000075
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970971.1983385
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 6.260000000000008
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970971.2984655
+- detections:
+    tag36h11:3:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.709999999999992
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 6.290000000000008
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970971.3984034
+- detections:
+    tag36h11:3:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.6799999999999917
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 6.320000000000008
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970971.498474
+- detections:
+    tag36h11:3:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.6499999999999915
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 6.3500000000000085
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970971.5985591
+- detections:
+    tag36h11:3:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.6199999999999912
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 6.380000000000009
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970971.6984694
+- detections:
+    tag36h11:3:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.589999999999991
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 6.410000000000009
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970971.798739
+- detections:
+    tag36h11:3:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.5599999999999907
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 6.440000000000009
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970971.8987927
+- detections:
+    tag36h11:3:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.5299999999999905
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 6.4700000000000095
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970971.9984117
+- detections:
+    tag36h11:3:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.4999999999999902
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 6.50000000000001
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970972.0984256
+- detections:
+    tag36h11:3:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.46999999999999
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 6.53000000000001
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970972.1985295
+- detections:
+    tag36h11:3:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.4399999999999897
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 6.56000000000001
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970972.2985427
+- detections:
+    tag36h11:3:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.4099999999999895
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 6.5900000000000105
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970972.3985353
+- detections:
+    tag36h11:3:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.3799999999999892
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 6.620000000000011
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970972.4984622
+- detections:
+    tag36h11:3:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.349999999999989
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 6.650000000000011
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970972.598495
+- detections:
+    tag36h11:3:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.3199999999999887
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 6.680000000000011
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970972.6983938
+- detections:
+    tag36h11:3:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.2899999999999885
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 6.7100000000000115
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970972.7983947
+- detections:
+    tag36h11:3:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.2599999999999882
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 6.740000000000012
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970972.8984993
+- detections:
+    tag36h11:3:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.229999999999988
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 6.770000000000012
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970972.9988995
+- detections:
+    tag36h11:3:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.229999999999988
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 6.800000000000012
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970973.0983593
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 6.8300000000000125
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970973.198365
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 6.860000000000013
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970973.298499
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 6.890000000000013
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970973.3985476
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 6.920000000000013
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970973.4987118
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 6.9500000000000135
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970973.5983553
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 6.980000000000014
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970973.6983917
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 7.010000000000014
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970973.7984724
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 7.040000000000014
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970973.898405
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 7.0700000000000145
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970973.99843
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 7.100000000000015
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970974.0984154
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 7.130000000000015
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970974.1983943
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 7.160000000000015
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970974.2986286
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 7.1900000000000155
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970974.3983822
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 7.220000000000016
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970974.4984658
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 7.250000000000016
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970974.598376
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 7.280000000000016
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970974.698492
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 7.3100000000000165
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970974.7984967
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 7.340000000000017
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970974.8983705
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 7.370000000000017
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970974.9984946
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 7.400000000000017
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970975.0985692
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 7.4300000000000175
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970975.1983492
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 7.460000000000018
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970975.2984307
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 7.490000000000018
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970975.3984208
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 7.520000000000018
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970975.498428
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 7.5500000000000185
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970975.598417
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 7.580000000000019
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970975.6983342
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 7.610000000000019
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970975.7984216
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 7.640000000000019
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970975.898503
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 7.6700000000000195
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970975.9984016
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 7.70000000000002
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970976.0984519
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 7.73000000000002
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970976.198638
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 7.76000000000002
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970976.2986367
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 7.7900000000000205
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970976.398701
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 7.820000000000021
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970976.4983807
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 7.850000000000021
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970976.598988
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 7.880000000000021
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970976.6987493
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 7.9100000000000215
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970976.7984612
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 7.940000000000022
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970976.8989453
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 7.970000000000022
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970976.9984512
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 8.000000000000021
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970977.0983691
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 8.03000000000002
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970977.1984158
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 8.06000000000002
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970977.2984548
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 8.09000000000002
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970977.3984978
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 8.120000000000019
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970977.4984062
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 8.150000000000018
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970977.5983446
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 8.180000000000017
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970977.6984224
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 8.210000000000017
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970977.7984135
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 8.240000000000016
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970977.8983765
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 8.270000000000016
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970977.998381
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 8.300000000000015
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970978.0989664
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 8.330000000000014
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970978.1984217
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 8.360000000000014
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970978.2985842
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 8.390000000000013
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970978.3983788
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 8.420000000000012
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970978.498535
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 8.450000000000012
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970978.5983396
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 8.480000000000011
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970978.6988285
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 8.51000000000001
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970978.7984135
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 8.54000000000001
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970978.898991
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 8.57000000000001
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970978.998462
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 8.600000000000009
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970979.0984983
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 8.630000000000008
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970979.198366
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 8.660000000000007
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970979.298459
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 8.690000000000007
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970979.3984494
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 8.720000000000006
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970979.4985287
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 8.750000000000005
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970979.5984437
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 8.780000000000005
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970979.6984966
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 8.810000000000004
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970979.7983756
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 8.840000000000003
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970979.898359
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 8.870000000000003
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970979.9983368
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 8.900000000000002
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970980.0984528
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 8.930000000000001
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970980.1983466
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 8.96
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970980.2983754
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 8.99
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970980.3983462
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 9.02
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970980.498406
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 9.049999999999999
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970980.5989995
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 9.079999999999998
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970980.6984005
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 9.109999999999998
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970980.7983265
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 9.139999999999997
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970980.8984132
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 9.169999999999996
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970980.9984238
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 9.199999999999996
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970981.0984185
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 9.229999999999995
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970981.1984298
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 9.259999999999994
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970981.2984252
+- detections:
+    tag36h11:4:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.710000000000006
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 9.289999999999994
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970981.3984327
+- detections:
+    tag36h11:4:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.680000000000007
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 9.319999999999993
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970981.4988964
+- detections:
+    tag36h11:4:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.6500000000000075
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 9.349999999999993
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970981.598331
+- detections:
+    tag36h11:4:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.620000000000008
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 9.379999999999992
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970981.698415
+- detections:
+    tag36h11:4:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.5900000000000087
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 9.409999999999991
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970981.7984247
+- detections:
+    tag36h11:4:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.5600000000000094
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 9.43999999999999
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970981.8985393
+- detections:
+    tag36h11:4:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.53000000000001
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 9.46999999999999
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970981.998383
+- detections:
+    tag36h11:4:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.5000000000000107
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 9.49999999999999
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970982.0984218
+- detections:
+    tag36h11:4:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.4700000000000113
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 9.529999999999989
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970982.1985612
+- detections:
+    tag36h11:4:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.440000000000012
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 9.559999999999988
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970982.2987297
+- detections:
+    tag36h11:4:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.4100000000000126
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 9.589999999999987
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970982.3983421
+- detections:
+    tag36h11:4:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.380000000000013
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 9.619999999999987
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970982.4984543
+- detections:
+    tag36h11:4:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.350000000000014
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 9.649999999999986
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970982.5984063
+- detections:
+    tag36h11:4:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.3200000000000145
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 9.679999999999986
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970982.6984594
+- detections:
+    tag36h11:4:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.290000000000015
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 9.709999999999985
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970982.798333
+- detections:
+    tag36h11:4:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.2600000000000158
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 9.739999999999984
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970982.898877
+- detections:
+    tag36h11:4:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.2300000000000164
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 9.769999999999984
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970982.998849
+- detections:
+    tag36h11:4:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.2300000000000164
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 9.799999999999983
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970983.098522
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 9.829999999999982
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970983.1983705
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 9.859999999999982
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970983.298454
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 9.889999999999981
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970983.3985302
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 9.91999999999998
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970983.498479
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 9.94999999999998
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970983.598514
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 9.979999999999979
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970983.6985393
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 10.009999999999978
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970983.798458
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 10.039999999999978
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970983.8984528
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 10.069999999999977
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970983.9983356
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 10.099999999999977
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970984.098906
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 10.129999999999976
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970984.1983678
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 10.159999999999975
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970984.298728
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 10.189999999999975
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970984.398435
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 10.219999999999974
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970984.498436
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 10.249999999999973
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970984.59847
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 10.279999999999973
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970984.6983817
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 10.309999999999972
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970984.798391
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 10.339999999999971
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970984.898358
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 10.36999999999997
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970984.9983506
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 10.39999999999997
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970985.0984445
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 10.42999999999997
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970985.198457
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 10.459999999999969
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970985.298435
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 10.489999999999968
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970985.3986437
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 10.519999999999968
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970985.4986527
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 10.549999999999967
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970985.5983577
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 10.579999999999966
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970985.6983664
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 10.609999999999966
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970985.7984233
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 10.639999999999965
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970985.8984444
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 10.669999999999964
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970985.9989138
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 10.699999999999964
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970986.0985029
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 10.729999999999963
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970986.1986284
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 10.759999999999962
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970986.2984014
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 10.789999999999962
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970986.3983366
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 10.819999999999961
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970986.4984457
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 10.84999999999996
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970986.5984411
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 10.87999999999996
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970986.698433
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 10.90999999999996
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970986.7984397
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 10.939999999999959
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970986.898362
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 10.969999999999958
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970986.9985611
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 10.999999999999957
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970987.0985932
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 11.029999999999957
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970987.19835
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 11.059999999999956
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970987.2984567
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 11.089999999999955
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970987.3984418
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 11.119999999999955
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970987.4983559
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 11.149999999999954
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970987.5989182
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 11.179999999999954
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970987.6989145
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 11.209999999999953
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970987.7984633
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 11.239999999999952
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970987.898435
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 11.269999999999952
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970987.998342
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 11.299999999999951
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970988.0989072
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 11.32999999999995
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970988.1988115
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 11.35999999999995
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970988.298435
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 11.389999999999949
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970988.3984373
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 11.419999999999948
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970988.4991975
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 11.449999999999948
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970988.5990205
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 11.479999999999947
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970988.6987045
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 11.509999999999946
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970988.7983263
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 11.539999999999946
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970988.8984337
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 11.569999999999945
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970988.9984128
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 11.599999999999945
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970989.0994642
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 11.629999999999944
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970989.1984322
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 11.659999999999943
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970989.29844
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 11.689999999999943
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970989.3985264
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 11.719999999999942
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970989.4984043
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 11.749999999999941
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970989.5983267
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 11.77999999999994
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970989.6983438
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 11.80999999999994
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970989.7984514
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 11.83999999999994
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970989.8984325
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 11.869999999999939
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970989.9983976
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 11.899999999999938
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970990.0983312
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 11.929999999999938
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970990.1986196
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 11.959999999999937
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970990.2985582
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 11.989999999999936
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970990.3983219
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 12.019999999999936
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970990.4984152
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 12.049999999999935
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970990.5984175
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 12.079999999999934
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970990.6986535
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 12.109999999999934
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970990.7988021
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 12.139999999999933
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970990.8984394
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 12.169999999999932
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970990.9985485
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 12.199999999999932
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970991.0985026
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 12.229999999999931
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970991.198342
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 12.25999999999993
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970991.2984235
+- detections:
+    tag36h11:5:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.71000000000007
+    tag36h11:6:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.71000000000007
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 12.28999999999993
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970991.398422
+- detections:
+    tag36h11:5:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.6800000000000708
+    tag36h11:6:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.6800000000000708
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 12.31999999999993
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970991.4983702
+- detections:
+    tag36h11:5:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.6500000000000714
+    tag36h11:6:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.6500000000000714
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 12.349999999999929
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970991.5983665
+- detections:
+    tag36h11:5:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.620000000000072
+    tag36h11:6:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.620000000000072
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 12.379999999999928
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970991.6984832
+- detections:
+    tag36h11:5:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.5900000000000727
+    tag36h11:6:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.5900000000000727
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 12.409999999999927
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970991.7985227
+- detections:
+    tag36h11:5:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.5600000000000733
+    tag36h11:6:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.5600000000000733
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 12.439999999999927
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970991.8985674
+- detections:
+    tag36h11:5:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.530000000000074
+    tag36h11:6:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.530000000000074
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 12.469999999999926
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970991.9983156
+- detections:
+    tag36h11:5:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.5000000000000746
+    tag36h11:6:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.5000000000000746
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 12.499999999999925
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970992.0984168
+- detections:
+    tag36h11:5:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.4700000000000752
+    tag36h11:6:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.4700000000000752
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 12.529999999999925
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970992.1983824
+- detections:
+    tag36h11:5:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.440000000000076
+    tag36h11:6:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.440000000000076
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 12.559999999999924
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970992.2984748
+- detections:
+    tag36h11:5:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.4100000000000765
+    tag36h11:6:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.4100000000000765
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 12.589999999999923
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970992.398526
+- detections:
+    tag36h11:5:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.380000000000077
+    tag36h11:6:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.380000000000077
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 12.619999999999923
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970992.498415
+- detections:
+    tag36h11:5:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.350000000000078
+    tag36h11:6:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.350000000000078
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 12.649999999999922
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970992.5984964
+- detections:
+    tag36h11:5:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.3200000000000784
+    tag36h11:6:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.3200000000000784
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 12.679999999999922
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970992.6984491
+- detections:
+    tag36h11:5:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.290000000000079
+    tag36h11:6:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.290000000000079
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 12.709999999999921
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970992.798344
+- detections:
+    tag36h11:5:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.2600000000000797
+    tag36h11:6:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.2600000000000797
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 12.73999999999992
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970992.8983738
+- detections:
+    tag36h11:5:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.2300000000000804
+    tag36h11:6:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.2300000000000804
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 12.76999999999992
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970992.9983861
+- detections:
+    tag36h11:5:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: 1.25
+        y: -0.3
+        z: 2.2300000000000804
+    tag36h11:6:
+      orientation:
+        w: 0.0
+        x: 1.0
+        y: 0.0
+        z: 0.0
+      position:
+        x: -1.25
+        y: -0.3
+        z: 2.2300000000000804
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 12.799999999999919
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970993.0984285
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 12.829999999999918
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970993.1988878
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 12.859999999999918
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970993.2984228
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 12.889999999999917
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970993.3988569
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 12.919999999999916
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970993.4984903
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 12.949999999999916
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970993.598323
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 12.979999999999915
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970993.6984289
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 13.009999999999915
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970993.7984211
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 13.039999999999914
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970993.8985891
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 13.069999999999913
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970993.9983683
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 13.099999999999913
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970994.0983696
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 13.129999999999912
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970994.1985514
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 13.159999999999911
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970994.2984269
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 13.18999999999991
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970994.3983476
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 13.21999999999991
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970994.4983628
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 13.24999999999991
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970994.5984163
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 13.279999999999909
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970994.6984248
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 13.309999999999908
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970994.798439
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 13.339999999999907
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970994.8983476
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 13.369999999999907
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970994.9984105
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 13.399999999999906
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970995.0984936
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 13.429999999999906
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970995.1984591
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 13.459999999999905
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970995.2983792
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 13.489999999999904
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970995.398372
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 13.519999999999904
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970995.4988105
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 13.549999999999903
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970995.598493
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 13.579999999999902
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970995.6984353
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 13.609999999999902
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970995.7984307
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 13.639999999999901
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970995.8985486
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 13.6699999999999
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970995.9983523
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 13.6999999999999
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970996.0984294
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 13.7299999999999
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970996.1984415
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 13.759999999999899
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970996.2983646
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 13.789999999999898
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970996.3983536
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 13.819999999999897
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970996.4983761
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 13.849999999999897
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970996.5983834
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 13.879999999999896
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970996.6983926
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 13.909999999999895
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970996.7983294
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 13.939999999999895
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970996.8984046
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 13.969999999999894
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970996.9984474
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 13.999999999999893
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970997.0984545
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 14.029999999999893
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970997.1984334
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 14.059999999999892
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970997.2984598
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 14.089999999999892
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970997.3986528
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 14.11999999999989
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970997.4984345
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 14.14999999999989
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970997.5983768
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 14.17999999999989
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970997.6984377
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 14.209999999999889
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970997.7986894
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 14.239999999999888
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970997.8986552
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 14.269999999999888
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970997.998731
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 14.299999999999887
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970998.0986502
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 14.329999999999886
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970998.1984265
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 14.359999999999886
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970998.2985687
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 14.389999999999885
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970998.3983774
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 14.419999999999884
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970998.4983737
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 14.449999999999884
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970998.5984235
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 14.479999999999883
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970998.698399
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 14.509999999999883
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970998.7983527
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 14.539999999999882
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970998.8983738
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 14.569999999999881
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970998.9988165
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 14.59999999999988
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970999.0983968
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 14.62999999999988
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970999.198341
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 14.65999999999988
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970999.298407
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 14.689999999999879
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970999.398414
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 14.719999999999878
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970999.4983513
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 14.749999999999877
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970999.5984266
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 14.779999999999877
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970999.6984284
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 14.809999999999876
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970999.798676
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 14.839999999999876
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970999.8984823
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 14.869999999999875
+      y: 0.0
+      z: 0.2
+  timestamp: 1764970999.99832
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 14.899999999999874
+      y: 0.0
+      z: 0.2
+  timestamp: 1764971000.0984256
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 14.929999999999874
+      y: 0.0
+      z: 0.2
+  timestamp: 1764971000.1984417
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 14.959999999999873
+      y: 0.0
+      z: 0.2
+  timestamp: 1764971000.2984846
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 14.989999999999872
+      y: 0.0
+      z: 0.2
+  timestamp: 1764971000.398359
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 15.019999999999872
+      y: 0.0
+      z: 0.2
+  timestamp: 1764971000.4984713
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 15.049999999999871
+      y: 0.0
+      z: 0.2
+  timestamp: 1764971000.5984895
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 15.07999999999987
+      y: 0.0
+      z: 0.2
+  timestamp: 1764971000.6985762
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 15.10999999999987
+      y: 0.0
+      z: 0.2
+  timestamp: 1764971000.798374
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 15.13999999999987
+      y: 0.0
+      z: 0.2
+  timestamp: 1764971000.8983781
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 15.169999999999868
+      y: 0.0
+      z: 0.2
+  timestamp: 1764971000.998441
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 15.199999999999868
+      y: 0.0
+      z: 0.2
+  timestamp: 1764971001.098374
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 15.229999999999867
+      y: 0.0
+      z: 0.2
+  timestamp: 1764971001.198444
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 15.259999999999867
+      y: 0.0
+      z: 0.2
+  timestamp: 1764971001.2984307
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 15.289999999999866
+      y: 0.0
+      z: 0.2
+  timestamp: 1764971001.3990586
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 15.319999999999865
+      y: 0.0
+      z: 0.2
+  timestamp: 1764971001.4985592
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 15.349999999999865
+      y: 0.0
+      z: 0.2
+  timestamp: 1764971001.598326
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 15.379999999999864
+      y: 0.0
+      z: 0.2
+  timestamp: 1764971001.6983705
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 15.409999999999863
+      y: 0.0
+      z: 0.2
+  timestamp: 1764971001.7983718
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 15.439999999999863
+      y: 0.0
+      z: 0.2
+  timestamp: 1764971001.8983915
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 15.469999999999862
+      y: 0.0
+      z: 0.2
+  timestamp: 1764971001.9984195
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 15.499999999999861
+      y: 0.0
+      z: 0.2
+  timestamp: 1764971002.0985131
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 15.499999999999861
+      y: 0.0
+      z: 0.2
+  timestamp: 1764971002.19979
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 15.499999999999861
+      y: 0.0
+      z: 0.2
+  timestamp: 1764971002.2990067
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 15.499999999999861
+      y: 0.0
+      z: 0.2
+  timestamp: 1764971002.3988416
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 15.499999999999861
+      y: 0.0
+      z: 0.2
+  timestamp: 1764971002.499189
+- detections: {}
+  ground_truth_pose:
+    orientation:
+      w: -0.5
+      x: 0.5
+      y: -0.5
+      z: 0.5
+    position:
+      x: 15.499999999999861
+      y: 0.0
+      z: 0.2
+  timestamp: 1764971002.5992355
+info:
+  date: '2025-12-05 22:42:24'
+  description: Trajectory dataset with Ground Truth camera pose and Tag detections.

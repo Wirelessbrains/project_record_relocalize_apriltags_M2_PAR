@@ -1,0 +1,119 @@
+world_frame: "world"
+anchor_tag: "tag36h11:0"
+
+path_type: "waypoints"
+camera_path:
+  # Trajetória circular original (raio ~3 m) com portais. Mantém velocidade/FOV/loop.
+  start_position: {x: 3.0, y: 0.0, z: 0.2}
+  speed: 0.35
+  loop: true
+  yaw_mode: "path"      # mantém a câmera tangente à trajetória
+  fov_angle: 60
+  max_distance: 3.0
+  waypoints:
+    - {x: 3.000, y: 0.000, z: 0.2}
+    - {x: 2.772, y: 1.148, z: 0.2}
+    - {x: 2.121, y: 2.121, z: 0.2}
+    - {x: 1.148, y: 2.772, z: 0.2}
+    - {x: 0.000, y: 3.000, z: 0.2}
+    - {x: -1.148, y: 2.772, z: 0.2}
+    - {x: -2.121, y: 2.121, z: 0.2}
+    - {x: -2.772, y: 1.148, z: 0.2}
+    - {x: -3.000, y: 0.000, z: 0.2}
+    - {x: -2.772, y: -1.148, z: 0.2}
+    - {x: -2.121, y: -2.121, z: 0.2}
+    - {x: -1.148, y: -2.772, z: 0.2}
+    - {x: -0.000, y: -3.000, z: 0.2}
+    - {x: 1.148, y: -2.772, z: 0.2}
+    - {x: 2.121, y: -2.121, z: 0.2}
+    - {x: 2.772, y: -1.148, z: 0.2}
+    - {x: 3.000, y: 0.000, z: 0.2}
+
+tags:
+  # 12 portais originais (+) novos portais a cada 30°.
+  # Cada portal ainda tem um par: tag interna (r≈2.6 m, à frente do movimento) e externa (r≈3.4 m, atrás),
+  # com a mesma orientação inclinada usada no cenário original.
+  tag36h11:0:
+    # Reposicionada para ficar no FOV logo no início do trajeto.
+    position: {x: 2.843, y: 0.784, z: 0.5}
+    orientation: {x: 0.7063, y: 0.0339, z: 0.0339, w: 0.7063}
+  tag36h11:1:
+    position: {x: 3.400, y: -0.250, z: 0.5}
+    orientation: {x: 0.7066, y: -0.0259, z: -0.0259, w: 0.7066}
+
+  tag36h11:2:
+    position: {x: 2.127, y: 1.517, z: 0.5}
+    orientation: {x: 0.6735, y: 0.2155, z: 0.2155, w: 0.6735}
+  tag36h11:3:
+    position: {x: 3.069, y: 1.483, z: 0.5}
+    orientation: {x: 0.6893, y: 0.1579, z: 0.1579, w: 0.6893}
+
+  tag36h11:4:
+    position: {x: 1.083, y: 2.377, z: 0.5}
+    orientation: {x: 0.5947, y: 0.3825, z: 0.3825, w: 0.5947}
+  tag36h11:5:
+    position: {x: 1.917, y: 2.819, z: 0.5}
+    orientation: {x: 0.6249, y: 0.3309, z: 0.3309, w: 0.6249}
+
+  tag36h11:6:
+    position: {x: -0.250, y: 2.600, z: 0.5}
+    orientation: {x: 0.4755, y: 0.5234, z: 0.5234, w: 0.4755}
+  tag36h11:7:
+    position: {x: 0.250, y: 3.400, z: 0.5}
+    orientation: {x: 0.5180, y: 0.4813, z: 0.4813, w: 0.5180}
+
+  tag36h11:8:
+    position: {x: -1.517, y: 2.127, z: 0.5}
+    orientation: {x: 0.3238, y: 0.6286, z: 0.6286, w: 0.3238}
+  tag36h11:9:
+    position: {x: -1.483, y: 3.069, z: 0.5}
+    orientation: {x: 0.3757, y: 0.5990, z: 0.5990, w: 0.3757}
+
+  tag36h11:10:
+    position: {x: -2.377, y: 1.083, z: 0.5}
+    orientation: {x: 0.1501, y: 0.6910, z: 0.6910, w: 0.1501}
+  tag36h11:11:
+    position: {x: -2.819, y: 1.917, z: 0.5}
+    orientation: {x: 0.2079, y: 0.6759, z: 0.6759, w: 0.2079}
+
+  tag36h11:12:
+    position: {x: -2.600, y: -0.250, z: 0.5}
+    orientation: {x: -0.0339, y: 0.7063, z: 0.7063, w: -0.0339}
+  tag36h11:13:
+    position: {x: -3.400, y: 0.250, z: 0.5}
+    orientation: {x: 0.0259, y: 0.7066, z: 0.7066, w: 0.0259}
+
+  tag36h11:14:
+    position: {x: -2.127, y: -1.517, z: 0.5}
+    orientation: {x: -0.2155, y: 0.6735, z: 0.6735, w: -0.2155}
+  tag36h11:15:
+    position: {x: -3.069, y: -1.483, z: 0.5}
+    orientation: {x: -0.1579, y: 0.6893, z: 0.6893, w: -0.1579}
+
+  tag36h11:16:
+    position: {x: -1.083, y: -2.377, z: 0.5}
+    orientation: {x: -0.3825, y: 0.5947, z: 0.5947, w: -0.3825}
+  tag36h11:17:
+    position: {x: -1.917, y: -2.819, z: 0.5}
+    orientation: {x: -0.3309, y: 0.6249, z: 0.6249, w: -0.3309}
+
+  tag36h11:18:
+    position: {x: 0.250, y: -2.600, z: 0.5}
+    orientation: {x: -0.5234, y: 0.4755, z: 0.4755, w: -0.5234}
+  tag36h11:19:
+    position: {x: -0.250, y: -3.400, z: 0.5}
+    orientation: {x: -0.4813, y: 0.5180, z: 0.5180, w: -0.4813}
+
+  tag36h11:20:
+    position: {x: 1.517, y: -2.127, z: 0.5}
+    orientation: {x: -0.6286, y: 0.3238, z: 0.3238, w: -0.6286}
+  tag36h11:21:
+    position: {x: 1.483, y: -3.069, z: 0.5}
+    orientation: {x: -0.5990, y: 0.3757, z: 0.3757, w: -0.5990}
+
+  tag36h11:22:
+    position: {x: 2.377, y: -1.083, z: 0.5}
+    orientation: {x: -0.6910, y: 0.1501, z: 0.1501, w: -0.6910}
+  tag36h11:23:
+    position: {x: 2.819, y: -1.917, z: 0.5}
+    orientation: {x: -0.6759, y: 0.2079, z: 0.2079, w: -0.6759}
