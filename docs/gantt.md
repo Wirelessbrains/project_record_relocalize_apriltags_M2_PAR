@@ -6,7 +6,7 @@ gantt
   dateFormat  YYYY-MM-DD
   axisFormat  %d/%m
   tickInterval 1week
-  todayMarker off
+  todayMarker on
 
   section M1 – Mapping (Teach)
   Environment setup + docs       :a1, 2025-10-21, 7d

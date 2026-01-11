@@ -1,0 +1,26 @@
+<package format="3">
+  <name>limo_apriltag_tools</name>
+  <version>0.0.1</version>
+  <description>Contém ferramentas de calibração sincronizada e lançamento para detecção de AprilTag com webcam no ROS 2.</description>
+  <maintainer email="seu_email@example.com">seu_nome_aqui</maintainer>
+  <license>Apache-2.0</license>
+
+  <depend>rclpy</depend>
+  <depend>sensor_msgs</depend>
+  <depend>launch_ros</depend>
+  <depend>v4l2_camera</depend>
+  <depend>apriltag_ros</depend>
+  <depend>apriltag_msgs</depend>
+  <depend>tf2_ros</depend>
+  <exec_depend>python3-yaml</exec_depend>
+  <exec_depend>ament_index_python</exec_depend>
+
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>
+

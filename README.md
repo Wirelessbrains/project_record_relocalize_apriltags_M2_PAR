@@ -18,12 +18,12 @@ This project presents an autonomous navigation system for the AgileX LIMO robot,
 3. **Resume** – Localize itself from the nearest tag and continue the route from any point on the path.
 ---
 
-### 👥 Authors
+## Authors
 
 | Name | Role | Contact |
 |------|------|----------|
-| **MARTINS DO LAGO REIS João Pedro** | Simulation & ROS Architect | joao_pedro.martins_do_lago_reis@etu.uca.fr |
-| **DA SILVA RAMOS Yann Kelvem** | Navigation Logic & State Machine Engineer | yann_kelvem.da_silva_ramos@etu.uca.fr |
+| **MARTINS DO LAGO REIS João Pedro** | Autonomous Navigation and Visual Relocalization | joao_pedro.martins_do_lago_reis@etu.uca.fr |
+| **DA SILVA RAMOS Yann Kelvem** |  Simulation & ROS Architect | yann_kelvem.da_silva_ramos@etu.uca.fr |
 
 
 ---
@@ -56,43 +56,49 @@ All detailed project documentation has been moved to the `/docs` folder.
 
 ```bash
 limo_ws/
-├─ README.md
-├─ LICENSE
-├─ .gitignore
-├─ docs/
-│  ├─ project_specification.md
-│  ├─ gantt.png
-│  ├─ architecture.md
-│  ├─ experiments.md
-│  ├─ references.bib
-│  └─ system_architecture.png
-├─ .github/
-│  ├─ ISSUE_TEMPLATE/
-│  │  └─ task.md
-│  ├─ PULL_REQUEST_TEMPLATE.md
-│  └─ CODEOWNERS
-└─ src/
-   ├─ limo_mapping/
-   │  ├─ package.xml
-   │  ├─ CMakeLists.txt
-   │  ├─ launch/mapping.launch.py
-   │  ├─ config/apriltag.yaml
-   │  └─ src/mapping_node.py
-   ├─ limo_route_follow/
-   │  ├─ package.xml
-   │  ├─ CMakeLists.txt
-   │  ├─ launch/route_follow.launch.py
-   │  ├─ config/controller.yaml
-   │  └─ src/route_follow_node.py
-   ├─ limo_relocalization/
-   │  ├─ package.xml
-   │  ├─ CMakeLists.txt
-   │  ├─ launch/relocalization.launch.py
-   │  └─ src/relocalization_node.py
-   └─ limo_simulation/
-      ├─ package.xml
-      ├─ CMakeLists.txt
-      ├─ rviz/mapping_view.rviz
-      └─ worlds/track.world
-
+├── docs
+│   ├── architecture.md
+│   ├── experiments.md
+│   ├── gantt.md
+│   ├── project_specifications.md
+│   ├── references.bib
+│   └── system_architecture.png
+├── LICENSE
+├── limo_ws
+│   ├── docs
+│   └── src
+│       ├── limo_apriltag_tools
+│       │   ├── config
+│       │   │   ├── apriltag_params.yaml
+│       │   │   └── webcam_calibration.yaml
+│       │   ├── launch
+│       │   │   └── apriltag_webcam_full.launch.py
+│       │   ├── limo_apriltag_tools
+│       │   │   ├── camera_info_publisher.py
+│       │   │   ├── __init__.py
+│       │   │   └── __pycache__
+│       │   │       ├── camera_info_publisher.cpython-310.pyc
+│       │   │       └── __init__.cpython-310.pyc
+│       │   ├── package.xml
+│       │   ├── README.md
+│       │   ├── resource
+│       │   │   └── limo_apriltag_tools
+│       │   ├── scripts
+│       │   │   └── camera_info_publisher_node
+│       │   └── setup.py
+│       ├── limo_mapping
+│       │   ├── config
+│       │   ├── launch
+│       │   └── src
+│       ├── limo_relocalization
+│       │   ├── launch
+│       │   └── src
+│       ├── limo_route_follow
+│       │   ├── config
+│       │   ├── launch
+│       │   └── src
+│       └── limo_simulation
+│           ├── rviz
+│           └── worlds
+└── README.md
 
