@@ -1,0 +1,102 @@
+\newpage
+\section{Otmizacao e trajetoria }
+
+
+Apos um visualizaçao em que um camera se move em uma trajetoria que se 
+paraece com incosaedro, durante a visualizaçao foi garantido que a todo
+momento a camera ve pelo menos duas tags;
+
+A primeira etapa a realizar é fazer mapaemento do nosso ambiente. Sendo 
+assim, definir a primeira tag referencia o calculadas tranformaçoes 
+relativas para as tags subsequentes. dado que eu sei onde todas as tags 
+estao localizada posiçao e orientaçao, eu posso localizar o meu 
+robo no ambiente.
+
+A problemantica é que o robo nao consegue ver todas as tags ao mesmo tempo 
+e também, dado que o robo ve as tags em sequencia pequenos erros de 
+detecçao da posicao do robo sao acumulados a medida em que o robo se
+move
+
+Logo o mapaemento deve ser em caideia fazendo as transformada de referencial
+a partir de uma tag referencia, ou a tag mundo.
+
+A camera é colocada como pose de referencia e recebe a pose relativa da
+tagA, primeira tag vista, ao mesmo tempo, é possivel ver a tagB, Assim
+atraves destas poses é possivel cacula a pose da tag B em relaçao a tagA:
+
+\begin{equation}
+    T_{A \to B} = T_{Cam \to A}^{-1} * T_{Cam \to B}
+\end{equation}
+
+\begin{itemize}
+    \item $T_{A \to B} = (R_A, \bm{t}_A)$: Pose da Tag B em relaçao a A.
+    \item $T_{Cam \to A} = (R_A, \bm{t}_A)$: Pose da Tag A vista pela Câmera.
+    \item $T_{Cam \to B} = (R_B, \bm{t}_B)$: Pose da Tag B vista pela Câmera.
+    \item $R$: Matriz de rotaçao
+    \item $t$: Vetor de posiçao
+\end{itemize}
+
+A tranformaçao de inveresa é caculada da seguinte forma:
+
+\begin{equation}
+    T^{-1} = (R^T, -R^T \bm{t})
+\end{equation}
+
+dada que o as orientaçoes das tags sao dadas em quartenion, é feita a conversao 
+para matrizes de rotacao:
+
+
+\begin{equation}
+R = \begin{bmatrix}
+q_0^2 + q_1^2 - q_2^2 - q_3^2 & 2(q_1q_2 - q_0q_3) & 2(q_0q_2 + q_1q_3) \\
+2(q_1q_2 + q_0q_3) & q_0^2 - q_1^2 + q_2^2 - q_3^2 & 2(q_2q_3 - q_0q_1) \\
+2(q_1q_3 - q_0q_2) & 2(q_0q_1 + q_2q_3) & q_0^2 - q_1^2 - q_2^2 + q_3^2
+\end{bmatrix}
+\end{equation}
+
+Assim é possivel calcular a rotaçao relativa($R_{rel}$):
+
+\begin{equation}                                                          
+R_{rel} = R_A^T R_B                                                   
+\end{equation}
+
+Dado que a detecao da tag também nos fornece a posiçao, assim também
+é possivel calcular: a translaçao relativa ($\bm{t}_{rel}$):
+
+\begin{equation}                                                          
+     \bm{t}_{rel} = R_A^T (\bm{t}_B - \bm{t}_A)                            
+\end{equation}
+
+Assim
+
+\begin{equation}
+    T_{A \to B} = (R_{rel}, \bm{t}_{rel})
+\end{equation}
+
+também é possivel realisar o calculo atravez de matrizes de transformação homogenea:
+
+                                                          
+                                                             
+                   
+\begin{equation}
+\begin{bmatrix} 
+R_{rel} & \bm{t}_{rel} \\ 
+\mathbf{0}_{1 \times 3} & 1 
+\end{bmatrix} = 
+\begin{bmatrix} 
+R_A & \bm{t}_A \\ 
+\mathbf{0}_{1 \times 3} & 1 
+\end{bmatrix}^{-1} 
+\begin{bmatrix} 
+R_B & \bm{t}_B \\ 
+\mathbf{0}_{1 \times 3} & 1 
+\end{bmatrix}
+\end{equation}
+
+
+
+
+
+
+
+\subsubsection{Subsubsection}
