@@ -119,12 +119,9 @@ Para pose da camera quanto mais tags forem vista mais precisao temos para a pose
 visto que podemos calcular a media da pose da camera no mundo em ralaçao a cada tag. Por 
 um metodo chamado SLERP, que envolve a converçao da rotaçao para quartenion. 
 
-\subsection{Fusão de Poses da Câmera via Interpolação Esférica (SLERP)}
+As matrizes de rotação $\mathbf{R} \in SO(3)$ obtidas do sistema de visão são convertidas para quaternions unitários $\mathbf{q} = [w, x, y, z]^T$.
+ Dada uma matriz $\mathbf{R}$ com elementos $r_{ij}$, o componente escalar $w$ é calculado a partir do traço da matriz ($Tr(\mathbf{R})$):
 
-Quando a câmera observa simultaneamente múltiplas etiquetas, as estimativas individuais da pose da câmera no referencial global ($\mathbf{P}_{W,C}$) são fundidas para reduzir ruídos de detecção. O processo de fusão é dividido em três etapas: conversão de representação, média de translação e interpolação esférica de rotação.
-
-\subsubsection{Conversão de Matriz de Rotação para Quaternion}
-As matrizes de rotação $\mathbf{R} \in SO(3)$ obtidas do sistema de visão são convertidas para quaternions unitários $\mathbf{q} = [w, x, y, z]^T$. Dada uma matriz $\mathbf{R}$ com elementos $r_{ij}$, o componente escalar $w$ é calculado a partir do traço da matriz ($Tr(\mathbf{R})$):
 \begin{equation}
     w = \frac{1}{2} \sqrt{1 + r_{11} + r_{22} + r_{33}}
 \end{equation}
@@ -134,6 +131,7 @@ Os demais componentes $(x, y, z)$ são derivados das diferenças entre os elemen
 \end{equation}
 
 \subsubsection{Média da Translação (Posição)}
+
 A posição final da câmera é calculada através da média aritmética simples das estimativas de posição $\mathbf{p}_1$ e $\mathbf{p}_2$:
 \begin{equation}
     \mathbf{p}_{avg} = \frac{\mathbf{p}_1 + \mathbf{p}_2}{2}
@@ -148,4 +146,89 @@ Para a rotação, utiliza-se o \textit{Spherical Linear Interpolation} (SLERP), 
     \begin{equation}
         \mathbf{q}_{avg} = \frac{\sin((1-t)\theta)}{\sin(\theta)}\mathbf{q}_1 + \frac{\sin(t\theta)}{\sin(\theta)}\mathbf{q}_2
     \end{equation}
+\end{enumerate}
+
+
+\subsection{1. Otimização do Grafo de Poses}
+O objetivo é encontrar as poses globais das tags $T_w^i$ que minimizam o erro de consistência com as medidas relativas $Z_{ij}$ obtidas pela mediana das observações.
+
+\subsubsection{Vetor de Estado (Por que 6 parâmetros e não 7?)}
+Embora uma pose rígida seja composta por translação (3) e quaternion (4), o vetor de otimização $\mathbf{x}$ utiliza 6 parâmetros por tag para evitar superparametrização e a restrição de norma unitária do quaternion ($\|q\|=1$), que tornaria o Jacobiano singular.
+
+A rotação é parametrizada no espaço tangente $\mathfrak{so}(3)$ (Vetor de Rotação ou \textit{Axis-Angle}):
+\begin{equation}
+    \mathbf{x} = [\mathbf{v}_1^T, \mathbf{t}_1^T, \dots, \mathbf{v}_N^T, \mathbf{t}_N^T]^T
+\end{equation}
+Onde $\mathbf{v}_i \in \mathbb{R}^3$. Durante a otimização, $\mathbf{v}_i$ é convertido para matriz de rotação via exponencial map $R_i = \exp([\mathbf{v}_i]_\times)$ para cálculo do erro.
+
+\subsubsection{Conversão: Rotação $\leftrightarrow$ Vetor (Exponencial e Logarítmico)}
+
+Para transitar entre o vetor de estado $\mathbf{v}$ e as matrizes de rotação $R$, utiliza-se a Fórmula de Rodrigues e o logaritmo de matrizes.
+
+\subsubsection{2. Matriz $\to$ Vetor de Rotação (Log Map)}
+Usada para converter a matriz de erro em um vetor residual minimizável.
+\begin{equation}
+    \theta = \arccos\left(\frac{\text{Tr}(R) - 1}{2}\right), \quad \mathbf{u} = \frac{1}{2\sin(\theta)} \begin{bmatrix} r_{32} - r_{23} \ r_{13} - r_{31} \ r_{21} - r_{12} \end{bmatrix}
+\end{equation}
+
+\subsubsection{3. Quaternion $\to$ Vetor de Rotação}
+Usada na inicialização para converter o chute inicial (quaternion) em estado do solver.
+\begin{equation}
+    \theta = 2 \arccos(w), \quad \mathbf{v} = \theta \cdot \frac{[x, y, z]^T}{\sin(\theta/2)}
+\end{equation}
+
+\subsubsection{4. Vetor de Rotação $\to$ Quaternion}
+Usada na saída para salvar o resultado final.
+\begin{equation}
+    w = \cos(\theta/2), \quad [x, y, z]^T = \sin(\theta/2) \cdot \mathbf{u}
+\end{equation}
+
+\subsubsection{Função de Resíduo e Seus Termos}
+Para uma aresta conectando a Tag $i$ à Tag $j$ com medição $Z_{ij} = (\hat{R}_{ij}, \hat{\bm{t}}_{ij})$, o resíduo $\mathbf{r}_{ij}$ é composto por:
+
+\begin{itemize}
+    \item \textbf{Erro de Posição:} Diferença vetorial entre a posição da tag $j$ projetada no referencial de $i$ e a medição.
+    \begin{equation}
+        \mathbf{r}_{pos} = \underbrace{R_i^T (\mathbf{t}_j - \mathbf{t}_i)}_{\text{Predição Local}} - \underbrace{\hat{\bm{t}}_{ij}}_{\text{Medição}}
+    \end{equation}
+    \begin{itemize}
+        \item $R_i^T$: Rotaciona o vetor de diferença global $(\mathbf{t}_j - \mathbf{t}_i)$ para o referencial local da Tag $i$, permitindo comparação direta com a medição do sensor $\hat{\bm{t}}_{ij}$.
+    \end{itemize}
+    
+    \item \textbf{Erro de Rotação:} Desvio angular necessário para alinhar a rotação estimada com a medida.
+    \begin{equation}
+        \mathbf{r}_{rot} = \lambda \cdot \text{rotvec}(\underbrace{(\hat{R}_{ij})^T R_i^T R_j}_{\text{Matriz de Erro}})
+    \end{equation}
+    \begin{itemize}
+        \item $(\hat{R}_{ij})^T R_i^T R_j$: Produto que resulta na matriz identidade se o alinhamento for perfeito.
+        \item $\lambda$: Fator de ponderação (\texttt{rotation_weight}) que equilibra a magnitude do erro angular (radianos) com o erro linear (metros).
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Função de Custo Robusta (Fórmula de Huber)}
+Minimiza-se a função de custo global utilizando a Perda de Huber $\rho_\delta$ para rejeição de \textit{outliers} (erros grosseiros):
+\begin{equation}
+    F(\mathbf{x}) = \frac{1}{2} \sum_{(i,j) \in \mathcal{E}} \rho_\delta 
+ ( w_{ij} (\|\mathbf{r}_{pos}\|^2 + \|\mathbf{r}_{rot}\|^2) )
+\end{equation}
+A função $\rho_\delta$ evita que erros grandes "puxem" a solução, comportando-se linearmente para erros acima do limiar $\delta$:
+\begin{equation}
+    \rho_\delta(s) = \begin{cases} s & \text{se } s \le \delta^2 \text{ (Quadrático/Gaussiano)} \ 2\delta(\sqrt{s} - \frac{\delta}{2}) & \text{se } s > \delta^2 \text{ (Linear/Robust)} \end{cases}
+\end{equation}
+O termo $\delta$ (\texttt{huber_scale}) define o limite entre um erro aceitável (ruído gaussiano) e um \textit{outlier}.
+
+\subsection{2. Processo de Atualização (Solução Numérica)}
+A minimização é realizada iterativamente pelo algoritmo \textit{Trust Region Reflective}. Em cada iteração $k$:
+
+\begin{enumerate}
+    \item \textbf{Jacobiano ($J$):} Calcula-se a matriz de derivadas parciais $J = \frac{\partial \mathbf{r}}{\partial \mathbf{x}}$. Esta matriz indica a sensibilidade do erro em relação a cada variável de estado.
+    \item \textbf{Passo ($\Delta \mathbf{x}$):} Resolve-se o sistema linear aproximado para encontrar o passo de ajuste, onde $\mu$ é o fator de amortecimento (\textit{damping}):
+    \begin{equation}
+        (J^T J + \mu I) \Delta \mathbf{x} = -J^T \mathbf{r}
+    \end{equation}
+    \item \textbf{Atualização:} As variáveis são atualizadas somando o passo ao estado atual:
+    \begin{equation}
+        \mathbf{x}_{k+1} = \mathbf{x}_{k} + \Delta \mathbf{x}
+    \end{equation}
+    Como usamos o vetor de rotação $\mathbf{v}$, a atualização da rotação é uma simples soma vetorial no espaço $\mathbb{R}^3$, livre de restrições de norma.
 \end{enumerate}
