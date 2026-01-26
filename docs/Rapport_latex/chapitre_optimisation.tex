@@ -1,0 +1,238 @@
+\newpage
+\section{Theoretical Background}
+
+\subsection{Conversions and Rotation Calculation}
+
+Since tag orientations are provided as unit quaternions $\mathbf{q} = [q_0, q_1, q_2, q_3]^T$, they are converted in rotation matrices $R \in SO(3)$ for homogeneous matrix composition, \cite{diebel2006representing}.
+
+\begin{equation}
+	R = \begin{bmatrix}
+		q_0^2 + q_1^2 - q_2^2 - q_3^2 & 2(q_1q_2 - q_0q_3) & 2(q_0q_2 + q_1q_3) \\
+		2(q_1q_2 + q_0q_3) & q_0^2 - q_1^2 + q_2^2 - q_3^2 & 2(q_2q_3 - q_0q_1) \\
+		2(q_1q_3 - q_0q_2) & 2(q_0q_1 + q_2q_3) & q_0^2 - q_1^2 - q_2^2 + q_3^2
+	\end{bmatrix}
+\end{equation}
+
+The relative rotation ($R_{rel}$) and relative translation ($\bm{t}_{rel}$) are computed how it follows, \cite{lynch2017modern}:
+\begin{equation}
+	R_{rel} = R_A^T R_B, \quad \bm{t}_{rel} = R_A^T (\bm{t}_B - \bm{t}_A)
+\end{equation}
+
+\subsubsection{Conversion: Rotation $\leftrightarrow$ Vector (Exponential and Logarithmic)}
+
+To transition between the state vector $\mathbf{v}$ and rotation matrices $R$, Rodrigues' Formula and the matrix logarithm are used, \cite{barfoot2024state}.
+
+\subsubsection{2. Matrix $\to$ Rotation Vector (Log Map)}
+Used to convert the error matrix into a minimizable residual vector, \cite{barfoot2024state}.
+\begin{equation}
+    \theta = \arccos\left(\frac{\text{Tr}(R) - 1}{2}\right), \quad \mathbf{u} = \frac{1}{2\sin(\theta)} \begin{bmatrix} r_{32} - r_{23} \ r_{13} - r_{31} \ r_{21} - r_{12} \end{bmatrix}
+\end{equation}
+
+\subsubsection{3. Quaternion $\to$ Rotation Vector}
+Used during initialization to convert the initial guess (quaternion) into the solver state, \cite{diebel2006representing}.
+\begin{equation}
+    \theta = 2 \arccos(w), \quad \mathbf{v} = \theta \cdot \frac{[x, y, z]^T}{\sin(\theta/2)}
+\end{equation}
+
+\subsubsection{4. Rotation Vector $\to$ Quaternion}
+Used at the output to save the final result, \cite{diebel2006representing}.
+\begin{equation}
+    w = \cos(\theta/2), \quad [x, y, z]^T = \sin(\theta/2) \cdot \mathbf{u}
+\end{equation}
+
+\section{Methodology}
+
+\subsection{Trajectory Optimization and Mapping}
+
+After a visualization session where the camera moves in a trajectory resembling an icosahedron, it was ensured that the camera observes at least two tags at any given time.
+
+The first stage is environment mapping. By defining the first tag as the world reference, relative transformations are calculated for all subsequent tags. Once the position and orientation of all tags are established, the robot can be localized within the environment, \cite{olson2011apriltag}.
+
+The primary challenge is that the robot cannot see all tags simultaneously. Furthermore, since tags are detected sequentially, small estimation errors in the robot's pose accumulate as it moves, leading to \textit{drift}, \cite{barfoot2024state}. Therefore, mapping must be performed as a chain of transformations relatives to a reference tag (World Tag).
+
+\subsection{Relative Transformations}
+
+The camera serves as a temporary reference frame. When $\text{Tag}_A$ and $\text{Tag}_B$ are visible simultaneously, the pose of $\text{Tag}_B$ relative to $\text{Tag}_A$ is calculated through the following composition, \cite{lynch2017modern}:
+
+\begin{equation}
+	T_{A \to B} = T_{Cam \to A}^{-1} \cdot T_{Cam \to B}
+\end{equation}
+
+Where:
+\begin{itemize}
+	\item $T_{A \to B} = (R_{rel}, \bm{t}_{rel})$: Pose of $\text{Tag}_B$ relative to $\text{Tag}_A$.
+	\item $T_{Cam \to A} = (R_A, \bm{t}_A)$: Pose of $\text{Tag}_A$ in the camera frame.
+	\item $T_{Cam \to B} = (R_B, \bm{t}_B)$: Pose of $\text{Tag}_B$ in the camera frame.
+\end{itemize}
+
+The inverse transformation is defined as, \cite{lynch2017modern}:
+\begin{equation}
+	T^{-1} = (R^T, -R^T \bm{t})
+\end{equation}
+
+\subsection{Robot Localization and Pose Averaging}
+
+Given a known map, the camera's pose in the world frame ($T_{W,C}$) is estimated from a detected tag, typically via a PnP formulation solved efficiently by EPnP, \cite{lepetit2009epnp}:
+\begin{equation}
+	T_{W,C} = T_{W,T} \cdot (T_{C,T})^{-1}
+\end{equation}
+
+To improve precision, when multiple tags are visible, the estimates are fused. The translation is averaged arithmetically, while the rotation is fused using \textit{Spherical Linear Interpolation} (SLERP), \cite{shoemake1985slerp}.
+
+
+
+\subsection{1. Pose Graph Optimization}
+
+The optimization for the tags aims to find the global poses $T_w^i$ that minimize the error between the calculated edges between tags, using tag0 as the reference, \cite{barfoot2024state}.
+
+Given that when the robot moves, measurements of relative tag poses with respect to the camera pose are made at each frame. Taking into account frames where the robot sees more than one tag, it is possible to calculate the edges at each pose. Since we have multiple measurements, we take an initial value before optimization.
+
+\subsubsection{State Vector (Why 6 parameters and not 7?)}
+
+In the optimization calculation, although the position plus the quaternion has 7 parameters, we use only 6 because we convert the Quaternion into a rotation vector to avoid estimating values during optimization that do not satisfy the quaternion norm ($\|q\|=1$), \cite{barfoot2024state}.
+
+Rotation is parameterized in the tangent space $\mathfrak{so}(3)$ (Rotation Vector or \textit{Axis-Angle}):
+\begin{equation}
+    \mathbf{x} = [\mathbf{v}_1^T, \mathbf{t}_1^T, \dots, \mathbf{v}_N^T, \mathbf{t}_N^T]^T
+\end{equation}
+
+After prediction, the rotation vector is converted into a rotation matrix for error calculation.
+
+\subsection{Tag Optimization with Levenberg-Marquardt}
+
+Optimization is based on a pose graph that connects tag poses pairwise, $\mathbf{T}_i$ and $\mathbf{T}_j$. For each tag pair, we have a relative measurement $\hat{\mathbf{T}}_{ij} = (\hat{\mathbf{R}}_{ij}, \hat{\mathbf{t}}_{ij})$, \cite{barfoot2024state}.
+
+\subsection{Residual per Edge}
+
+Thus, it is possible to calculate the position error by subtracting the predicted value (the difference between tag poses) and the measured value, \cite{barfoot2024state}.
+Given global poses $\mathbf{T}_i = (\mathbf{R}_i, \mathbf{t}_i)$ and $\mathbf{T}_j = (\mathbf{R}_j, \mathbf{t}_j)$, is calculated the relative prediction.
+
+To calculate the error between one tag and another, we have two errors: the translation error and the rotation error. The position error is calculated by subtracting the predicted difference between tag translations. For the rotation error, the relative orientation between two tags is calculated; that is, by multiplying the conjugate of rotation RtagA by RtagB and the measurement. If the orientations overlap, the quaternion will have element w = 1 and all others = 0, \cite{barfoot2024state}.
+
+\begin{equation}
+	\mathbf{R}_{ij} = \mathbf{R}_i^\top \mathbf{R}_j, \qquad
+	\mathbf{t}_{ij} = \mathbf{R}_i^\top (\mathbf{t}_j - \mathbf{t}_i).
+\end{equation}
+The stacked position+rotation residual is
+\begin{equation}
+	\mathbf{r}_{ij} = 
+	\begin{bmatrix}
+		\mathbf{t}_{ij} - \hat{\mathbf{t}}_{ij} \\
+		\mathrm{Log}\left( \hat{\mathbf{R}}_{ij}^\top \mathbf{R}_{ij} \right) \cdot \alpha
+	\end{bmatrix}
+	\in \mathbb{R}^6,
+\end{equation}
+Where $\alpha$ is the relative weight of the rotation (e.g., $\alpha = \texttt{rotation\_weight}$), \cite{barfoot2024state}. 
+
+\subsection{Global Cost Function}
+
+With the residuals calculated for the set of edges $\mathcal{E}$ and statistical weights $w_{ij}$, we use the linear loss cost function that accumulates the error values, \cite{barfoot2024state}.
+\begin{equation}
+	J(\mathbf{x}) = \frac{1}{2} \sum_{(i,j)\in \mathcal{E}} w_{ij}^2 \, \rho\left( \left\| \mathbf{r}_{ij}(\mathbf{x}) \right\|_2 \right),
+\end{equation}
+Where $\mathbf{x}$ are the accumulated values for the tag variables and $\rho$ is \textbf{linear}. Robustness depends of explicit pruning of high-residual edges.
+
+\subsection{Numerical Update}
+Minimization is performed using the Levenberg-Marquardt algorithm in its damped least-squares form (trust-region perspective), matching the update in \cite{turkulainen20243dgs}.
+
+This method calculates the Jacobian of the cost function. The value of $\lambda$ defines whether the error response behaves like the Gauss-Newton method (fast convergence) or gradient descent (slow convergence). The value of $\lambda$ is calculated internally by the library according to the Jacobian and the initial parameter update. As in \cite{turkulainen20243dgs}, the update function has the form:
+
+\begin{equation}
+	\left( \mathbf{J}^\top \mathbf{J} + \lambda \mathbf{I} \right) \Delta \mathbf{x} = - \mathbf{J}^\top \mathbf{r},
+\end{equation}
+where $\mathbf{J}$ is the Jacobian of constraints, and $\lambda \ge 0$ is the damping factor.
+
+\subsection{Camera Trajectory Optimization}
+Tag optimization works similarly, but here we already know the tag map, so we only need to calculate the camera pose in each frame based on this map,
+
+$\{\mathbf{p}^{(c)}_{k\ell}\}$ (positions of tag $\ell$ in the camera frame). The camera pose $\mathbf{T}_{wk} = (\mathbf{R}_{wk}, \mathbf{t}_{wk})$ maps, \cite{Hartley2004}
+\begin{equation}
+	\mathbf{p}^{(w)}_{k\ell} = \mathbf{R}_{wk} \, \mathbf{p}^{(c)}_{k\ell} + \mathbf{t}_{wk}.
+\end{equation}
+We only have a change in the cost function, which is calculated by the difference between poses. However, here we also have 6 calculated parameters, so the position residual is, \cite{barfoot2024state}
+\begin{equation}
+	\mathbf{r}_{k\ell} = \mathbf{p}^{(w)}_{k\ell} - \mathbf{p}^{(w)}_{\ell}.
+\end{equation}
+
+The frame cost function is, \cite{barfoot2024state}
+\begin{equation}
+	J_k(\bm{\theta}_{wk}, \mathbf{t}_{wk}) = \frac{1}{2} \sum_{\ell \in \mathcal{O}_k} \left\| \mathbf{r}_{k\ell} \right\|_2^2,
+\end{equation}
+
+Where $\mathcal{O}_k$ is defined according to the number of visible tags in frame $k$.
+
+\subsection{LM Update per Frame}
+For each frame, LM solves the same equation used previously to estimate the graphs, following \cite{turkulainen20243dgs}:
+
+\begin{equation}
+	\left( \mathbf{J}_k^\top \mathbf{J}_k + \lambda \mathbf{I} \right) \Delta \mathbf{x}_k = - \mathbf{J}_k^\top \mathbf{r}_k,
+\end{equation}
+with $\mathbf{x}_k = [\bm{\theta}_{wk}, \mathbf{t}_{wk}]$ and exponential update for rotation.
+\subsection{Numerical Flow Summary}
+The iterative process and processing steps of the optimization algorithm are illustrated in Figure~\ref{fig:fluxo_numerico}. This flowchart details everything from edge construction based on relative observations to solving the PnP for the camera trajectory.
+
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\linewidth]{Images/otimization/fluxo_algo.png}
+	\caption{Visual representation of the numerical flow: edge construction, initialization, tag pose optimization, and camera trajectory calculation.}
+	\label{fig:fluxo_numerico}
+\end{figure}
+
+\section{Results}
+
+The algorithm validation was performed using synthetic datas, which allows for direct comparison with Ground Truth to quantify optimization precision and robustness.
+
+
+
+\subsection{Ideal Scenario }
+
+Initially, the system was tested with perfect detections, free of drift. For this data, the residual error was null, confirming the geometric consistency of the algorithm. The metrics are presented in Table~\ref{tab:results_ideal}.
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|l|c|c|c|}
+		\hline
+		\textbf{Metric} & \textbf{Mean Error} & \textbf{Minimum} & \textbf{Maximum} \\ \hline
+		Camera Trajectory & $0.0000\text{ m} / 0.00^\circ$ & $0.0000\text{ m} / 0.00^\circ$ & $0.0000\text{ m} / 0.00^\circ$ \\ \hline
+		Tag Poses         & $0.0000\text{ m} / 0.00^\circ$ & $0.0000\text{ m} / 0.00^\circ$ & $0.0000\text{ m} / 0.00^\circ$ \\ \hline
+	\end{tabular}
+	\caption{Residual errors in the ideal scenario (no noise).}
+	\label{tab:results_ideal}
+\end{table}
+
+Figure~\ref{fig:results_ideal} presents the visual results for this scenario. On the left, the alignment of estimated tags with the real scenario is observed, showing that the tags were perfectly aligned as suggested by the table, without errors. On the right, the optimized trajectory is superimposed on the reference circular trajectory, verifying that the trajectory was perfectly recovered without errors.
+
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.95\linewidth]{Images/otimization/comparison_optimized_lm.png}
+	\caption{Results for the ideal scenario: on the left, the tag map (Estimated vs. Real) and on the right, the camera trajectory.}
+	\label{fig:results_ideal}
+\end{figure}
+
+\subsection{Robustness Analysis }
+
+To evaluate robustness, Gaussian noise of $10\text{ cm}$ was injected into the position measurements. The optimization algorithm demonstrated high efficacy in filtering this noise, as shown in the data presented in Table~\ref{tab:results_noise}.
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|l|c|c|c|}
+		\hline
+		\textbf{Metric} & \textbf{Mean Error} & \textbf{Minimum} & \textbf{Maximum} \\ \hline
+		Camera Trajectory & $0.0584\text{ m} / 0.97^\circ$ & $0.0126\text{ m} / 0.11^\circ$ & $0.1485\text{ m} / 2.67^\circ$ \\ \hline
+		Tag Poses         & $0.0364\text{ m} / 0.73^\circ$ & $0.0156\text{ m} / 0.73^\circ$ & $0.0583\text{ m} / 0.73^\circ$ \\ \hline
+	\end{tabular}
+	\caption{Error statistics under 10 cm Gaussian noise.}
+	\label{tab:results_noise}
+\end{table}
+
+Figure~\ref{fig:results_noise} illustrates the visual comparison for this noisy scenario, demonstrating that the system can recover the map structure and trajectory with centimeter-level precision even under significant uncertainty.
+Even with $10\text{ cm}$ Gaussian noise, the algorithm proved robust: it reduced tag pose error from $\approx 10\text{ cm}$ to about $3\text{ cm}$ and camera pose error to roughly $0.6\text{ cm}$. The visualization confirms that tags remain well localized and the trajectory is effectively recovered despite the small residual error.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.95\linewidth]{Images/otimization/comparison_optimized_lm_noise_10cm.png}
+	\caption{Results under 10 cm Gaussian noise: on the left, map recovery and on the right, the trajectory.}
+	\label{fig:results_noise}
+\end{figure}
