@@ -72,7 +72,7 @@ The inverse transformation is defined as, \cite{lynch2017modern}:
 
 \subsection{Robot Localization and Pose Averaging}
 
-Given a known map, the camera's pose in the world frame ($T_{W,C}$) is estimated from a detected tag, \cite{Hartley2004}:
+Given a known map, the camera's pose in the world frame ($T_{W,C}$) is estimated from a detected tag, typically via a PnP formulation solved efficiently by EPnP, \cite{lepetit2009epnp}:
 \begin{equation}
 	T_{W,C} = T_{W,T} \cdot (T_{C,T})^{-1}
 \end{equation}
@@ -133,9 +133,9 @@ With the residuals calculated for the set of edges $\mathcal{E}$ and statistical
 Where $\mathbf{x}$ are the accumulated values for the tag variables and $\rho$ is \textbf{linear}. Robustness depends of explicit pruning of high-residual edges.
 
 \subsection{Numerical Update}
-Minimization is performed using the Levenberg-Marquardt algorithm defined by the least squares library, \cite{barfoot2024state}.
+Minimization is performed using the Levenberg-Marquardt algorithm in its damped least-squares form (trust-region perspective), matching the update in \cite{turkulainen20243dgs}.
 
-This method calculates the Jacobian of the cost function. The value of $\lambda$ defines whether the error response behaves like the Gauss-Newton method (fast convergence) or gradient descent (slow convergence). The value of $\lambda$ is calculated internally by the library according to the Jacobian and the initial parameter update. The update function has the following form, \cite{barfoot2024state}:
+This method calculates the Jacobian of the cost function. The value of $\lambda$ defines whether the error response behaves like the Gauss-Newton method (fast convergence) or gradient descent (slow convergence). The value of $\lambda$ is calculated internally by the library according to the Jacobian and the initial parameter update. As in \cite{turkulainen20243dgs}, the update function has the form:
 
 \begin{equation}
 	\left( \mathbf{J}^\top \mathbf{J} + \lambda \mathbf{I} \right) \Delta \mathbf{x} = - \mathbf{J}^\top \mathbf{r},
@@ -162,7 +162,7 @@ The frame cost function is, \cite{barfoot2024state}
 Where $\mathcal{O}_k$ is defined according to the number of visible tags in frame $k$.
 
 \subsection{LM Update per Frame}
-For each frame, LM solves the same equation used previously to estimate the graphs, \cite{barfoot2024state}:
+For each frame, LM solves the same equation used previously to estimate the graphs, following \cite{turkulainen20243dgs}:
 
 \begin{equation}
 	\left( \mathbf{J}_k^\top \mathbf{J}_k + \lambda \mathbf{I} \right) \Delta \mathbf{x}_k = - \mathbf{J}_k^\top \mathbf{r}_k,
