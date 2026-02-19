@@ -19,6 +19,15 @@ Current real-robot relocalization in this repository is **offline**.
 
 ---
 
+## Authors
+
+| Name | Role | Contact |
+|------|------|----------|
+| **MARTINS DO LAGO REIS João Pedro** | Real Robot Pipeline, Offline Relocalization, Metrics | joao_pedro.martins_do_lago_reis@etu.uca.fr |
+| **DA SILVA RAMOS Yann Kelvem** | Simulation, ROS Architecture, Integration | yann_kelvem.da_silva_ramos@etu.uca.fr |
+
+---
+
 ## Project Scope
 
 ### 1) Primary: Real Robot Offline Pipeline
