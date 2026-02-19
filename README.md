@@ -1,104 +1,108 @@
-# limo_apriltag_navigation
+# Record, Map and Relocalize with AprilTags
 
 ![Project Avatar](https://www.generationrobots.com/19724-product_cover/robot-mobile-open-source-limo-compatible-ros1-et-ros2-limo-standard-version.jpg)
 
-**Wireless Brains - AprilTag-Based Autonomous Navigation for the LIMO Robot**
+**AprilTag-based workflows for LIMO: primary real-robot offline relocalization + bonus simulation support**
 
 [![ROS 2 Humble](https://img.shields.io/badge/ROS%202-Humble-blue.svg)](https://docs.ros.org/en/humble/index.html)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ---
 
 ## Abstract
 
-This project presents an autonomous navigation system for the AgileX LIMO robot, developed in ROS 2, which utilizes AprilTags as visual fiducial markers. The system implements a "Teach, Replay & Resume" methodology, enabling the robot to: (1) Learn a route via manual teleoperation; (2) Replay the route autonomously; and (3) Localize itself and resume the route from any point on the path. The entire development process is first validated in a Gazebo simulation environment before deployment on the physical hardware.
+This workspace is organized with a primary and a bonus track:
 
-1. **Teach** – Learn a route via manual teleoperation using a joystick.  
-2. **Replay** – Follow the learned route autonomously based on recorded AprilTag positions.  
-3. **Resume** – Localize itself from the nearest tag and continue the route from any point on the path.
----
+1. **Primary (Real robot offline pipeline)**: record data, build trajectory/map from bag files, and compute relocalization metrics (nearest-point distance and heading error).
+2. **Bonus (Simulation support)**: validate parking/navigation logic in Gazebo/Ignition.
 
-## Authors
-
-| Name | Role | Contact |
-|------|------|----------|
-| **MARTINS DO LAGO REIS João Pedro** | Autonomous Navigation and Visual Relocalization | joao_pedro.martins_do_lago_reis@etu.uca.fr |
-| **DA SILVA RAMOS Yann Kelvem** |  Simulation & ROS Architect | yann_kelvem.da_silva_ramos@etu.uca.fr |
-
+Current real-robot relocalization in this repository is **offline**.
 
 ---
 
-## Project Documentation
+## Project Scope
 
-All detailed project documentation has been moved to the `/docs` folder.
+### 1) Primary: Real Robot Offline Pipeline
 
-| Document | Description |
-| :--- | :--- |
-| **[Project Specifications](./docs/project_specifications.md)** | The project specifications: objectives and functional/non-functional requirements. |
-| **[System Architecture](./docs/architecture.md)** | The core methodology (Teach, Replay, Resume) and software architecture (ROS Nodes). |
-| **[Project Timeline](./docs/gantt.md)** | The gantt chart detailing the project plan and task division. |
-| **[Experiments & Results](./docs/experiments.md)** | Demonstration GIFs, videos, and validation of the system. |
-| **[References](./docs/references.bib)** | All scientific and technical references in BibTeX format. |
+Purpose:
+- process recorded rosbag data from the real robot;
+- build route/map outputs from AprilTag observations;
+- evaluate relocalization against a reference route.
 
+Main scripts:
+- `scripts/trajectory_analysis/build_tag_map_offline.py`
+- `scripts/trajectory_analysis/analyze_distance_angle_to_trajectory.py`
+
+Build:
+
+```bash
+cd /home/jpdark/Downloads/robot_ws
+source /opt/ros/humble/setup.bash
+colcon build --symlink-install --packages-select limo_apriltag_tools
+source install/setup.bash
+```
+
+Generate route/map from bag:
+
+```bash
+python3 scripts/trajectory_analysis/build_tag_map_offline.py <bag_path> <output_dir>
+```
+
+Analyze relocalization (distance + angle):
+
+```bash
+python3 scripts/trajectory_analysis/analyze_distance_angle_to_trajectory.py \
+  <reference_output_dir> \
+  <query_output_dir> \
+  <compare_output_dir> \
+  --mode point \
+  --viz-mode debug
+```
+
+Detailed reference:
+- `scripts/trajectory_analysis/README.md`
+
+### 2) Bonus: Simulation Pipeline
+
+Purpose:
+- run autonomous parking logic in a controlled simulation environment.
+
+Main packages:
+- `src/control_limo`
+- `src/limo_apriltag_tools`
+- `src/gz_apriltag_env`
+
+Quick run:
+
+```bash
+cd /home/jpdark/Downloads/robot_ws
+bash profiles/build_sim.sh
+bash profiles/launch_sim_parking.sh
+```
+
+Detailed reference:
+- `src/control_limo/README_PARKING.md`
 
 ---
 
 ## Workspace Overview
 
-> The workspace follows a **multi-package ROS 2 structure**, enabling modular development by task:
-> - **limo_mapping:** teach-run and AprilTag logging  
-> - **limo_route_follow:** autonomous path replay  
-> - **limo_relocalization:** localization and resume behavior  
-> - **limo_simulation:** Gazebo & RViz configuration for testing
-
-
-## Code Structure
-
 ```bash
-limo_ws/
-├── docs
-│   ├── architecture.md
-│   ├── experiments.md
-│   ├── gantt.md
-│   ├── project_specifications.md
-│   ├── references.bib
-│   └── system_architecture.png
-├── LICENSE
-├── limo_ws
-│   ├── docs
-│   └── src
-│       ├── limo_apriltag_tools
-│       │   ├── config
-│       │   │   ├── apriltag_params.yaml
-│       │   │   └── webcam_calibration.yaml
-│       │   ├── launch
-│       │   │   └── apriltag_webcam_full.launch.py
-│       │   ├── limo_apriltag_tools
-│       │   │   ├── camera_info_publisher.py
-│       │   │   ├── __init__.py
-│       │   │   └── __pycache__
-│       │   │       ├── camera_info_publisher.cpython-310.pyc
-│       │   │       └── __init__.cpython-310.pyc
-│       │   ├── package.xml
-│       │   ├── README.md
-│       │   ├── resource
-│       │   │   └── limo_apriltag_tools
-│       │   ├── scripts
-│       │   │   └── camera_info_publisher_node
-│       │   └── setup.py
-│       ├── limo_mapping
-│       │   ├── config
-│       │   ├── launch
-│       │   └── src
-│       ├── limo_relocalization
-│       │   ├── launch
-│       │   └── src
-│       ├── limo_route_follow
-│       │   ├── config
-│       │   ├── launch
-│       │   └── src
-│       └── limo_simulation
-│           ├── rviz
-│           └── worlds
+robot_ws/
+├── dataset/                          # rosbag captures and datasets
+├── outputs/                          # generated maps, trajectories, and comparison outputs
+├── profiles/                         # short scripts for build/launch per profile
+├── scripts/
+│   └── trajectory_analysis/          # offline mapping/relocalization analysis scripts
+├── src/
+│   ├── control_limo/                 # parking/navigation logic (simulation-focused)
+│   ├── limo_apriltag_tools/          # AprilTag tools, localization, offline wrappers
+│   └── gz_apriltag_env/              # Gazebo/Ignition worlds and assets
 └── README.md
+```
 
+---
+
+## Notes
+
+- Real-robot flow in this repository is currently **offline**.
+- **Online relocalization** is planned as the next implementation step.
