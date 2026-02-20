@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Record, Map, and Relocalize with AprilTags</title>
+  <meta name="description" content="AprilTag-based trajectory learning and relocalization for mobile robots." />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="hero reveal">
+    <p class="eyebrow">Wireless Brains • Practical Robotics Project</p>
+    <h1>Record, Map, and Relocalize with AprilTags</h1>
+    <p class="lead">
+      A practical pipeline to learn a trajectory, rebuild references offline,
+      and measure online deviation from the learned path.
+    </p>
+    <div class="hero-actions">
+      <a class="btn primary" href="#quickstart">Quick Start</a>
+      <a class="btn ghost" href="#results">See Results</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section reveal" id="features">
+      <h2>What This System Does</h2>
+      <div class="grid-3">
+        <article class="card">
+          <h3>Offline Build</h3>
+          <p>Extract trajectory and map artifacts from rosbag datasets.</p>
+        </article>
+        <article class="card">
+          <h3>Online Relocalization</h3>
+          <p>Compute nearest-point distance and heading error in real time.</p>
+        </article>
+        <article class="card">
+          <h3>Simulation Demo</h3>
+          <p>Validate end-to-end behavior and control integration before field tests.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section reveal" id="pipeline">
+      <h2>Pipeline</h2>
+      <ol class="steps">
+        <li><strong>Record</strong> telemetry and tag detections.</li>
+        <li><strong>Build</strong> reference trajectory and tag map offline.</li>
+        <li><strong>Relocalize</strong> live robot pose against learned trajectory.</li>
+        <li><strong>Evaluate</strong> deviation metrics and visualization outputs.</li>
+      </ol>
+    </section>
+
+    <section class="section reveal" id="results">
+      <h2>Results</h2>
+      <p class="muted">Replace placeholders below with your final videos, screenshots, and metrics.</p>
+
+      <div class="grid-2">
+        <article class="media-card">
+          <h3>Offline Analysis</h3>
+          <img src="assets/results/offline_plot_placeholder.png" alt="Offline analysis plot placeholder" onerror="this.style.display='none'" />
+          <p class="placeholder">Expected files: trajectory/map plot, distance-angle charts, summary tables.</p>
+        </article>
+
+        <article class="media-card">
+          <h3>Online Relocalization</h3>
+          <video controls preload="metadata" poster="assets/results/online_poster_placeholder.png">
+            <source src="assets/videos/online_relocalization_demo.mp4" type="video/mp4" />
+          </video>
+          <p class="placeholder">Expected video: nearest point tracking + distance/heading markers in RViz.</p>
+        </article>
+      </div>
+
+      <div class="metrics">
+        <h3>Key Metrics (Example Table)</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>Value</th>
+              <th>Comment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Mean Distance to Path</td>
+              <td>-- m</td>
+              <td>Lower is better</td>
+            </tr>
+            <tr>
+              <td>P95 Distance</td>
+              <td>-- m</td>
+              <td>Robustness indicator</td>
+            </tr>
+            <tr>
+              <td>Mean |Heading Error|</td>
+              <td>-- deg</td>
+              <td>Orientation consistency</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section reveal" id="practical-work">
+      <h2>Practical Work Example</h2>
+      <p>Suggested student exercise:</p>
+      <ol class="steps">
+        <li>Record one run in simulation or on robot.</li>
+        <li>Generate reference trajectory and map outputs.</li>
+        <li>Run online relocalization and capture RViz evidence.</li>
+        <li>Report distance and heading metrics with interpretation.</li>
+      </ol>
+    </section>
+
+    <section class="section reveal" id="scope">
+      <h2>Scope Boundaries</h2>
+      <div class="grid-2">
+        <article class="card ok">
+          <h3>In Scope</h3>
+          <ul>
+            <li>Trajectory learning and offline reconstruction</li>
+            <li>Online nearest-point relocalization</li>
+            <li>Distance and heading deviation metrics</li>
+          </ul>
+        </article>
+        <article class="card warn">
+          <h3>Out of Scope</h3>
+          <ul>
+            <li>Full global navigation in arbitrary worlds</li>
+            <li>Dynamic obstacle avoidance stack</li>
+            <li>Multi-robot mission planning</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section reveal" id="quickstart">
+      <h2>Quick Start Commands</h2>
+      <pre><code>cd limo_ws
+source /opt/ros/humble/setup.bash
+bash profiles/build_real.sh
+# or
+bash profiles/build_sim.sh</code></pre>
+    </section>
+
+    <section class="section reveal" id="docs-links">
+      <h2>Documentation</h2>
+      <ul class="links">
+        <li><a href="../README.md">Repository README</a></li>
+        <li><a href="../limo_ws/README.md">Workspace Technical Guide</a></li>
+        <li><a href="roadmap_2025_2026.md">Roadmap (2025-2026)</a></li>
+        <li><a href="project_scope_requirements.md">Cahier des Charges (Scope & Requirements)</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer reveal">
+    <p>Project domain: trajectory deviation from a learned path using AprilTags.</p>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
