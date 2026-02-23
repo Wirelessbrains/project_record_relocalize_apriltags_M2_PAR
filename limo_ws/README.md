@@ -109,10 +109,15 @@ bash profiles/launch_real_online_relocalization.sh \
 
 ## 5) Simulation Workflow (Bonus)
 
+### 5.0 Launch parking scenario
+```bash
+bash profiles/launch_sim_parking.sh
+```
+
 ### 5.1 Launch multi-tag scenario
 
 ```bash
-bash profiles/launch_sim_tags_dataset.sh
+bash profiles/launch_sim_tags_dataset.sh 7
 ```
 
 ### 5.2 Start joystick teleop

@@ -62,7 +62,7 @@ bash profiles/launch_sim_parking.sh
 1) Launch scenario:
 
 ```bash
-bash profiles/launch_sim_tags_dataset.sh
+bash profiles/launch_sim_tags_dataset.sh 7
 ```
 
 2) Start joystick teleop:

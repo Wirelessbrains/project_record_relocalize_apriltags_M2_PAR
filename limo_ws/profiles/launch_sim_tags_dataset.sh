@@ -1,16 +1,27 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd /home/jpdark/Downloads/robot_ws
-export AMENT_TRACE_SETUP_FILES=${AMENT_TRACE_SETUP_FILES-}
-export AMENT_PYTHON_EXECUTABLE=${AMENT_PYTHON_EXECUTABLE-$(command -v python3)}
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+WS_ROOT="$(dirname "$SCRIPT_DIR")"
+cd "$WS_ROOT"
+
 set +u
 source /opt/ros/humble/setup.bash
-source install/setup.bash
+
+if [ -f "install/setup.bash" ]; then
+    source install/setup.bash
+else
+    echo "Error: Workspace not built. Run 'colcon build' in: $WS_ROOT"
+    exit 1
+fi
 set -u
 
-# Starts parking world with many tags, but disables parking autonomy stack.
-ros2 launch control_limo sim_unified.launch.py \
-  world:=/home/jpdark/Downloads/robot_ws/src/gz_apriltag_env/worlds/walls_apriltag_limo.sdf \
-  parking_mode:=false \
-  run_ippe_localization:=false
+MODE=${1:-parking}
+
+if [[ "$MODE" == "7" || "$MODE" == "multitag" ]]; then
+    echo "Launching Multi-tag Perception Only Scenario (No Control)"
+    ros2 launch control_limo sim_perception.launch.py
+else
+    echo "Launching Parking Control Scenario (Gare)"
+    ros2 launch control_limo tags_parking_full.launch.py
+fi

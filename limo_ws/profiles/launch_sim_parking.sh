@@ -1,17 +1,21 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd /home/jpdark/Downloads/robot_ws
-export AMENT_TRACE_SETUP_FILES=${AMENT_TRACE_SETUP_FILES-}
-export AMENT_PYTHON_EXECUTABLE=${AMENT_PYTHON_EXECUTABLE-$(command -v python3)}
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+WS_ROOT="$(dirname "$SCRIPT_DIR")"
+cd "$WS_ROOT"
+
 set +u
 source /opt/ros/humble/setup.bash
-source install/setup.bash
+
+if [ -f "install/setup.bash" ]; then
+    source install/setup.bash
+else
+    echo "Error: Workspace not built. Run 'colcon build' in: $WS_ROOT"
+    exit 1
+fi
 set -u
 
-ros2 launch control_limo sim_unified.launch.py \
-  world_profile:=parking \
-  parking_mode:=true \
-  reverse_parking:=true \
-  target_spot_index:=-1 \
-  require_final_orientation:=true
+echo "Launching Parking Control Scenario (Gare)"
+# tags_parking_full.launch.py already includes bridge, perception, and control.
+ros2 launch control_limo tags_parking_full.launch.py

@@ -13,39 +13,47 @@
 \usepackage{indentfirst}
 \usepackage{mathpazo}
 \usepackage[scaled]{helvet}
+\usepackage{microtype} % Melhoria na tipografia (essencial para artigos)
+
 \linespread{1.05}
 
 %========================================================
 % Layout de página e cabeçalho/rodapé
-% (Ajuste de parágrafos mais “relatório”: menos espaçado e indent menor)
 %========================================================
 \usepackage[
-left=2cm,right=2cm,bottom=2cm,top=2cm,
-headheight=2cm,headsep=0.5cm,heightrounded=true
+left=2.5cm,right=2.5cm,bottom=2.5cm,top=2.5cm,
+headheight=1.5cm,headsep=0.8cm,heightrounded=true
 ]{geometry}
 
-\setlength{\parskip}{0.5em}
+\setlength{\parskip}{0.4em}
 \setlength{\parindent}{1.5em}
-\setlength{\emergencystretch}{1em}
+\setlength{\emergencystretch}{3em}
 
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
 \renewcommand{\sectionmark}[1]{\markboth{#1}{}}
-\fancyhead[L]{\small \nouppercase{\leftmark}}
-\fancyhead[R]{\small AprilTag-based Trajectory Tracking}
-\fancyfoot[C]{\thepage}
-\renewcommand{\headrulewidth}{0.4pt}
+\fancyhead[L]{\small \scshape \nouppercase{\leftmark}} % Small caps no cabeçalho
+\fancyhead[R]{\small \itshape AprilTag-Based Trajectory Recording}
+\fancyfoot[C]{\small \thepage}
+\renewcommand{\headrulewidth}{0.3pt}
 
 %========================================================
-% Links, metadados PDF e estrutura (TOC e títulos)
-% (Remove hack do \vspace dentro do título do TOC e remove redefinição de \section)
+% Links, legendas e estrutura
 %========================================================
 \usepackage{xpatch}
-\usepackage{float}
-\usepackage{hyperref}
 \usepackage{caption}
 \usepackage[list=true]{subcaption}
+
+% Estilo de legenda "Artigo Científico"
+\captionsetup{
+    font=small,
+    labelfont=bf,
+    labelsep=period,
+    justification=centering,
+    singlelinecheck=false,
+    margin=10pt
+}
 
 \setcounter{tocdepth}{3}
 \setcounter{secnumdepth}{3}
@@ -55,8 +63,6 @@ headheight=2cm,headsep=0.5cm,heightrounded=true
 \usepackage{titlesec}
 
 % --- Figuras e TikZ
-\usepackage{graphicx}
-\usepackage{float}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta,positioning,shapes.geometric,fit,calc}
 
@@ -106,7 +112,6 @@ headheight=2cm,headsep=0.5cm,heightrounded=true
 \usepackage{xcolor}
 \usepackage{bm}
 \usepackage{ragged2e}
-\usepackage{tcolorbox}
 \usepackage{textcomp}
 \usepackage{gensymb}
 \usepackage{amsmath,amsfonts,amssymb}
@@ -162,45 +167,7 @@ headheight=2cm,headsep=0.5cm,heightrounded=true
 
 
 
-%========================================================
-% Nomenclatura
-%========================================================
-\usepackage[intoc]{nomencl}
-\usepackage{etoolbox}
-\makenomenclature
 
-\renewcommand\nomgroup[1]{%
-	\item[\bfseries
-	\ifstrequal{#1}{A}{Camera Model}{%
-		\ifstrequal{#1}{B}{Geometry and Transformations}{%
-			\ifstrequal{#1}{C}{AprilTag and Algorithms}{%
-	}}}%
-	]}
-
-\AtBeginDocument{
-	\nomenclature[A]{$K$}{Intrinsic camera matrix (internal parameters)}
-	\nomenclature[A]{$f_x, f_y$}{Focal lengths expressed in pixels}
-	\nomenclature[A]{$(c_x, c_y)$}{Coordinates of the principal point of the image}
-	\nomenclature[A]{$(u, v)$}{Pixel coordinates in the image}
-	\nomenclature[A]{$\mathbf{p}_c$}{3D point expressed in the camera reference frame $[X_c\;Y_c\;Z_c]^\top$}
-	\nomenclature[A]{$(x_n, y_n)$}{Normalized coordinates in the image plane}
-	\nomenclature[A]{$(x_d, y_d)$}{Distorted image coordinates}
-	\nomenclature[A]{$k_i, p_i$}{Radial and tangential distortion coefficients}
-	\nomenclature[A]{$\mathbf{u}_i$}{Observed pixel coordinates (measurement)}
-	\nomenclature[A]{$\boldsymbol{\epsilon}_i$}{Measurement noise associated with corner observation}
-	\nomenclature[A]{$\Sigma_u$}{Covariance matrix of measurement noise}
-	\nomenclature[A]{$\pi(\cdot)$}{Perspective projection function $\pi([x,y,z]^\top) = [x/z, y/z]^\top$}
-	\nomenclature[A]{$\lambda$}{Scale factor (depth $Z_c$)}
-	\nomenclature[B]{${}^{A}T_{B}$}{Homogeneous transformation matrix from reference frame B to A}
-	\nomenclature[B]{$SE(3)$}{Special Euclidean group (rigid transformations in 3D)}
-	\nomenclature[B]{$SO(3)$}{Special Orthogonal group (rotations in 3D)}
-	\nomenclature[B]{$R$}{Rotation matrix $SO(3)$}
-	\nomenclature[B]{$t$}{Translation vector $\mathbb{R}^3$}
-	\nomenclature[C]{$d_H(a,b)$}{Hamming distance between two binary codes}
-	\nomenclature[C]{$\rho^r(\cdot)$}{Bitwise rotation function by $90^\circ$ increments}
-	\nomenclature[C]{$\mathbb{I}\{\cdot\}$}{Indicator function (1 if true, 0 otherwise)}
-	\nomenclature[C]{$H$}{Planar homography matrix}
-}
 
 %========================================================
 % Figuras
@@ -256,10 +223,46 @@ headheight=2cm,headsep=0.5cm,heightrounded=true
 \xpretocmd{\listofmyequations}{\addcontentsline{toc}{section}{\listequationsname}}{}{}
 
 %========================================================
-% Código-fonte (listings)
-% (Inclui também a entrada da lista de listings no TOC)
+% Cores Profissionais
 %========================================================
-\usepackage{listings}
+\definecolor{techblue}{RGB}{0, 75, 135}
+\definecolor{techgrey}{RGB}{100, 100, 100}
+\definecolor{lightgrey}{RGB}{245, 245, 245}
+\definecolor{softblue}{RGB}{235, 242, 250}
+\definecolor{darkblue}{RGB}{0, 50, 100}
+
+% --- Estilos TikZ Globais
+\tikzset{
+    base/.style={draw=techblue!80, thick, align=center, inner sep=6pt, font=\small},
+    io/.style={base, trapezium, trapezium left angle=70, trapezium right angle=110, fill=softblue, minimum height=10mm},
+    proc/.style={base, rectangle, rounded corners=1mm, fill=lightgrey, minimum height=10mm},
+    pose/.style={base, rectangle, rounded corners=1mm, fill=techblue!10, minimum height=10mm, draw=techblue},
+    store/.style={base, trapezium, trapezium left angle=70, trapezium right angle=110, fill=lightgrey, minimum height=10mm},
+    arrow/.style={-Stealth, thick, draw=techblue!80},
+}
+
+% --- Requirements tables style (Modern Journal Style) ---
+\usepackage{tabularray}
+\UseTblrLibrary{booktabs}
+\usepackage[most]{tcolorbox}
+
+% Palette for boxes
+\definecolor{funcbg}{RGB}{250, 250, 250}
+\definecolor{boxborder}{RGB}{60, 60, 60}
+
+\tcbset{
+	reqbox/.style={
+		enhanced,
+		sharp corners,
+		boxrule=0.5pt,
+		left=3mm,right=3mm,top=2mm,bottom=2mm,
+		colframe=techblue!70,
+		colback=funcbg,
+		fonttitle=\bfseries\small,
+		attach boxed title to top left={xshift=3mm, yshift=-2mm},
+		boxed title style={colback=techblue, colframe=techblue, sharp corners},
+	}
+}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -340,7 +343,7 @@ headheight=2cm,headsep=0.5cm,heightrounded=true
 			\vfill
 			
 			\rule{\linewidth}{0.5mm}\\[0.4cm]
-			{\huge \bfseries AprilTag-based Trajectory Tracking\\[0.2cm] for the LIMOS Robot}\\[0.4cm]
+			{\huge \bfseries An AprilTag-Based Approach to Trajectory Recording and Relocalization for Mobile Robots}\\[0.4cm]
 			\rule{\linewidth}{0.5mm}\\[1.5cm]
 			
 			{\Large Second-year Master's project}\\[0.5cm]
@@ -374,19 +377,17 @@ headheight=2cm,headsep=0.5cm,heightrounded=true
 	\newpage
 	\thispagestyle{empty}
 	\begin{center}
-		\Large \textbf{Title}
+		\vspace*{1cm}
+		{\huge \bfseries An AprilTag-Based Approach to Trajectory Recording and Relocalization for Mobile Robots}
 		
-		\vspace{0.4cm}
-		\large Subtitle
-		
-		\vspace{0.4cm}
-		\textbf{Author}
-		
-		\vspace{0.9cm}
-		\textbf{Abstract}
+		\vspace{1.5cm}
+		{\large \bfseries Abstract}
 	\end{center}
 	
-	\blindtext
+	\begin{quote}
+		\itshape
+		\blindtext
+	\end{quote}
 	
 	%========================================================
 	% TOC & listas (relatório “completo”)
@@ -397,49 +398,484 @@ headheight=2cm,headsep=0.5cm,heightrounded=true
 	
 	\tableofcontents
 	\newpage
-	\listoffigures
+
 
 
 	
 	\newpage
-	\printnomenclature
+
 
 	
 
 
 \newpage
 \section{Introduction}
-	Being able to follow a path once and repeat it optimally is a practical skill for mobile robots, especially in indoor environments where GPS is not available and tasks are repetitive by nature. Thus, this is the central idea behind Teach and Replay\cite{nourizadeh2024teachrepeatnavigationrobust}, the robot first performs a guided route while it registers the markers looking for a positioning reference of each tag and then uses this record of positions to reproduce the same route optimally.
 
-	In this practical exercise, this concept was implemented on a LIMO mobile robot using its integrated RGB cam and AprilTag \cite{olson2011tags} fiducial markers positioned along a closed circuit with a start and end. During the teach phase, the robot completes a first turn while detecting the markers and saves the information from the positions of the robot in relation to the tags to represent the executed movement. After pressing the Y key of the Xbox controller or another controller's triangle, the system switches to the replay phase, where the robot tries to follow the learned trajectory. The goal is simple: complete the circuit, reducing the path deviation and maintaining a safe distance from the tags, but a restriction is imposed on the user of at least always seeing two tags in the cam.
+	Mobile robots operating in indoor laboratory environments cannot rely on satellite-based positioning systems and must instead estimate their pose using locally defined spatial references. Reliable localization therefore remains a fundamental requirement for controlled experimentation and autonomous operation, particularly in structured environments where repeatability and spatial consistency are expected \cite{ULLAH2024100651}. Within this context, the objective of this project is to design a two-phase framework in which a mobile robot first records a reference trajectory during an initial run and subsequently estimates its pose with respect to that same reference. The purpose of this relocalization stage is to provide the geometric quantities required for the later implementation of a trajectory tracking control law. The scope of the work is thus not the design of the controller itself, but the establishment of a consistent and reproducible spatial framework that enables such control strategies to be developed and evaluated.
 	
-	In order to develop the solution in a controlled way and evaluate its behavior in real conditions, a simulation workflow was made for reality. Therefore, it started in the Gazebo Ignition, where the perception and control components have been tested  and validated. We then transfer the same workflow to the real LIMO robot, where external noise such as lighting variation, motion blur, and wheel slippage naturally increase the challenge of detection quality for tracking performance. This report therefore documents not only the final system but also the changes that occurred when moving from simulation to a real platform.
+	Although a trajectory can be recorded during an initial traversal, this action alone does not ensure that the same spatial path can be consistently referenced at a later time. In practice, odometry based motion estimation accumulates error over time due to sensor noise and unmodeled effects such as wheel slip, which leads to drift even in repeated runs \cite{elhoushi2019odometry_survey}. Consequently, successive executions of the same nominal motion may produce trajectories that are not directly comparable in a common frame. To mitigate this, the recorded motion must be associated with stable spatial references so that the robot can reconstruct a consistent relationship between its current pose and the previously recorded path, which is a recurring requirement in mobile robot localization pipelines \cite{ULLAH2024100651}. The technical problem therefore lies in defining a trajectory representation that remains coherent over time and in establishing a method to estimate the robot’s pose relative to that reference during subsequent runs.
 	
-	The rest of the report presents the requirements of the problem, justifying that it will be useful a tracking system trajectory, and also details the methodology proposed for the method Teach and Replay, both for the part of the validation in simulation and for the implementation in the real case, defines the evaluation metrics and discusses the results obtained with a direct comparison between simulated and real executions.
+	Based on these requirements, this work implements a two-phase system with an offline reconstruction stage and a relocalization stage designed for both offline analysis and online execution. Data collected during the initial traversal are processed offline to reconstruct the reference trajectory and to estimate an optimized marker map, since this step involves iterative estimation procedures with higher computational cost. During subsequent runs, relocalization relies on marker detection and pose estimation to compute the robot pose with respect to the reconstructed reference, which makes online deployment feasible. 
 	
-	However, this work was that it will serve to help students from related areas of programming and robotics at Polytechnique de Clermont-Ferrand to use the system in a practical work, so they can understand how the simple camera perception part, using markers, can be applied directly to mobile robotics, understand the complexity of the transformations of positions used and how, with a simple camera and markers, it is possible to trace a trajectory and, with optimization, arrive at the best possible trajectory.
+	The system was developed in ROS 2 Humble and validated on the AgileX LIMO platform. AprilTag v3 was selected based on recent evaluations reporting improved detection performance in practical conditions, and the tag36h11 family was used due to its widely adopted coding scheme with a large identifier set and error tolerance properties \cite{olson2011apriltag,krogius2019flexible}. As a result, the system provides the reference trajectory and the relocalization outputs needed for trajectory tracking, and it is designed to be coupled with a controller developed as part of subsequent work.
+		
+	
+\section{System Requirements}
 
-\subsection{Objectives}
+\subsection{Operational Context}
 
-\subsubsection{General objective}
+The system is intended for controlled experimental environments in which AprilTag fiducial markers are deployed in advance. In this setting, the robot does not rely on satellite-based positioning and instead uses onboard perception together with a predefined marker reference to support trajectory recording and subsequent relocalization.
 
-To develop and validate a vision-based \textit{Teach and Replay} navigation system for a mobile robot, using an RGB camera and fiducial markers, capable of learning and reproducing a trajectory.
-
-\subsubsection{Specific objectives}
+Two workflows are provided to support development and validation:
 \begin{itemize}
-	\item Implement a visual perception pipeline based on AprilTag detection for estimating the relative pose between the robot and multiple observed markers.
-	
-	\item Design and implement the \textit{teach} phase in a closed circuit, recording the guided trajectory of the robot under the operational constraint of simultaneous visibility of at least two markers.
-	
-	\item Develop the \textit{replay} phase, allowing the reproduction of the learned trajectory with minimization of path deviation.
-	
-	\item Validate and debug the perception and control modules in a simulation environment, under controlled conditions, before implementation on real hardware.
-	
-	\item Transfer the same workflow to the LIMO mobile robot and analyze the impact of real-world disturbances.
-	
-	\item Make available a didactic and reusable system on GitHub.
-	
+	\item a real-robot workflow validated on the AgileX LIMO platform,
+	\item a simulation workflow used for repeatable testing and dataset generation.
 \end{itemize}
+
+The implementation is developed in ROS~2 Humble and organized as a modular workspace. The requirements listed in the following subsections specify the expected system functions, delivery constraints, and operational limitations.
+
+
+\begin{tcolorbox}[reqbox,title={Table \thetable: Functional Requirements}]
+	\refstepcounter{table}
+	\addcontentsline{lot}{table}{\protect\numberline{\thetable}Functional Requirements}\label{tab:func_reqs}
+	\begin{tblr}{
+			colspec = {Q[c,m,1.2cm] X[l,m]},
+			row{1} = {font=\bfseries, fg=techblue},
+			rows = {m}
+		}
+		ID & Requirement \\ \midrule
+		FR1 & The system shall provide workflows for recording robot motion and perception data into rosbag2 datasets for offline processing. \\
+		FR2 & The system shall process recorded rosbag2 datasets offline to generate a reference trajectory and a spatial map of detected AprilTags. \\
+		FR3 & The offline processing stage shall export structured output files, including trajectory CSV and tag map YAML/CSV formats. \\
+		FR4 & The system shall provide an online relocalization node capable of loading a reference trajectory, subscribing to a live pose topic, computing nearest-point distance and heading deviation, and publishing these quantities for controller integration. \\
+		FR5 & The system shall publish visualization-compatible ROS topics enabling RViz display of reference trajectory, current pose, nearest reference pose, and relocalization error indicators. \\
+		FR6 & The system shall provide launch files and profile scripts supporting both real and simulation workflows. \\
+		FR7 & The system shall include documented execution procedures ensuring reproducibility from recorded datasets. \\
+	\end{tblr}
+\end{tcolorbox}
+
+
+
+\begin{tcolorbox}[reqbox,title={Table \thetable: Non-Functional Requirements}]
+	\refstepcounter{table}
+	\addcontentsline{lot}{table}{\protect\numberline{\thetable}Non-Functional Requirements}\label{tab:nonfunc_reqs}
+	\begin{tblr}{
+			colspec = {Q[c,m,1.2cm] X[l,m]},
+			row{1} = {font=\bfseries, fg=techblue},
+			rows = {m}
+		}
+		ID & Requirement \\ \midrule
+		NFR1 & Offline reconstruction shall be executable independently of live robot operation. \\
+		NFR2 & Online relocalization shall operate within computational limits compatible with real-time ROS~2 execution. \\
+		NFR3 & The architecture shall maintain separation between perception, offline reconstruction, and online relocalization components. \\
+		NFR4 & The system shall ensure consistency of coordinate frames within the ROS~2 TF structure. \\
+		NFR5 & Dataset files shall remain external to version control to maintain repository portability. \\
+	\end{tblr}
+\end{tcolorbox}
+
+
+
+\begin{tcolorbox}[reqbox,title={Table \thetable: Project Deliverables and Constraints}]
+	\refstepcounter{table}
+	\addcontentsline{lot}{table}{\protect\numberline{\thetable}Project Deliverables and Constraints}\label{tab:deliverables}
+	\begin{tblr}{
+			colspec = {Q[c,m,1.2cm] X[l,m]},
+			row{1} = {font=\bfseries, fg=techblue},
+			rows = {m}
+		}
+		ID & Requirement \\ \midrule
+		PR1 & The project shall be delivered as a version-controlled ROS~2 workspace repository containing source code, launch files, scripts, and documentation. \\
+		PR2 & The repository shall include structured workflows for both real and simulation execution. \\
+		C1  & The system shall be implemented in ROS~2 Humble. \\
+		C2  & The perception pipeline shall use AprilTag v3 with the tag36h11 family. \\
+		C3  & Experimental validation shall be conducted on the AgileX LIMO platform. \\
+		C4  & The system shall not include full autonomous navigation, SLAM of unknown environments, obstacle avoidance, or mission-level planning. \\
+	\end{tblr}
+\end{tcolorbox}
+
+
+
+\begin{tcolorbox}[reqbox,title={Table \thetable: Technical Limitations}]
+	\refstepcounter{table}
+	\addcontentsline{lot}{table}{\protect\numberline{\thetable}Technical Limitations}\label{tab:limitations}
+	\begin{tblr}{
+			colspec = {Q[c,m,1.2cm] X[l,m]},
+			row{1} = {font=\bfseries, fg=techblue},
+			rows = {m}
+		}
+		ID & Limitation \\ \midrule
+		TL1 & Accurate and stable pose estimation assumes that at least two AprilTags are simultaneously visible in the camera field of view. While pose can be computed from a single detection, multi-tag observations improve numerical stability and reduce sensitivity to noise and calibration errors. \\
+		TL2 & Localization precision depends on camera calibration quality, tag size, distance to the tags, and image resolution. The system does not guarantee fixed absolute accuracy under arbitrary environmental conditions. \\
+	\end{tblr}
+\end{tcolorbox}
+
+
+
+\section{System Architecture}
+\label{sec:system_architecture}
+
+The system is implemented on the AgileX LIMO wheeled platform and uses a calibrated monocular RGB camera to observe AprilTags placed at fixed locations in the workspace and the Figures \ref{fig:environment_setu} illustrate the system in simulation and its corresponding real-world deployment. An initial traversal is recorded as a rosbag2 dataset so that the same sensor stream and time-stamped measurements can be processed offline to build a geometric reference. The workflow is exercised in two settings, namely a real-robot setup and a simulation setup that reproduces the same sensor configuration and marker arrangement. Because the camera is rigidly mounted on the robot and the tags are treated as static landmarks in both settings, the same processing steps apply without changing the underlying formulation. The architecture is therefore presented as two consecutive phases. In the recording phase, the recorded traversal is processed to estimate an optimized tag map and a reference trajectory expressed consistently with that map. In the relocalization phase, new pose estimates are compared to the reference in order to compute the distance to the trajectory and the heading deviation relative to the local path direction, which are published as outputs for a trajectory tracking controller implemented outside the scope of this work.
+
+\begin{figure}[t]
+	\centering
+	\captionsetup[subfigure]{justification=centering}
+	\begin{subfigure}[b]{0.48\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{Images/limo_real_environment.png}
+		\caption{Real-world experimental setup with AgileX LIMO and fixed AprilTags.}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.48\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{Images/limo_simulation_environment.png}
+		\caption{Simulation environment used for dataset generation and validation.}
+	\end{subfigure}
+	\caption{Physical and simulated setups used to evaluate the proposed architecture. In both workflows, the robot-mounted camera observes static AprilTags distributed in the environment.}
+	\label{fig:environment_setu}
+\end{figure}
+
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.48\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{Images/apriltag_detection_real.png}
+		\caption{Example of AprilTag detection in the real environment.}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.48\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{Images/apriltag_detection_sim.png}
+		\caption{AprilTag detection in the simulated environment.}
+	\end{subfigure}
+	\caption{Representative detection, each detected tag yields a camera-relative pose estimate obtained through a PnP formulation.}
+	\label{fig:apriltag_detection}
+\end{figure}
+
+Figure \ref{fig:apriltag_detection} illustrates representative camera frames acquired during both real and simulated executions. Detected markers are outlined and identified, and their estimated poses are expressed with respect to the camera frame. These per-frame relative transformations constitute the primary measurements used in the recording phase. Although each detection provides a six-degree-of-freedom estimate, the resulting poses are inherently local and subject to noise. As a result, consistent global structure must be recovered by integrating observations across multiple viewpoints.
+
+\subsection{Recording Phase}
+\label{subsec:recording_phase}
+
+The recording phase processes the data collected during the initial traversal in order to construct a reference tag map and a corresponding camera trajectory. Figure~\ref{fig:recording_pipeline} summarizes the computational steps involved. Each block in the pipeline corresponds to a specific estimation stage, which is detailed in the following subsections.
+
+% --- TIKZ DIAGRAM (LuaLaTeX) of the Recording pipeline (fixed directions)
+\begin{figure}[h]
+	\centering
+	\resizebox{0.95\textwidth}{!}{
+		\begin{tikzpicture}[
+			node distance=14mm and 18mm,
+			>=Latex,
+			arrow/.style={->, line width=0.6pt},
+			line/.style={-, line width=0.6pt}
+			]
+			
+			% --- Dataset (top)
+			\node[io] (bag)
+			{Logging dataset\\\textit{rosbag2}};
+			
+			% --- Sources BELOW the dataset
+			\node[proc, below left=16mm and 1mm of bag] (det)
+			{Detections\\April\_Tag};
+			
+			\node[proc, below right=16mm and 1mm of bag] (caminfo)
+			{Camera intrinsics\\Camera\_Info};
+			
+			% --- Pose estimation (to the right of bag)
+			\node[pose, right=24mm of bag] (pnp)
+			{\textbf{(1)} Pose estimation (PnP)\\${}^{\text{cam}}\!T_{\text{tag}}(t)$};
+			
+			% --- Constraints
+			\node[proc, right=18mm of pnp] (edges)
+			{\textbf{(2)} Pairwise constraints\\${}^{i}\!T_{j}^{obs}(t)$};
+			
+			% --- Map optimization
+			\node[pose, right=18mm of edges] (map)
+			{\textbf{(3)} Tag map optimization\\$\{{}^{\text{world}}\!T_{\text{tag}_i}\}$};
+			
+			% --- Trajectory
+			\node[pose, below=12mm of map] (traj)
+			{\textbf{(4)} Reference trajectory\\$\{{}^{\text{world}}\!T_{\text{cam}}(t)\}$\\(+ smoothing)};
+			
+			% --- Outputs
+			\node[store, right=18mm of map,
+			base, trapezium,
+			trapezium left angle=70,
+			trapezium right angle=110,
+			fill=lightgrey] (out)
+			{Exports\\\texttt{tag\_map.yaml/csv}\\\texttt{trajetoria\_camera.csv} };
+			
+			% --- MERGE under bag (prevents overlap) then arrow up into bag
+			\coordinate (merge) at ($(bag.south) + (0,-10mm)$);
+			
+			% branches (no arrowheads here)
+			\draw[line] (det.north) |- (merge);
+			\draw[line] (caminfo.north) |- (merge);
+			
+			% single arrow into rosbag (correct direction)
+			\draw[arrow] (merge) -- (bag.south);
+			
+			% rosbag exits from the side to PnP (lateral arrow)
+			\draw[arrow] (bag.east) -- (pnp.west);
+			
+			% --- Main chain
+			\draw[arrow] (pnp) -- (edges);
+			\draw[arrow] (edges) -- (map);
+			\draw[arrow] (map) -- (out);
+			
+			\draw[arrow] (map) -- (traj);
+			\draw[arrow] (traj.east) -- ++(6mm,0) |- ([yshift=-4mm]out.south) -- (out.south);
+			
+			% --- Box (outline) for steps (1) to (4), with light pastel background
+			\node[
+			draw=black!45,
+			line width=0.4pt,
+			rounded corners=2mm,
+			fill=techblue!20,
+			fill opacity=0.15,   % pastel leve, não tampa o conteúdo
+			draw opacity=1,
+			fit=(pnp)(edges)(map)(traj),
+			inner sep=1mm,
+			label={[anchor=north]south:{\small\texttt{build\_tag\_map\_offline.py}}}
+			] {};
+			
+			% --- Dashed container
+			\node[
+			draw=techblue!30,
+			dashed,
+			rounded corners=3mm,
+			fit=(bag)(det)(caminfo)(pnp)(edges)(map)(traj)(out),
+			inner sep=8mm
+			] {};
+			
+		\end{tikzpicture}
+	}
+	\caption{Architecture of the offline recording pipeline.}
+	\label{fig:recording_pipeline}
+\end{figure}
+
+As indicated in block~\textbf{(1)} of Figure~\ref{fig:recording_pipeline}, the first step of the recording phase estimates camera-to-tag relative poses by solving a Perspective-n-Point problem under calibrated intrinsics \cite{Hartley2004} using the logged detections..
+
+To construct a globally consistent representation of the environment, the local camera-to-tag measurements must be expressed in a common reference frame. In this work, rigid-body transformations are denoted by ${}^{A}\!T_{B} \in SE(3)$, representing the pose of frame $B$ with respect to frame $A$ \cite{barfoot2017state}. Each detection provides a relative transformation ${}^{\text{cam}}\!T_{\text{tag}_i}(t)$ at time $t$. Since the camera pose varies along the traversal, each measurement relates a tag pose to a different camera coordinate system. If the pose of a marker $\text{tag}_0$ in the world frame is known or fixed, the camera pose follows from the inverse of the observed camera-to-tag transformation, as written in Eq.~\eqref{eq:teach_worldTcam_from_anchor}.
+
+\begin{equation}
+	{}^{\text{world}}\!T_{\text{cam}}(t)
+	=
+	{}^{\text{world}}\!T_{\text{tag}_0}\;
+	\left({}^{\text{cam}}\!T_{\text{tag}_0}(t)\right)^{-1}.
+	\label{eq:teach_worldTcam_from_anchor}
+\end{equation}
+
+Equation~\eqref{eq:teach_worldTcam_from_anchor} highlights both the utility and the limitation of single-frame detections. This map provides the global geometric reference required to express camera poses consistently across time. In this context, the tag map is defined as the set of world-referenced poses $\{{}^{\text{world}}\!T_{\text{tag}_i}\}$ estimated from all pairwise relative constraints accumulated along the traversal when an anchored tag is visible, a world-referenced camera pose estimate follows immediately. In practice, however, most tags do not have a pre-defined world pose. The recording phase therefore estimates the set of tag poses $\{{}^{\text{world}}\!T_{\text{tag}_i}\}$ that best explains the collection of camera-to-tag observations acquired along the traversal.
+
+As illustrated in block~\textbf{(2)} of Figure~\ref{fig:recording_pipeline}, frames containing multiple visible tags allow the construction of pairwise constraints. When two tags $i$ and $j$ are simultaneously detected, their relative transformation can be computed from the camera-centered estimates. Using the composition and inversion properties of rigid transformations \cite{Hartley2004,barfoot2017state}, the observed relation is given by Eq.~\eqref{eq:obs_rel_tagij}.
+
+\begin{equation}
+	{}^{i}\!T_{j}^{\,obs}(t)
+	=
+	\left({}^{\text{cam}}\!T_{\text{tag}_i}(t)\right)^{-1}
+	{}^{\text{cam}}\!T_{\text{tag}_j}(t).
+	\label{eq:obs_rel_tagij}
+\end{equation}
+
+Each observation in Eq.~\eqref{eq:obs_rel_tagij} induces a constraint between the unknown world poses ${}^{\text{world}}\!T_{\text{tag}_i}$ and ${}^{\text{world}}\!T_{\text{tag}_j}$. In an ideal noise-free setting, the observed relative pose would match the relative pose implied by the world estimates, as expressed in Eq.~\eqref{eq:pred_rel_tagij}.
+
+\begin{equation}
+	{}^{i}\!T_{j}^{\,pred}
+	=
+	\left({}^{\text{world}}\!T_{\text{tag}_i}\right)^{-1}
+	{}^{\text{world}}\!T_{\text{tag}_j}.
+	\label{eq:pred_rel_tagij}
+\end{equation}
+
+In practice, detection uncertainty, calibration inaccuracies, and viewing geometry variations lead to inconsistencies across multiple measurements of the same tag pair. Collecting all pairwise constraints along the traversal yields a network of relative pose relations between tags.
+
+As shown in block~\textbf{(3)} of Figure~\ref{fig:recording_pipeline}, estimating a consistent global map from such constraints is posed as a nonlinear least-squares problem, following the general principles used in geometric least-squares estimation and graph-based formulations \cite{triggs1999ba,grisetti2010tutorial}. Let $\mathcal{E}$ denote the set of observed tag pairs. The tag poses are obtained by minimizing the sum of residuals over $\mathcal{E}$, as stated in Eq.~\eqref{eq:tagmap_nlsq}.
+
+\begin{equation}
+	\min_{\{{}^{\text{world}}\!T_{\text{tag}_i}\}}
+	\sum_{(i,j)\in \mathcal{E}}
+	\left\|
+	\mathrm{err}_{ij}
+	\right\|^2 .
+	\label{eq:tagmap_nlsq}
+\end{equation}
+
+In Eq.~\eqref{eq:tagmap_nlsq}, $\mathrm{err}_{ij}$ quantifies the discrepancy between the observed relative transformation in Eq.~\eqref{eq:obs_rel_tagij} and the relative transformation predicted by the current map estimate in Eq.~\eqref{eq:pred_rel_tagij}. In practice, this discrepancy is decomposed into translational and rotational components.
+
+To make the residual in Eq.~\eqref{eq:tagmap_nlsq} explicit, the predicted and observed relative transformations are written as
+${}^{i}\!T_{j}^{\,pred} = (R_{ij}^{pred},\, t_{ij}^{pred})$ and
+${}^{i}\!T_{j}^{\,obs}  = (R_{ij}^{obs},\,  t_{ij}^{obs})$.
+The translational component is defined as
+\begin{equation}
+	r_{t,ij} = t_{ij}^{pred} - t_{ij}^{obs}.
+	\label{eq:residual_translation}
+\end{equation}
+For the rotational component, the relative rotation between prediction and observation is computed by composition,
+\begin{equation}
+	R_{err,ij} = \left(R_{ij}^{pred}\right)^{\top} R_{ij}^{obs}.
+	\label{eq:rotation_error_comp}
+\end{equation}
+The matrix $R_{err,ij}$ is then mapped to a minimal three-parameter representation $r_{R,ij}\in\mathbb{R}^{3}$ using an axis--angle (rotation vector) parametrization, which is consistent with the pose representation adopted for optimization \cite{barfoot2017state}. The complete residual used in Eq.~\eqref{eq:tagmap_nlsq} is formed by stacking the translational and rotational components, $\,\mathrm{err}_{ij} = [\,r_{t,ij}^{\top}\;\; r_{R,ij}^{\top}\,]^{\top}$.
+
+Each tag pose ${}^{\text{world}}\!T_{\text{tag}_i}$ is parameterized using a minimal six-dimensional representation consisting of a three-parameter rotation vector and a three-dimensional translation. The optimization variables therefore correspond to the stacked pose parameters of all non-anchored tags.
+
+The minimization in Eq.~\eqref{eq:tagmap_nlsq} can be generalized to include a robust cost function,
+\begin{equation}
+	\min_{\{{}^{\text{world}}\!T_{\text{tag}_i}\}}
+	\sum_{(i,j)\in \mathcal{E}}
+	\rho\!\left(\left\|\mathrm{err}_{ij}\right\|^2\right),
+	\label{eq:tagmap_robust}
+\end{equation}
+where $\rho(\cdot)$ denotes a robust loss function. In contrast to a purely quadratic penalty, robust losses reduce the influence of large residuals that may arise from occasional misdetections, partial occlusions, or inaccurate corner localization. Such formulations belong to the class of M-estimators commonly used in robust least-squares estimation \cite{huber1964robust}.
+
+In this implementation, a soft-$\ell_1$ loss is employed. This loss behaves quadratically for small residuals, preserving the local convergence properties of standard least squares, and transitions to approximately linear growth for larger errors. As a result, residuals with large magnitude contribute less aggressively to the total cost, preventing them from dominating the optimization process. This choice is consistent with the presence of occasional inconsistent tag observations while maintaining sensitivity to well-conditioned measurements.
+
+The solution is obtained iteratively by updating the pose parameters so as to decrease the total residual error. One tag pose is held fixed throughout the optimization in order to eliminate the global gauge freedom discussed previously. The nonlinear least-squares problem is solved using an iterative trust-region method, as implemented in standard numerical optimization libraries. At each iteration, the pose parameters are updated so as to reduce the total robust cost defined in Eq.~\eqref{eq:tagmap_robust}. This procedure follows the classical Gauss–Newton framework for nonlinear least squares, adapted to the chosen minimal pose parametrization \cite{triggs1999ba}.
+
+Finally, as indicated in block~\textbf{(4)} of Figure~\ref{fig:recording_pipeline}, the optimized tag map is used to reconstruct the camera trajectory. For each observation of a tag $i$ at time $t$, a world-referenced camera pose estimate is obtained according to Eq.~\eqref{eq:world_cam_from_mapi}.
+
+\begin{equation}
+	{}^{\text{world}}\!T_{\text{cam}}^{(i)}(t)
+	=
+	{}^{\text{world}}\!T_{\text{tag}_i}
+	\left({}^{\text{cam}}\!T_{\text{tag}_i}(t)\right)^{-1}.
+	\label{eq:world_cam_from_mapi}
+\end{equation}
+
+When multiple tags are detected in the same frame, several estimates $\{{}^{\text{world}}\!T_{\text{cam}}^{(i)}(t)\}$ are obtained. In the absence of noise, these estimates would coincide, in practice, small discrepancies arise due to measurement uncertainty and residual map errors. A single pose per frame is obtained either by averaging the rigid transformations, by selecting the estimate with the smallest reprojection residual, or by solving a local nonlinear least-squares problem that minimizes the residual error between predicted and observed camera-to-tag transformations.
+
+The resulting sequence $\{{}^{\text{world}}\!T_{\text{cam}}(t)\}$ defines the reference trajectory recorded during the initial traversal. Since frame-wise estimation may introduce high-frequency variations, the trajectory is optionally regularized in time prior to export. 
+
+The temporal regularization is applied directly to the discrete sequence $\{{}^{\text{world}}\!T_{\text{cam}}(t)\}$ and penalizes large pose differences between consecutive timestamps while preserving the spatial structure imposed by the optimized tag map. This operation improves temporal consistency without altering the underlying map estimation. The final smoothed trajectory constitutes the geometric reference used in the subsequent \textit{relocalization phase}, where live pose estimates are compared against this stored reference in order to compute distance and heading deviations.
+
+
+
+
+
+\subsection{Relocalization Phase}
+\label{subsec:relocalization_phase}
+
+The relocalization phase evaluates the geometric deviation between an estimated camera pose and the optimized reference trajectory obtained in the recording phase. In this stage, both the tag map $\{{}^{world}T_{tag_i}\}$ and the reference trajectory $\{{}^{world}T_{cam}(t_k)\}$ are assumed to be fixed and previously computed. Figure~\ref{fig:relocalization_pipeline} summarizes the computational structure adopted for relocalization, separating offline analysis from online execution.
+
+In contrast to the recording phase, no map optimization or trajectory reconstruction is performed here. Instead, the system receives a query pose ${}^{world}T_{cam}^{q} \in SE(3)$ and computes its geometric relationship with respect to the discrete reference trajectory. The resulting quantities are a distance-to-trajectory metric and a heading deviation, which are defined formally in the following subsection.
+
+\begin{figure}[h]
+	\centering
+	\resizebox{0.95\textwidth}{!}{
+		\begin{tikzpicture}[
+			node distance=16mm and 22mm,
+			>=Latex,
+			arrow/.style={->, line width=0.6pt},
+			line/.style={-, line width=0.6pt}
+			]
+			
+			% ------------------ TOP REFERENCES ------------------
+			\node[store] (reftraj)
+			{Reference trajectory\\\texttt{trajetoria\_camera.csv}};
+			
+			\node[store, right=20.5mm of reftraj] (refmap)
+			{Tag map\\\texttt{tag\_map.yaml/csv}};
+			
+			% ------------------ OFFLINE BRANCH ------------------
+			\node[io, below=22mm of reftraj] (queryoff)
+			{Query poses\\(offline dataset)};
+			
+			\node[proc, right=28mm of queryoff] (align)
+			{\textbf{(1)} Optional alignment\\(XY + yaw)};
+			
+			\node[pose, right=22mm of align] (nearestoff)
+			{\textbf{(2)} Nearest point search};
+			
+			\node[pose, right=22mm of nearestoff] (errorsoff)
+			{\textbf{(3)} Compute errors\\$D$ and $\phi$};
+			
+			\node[store, right=22mm of errorsoff] (report)
+			{Exports\\metrics/plots};
+			
+			% ------------------ ONLINE BRANCH ------------------
+			\node[io, below=26mm of queryoff] (livepose)
+			{Estimated robot pose\\(Pose)};
+			
+			\node[proc, right=28mm of livepose] (loadref)
+			{\textbf{(4*)} Load reference\\trajectory (CSV)};
+			
+			\node[pose, right=22mm of loadref] (neareston)
+			{\textbf{(5)} Nearest point\\+ tangent};
+			
+			\node[pose, right=22mm of neareston] (errorson)
+			{\textbf{(6)} Output errors\\$D$ and $\phi$};
+			
+			\node[store, right=22mm of errorson] (topics)
+			{ROS topics\\\texttt{/distance\_m}\\\texttt{/heading\_error\_deg}};
+			
+			% ------------------ CLEAN CONNECTIONS ------------------
+			
+			% Reference trajectory feeds OFFLINE explicitly
+			\draw[arrow] (reftraj.south) -- (queryoff.north);
+			
+			% Tag map feeds only alignment
+			\draw[->] (refmap.south) -- (align.north);
+			
+			% Offline chain
+			\draw[arrow] (queryoff) -- (align);
+			\draw[arrow] (align) -- (nearestoff);
+			\draw[arrow] (nearestoff) -- (errorsoff);
+			\draw[arrow] (errorsoff) -- (report);
+			
+			% Online chain (pose input)
+			\draw[arrow] (livepose) -- (loadref);
+			\draw[arrow] (loadref) -- (neareston);
+			\draw[arrow] (neareston) -- (errorson);
+			\draw[arrow] (errorson) -- (topics);
+			
+			% ------------------ IMPLEMENTATION BOXES ------------------
+			\node[
+			draw=black!45,
+			line width=0.4pt,
+			rounded corners=2mm,
+			fill=techblue!20,
+			fill opacity=0.15,
+			draw opacity=1,
+			fit=(align)(nearestoff)(errorsoff),
+			inner sep=2mm,
+			label={[anchor=north]south:{\small\texttt{analyze\_distance\_angle\_to\_trajectory.py}}}
+			] {};
+			
+			\node[
+			draw=black!45,
+			line width=0.4pt,
+			rounded corners=2mm,
+			fill=techblue!20,
+			fill opacity=0.15,
+			draw opacity=1,
+			fit=(loadref)(neareston)(errorson),
+			inner sep=2mm,
+			label={[anchor=north]south:{\small\texttt{online\_relocalization\_node.py}}}
+			] {};
+			
+			% ------------------ OUTER DASHED CONTAINER ------------------
+			\node[
+			draw=techblue!30,
+			dashed,
+			rounded corners=3mm,
+			fit=(reftraj)(refmap)(queryoff)(report)(livepose)(topics),
+			inner sep=10mm
+			] {};
+			
+		\end{tikzpicture}
+	}
+	\caption{Architecture of the relocalization pipeline with separated offline analysis and online execution. Step~(4*) loads the reference trajectory generated in the recording phase. Both workflows compute the distance to the reference trajectory $D$ and the heading deviation $\phi$ as control-oriented outputs.}
+	\label{fig:relocalization_pipeline}
+\end{figure}
+
+
+
+\begin{comment}
+	content...
+
+
+
 
 \section{Theoretical foundation}
 
@@ -659,7 +1095,7 @@ AprilTags are planar fiducial markers widely used as \emph{landmarks} in robotic
 
 Thus, Figure~\ref{fig:apriltag_structure} illustrates this functional separation: the border facilitates quadrilateral detection and accurate estimation of the four corners in the image, while the internal region encodes the identifier in a redundant and verifiable manner. In general terms, detection can be understood as a two-stage process, locating geometrically consistent candidates and rectifying the internal region to decode the \emph{payload} \cite{olson2011tags}. After ID validation, the observed corners provide 2D/3D correspondences with the known square geometry, which allows estimating the relative pose of the marker via the camera projective model.
 
-\begin{figure}[h!]
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=0.35\linewidth]{Images/tag_size_48h12.png}
 	\caption{Structure of an AprilTag.}
@@ -668,7 +1104,7 @@ Thus, Figure~\ref{fig:apriltag_structure} illustrates this functional separation
 
 In this way, each detection provides the marker identifier and a rigid transformation associated with its relative pose, usually expressed as ${}^{\text{cam}}\!T_{\text{tag}}\in SE(3)$. This transformation is obtained from the correspondences between the corners in the image and the known corners in the marker reference frame, and can be refined by minimizing the reprojection error. Likewise, Figure~\ref{fig:apriltag_pipeline} shows a typical example of detector visualization, in which the estimated quadrilateral, the decoded identifier, and the marker reference frame axes are overlaid on the image.
 
-\begin{figure}[h!]
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=0.55\linewidth]{Images/repre_exemple.png}
 	\caption{Example of output from an AprilTag detector.}
@@ -763,60 +1199,21 @@ In this way, for the remaining tags, the recorded observations provide relative 
 Figure~\ref{fig:teach_pipeline_tikz} summarizes the flow executed in the Teach Phase, highlighting detection acquisition, pose estimation, and temporal logging in \textit{rosbag}.
 
 % --- TIKZ DIAGRAM (LuaLaTeX) of the Teach pipeline (improved and colored version)
-\begin{figure}[h!]
+\begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[
-		font=\small,
 		node distance=12mm and 10mm,
-		>=Latex,
-		% styles
-		io/.style={
-			trapezium, trapezium left angle=70, trapezium right angle=110,
-			draw=black!60, fill=blue!10,
-			align=center, inner sep=6pt,
-			minimum width=28mm, minimum height=11mm
-		},
-		proc/.style={
-			rectangle, rounded corners=2.5mm,
-			draw=black!60, fill=gray!10,
-			align=center, inner sep=6pt,
-			minimum width=32mm, minimum height=11mm
-		},
-		pose/.style={
-			rectangle, rounded corners=2.5mm,
-			draw=black!60, fill=green!12,
-			align=center, inner sep=6pt,
-			minimum width=36mm, minimum height=11mm
-		},
-		aux/.style={
-			rectangle, rounded corners=2.5mm,
-			draw=black!60, fill=orange!15,
-			align=center, inner sep=6pt,
-			minimum width=36mm, minimum height=11mm
-		},
-		store/.style={
-			trapezium, trapezium left angle=70, trapezium right angle=110,
-			draw=black!60, fill=purple!12,
-			align=center, inner sep=6pt,
-			minimum width=28mm, minimum height=11mm
-		},
-		arrow/.style={->, thick, draw=black!70},
-		note/.style={
-			draw=black!55, dashed, rounded corners=2mm,
-			fill=yellow!12,
-			align=left, inner sep=7pt,
-			text width=62mm
-		}
+		>=Latex
 		]
 		
 		% main nodes (top row)
 		\node[io]   (cam)    {RGB Camera\\(frames)};
 		\node[proc, right=of cam] (detect) {AprilTag\\Detection};
 		\node[pose, right=of detect] (pnp) {Pose estimation\\${}^{\text{cam}}\!T_{\text{tag}}(t)$};
-		\node[store, right=of pnp] (log) {Logging\\\textit{rosbag}};
+		\node[store, right=of pnp, base, trapezium, trapezium left angle=70, trapezium right angle=110, fill=lightgrey] (log) {Logging\\\textit{rosbag}};
 		
 		% lower branch
-		\node[aux, below=12mm of pnp] (se3) {$SE(3)$ composition\\(anchor visible)};
+		\node[proc, below=12mm of pnp] (se3) {$SE(3)$ composition\\(anchor visible)};
 		\node[pose, right=of se3] (worldcam) {Estimate\\${}^{\text{world}}\!T_{\text{cam}}(t)$};
 		
 		% main connections
@@ -833,10 +1230,10 @@ Figure~\ref{fig:teach_pipeline_tikz} summarizes the flow executed in the Teach P
 		
 		
 		% (optional) light frame around the pipeline
-		\node[draw=black!25, rounded corners=3mm, fit=(cam)(log)(worldcam), inner sep=7mm] {};
+		\node[draw=techblue!30, dashed, rounded corners=3mm, fit=(cam)(log)(worldcam), inner sep=7mm] {};
 		
 	\end{tikzpicture}
-	\caption{Processing flow in the Teach Phase.}
+	\caption{Processing flow in the Teach Phase. Real-time perception and pose composition are executed while data is streamed to a rosbag container.}
 	\label{fig:teach_pipeline_tikz}
 \end{figure}
 
@@ -889,7 +1286,7 @@ It is worth noting that all observations acquired during the Teach Phase are sto
 This subsection presents the results of the \textit{Teach Phase} in a controlled scenario, visualized in RViz, before the application of any optimization stage. The objective here is to verify the geometric consistency of the pipeline: the estimated trajectory must be compatible with the distribution of the markers and, since it is a closed circuit, the shape of the path must be preserved.
 
 
-\begin{figure}[h!]
+\begin{figure}[H]
 	\centering
 	\includegraphics[
 	width=0.4\linewidth,
@@ -986,7 +1383,7 @@ Finally, Figure~\ref{fig:gazebo_tf_xy} presents a visualization of the \textit{T
 
 
 In summary, the simulation results highlight the expected behavior of a Teach Phase without optimization: the global structure of the circuit is preserved, but local errors progressively accumulate along the trajectory. These limitations directly motivate the introduction of the optimization stage, in which multiple observations of the same tag can be combined and the camera trajectory smoothed to reinforce the global consistency of the map.
-
+\end{comment}
 
 \newpage
 
