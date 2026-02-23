@@ -514,9 +514,9 @@ The implementation is developed in ROS~2 Humble and organized as a modular works
 \section{System Architecture}
 \label{sec:system_architecture}
 
-The system is implemented on the AgileX LIMO wheeled platform and uses a calibrated monocular RGB camera to observe AprilTags placed at fixed locations in the workspace and the Figures \ref{fig:environment_setu} illustrate the system in simulation and its corresponding real-world deployment. An initial traversal is recorded as a rosbag2 dataset so that the same sensor stream and time-stamped measurements can be processed offline to build a geometric reference. The workflow is exercised in two settings, namely a real-robot setup and a simulation setup that reproduces the same sensor configuration and marker arrangement. Because the camera is rigidly mounted on the robot and the tags are treated as static landmarks in both settings, the same processing steps apply without changing the underlying formulation. The architecture is therefore presented as two consecutive phases. In the recording phase, the recorded traversal is processed to estimate an optimized tag map and a reference trajectory expressed consistently with that map. In the relocalization phase, new pose estimates are compared to the reference in order to compute the distance to the trajectory and the heading deviation relative to the local path direction, which are published as outputs for a trajectory tracking controller implemented outside the scope of this work.
+The system is implemented on the AgileX LIMO wheeled platform and uses a calibrated monocular RGB camera to observe AprilTags placed at fixed locations in the workspace and the Figures \ref{fig:environment_setu} illustrate the system in simulation and its corresponding real-world deployment. An initial traversal is recorded as a rosbag2 dataset so that the same sensor stream and time-stamped measurements can be processed offline to build a geometric reference. 
 
-\begin{figure}[t]
+\begin{figure}[h]
 	\centering
 	\captionsetup[subfigure]{justification=centering}
 	\begin{subfigure}[b]{0.48\textwidth}
@@ -530,10 +530,11 @@ The system is implemented on the AgileX LIMO wheeled platform and uses a calibra
 		\includegraphics[width=\linewidth]{Images/limo_simulation_environment.png}
 		\caption{Simulation environment used for dataset generation and validation.}
 	\end{subfigure}
-	\caption{Physical and simulated setups used to evaluate the proposed architecture. In both workflows, the robot-mounted camera observes static AprilTags distributed in the environment.}
+	\caption{Physical and simulated setups used to evaluate the proposed architecture.}
 	\label{fig:environment_setu}
 \end{figure}
 
+The workflow is exercised in two settings, namely a real-robot setup and a simulation setup that reproduces the same sensor configuration and marker arrangement. Because the camera is rigidly mounted on the robot and the tags are treated as static landmarks in both settings, the same processing steps apply without changing the underlying formulation. The architecture is therefore presented as two consecutive phases. In the recording phase, the recorded traversal is processed to estimate an optimized tag map and a reference trajectory expressed consistently with that map. In the relocalization phase, new pose estimates are compared to the reference in order to compute the distance to the trajectory and the heading deviation relative to the local path direction, which are published as outputs for a trajectory tracking controller implemented outside the scope of this work.
 
 \begin{figure}[h]
 	\centering
@@ -543,7 +544,7 @@ The system is implemented on the AgileX LIMO wheeled platform and uses a calibra
 		\caption{Example of AprilTag detection in the real environment.}
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}[b]{0.48\textwidth}
+	\begin{subfigure}[b]{0.40\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{Images/apriltag_detection_sim.png}
 		\caption{AprilTag detection in the simulated environment.}
@@ -553,7 +554,7 @@ The system is implemented on the AgileX LIMO wheeled platform and uses a calibra
 \end{figure}
 
 Figure \ref{fig:apriltag_detection} illustrates representative camera frames acquired during both real and simulated executions. Detected markers are outlined and identified, and their estimated poses are expressed with respect to the camera frame. These per-frame relative transformations constitute the primary measurements used in the recording phase. Although each detection provides a six-degree-of-freedom estimate, the resulting poses are inherently local and subject to noise. As a result, consistent global structure must be recovered by integrating observations across multiple viewpoints.
-
+\newpage
 \subsection{Recording Phase}
 \label{subsec:recording_phase}
 
@@ -654,50 +655,50 @@ The recording phase processes the data collected during the initial traversal in
 	\label{fig:recording_pipeline}
 \end{figure}
 
-As indicated in block~\textbf{(1)} of Figure~\ref{fig:recording_pipeline}, the first step of the recording phase estimates camera-to-tag relative poses by solving a Perspective-n-Point problem under calibrated intrinsics \cite{Hartley2004} using the logged detections..
+As indicated in block~\textbf{(1)} of Figure~\ref{fig:recording_pipeline}, the first step of the recording phase estimates camera-to-tag relative poses by solving a Perspective-n-Point problem under calibrated intrinsics \cite{Hartley2004} using the logged detections.
 
-To construct a globally consistent representation of the environment, the local camera-to-tag measurements must be expressed in a common reference frame. In this work, rigid-body transformations are denoted by ${}^{A}\!T_{B} \in SE(3)$, representing the pose of frame $B$ with respect to frame $A$ \cite{barfoot2017state}. Each detection provides a relative transformation ${}^{\text{cam}}\!T_{\text{tag}_i}(t)$ at time $t$. Since the camera pose varies along the traversal, each measurement relates a tag pose to a different camera coordinate system. If the pose of a marker $\text{tag}_0$ in the world frame is known or fixed, the camera pose follows from the inverse of the observed camera-to-tag transformation, as written in Eq.~\eqref{eq:teach_worldTcam_from_anchor}.
+To construct a globally consistent representation of the environment, the local camera-to-tag measurements must be expressed in a common reference frame. In this work, rigid-body transformations are denoted by ${}^{A}\!T_{B} \in SE(3)$, representing the pose of frame $B$ with respect to frame $A$ \cite{barfoot2017state}. Each detection provides a relative transformation ${}^{\text{cam}}\!T_{\text{tag}_i}(t)$ at time $t$. Since the camera pose varies along the traversal, each measurement relates a tag pose to a different camera coordinate system. If the pose of a marker $\text{tag}_0$ in the world frame is known or fixed, the camera pose follows from the inverse of the observed camera-to-tag transformation, as written in :
 
 \begin{equation}
 	{}^{\text{world}}\!T_{\text{cam}}(t)
 	=
 	{}^{\text{world}}\!T_{\text{tag}_0}\;
-	\left({}^{\text{cam}}\!T_{\text{tag}_0}(t)\right)^{-1}.
+	\left({}^{\text{cam}}\!T_{\text{tag}_0}(t)\right)^{-1}
 	\label{eq:teach_worldTcam_from_anchor}
 \end{equation}
 
 Equation~\eqref{eq:teach_worldTcam_from_anchor} highlights both the utility and the limitation of single-frame detections. This map provides the global geometric reference required to express camera poses consistently across time. In this context, the tag map is defined as the set of world-referenced poses $\{{}^{\text{world}}\!T_{\text{tag}_i}\}$ estimated from all pairwise relative constraints accumulated along the traversal when an anchored tag is visible, a world-referenced camera pose estimate follows immediately. In practice, however, most tags do not have a pre-defined world pose. The recording phase therefore estimates the set of tag poses $\{{}^{\text{world}}\!T_{\text{tag}_i}\}$ that best explains the collection of camera-to-tag observations acquired along the traversal.
 
-As illustrated in block~\textbf{(2)} of Figure~\ref{fig:recording_pipeline}, frames containing multiple visible tags allow the construction of pairwise constraints. When two tags $i$ and $j$ are simultaneously detected, their relative transformation can be computed from the camera-centered estimates. Using the composition and inversion properties of rigid transformations \cite{Hartley2004,barfoot2017state}, the observed relation is given by Eq.~\eqref{eq:obs_rel_tagij}.
+As illustrated in block~\textbf{(2)}, frames containing multiple visible tags allow the construction of pairwise constraints. When two tags $i$ and $j$ are simultaneously detected, their relative transformation can be computed from the camera-centered estimates. Using the composition and inversion properties of rigid transformations \cite{Hartley2004,barfoot2017state}, the observed relation is given by :
 
 \begin{equation}
 	{}^{i}\!T_{j}^{\,obs}(t)
 	=
 	\left({}^{\text{cam}}\!T_{\text{tag}_i}(t)\right)^{-1}
-	{}^{\text{cam}}\!T_{\text{tag}_j}(t).
+	{}^{\text{cam}}\!T_{\text{tag}_j}(t)
 	\label{eq:obs_rel_tagij}
 \end{equation}
 
-Each observation in Eq.~\eqref{eq:obs_rel_tagij} induces a constraint between the unknown world poses ${}^{\text{world}}\!T_{\text{tag}_i}$ and ${}^{\text{world}}\!T_{\text{tag}_j}$. In an ideal noise-free setting, the observed relative pose would match the relative pose implied by the world estimates, as expressed in Eq.~\eqref{eq:pred_rel_tagij}.
+Each observation in Eq.~\eqref{eq:obs_rel_tagij} induces a constraint between the unknown world poses ${}^{\text{world}}\!T_{\text{tag}_i}$ and ${}^{\text{world}}\!T_{\text{tag}_j}$. In an ideal noise-free setting, the observed relative pose would match the relative pose implied by the world estimates :
 
 \begin{equation}
 	{}^{i}\!T_{j}^{\,pred}
 	=
 	\left({}^{\text{world}}\!T_{\text{tag}_i}\right)^{-1}
-	{}^{\text{world}}\!T_{\text{tag}_j}.
+	{}^{\text{world}}\!T_{\text{tag}_j}
 	\label{eq:pred_rel_tagij}
 \end{equation}
 
 In practice, detection uncertainty, calibration inaccuracies, and viewing geometry variations lead to inconsistencies across multiple measurements of the same tag pair. Collecting all pairwise constraints along the traversal yields a network of relative pose relations between tags.
 
-As shown in block~\textbf{(3)} of Figure~\ref{fig:recording_pipeline}, estimating a consistent global map from such constraints is posed as a nonlinear least-squares problem, following the general principles used in geometric least-squares estimation and graph-based formulations \cite{triggs1999ba,grisetti2010tutorial}. Let $\mathcal{E}$ denote the set of observed tag pairs. The tag poses are obtained by minimizing the sum of residuals over $\mathcal{E}$, as stated in Eq.~\eqref{eq:tagmap_nlsq}.
+As shown in block~\textbf{(3)}, estimating a consistent global map from such constraints is posed as a nonlinear least-squares problem, following the general principles used in geometric least-squares estimation and graph-based formulations \cite{triggs1999ba,grisetti2010tutorial}. Let $\mathcal{E}$ denote the set of observed tag pairs. The tag poses are obtained by minimizing the sum of residuals over $\mathcal{E}$, as stated in :
 
 \begin{equation}
 	\min_{\{{}^{\text{world}}\!T_{\text{tag}_i}\}}
 	\sum_{(i,j)\in \mathcal{E}}
 	\left\|
 	\mathrm{err}_{ij}
-	\right\|^2 .
+	\right\|^2 
 	\label{eq:tagmap_nlsq}
 \end{equation}
 
@@ -706,17 +707,17 @@ In Eq.~\eqref{eq:tagmap_nlsq}, $\mathrm{err}_{ij}$ quantifies the discrepancy be
 To make the residual in Eq.~\eqref{eq:tagmap_nlsq} explicit, the predicted and observed relative transformations are written as
 ${}^{i}\!T_{j}^{\,pred} = (R_{ij}^{pred},\, t_{ij}^{pred})$ and
 ${}^{i}\!T_{j}^{\,obs}  = (R_{ij}^{obs},\,  t_{ij}^{obs})$.
-The translational component is defined as
+The translational component is defined as :
 \begin{equation}
-	r_{t,ij} = t_{ij}^{pred} - t_{ij}^{obs}.
+	r_{t,ij} = t_{ij}^{pred} - t_{ij}^{obs}
 	\label{eq:residual_translation}
 \end{equation}
 For the rotational component, the relative rotation between prediction and observation is computed by composition,
 \begin{equation}
-	R_{err,ij} = \left(R_{ij}^{pred}\right)^{\top} R_{ij}^{obs}.
+	R_{err,ij} = \left(R_{ij}^{pred}\right)^{\top} R_{ij}^{obs}
 	\label{eq:rotation_error_comp}
 \end{equation}
-The matrix $R_{err,ij}$ is then mapped to a minimal three-parameter representation $r_{R,ij}\in\mathbb{R}^{3}$ using an axis--angle (rotation vector) parametrization, which is consistent with the pose representation adopted for optimization \cite{barfoot2017state}. The complete residual used in Eq.~\eqref{eq:tagmap_nlsq} is formed by stacking the translational and rotational components, $\,\mathrm{err}_{ij} = [\,r_{t,ij}^{\top}\;\; r_{R,ij}^{\top}\,]^{\top}$.
+The matrix $R_{err,ij}$ is then mapped to a minimal three-parameter representation $r_{R,ij}\in\mathbb{R}^{3}$ using an axis--angle parametrization, which is consistent with the pose representation adopted for optimization \cite{barfoot2017state}. The complete residual used in Eq.~\eqref{eq:tagmap_nlsq} is formed by stacking the translational and rotational components, $\,\mathrm{err}_{ij} = [\,r_{t,ij}^{\top}\;\; r_{R,ij}^{\top}\,]^{\top}$.
 
 Each tag pose ${}^{\text{world}}\!T_{\text{tag}_i}$ is parameterized using a minimal six-dimensional representation consisting of a three-parameter rotation vector and a three-dimensional translation. The optimization variables therefore correspond to the stacked pose parameters of all non-anchored tags.
 
@@ -724,22 +725,22 @@ The minimization in Eq.~\eqref{eq:tagmap_nlsq} can be generalized to include a r
 \begin{equation}
 	\min_{\{{}^{\text{world}}\!T_{\text{tag}_i}\}}
 	\sum_{(i,j)\in \mathcal{E}}
-	\rho\!\left(\left\|\mathrm{err}_{ij}\right\|^2\right),
+	\rho\!\left(\left\|\mathrm{err}_{ij}\right\|^2\right)
 	\label{eq:tagmap_robust}
 \end{equation}
 where $\rho(\cdot)$ denotes a robust loss function. In contrast to a purely quadratic penalty, robust losses reduce the influence of large residuals that may arise from occasional misdetections, partial occlusions, or inaccurate corner localization. Such formulations belong to the class of M-estimators commonly used in robust least-squares estimation \cite{huber1964robust}.
 
-In this implementation, a soft-$\ell_1$ loss is employed. This loss behaves quadratically for small residuals, preserving the local convergence properties of standard least squares, and transitions to approximately linear growth for larger errors. As a result, residuals with large magnitude contribute less aggressively to the total cost, preventing them from dominating the optimization process. This choice is consistent with the presence of occasional inconsistent tag observations while maintaining sensitivity to well-conditioned measurements.
+In this implementation, a soft-$\ell_1$ loss is employed, this loss behaves quadratically for small residuals, preserving the local convergence properties of standard least squares, and transitions to approximately linear growth for larger errors. As a result, residuals with large magnitude contribute less aggressively to the total cost, preventing them from dominating the optimization process. This choice is consistent with the presence of occasional inconsistent tag observations while maintaining sensitivity to well-conditioned measurements.
 
 The solution is obtained iteratively by updating the pose parameters so as to decrease the total residual error. One tag pose is held fixed throughout the optimization in order to eliminate the global gauge freedom discussed previously. The nonlinear least-squares problem is solved using an iterative trust-region method, as implemented in standard numerical optimization libraries. At each iteration, the pose parameters are updated so as to reduce the total robust cost defined in Eq.~\eqref{eq:tagmap_robust}. This procedure follows the classical Gauss–Newton framework for nonlinear least squares, adapted to the chosen minimal pose parametrization \cite{triggs1999ba}.
 
-Finally, as indicated in block~\textbf{(4)} of Figure~\ref{fig:recording_pipeline}, the optimized tag map is used to reconstruct the camera trajectory. For each observation of a tag $i$ at time $t$, a world-referenced camera pose estimate is obtained according to Eq.~\eqref{eq:world_cam_from_mapi}.
+Finally, as indicated in block~\textbf{(4)}, the optimized tag map is used to reconstruct the camera trajectory. For each observation of a tag $i$ at time $t$, a world-referenced camera pose estimate is obtained according to:
 
 \begin{equation}
 	{}^{\text{world}}\!T_{\text{cam}}^{(i)}(t)
 	=
 	{}^{\text{world}}\!T_{\text{tag}_i}
-	\left({}^{\text{cam}}\!T_{\text{tag}_i}(t)\right)^{-1}.
+	\left({}^{\text{cam}}\!T_{\text{tag}_i}(t)\right)^{-1}
 	\label{eq:world_cam_from_mapi}
 \end{equation}
 
@@ -782,7 +783,7 @@ In contrast to the recording phase, no map optimization or trajectory reconstruc
 			{Query poses\\(offline dataset)};
 			
 			\node[proc, right=28mm of queryoff] (align)
-			{\textbf{(1)} Optional alignment\\(XY + yaw)};
+			{\textbf{(1)} Optional alignment\\(XY or XZ + yaw)};
 			
 			\node[pose, right=22mm of align] (nearestoff)
 			{\textbf{(2)} Nearest point search};
@@ -865,11 +866,143 @@ In contrast to the recording phase, no map optimization or trajectory reconstruc
 			
 		\end{tikzpicture}
 	}
-	\caption{Architecture of the relocalization pipeline with separated offline analysis and online execution. Step~(4*) loads the reference trajectory generated in the recording phase. Both workflows compute the distance to the reference trajectory $D$ and the heading deviation $\phi$ as control-oriented outputs.}
+	\caption{Architecture of the relocalization pipeline with separated offline analysis and online execution.}
 	\label{fig:relocalization_pipeline}
 \end{figure}
 
+\subsubsection{Offline evaluation}
+\label{subsubsec:relocal_offline}
 
+As presented in block~\textbf{(1)}, the first operation in the relocalization workflow optionally performs a planar alignment between the query dataset and the stored reference trajectory. This step compensates for possible coordinate discrepancies arising from independent reconstructions or scale differences during map generation.
+
+Let $\{p_k^{ref}\}\subset\mathbb{R}^2$ denote the planar positions extracted from the reference trajectory $\{{}^{world}T_{cam}(t_k)\}$ and let $\{p_\ell^{q}\}\subset\mathbb{R}^2$ denote the planar positions of the query dataset. When a set of common tags is available in both datasets, a transformation is estimated so that the transformed query positions best match the reference positions in a least-squares sense.
+
+In the most general case considered here, the alignment is modeled as a planar similarity transformation,
+\begin{equation}
+	p_\ell^{q,aligned}
+	=
+	s R p_\ell^{q} + t
+	\label{eq:relocal_similarity}
+\end{equation}
+where $R \in SO(2)$ represents a planar rotation, $t \in \mathbb{R}^2$ is a translation vector, and $s \in \mathbb{R}^{+}$ is a uniform scale factor. When scale correction is not required, the model reduces to a rigid transformation with $s=1$.
+
+The optimal parameters $(R,t,s)$ are obtained by minimizing the squared alignment residual over the set of matched tag correspondences:
+\begin{equation}
+	\min_{R,t,s}
+	\sum_{m \in \mathcal{C}}
+	\left\|
+	p_m^{ref}
+	-
+	\left(s R p_m^{q} + t\right)
+	\right\|^2 
+	\label{eq:relocal_alignment_ls}
+\end{equation}
+where $\mathcal{C}$ denotes the set of tag identifiers observed in both datasets. Problems of this form admit closed-form solutions based on singular value decomposition and correspond to the classical orthogonal Procrustes formulation \cite{Schoenemann1966}. 
+
+In practice, inconsistencies may arise due to partial overlap or incorrect detections. To reduce the influence of such outliers, a RANSAC scheme \cite{Fischler1981} is applied prior to the final least-squares estimation. The transformation computed from inlier correspondences is then applied to all query poses. If no valid correspondences are available, or if alignment is explicitly disabled, the query poses are evaluated in their original coordinate frame. Once both trajectories are expressed in a common planar reference, the relocalization task reduces to determining the geometric association between each query pose and the reference trajectory.
+
+As illustrated in block~\textbf{(2)}, once the query and reference trajectories are expressed in a common planar frame, the relocalization problem reduces to establishing a geometric association between a query pose and the discrete reference trajectory.
+
+Let the reference trajectory exported in the recording phase be represented by the set: 
+\begin{equation}
+	\mathcal{T}_{ref}
+	=
+	\left\{
+	{}^{world}T_{cam}(t_k)
+	\right\}_{k=1}^{N}
+	\label{eq:relocal_ref_set}
+\end{equation}
+and let $p_k^{ref}\in\mathbb{R}^2$ denote the planar position extracted from each pose. Given a query pose ${}^{world}T_{cam}^{q}$ with planar position $p^{q}\in\mathbb{R}^2$, the nearest reference association is defined as:
+\begin{equation}
+	k^{*}
+	=
+	\arg\min_{k \in \{1,\dots,N\}}
+	\left\|
+	p^{q} - p_k^{ref}
+	\right\|_2
+	\label{eq:relocal_nearest_index}
+\end{equation}
+
+Equation~\eqref{eq:relocal_nearest_index} defines the reference sample whose planar position is closest to the query position in the Euclidean sense. The selected index $k^{*}$ serves as the geometric anchor for evaluating the deviation between the live pose and the stored reference trajectory.Based on this association, the relocalization phase proceeds to quantify the positional and angular discrepancy with respect to the selected reference pose.
+
+
+As presented in block~\textbf{(3)}, once the nearest association index $k^{*}$ is available, the relocalization pipeline evaluates two geometric error metrics defined with respect to the associated reference sample.
+
+The positional error is defined as the Euclidean distance between the query planar position $p^{q}\in\mathbb{R}^2$ and the associated reference planar position $p^{ref}_{k^{*}}\in\mathbb{R}^2$:
+\begin{equation}
+	D
+	=
+	\left\|
+	p^{q}
+	-
+	p^{ref}_{k^{*}}
+	\right\|_2
+	\label{eq:relocal_D}
+\end{equation}
+
+To compute an angular error, a reference direction is defined locally along the discrete reference trajectory. Let $p^{ref}_{k}=(x^{ref}_{k},z^{ref}_{k})$ denote the planar reference samples. The reference heading at index $k$ is obtained from the local tangent using a centered difference:
+\begin{equation}
+	\theta^{ref}_{k}
+	=
+	\operatorname{atan2}\!\left(
+	z^{ref}_{k+1}-z^{ref}_{k-1},\;
+	x^{ref}_{k+1}-x^{ref}_{k-1}
+	\right)
+	\label{eq:relocal_ref_heading}
+\end{equation}
+with a one-sided variant at the endpoints. Let $\theta^{q}$ denote the query planar heading extracted from the query pose orientation in the same plane. The heading error is then defined as: 
+\begin{equation}
+	\phi
+	=
+	\mathrm{wrap}_{(-\pi,\pi]}\!\left(
+	\theta^{q}
+	-
+	\theta^{ref}_{k^{*}}
+	\right)
+	\label{eq:relocal_phi}
+\end{equation}
+where $\mathrm{wrap}_{(-\pi,\pi]}(\cdot)$ maps the angular difference to the principal interval.
+
+Equations~\eqref{eq:relocal_D}--\eqref{eq:relocal_phi} specify the outputs computed at this stage for each evaluated query pose. These values are then forwarded to the reporting stage in the offline workflow.
+
+As presented in block~\textbf{(3)} of the offline branch, the computed values of $D$ and $\phi$ are exported for quantitative assessment. Given a sequence of query poses $\{{}^{world}T_{cam}^{q}(t_\ell)\}$, Equations~\eqref{eq:relocal_D} and~\eqref{eq:relocal_phi} are evaluated for each timestamp. This produces two discrete time series:
+\begin{equation}
+	\{ D(t_\ell) \}_{\ell=1}^{M}
+	\qquad
+	\{ \phi(t_\ell) \}_{\ell=1}^{M}
+	\label{eq:relocal_timeseries}
+\end{equation}
+where $M$ denotes the number of evaluated query samples.
+
+These sequences are stored together with the associated timestamps and reference indices, enabling post-processing and statistical evaluation. Summary quantities such as mean, median, percentile levels, and maximum deviation are derived directly from the exported series. Additionally, planar visualizations are generated to illustrate the spatial relationship between the query samples and the reference trajectory. This offline reporting stage provides a quantitative characterization of relocalization performance over an entire traversal. 
+
+\subsubsection{Online execution}
+\label{subsubsec:relocal_online}
+
+As depicted in block~\textbf{(4*)}, the online branch starts by loading the reference trajectory generated in the recording phase. The file \texttt{trajetoria\_camera.csv} provides the discrete sequence $\mathcal{T}_{ref}=\{{}^{world}T_{cam}(t_k)\}_{k=1}^{N}$ .
+
+In online execution, $\mathcal{T}_{ref}$ is treated as fixed data. The node parses the file once and stores the planar reference samples $\{p_k^{ref}\}_{k=1}^{N}$ together with their associated local headings $\{\theta_k^{ref}\}_{k=1}^{N}$, computed from the discrete trajectory tangent as in Eq.~\eqref{eq:relocal_ref_heading}. This initialization establishes the reference set required to evaluate incoming pose estimates without modifying the stored trajectory. Once the reference trajectory is available in memory, each incoming pose is processed by evaluating the nearest-neighbor association in Eq.~\eqref{eq:relocal_nearest_index} and subsequently computing $D$ and $\phi$.
+
+As presented in block~\textbf{(5)}, the online node performs a nearest-sample association between the current pose estimate and the fixed reference set. At each time $t$, the node receives a query pose ${}^{world}T_{cam}^{q}(t)$ and extracts its planar position $p^{q}(t)$. The association index is then obtained by directly applying the nearest-neighbor criterion in Eq.~\eqref{eq:relocal_nearest_index}, yielding:
+\begin{equation}
+	k^{*}(t)
+	=
+	\arg\min_{k \in \{1,\dots,N\}}
+	\left\|
+	p^{q}(t) - p_k^{ref}
+	\right\|_2
+	\label{eq:relocal_nearest_index_online}
+\end{equation}
+
+The reference sample indexed by $k^{*}(t)$ provides the corresponding stored heading $\theta^{ref}_{k^{*}(t)}$, which anchors the frame-by-frame evaluation of the geometric errors defined in Eqs.~\eqref{eq:relocal_D} and~\eqref{eq:relocal_phi}. The resulting association $\big(p^{q}(t), p^{ref}_{k^{*}(t)}\big)$ is therefore the immediate input to the error output stage described next.
+
+As summarized in block~\textbf{(6)}, the online execution evaluates the geometric errors for each incoming pose and makes them available as real-time outputs.
+
+Given the association index $k^{*}(t)$, the positional and angular deviations are computed. These quantities are evaluated independently at each time step and therefore define two time-varying signals, $D(t)$ and $\phi(t)$, describing the instantaneous geometric discrepancy between the current pose estimate and the stored reference trajectory.
+
+The online node publishes these values as scalar outputs, together with visualization elements that indicate the current pose, the associated reference sample, and the geometric connection between them. This structure enables direct inspection of relocalization behavior during execution and provides the signals required for potential control integration.
+
+The experimental section evaluates these outputs quantitatively by analyzing their temporal evolution under different traversal conditions, thereby assessing the consistency between live pose estimates and the reference trajectory established during the recording phase.
 
 \begin{comment}
 	content...
