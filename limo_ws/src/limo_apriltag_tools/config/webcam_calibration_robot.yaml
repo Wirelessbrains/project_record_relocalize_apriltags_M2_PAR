@@ -1,17 +1,17 @@
 image_width: 640
 image_height: 480
-camera_name: integrated_camera:_integrated_c
+camera_name: narrow_stereo
 camera_matrix:
   rows: 3
   cols: 3
-  data: [442.16998,   0.     , 323.04121,
-           0.     , 443.87929, 246.51321,
+  data: [495.97306,   0.     , 318.26219,
+           0.     , 496.74468, 212.37086,
            0.     ,   0.     ,   1.     ]
 distortion_model: plumb_bob
 distortion_coefficients:
   rows: 1
   cols: 5
-  data: [0.044869, -0.077038, 0.002472, 0.001235, 0.000000]
+  data: [0.091854, -0.146431, -0.004546, 0.002610, 0.000000]
 rectification_matrix:
   rows: 3
   cols: 3
@@ -21,6 +21,6 @@ rectification_matrix:
 projection_matrix:
   rows: 3
   cols: 4
-  data: [442.55585,   0.     , 323.55523,   0.     ,
-           0.     , 445.90546, 247.00641,   0.     ,
+  data: [502.02921,   0.     , 319.37477,   0.     ,
+           0.     , 503.06381, 210.04677,   0.     ,
            0.     ,   0.     ,   1.     ,   0.     ]
