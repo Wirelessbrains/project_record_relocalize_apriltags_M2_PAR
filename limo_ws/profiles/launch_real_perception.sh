@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-if [ $# -gt 2 ]; then
-  echo "Usage: $0 [tag_size] [calibration_yaml]"
+if [ $# -lt 1 ] || [ $# -gt 2 ]; then
+  echo "Usage: $0 <tag_size> [calibration_yaml]"
   echo "  tag_size can be meters (0.16) or centimeters (16)"
   echo "  calibration_yaml defaults to workspace config if omitted"
   exit 1
 fi
 
-TAG_SIZE_INPUT="${1:-0.16}"
+TAG_SIZE_INPUT="${1}"
 TAG_SIZE_METERS="$TAG_SIZE_INPUT"
 
 if ! [[ "$TAG_SIZE_INPUT" =~ ^[0-9]+([.][0-9]+)?$ ]]; then
@@ -55,6 +55,6 @@ set -u
 
 echo "[config] tag_size=${TAG_SIZE_METERS} m"
 echo "[config] calibration_file=${CALIBRATION_FILE}"
-ros2 launch limo_apriltag_tools real_perception_localization.launch.py \
+ros2 launch limo_apriltag_tools apriltag_camera_pipeline.launch.py \
   tag_size:="${TAG_SIZE_METERS}" \
   calibration_file:="${CALIBRATION_FILE}"

@@ -17,10 +17,10 @@ Build:
 bash profiles/build_real.sh
 ```
 
-Run perception/localization:
+Run perception only (camera + AprilTag detector):
 
 ```bash
-bash profiles/launch_real_perception.sh
+bash profiles/launch_real_perception.sh 0.16
 ```
 
 Default calibration file path used by the script:
@@ -47,6 +47,12 @@ Set tag size explicitly (meters or centimeters):
 bash profiles/launch_real_perception.sh 0.16
 # or
 bash profiles/launch_real_perception.sh 16
+```
+
+Start localization only when needed (map + IPPE):
+
+```bash
+bash profiles/launch_real_localization.sh 0.16
 ```
 
 Run minimal navigation:
