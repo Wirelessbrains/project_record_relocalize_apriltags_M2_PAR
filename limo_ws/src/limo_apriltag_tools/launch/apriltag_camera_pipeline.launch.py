@@ -27,6 +27,7 @@ def generate_launch_description():
     enable_camera_info_publisher = LaunchConfiguration('enable_camera_info_publisher')
     relay_image = LaunchConfiguration('relay_image')
     calibration_file = LaunchConfiguration('calibration_file')
+    optical_frame = LaunchConfiguration('optical_frame')
 
     apriltag_node = Node(
         package='apriltag_ros',
@@ -39,6 +40,7 @@ def generate_launch_description():
         ],
         parameters=[
             apriltag_params_file,
+            {'size': tag_size},
             {'use_sim_time': use_sim_time},
         ],
     )
@@ -54,6 +56,7 @@ def generate_launch_description():
             {'camera_info_topic': camera_info_topic},
             {'image_output_topic': image_topic},
             {'relay_image': relay_image},
+            {'optical_frame': optical_frame},
         ],
         condition=IfCondition(enable_camera_info_publisher),
     )
@@ -120,6 +123,11 @@ def generate_launch_description():
             'relay_image',
             default_value='true',
             description='Relay image from camera_image_topic to image_topic',
+        ),
+        DeclareLaunchArgument(
+            'optical_frame',
+            default_value='',
+            description='Optional fixed optical frame id for CameraInfo/header',
         ),
         camera_info_publisher_node,
         apriltag_node,

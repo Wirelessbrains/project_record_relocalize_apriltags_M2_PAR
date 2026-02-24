@@ -61,4 +61,6 @@ ros2 launch limo_apriltag_tools apriltag_camera_pipeline.launch.py \
   camera_image_topic:=/image_raw \
   image_topic:=/image_raw \
   camera_info_topic:=/camera_info \
+  camera_frame:=camera_optical \
+  optical_frame:=camera_optical \
   relay_image:=false
