@@ -32,6 +32,26 @@ Start perception/localization:
 bash profiles/launch_real_perception.sh
 ```
 
+Camera calibration YAML must be available at:
+
+```bash
+limo_ws/src/limo_apriltag_tools/config/webcam_calibration_robot.yaml
+```
+
+Or pass a custom file explicitly:
+
+```bash
+bash profiles/launch_real_perception.sh 0.16 src/limo_apriltag_tools/config/webcam_calibration_robot.yaml
+```
+
+If tag size differs from 16 cm, pass your value (meters or cm):
+
+```bash
+bash profiles/launch_real_perception.sh 0.20
+# or
+bash profiles/launch_real_perception.sh 20
+```
+
 Record a run while manually driving:
 
 ```bash
@@ -71,4 +91,3 @@ bash profiles/launch_real_online_relocalization.sh \
 
 This practical work is about relocalization quality and trajectory deviation metrics.  
 It is **not** a full navigation stack assignment.
-

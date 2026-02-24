@@ -82,6 +82,26 @@ The dataset recording phase requires manual driving (joystick/teleop controller)
 bash profiles/launch_real_perception.sh
 ```
 
+Camera calibration file (default expected path):
+
+```bash
+src/limo_apriltag_tools/config/webcam_calibration_robot.yaml
+```
+
+If needed, provide a custom calibration YAML as second argument:
+
+```bash
+bash profiles/launch_real_perception.sh 0.16 src/limo_apriltag_tools/config/webcam_calibration_robot.yaml
+```
+
+If your printed tags have a different size, pass it explicitly:
+
+```bash
+bash profiles/launch_real_perception.sh 0.16
+# or in centimeters
+bash profiles/launch_real_perception.sh 16
+```
+
 ### 4.2 Record a dataset
 
 ```bash

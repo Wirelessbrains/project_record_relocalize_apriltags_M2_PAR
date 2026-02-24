@@ -59,6 +59,12 @@ For simulation build:
 bash profiles/build_sim.sh
 ```
 
+For the real robot pipeline, place camera calibration YAML at:
+
+```bash
+limo_ws/src/limo_apriltag_tools/config/webcam_calibration_robot.yaml
+```
+
 ---
 
 ## Project Governance

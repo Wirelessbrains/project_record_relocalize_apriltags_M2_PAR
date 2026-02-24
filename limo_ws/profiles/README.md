@@ -23,6 +23,32 @@ Run perception/localization:
 bash profiles/launch_real_perception.sh
 ```
 
+Default calibration file path used by the script:
+
+```bash
+src/limo_apriltag_tools/config/webcam_calibration_robot.yaml
+```
+
+If this file does not exist, it falls back to:
+
+```bash
+install/limo_apriltag_tools/share/limo_apriltag_tools/config/webcam_calibration_robot.yaml
+```
+
+You can also pass a custom calibration file as second argument:
+
+```bash
+bash profiles/launch_real_perception.sh 0.16 src/limo_apriltag_tools/config/webcam_calibration_robot.yaml
+```
+
+Set tag size explicitly (meters or centimeters):
+
+```bash
+bash profiles/launch_real_perception.sh 0.16
+# or
+bash profiles/launch_real_perception.sh 16
+```
+
 Run minimal navigation:
 
 ```bash
