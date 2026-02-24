@@ -26,10 +26,10 @@ source /opt/ros/humble/setup.bash
 bash profiles/build_real.sh
 ```
 
-Start perception/localization:
+Start perception first:
 
 ```bash
-bash profiles/launch_real_perception.sh
+bash profiles/launch_real_perception.sh 0.16
 ```
 
 Camera calibration YAML must be available at:
@@ -52,6 +52,12 @@ bash profiles/launch_real_perception.sh 0.20
 bash profiles/launch_real_perception.sh 20
 ```
 
+Start localization only when needed:
+
+```bash
+bash profiles/launch_real_localization.sh 0.16
+```
+
 Record a run while manually driving:
 
 ```bash
@@ -59,9 +65,10 @@ source install/setup.bash
 ros2 bag record \
   /camera_info \
   /detections \
-  /tag_only_base_pose \
   -o dataset/real_run_01
 ```
+
+Optional: include `/tag_only_base_pose` if you need map-based pose in the recording.
 
 Build offline reference:
 

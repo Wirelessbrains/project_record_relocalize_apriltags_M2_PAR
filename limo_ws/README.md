@@ -76,10 +76,10 @@ bash profiles/build_sim.sh
 
 The dataset recording phase requires manual driving (joystick/teleop controller).
 
-### 4.1 Run perception/localization stack
+### 4.1 Run perception stack (mandatory first)
 
 ```bash
-bash profiles/launch_real_perception.sh
+bash profiles/launch_real_perception.sh 0.16
 ```
 
 Camera calibration file (default expected path):
@@ -102,18 +102,25 @@ bash profiles/launch_real_perception.sh 0.16
 bash profiles/launch_real_perception.sh 16
 ```
 
-### 4.2 Record a dataset
+### 4.2 Start localization only when required
+
+```bash
+bash profiles/launch_real_localization.sh 0.16
+```
+
+### 4.3 Record a dataset
 
 ```bash
 source install/setup.bash
 ros2 bag record \
   /camera_info \
   /detections \
-  /tag_only_base_pose \
   -o dataset/real_run_01
 ```
 
-### 4.3 Build offline reference artifacts
+If you also want pose from map-based localization in the bag, add `/tag_only_base_pose`.
+
+### 4.4 Build offline reference artifacts
 
 ```bash
 python3 scripts/trajectory_analysis/build_tag_map_offline.py \
@@ -121,7 +128,7 @@ python3 scripts/trajectory_analysis/build_tag_map_offline.py \
   outputs/real_run_01_outputs
 ```
 
-### 4.4 Run online relocalization
+### 4.5 Run online relocalization
 
 ```bash
 bash profiles/launch_real_online_relocalization.sh \
