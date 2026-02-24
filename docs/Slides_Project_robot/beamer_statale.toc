@@ -1,0 +1,5 @@
+\babel@toc {english}{}\relax 
+\beamer@sectionintoc {1}{Problem}{3}{0}{1}
+\beamer@sectionintoc {2}{Challenges}{6}{0}{2}
+\beamer@sectionintoc {3}{Project goal}{12}{0}{3}
+\beamer@sectionintoc {4}{Phases }{16}{0}{4}

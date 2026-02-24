@@ -173,6 +173,7 @@ headheight=1.5cm,headsep=0.8cm,heightrounded=true
 % Figuras
 %========================================================
 \usepackage{graphicx}
+\usepackage{svg}
 \graphicspath{{Images/}}
 
 \counterwithin{figure}{section}
@@ -1517,11 +1518,68 @@ Finally, Figure~\ref{fig:gazebo_tf_xy} presents a visualization of the \textit{T
 
 In summary, the simulation results highlight the expected behavior of a Teach Phase without optimization: the global structure of the circuit is preserved, but local errors progressively accumulate along the trajectory. These limitations directly motivate the introduction of the optimization stage, in which multiple observations of the same tag can be combined and the camera trajectory smoothed to reinforce the global consistency of the map.
 \end{comment}
-
 \newpage
 
-\section{Discussion}
-\newpage
+\section{Results}
+
+\subsection{Validation of the Map Optimization under Controlled Conditions}
+\label{subsec:optimization_validation}
+
+The algorithm validation was performed using synthetic datas, which allows for direct comparison with Ground Truth to quantify optimization precision and robustness.
+
+Initially, the system was tested with perfect detections, free of drift. For this data, the residual error was null, confirming the geometric consistency of the algorithm. The metrics are presented in Table~\ref{tab:results_ideal}.
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Metric} & \textbf{Mean Error} & \textbf{Minimum} & \textbf{Maximum} \\ \hline
+Camera Trajectory & $0.0000\text{ m} / 0.00^\circ$ & $0.0000\text{ m} / 0.00^\circ$ & $0.0000\text{ m} / 0.00^\circ$ \\ \hline
+Tag Poses         & $0.0000\text{ m} / 0.00^\circ$ & $0.0000\text{ m} / 0.00^\circ$ & $0.0000\text{ m} / 0.00^\circ$ \\ \hline
+\end{tabular}
+\caption{Residual errors in the ideal scenario (no noise).}
+\label{tab:results_ideal}
+\end{table}
+
+Figure~\ref{fig:results_ideal} presents the visual results for this scenario. On the left, the alignment of estimated tags with the real scenario is observed, showing that the tags were perfectly aligned as suggested by the table, without errors. On the right, the optimized trajectory is superimposed on the reference circular trajectory, verifying that the trajectory was perfectly recovered without errors.
+
+
+\begin{figure}[h!]
+\centering
+\includesvg[width=0.95\linewidth,inkscapelatex=false]{Images/otimization/comparison_optimized_lm}
+\caption{The tag map and the camera trajectory.}
+\label{fig:results_ideal}
+\end{figure}
+
+
+To evaluate robustness, Gaussian noise of $10\text{ cm}$ was injected into the position measurements. The optimization algorithm demonstrated high efficacy in filtering this noise, as shown in the data presented in Table~\ref{tab:results_noise}.
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Metric} & \textbf{Mean Error} & \textbf{Minimum} & \textbf{Maximum} \\ \hline
+Camera Trajectory & $0.0584\text{ m} / 0.97^\circ$ & $0.0126\text{ m} / 0.11^\circ$ & $0.1485\text{ m} / 2.67^\circ$ \\ \hline
+Tag Poses         & $0.0364\text{ m} / 0.73^\circ$ & $0.0156\text{ m} / 0.73^\circ$ & $0.0583\text{ m} / 0.73^\circ$ \\ \hline
+\end{tabular}
+\caption{Error statistics under 10 cm Gaussian noise.}
+\label{tab:results_noise}
+\end{table}
+
+Figure~\ref{fig:results_noise} illustrates the visual comparison for this noisy scenario, demonstrating that the system can recover the map structure and trajectory with centimeter-level precision even under significant uncertainty.
+Even with $10\text{ cm}$ Gaussian noise, the algorithm proved robust: it reduced tag pose error from $\approx 10\text{ cm}$ to about $3\text{ cm}$ and camera pose error to roughly $6\text{ cm}$. The visualization confirms that tags remain well localized and the trajectory is effectively recovered despite the small residual error.
+
+\begin{figure}[h!]
+\centering
+\includesvg[width=0.95\linewidth,inkscapelatex=false]{Images/otimization/comparison_optimized_lm_noise_10cm}
+\caption{The map recovery and the trajectory, for noise measurements}
+\label{fig:results_noise}
+\end{figure}
+
+
+The algorithm validation was performed using synthetic datas, which allows for direct comparison with Ground Truth to quantify optimization precision and robustness.
+
+
 
 \section{Conclusion}
 

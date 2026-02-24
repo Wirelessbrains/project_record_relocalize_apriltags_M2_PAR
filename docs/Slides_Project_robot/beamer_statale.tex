@@ -1,0 +1,343 @@
+% !TeX program = pdflatex
+% -----------------------------------------------------------------------------
+% APRESENTAÇÃO: AprilTag-based Trajectory Tracking for the LIMOS Robot
+% -----------------------------------------------------------------------------
+
+\documentclass[aspectratio=169, 10pt]{beamer}
+
+% --- PACOTES ---
+\usepackage[T1]{fontenc}      % Re-added for pdflatex
+\usepackage[utf8]{inputenc}   % Re-added for pdflatex
+\usepackage[english]{babel}
+\usepackage{microtype}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{qrcode}
+\tcbuselibrary{skins, breakable}
+
+% --- TIKZ ---
+\usepackage{tikz}
+\usetikzlibrary{calc, positioning, arrows.meta, shadows, overlay-beamer-styles, fit}
+
+% Estilo para animações
+\tikzset{
+    invisible/.style={opacity=0, text opacity=0},
+    visible on/.style={alt={#1{}{invisible}}},
+    alt/.code args={<#1>#2#3}{\alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}}},
+}
+
+% --- FONTES (STANDARD) ---
+% We use Helvet (similar to Arial) instead of fontspec/TeX Gyre
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% --- CORES ---
+\definecolor{NavyBlue}{HTML}{003366}     
+% ... rest of your code ...
+\definecolor{NavyBlue}{HTML}{003366}     
+\definecolor{CoolGray}{HTML}{5D6D7E}     
+\definecolor{CleanWhite}{HTML}{FFFFFF}   
+\definecolor{LightBg}{HTML}{F8F9FA}      
+\definecolor{AccentBlue}{HTML}{00AEEF}   
+\definecolor{AlertRed}{HTML}{C0392B}     
+
+% --- CONFIGURAÇÃO BEAMER ---
+\setbeamercolor{background canvas}{bg=CleanWhite}
+\setbeamercolor{normal text}{fg=black!85}
+\setbeamercolor{frametitle}{bg=CleanWhite, fg=NavyBlue}
+\setbeamercolor{title}{fg=NavyBlue}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{headline}{} 
+\setbeamercovered{invisible} % Itens futuros não aparecem
+
+% --- RODAPÉ (AUTOR + TÍTULO DO PROJETO) ---
+\setbeamertemplate{footline}{%
+	\leavevmode%
+	\hbox{%
+		% Caixa 1: Autor
+		\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+			\color{CoolGray}\tiny\bfseries Martins do Lago Reis; Da Silva Ramos
+		\end{beamercolorbox}%
+		% Caixa 2: Título
+		\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+			\color{NavyBlue}\tiny\bfseries AprilTag-based Trajectory Tracking – LIMOS
+		\end{beamercolorbox}%
+		% Caixa 3: Número da Página
+		\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+			\color{CoolGray}\tiny\insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+	\end{beamercolorbox}}%
+	\vskip0pt%
+	% Barra de Progresso
+	\ifnum\inserttotalframenumber>0
+	\nointerlineskip
+	\makebox[\paperwidth][l]{%
+		\color{gray!10}\rule{\paperwidth}{2pt}%
+		\hspace{-\paperwidth}%
+		\color{AccentBlue}\rule{\dimexpr\paperwidth * \insertframenumber / \inserttotalframenumber\relax}{2pt}%
+	}%
+	\fi
+}
+
+% --- LOGOS EM TODOS OS SLIDES (CANTO SUPERIOR DIREITO) ---
+\setbeamertemplate{frametitle}{
+	\vspace{0.3cm}
+	\begin{tikzpicture}[remember picture,overlay]
+		\node[anchor=north east] at ($(current page.north east)+(-0.4cm,-0.25cm)$) {%
+			\includegraphics[height=0.7cm]{assets/logo_UCA.jpg}
+		};
+	\end{tikzpicture}
+	\textbf{\insertframetitle} \\
+	{\color{AccentBlue}\rule{1.5cm}{1.5pt}}
+}
+
+% --- CAIXAS ---
+\newtcolorbox{bluebox}[1][]{
+	enhanced, colback=LightBg, colframe=NavyBlue, coltitle=white,
+	fonttitle=\bfseries\small, title=#1, sharp corners, boxrule=0mm,
+	leftrule=1mm, rightrule=0mm, toprule=0mm, bottomrule=0mm,
+	titlerule=0mm, toptitle=1mm, bottomtitle=1mm, arc=0mm
+}
+
+\newtcolorbox{alertbox}[1][]{
+	enhanced, colback=white, colframe=gray!30, coltitle=NavyBlue,
+	fonttitle=\bfseries, title=#1, sharp corners, boxrule=0.5pt,
+	attach boxed title to top left={yshift=-2mm, xshift=2mm},
+	boxed title style={colback=white, colframe=white}
+}
+
+
+
+% ==================/// START PRESENTATION ///==================///
+
+% --- DADOS DA APRESENTAÇÃO ---
+\title{AprilTag-based Trajectory Tracking for the LIMOS Robot}
+\subtitle{Synthesis Project}
+\author{Joao Pedro Martins do Lago Reis and Yann Kelvem da Silva Ramos}
+\date{\today}
+
+\begin{document}
+	
+	% -----------------------------------------------------------------------------
+	\begin{frame}[plain]
+		
+		% --- LOGOS NO CANTO SUPERIOR DIREITO (PROPORCIONAIS) ---
+		\begin{tikzpicture}[remember picture,overlay]
+			\node[anchor=north east] 
+			at ($(current page.north east)+(-0.8cm,-0.6cm)$)
+			{
+				\includegraphics[height=1.5cm]{assets/logo_UCA.jpg}
+		
+			};
+		\end{tikzpicture}
+		
+		% --- TÍTULO ---
+		\vspace{2cm}
+		
+		{\Huge\bfseries \textcolor{NavyBlue}{AprilTag-based Trajectory Tracking}}\\[0.3cm]
+		{\Large\textcolor{CoolGray}{for the LIMOS Robot}}\\[1cm]
+		
+		% --- AUTORES ---
+		{\large\textbf{Joao Pedro Martins do Lago Reis and Yann Kelvem da Silva Ramos}}\\[0.2cm]
+		{\footnotesize Master's degree in artificial perception and robotics}\\[0.2cm]
+		{\footnotesize \today}
+		
+	\end{frame}
+
+\begin{frame}{Outline}
+    \tableofcontents[hideallsubsections]
+\end{frame}
+
+
+
+% ============================================================
+% SLIDE 1 — PROBLEM
+% ============================================================
+\section{Problem}
+\begin{frame}{Problem description}
+    \textbf{Problem to solve}
+
+    \begin{itemize}[<+->]
+        \item We need a robot that can \textbf{learn a path by being guided}.
+        \item Later it must \textbf{drive that same path alone}.
+        \item It has to work in normal indoor rooms without fuss.
+    \end{itemize}
+\end{frame}
+
+
+
+% ============================================================
+% SLIDE 2 — CHALLENGES
+% ============================================================
+\section{Challenges}
+\begin{frame}{Challenges}
+    \textbf{Why this is challenging}
+
+    \begin{itemize}[<+->]
+        \item \textbf{Hardcoded paths}: someone types coordinates by hand.
+        \item \textbf{No flexibility}: any small change means rebuilding code.
+        \item \textbf{High barrier}: only experts can tweak routes.
+    \end{itemize}
+\end{frame}
+
+
+
+% ============================================================
+% SLIDE 3 — CHOSEN SETUP
+% ============================================================
+\begin{frame}{Chosen setup}
+    \begin{columns}[T]
+
+        % Left column
+        \begin{column}{0.55\textwidth}
+            \textbf{Selected Platform}
+
+            \begin{itemize}[<+->]
+                \item Robot: \textbf{LIMOS} with wheels and camera.
+                \item Tags: \textbf{AprilTag} to tell where the robot is.
+                \item Together they keep the pose steady while we teach and repeat.
+            \end{itemize}
+        \end{column}
+
+        % Right column with animated images
+        \begin{column}{0.4\textwidth}
+            \centering
+            \begin{overlayarea}{\textwidth}{0.55\textheight}
+                % Show robot with first bullet
+                \only<1>{
+                    \includegraphics[width=\textwidth]{assets/limo.jpeg}
+
+                    {\tiny \textit{Fig. 1 — LIMOS mobile robot}}
+                }
+
+                % Swap to AprilTag as soon as it is mentioned
+                \only<2>{
+                    \includegraphics[width=0.8\textwidth]{assets/tag_36h11.png}
+                    
+                    {\tiny \textit{Fig. 2 — AprilTag visual marker}}
+                }
+
+                % Keep both visible from the third point onward
+                \only<3->{
+                    \begin{minipage}{0.48\textwidth}
+                        \includegraphics[width=\textwidth]{assets/limo.jpeg}
+                    \end{minipage}
+                    \hfill
+                    \begin{minipage}{0.48\textwidth}
+                        \includegraphics[width=\textwidth]{assets/tag_36h11.png}
+                    \end{minipage}
+                    
+                    {\tiny \textit{Fig. 1 — LIMOS robot} \hfill \textit{Fig. 2 — AprilTag marker}}
+                }
+            \end{overlayarea}
+
+        \end{column}
+
+    \end{columns}
+\end{frame}
+
+
+% ============================================================
+% SLIDE 4 — PROJECT GOAL
+% ============================================================
+\section{Project goal}
+\begin{frame}{Project Goal}
+	\begin{columns}[T]
+		
+		% Left column
+		\begin{column}{0.55\textwidth}
+			\vspace{-0.4cm} % puxa o bloco um pouco para cima
+			\begin{alertblock}{Our Goal}
+				\begin{itemize}
+					\item<1-> Build a simple \textbf{teach and repeat} loop.
+					\item<3-> \textbf{No coding}: you just guide the robot by hand.
+					\item<4-> \textbf{Auto replay}: it drives the same path accurately later.
+				\end{itemize}
+			\end{alertblock}
+		\end{column}
+		
+		% Right column — animated image synchronized with the explanation
+		\begin{column}{0.4\textwidth}
+			\centering
+			\only<2->{
+				\includegraphics[trim={0.1cm 5cm 0.1cm 0.1cm}, clip, width=\textwidth]{assets/record_replay.png}\\[0.2cm]
+				{\tiny\textit{Fig.3 — High-level teach and repeat concept}}
+			}
+		\end{column}
+		
+	\end{columns}
+\end{frame}
+
+
+
+\input{sections/project_fases}
+
+
+\begin{frame}[allowframebreaks]{References}
+    % Remove ícones e usa numeração [1]
+    \setbeamertemplate{bibliography item}[text]
+    
+    % Fonte pequena
+    \scriptsize 
+    
+    \begin{thebibliography}{99}
+        
+        \bibitem{adamek2023analytical}
+        R.~Adámek, M.~Brablc, P.~Vávra, B.~Dobossy, M.~Formánek, and F.~Radil, ``Analytical Models for Pose Estimate Variance of Planar Fiducial Markers for Mobile Robot Localisation'', \emph{Sensors}, vol.~23, no.~12, p.~5746, 2023. DOI: \url{10.3390/s23125746}
+
+        \bibitem{herrera2025visual}
+        B.~S.~Herrera, M.~García, W.~Chamorro, and D.~Maldonado, ``Visual Mapping and Autonomous Navigation Using AprilTags in Omnidirectional Mobile Robots: A Realistic ROS-Gazebo Simulation Framework'', \emph{Engineering Proceedings}, vol.~115, no.~1, p.~5, 2025. DOI: \url{10.3390/engproc2025115005}
+
+        \bibitem{thrun2005probabilistic}
+        S.~Thrun, W.~Burgard, and D.~Fox, \emph{Probabilistic Robotics}, MIT Press, 2005. DOI: \url{10.5555/1625995.1626105}
+
+        \bibitem{pfrommer2019tagslam}
+        B.~Pfrommer and K.~Daniilidis, ``TagSLAM: Robust SLAM with Fiducial Markers'', \emph{arXiv preprint arXiv:1910.00679}, 2019. DOI: \url{10.48550/arXiv.1910.00679}
+
+    \end{thebibliography}
+\end{frame}
+
+
+% ==================///==================///==================///
+% ==================/// BODY'S PRESENTATION
+% ==================///==================///==================///
+
+\input{sections/introduction}
+
+\input{sections/personalization}
+
+\input{chapters/special_slides}
+
+
+% ==================/// END PRESENTATION
+% ==================///==================///==================///
+
+\begin{frame}[plain]
+	
+	% Logos no canto superior direito (como nos outros slides)
+	\begin{tikzpicture}[remember picture,overlay]
+		\node[anchor=north east] 
+		at ($(current page.north east)+(-0.8cm,-0.6cm)$) {
+			\includegraphics[height=1.0cm]{assets/logo_UCA.jpg}
+
+		};
+	\end{tikzpicture}
+	
+	\centering
+	\vspace*{2.2cm}
+	
+	{\Huge\bfseries\textcolor{NavyBlue}{Thank you for listening!}\par}
+	\vspace{0.4cm}
+	{\Large\textcolor{CoolGray}{Any questions?}\par}
+	
+	\vspace{0.9cm}
+	{\color{AccentBlue}\rule{3cm}{1.5pt}\par}
+	
+	\vspace{0.7cm}
+	{\small\textcolor{CoolGray}{ Joao Pedro Martins do Lago Reis \quad|\quad Yann Kelvem da Silva Ramos}\par}
+	{\small\textcolor{CoolGray}{AprilTag-based Trajectory Tracking for the LIMOS Robot}\par}
+	
+\end{frame}
+
+
+\end{document}
