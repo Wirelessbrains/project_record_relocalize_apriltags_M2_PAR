@@ -513,6 +513,7 @@ def read_detections_with_pnp(
     d: np.ndarray,
     tag_size: float,
     min_margin: float,
+    frame_stride: int = 1,
     show_progress: bool = False,
     progress_callback: Optional[Callable[[float], None]] = None,
 ) -> Dict[int, List[DetectionObs]]:
@@ -550,6 +551,8 @@ def read_detections_with_pnp(
             elif det_msg_seen % 50 == 0:
                 if progress_callback is None:
                     print(f"[progress] PnP detections messages: {det_msg_seen}")
+        if frame_stride > 1 and (det_msg_seen - 1) % frame_stride != 0:
+            continue
         msg = deserialize_message(data, det_msg_t)
         stamp_ns = int(msg.header.stamp.sec) * 1_000_000_000 + int(msg.header.stamp.nanosec)
         for det in msg.detections:
@@ -995,6 +998,7 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--bag", default="", help="Path to rosbag2 folder")
     p.add_argument("--detections-topic", default="/detections")
     p.add_argument("--camera-info-topic", default="/camera_info")
+    p.add_argument("--frame-stride", type=int, default=1, help="Use 1 out of N detection messages (N>=1)")
     p.add_argument("--tag-size", type=float, default=0.20, help="Tag size in meters")
     p.add_argument("--min-margin", type=float, default=20.0, help="Minimum decision margin")
     p.add_argument("--anchor-tag", default="", help="Optional anchor tag name, e.g. tag36h11:0")
@@ -1028,6 +1032,8 @@ def parse_args() -> argparse.Namespace:
         args.output_dir = args.output_dir_path
     if not args.bag:
         p.error("missing bag path. Use positional <bag_path> or --bag.")
+    if args.frame_stride < 1:
+        p.error("--frame-stride must be >= 1")
     return args
 
 
@@ -1064,6 +1070,7 @@ def main() -> None:
         d,
         args.tag_size,
         args.min_margin,
+        frame_stride=args.frame_stride,
         show_progress=args.show_progress,
         progress_callback=_stage_progress(progress_bar, 8.0, 40.0, "PnP detections", 2, total_steps),
     )
@@ -1204,6 +1211,7 @@ def main() -> None:
 
     _print_section("Run Summary")
     _print_kv("Optimization profile", f"map=least_squares(loss=soft_l1), relocalization={args.relocalization_mode}, smoothing={smoothing_desc}")
+    _print_kv("Frame stride", str(args.frame_stride))
     _print_kv("Tags observed (raw)", str(tags_observed_raw))
     _print_kv("Tags after quality filter", str(tags_after_quality_filter))
     _print_kv("Tags mapped (connected)", str(tags_mapped_connected))

@@ -1,0 +1,2 @@
+stamp_sec,stamp_nanosec,t_rel_s,nearest_ref_idx,distance_to_ref_m,query_heading_deg,ref_heading_deg,heading_error_deg,query_x,query_z,ref_x_nearest,ref_z_nearest
+40,888000000,0.0,147,0.0,90.11555655522028,90.04014309442083,0.07541346079947459,0.2177851831507994,-1.2260835468489772,0.2177851831507994,-1.2260835468489772

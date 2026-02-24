@@ -92,6 +92,10 @@ h2 {
 h3 {
   margin-top: 0;
 }
+h4 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+}
 
 .muted, .placeholder {
   color: var(--muted);
@@ -110,6 +114,10 @@ h3 {
   border: 1px solid var(--line);
   border-radius: 12px;
   background: var(--panel);
+}
+
+.result-group {
+  margin-bottom: 18px;
 }
 
 .media-card img,
@@ -168,9 +176,9 @@ pre {
 }
 
 .reveal {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity .5s ease, transform .5s ease;
+  opacity: 1;
+  transform: none;
+  transition: opacity .35s ease, transform .35s ease;
 }
 
 .reveal.visible {

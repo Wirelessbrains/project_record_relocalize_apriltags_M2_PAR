@@ -179,13 +179,31 @@ python3 scripts/trajectory_analysis/build_tag_map_offline.py \
   outputs/walls_tags_run_01_outputs
 ```
 
-### 5.5 Run online relocalization + RViz
+### 5.5 Launch simulation online detection with your generated map
+
+```bash
+bash profiles/launch_sim_tags_online_detection.sh \
+  outputs/walls_tags_run_01_outputs/tag_map.yaml
+```
+
+### 5.6 Run online relocalization + RViz
 
 ```bash
 bash profiles/launch_sim_online_relocalization.sh \
-  outputs/walls_tags_run_01_outputs/trajetoria_camera_xz.csv \
-  /tag_only_pose pose_stamped map xz
+  outputs/walls_tags_run_01_outputs/trajetoria_camera.csv \
+  /tag_only_pose pose_stamped map xy
 ```
+
+Keep teleop active during relocalization test:
+
+```bash
+bash profiles/launch_teleop_joy_sim.sh
+```
+
+RViz simulation convention:
+- `Fixed Frame = map`
+- `Grid Plane = YZ`
+- map trajectory plane is `XY`
 
 ---
 

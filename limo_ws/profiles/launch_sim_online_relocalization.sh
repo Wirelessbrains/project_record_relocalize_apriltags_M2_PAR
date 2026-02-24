@@ -4,8 +4,8 @@ set -euo pipefail
 if [ $# -lt 1 ]; then
   echo "Usage: $0 <reference_csv_path> [pose_topic] [pose_msg_type] [frame_id] [trajectory_plane]"
   echo "Example:"
-  echo "  bash $0 outputs/walls_tags_run_01_outputs/trajetoria_camera_xz.csv"
-  echo "  bash $0 outputs/walls_tags_run_01_outputs/trajetoria_camera_xz.csv /tag_only_pose pose_stamped map xz"
+  echo "  bash $0 outputs/walls_tags_run_01_outputs/trajetoria_camera.csv"
+  echo "  bash $0 outputs/walls_tags_run_01_outputs/trajetoria_camera.csv /tag_only_pose pose_stamped map xy"
   exit 1
 fi
 
@@ -13,7 +13,7 @@ REFERENCE_CSV="$1"
 POSE_TOPIC="${2:-/tag_only_pose}"
 POSE_MSG_TYPE="${3:-pose_stamped}"
 FRAME_ID="${4:-map}"
-TRAJECTORY_PLANE="${5:-xz}"
+TRAJECTORY_PLANE="${5:-xy}"
 REFERENCE_AXIS_MODE_DEFAULT="identity"
 AUTO_ALIGN_DEFAULT="false"
 

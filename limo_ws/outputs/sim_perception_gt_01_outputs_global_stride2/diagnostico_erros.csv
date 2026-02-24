@@ -1,0 +1,8 @@
+metric,value
+frames_total,252
+frames_with_pose,223
+tags_detected,24
+tags_mapped,24
+pairwise_edges,428
+map_residual_rmse,0.06561059864797689
+relocalization_mode,avg

@@ -1013,7 +1013,7 @@ The experimental section evaluates these outputs quantitatively by analyzing the
 \label{sec:results}
 
 
-\subsection{Validation of the Map Optimization under Controlled Conditions}
+\subsection{Recording Phase Validation in under Controlled Conditions}
 \label{subsec:optimization_validation}
 
 Before integrating the relocalization stage in simulation and real-world experiments, the map optimization procedure described in Section~\ref{subsec:recording_phase} was validated under controlled conditions. The objective of this validation was to isolate the nonlinear least-squares formulation and verify its ability to recover consistent tag poses from noisy relative observations.
@@ -1067,17 +1067,122 @@ Figure~\ref{fig:results_noise} presents the corresponding visual comparison. Alt
 \end{figure}
 
 
+
+\subsection{Recording Phase Validation in Simulation}
+\label{subsec:simulation_recording}
+
+The recording pipeline was evaluated in the Ignition Gazebo environment to analyze the behavior of the pose estimation and nonlinear optimization stages under simulated sensing conditions with known ground truth. In this configuration, AprilTags were placed at predefined positions in the virtual world, and the robot executed a circular traversal while detections were logged.
+
+Since the simulator provides ground-truth camera and tag poses, the reconstructed quantities obtained from the optimization procedure described in Section~\ref{subsec:recording_phase} can be directly compared against the reference configuration. This setup enables evaluation of the geometric consistency of the map estimation stage independently of the relocalization process.
+
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}{0.48\linewidth}
+		\centering
+		\includesvg[width=\linewidth,inkscapelatex=false]{Images/sim_perception_gt_01_outputs_global_stride2__recording_trajectory_basic}
+		\caption*{(a) Reconstructed trajectory}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.48\linewidth}
+		\centering
+		\includesvg[width=\linewidth,inkscapelatex=false]{Images/sim_perception_gt_01_outputs_global_stride2__recording_trajectory_with_axes}
+		\caption*{(b) Reconstructed trajectory with local frames}
+	\end{minipage}
+	\caption{Reconstructed camera trajectory obtained after map optimization.}
+	\label{fig:sim_recording_basic}
+\end{figure}
+
+The reconstructed trajectory in Fig.~\ref{fig:sim_recording_basic}(a) follows the circular path imposed in the simulated experiment. This behavior reflects the accumulation of pairwise constraints defined in Eq.~\eqref{eq:obs_rel_tagij} and their reconciliation through the nonlinear least-squares formulation in Eq.~\eqref{eq:tagmap_nlsq}. 
+
+The local frames shown in Fig.~\ref{fig:sim_recording_basic}(b) exhibit smooth orientation variation along the path, consistent with the joint minimization of translational and rotational residuals described in Eqs.~\eqref{eq:residual_translation}--\eqref{eq:rotation_error_comp}.
+
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}{0.48\linewidth}
+		\centering
+		\includesvg[width=\linewidth,inkscapelatex=false]{Images/sim_perception_gt_01_outputs_global_stride2__recording_trajectory_comparison_optimized_vs_gt}
+		\caption*{(a) Optimized vs Ground Truth trajectory}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.48\linewidth}
+		\centering
+		\includesvg[width=\linewidth,inkscapelatex=false]{Images/sim_perception_gt_01_outputs_global_stride2__recording_trajectory_with_detected_and_groundtruth_tags}
+		\caption*{(b) Optimized trajectory and tags vs Ground Truth}
+	\end{minipage}
+	\caption{Comparison between optimized reconstruction and ground-truth configuration.}
+	\label{fig:sim_recording_comparison}
+\end{figure}
+
+A direct comparison with the simulator reference is provided in Fig.~\ref{fig:sim_recording_comparison}(a). The trajectory error was computed as the 3D distance between each optimized pose and its nearest ground-truth counterpart. Over the complete traversal, the mean error was $0.051\text{ m}$, with RMSE of $0.0566\text{ m}$ and a 95th percentile of $0.0902\text{ m}$.
+
+The tag reconstruction can be assessed in Fig.~\ref{fig:sim_recording_comparison}(b), where optimized tag poses are shown together with their ground-truth positions. For the $N=24$ detected tags, the translational error relative to ground truth yielded a mean of $0.0873\text{ m}$, a median of $0.0908\text{ m}$, and an RMSE of $0.0879\text{ m}$, consistent with the global solution obtained from the robust least-squares formulation in Eq.~\eqref{eq:tagmap_robust}.
+
+Taken together, the reported trajectory and tag errors indicate that the reconstruction obtained in simulation remains geometrically coherent with the imposed environment while following the same estimation process defined in the recording phase. Although the simulator provides ground-truth poses, the pipeline operates exclusively on image-based detections and solves the PnP problem using the simulated camera intrinsics, followed by the nonlinear least-squares optimization of relative constraints. Consequently, the solution minimizes residuals between observed tag pairs rather than absolute deviation from ground truth. The resulting mean trajectory error of approximately $5\text{ cm}$ and mean tag error of approximately $8\text{ cm}$ therefore reflect the behavior of the relative formulation under simulated sensing. At the scale of the circular trajectory and tag distribution considered in this experiment, these deviations remain small relative to the environment dimensions and do not modify the recovered global structure.
+
 \subsection{Relocalization Performance in Simulation}
 \label{subsec:simulation_results}
 
+The relocalization stage was evaluated in the Ignition Gazebo environment using the reference trajectory generated during the recording phase. Since the simulator provides ground-truth poses, the computed geometric deviations can be directly compared against their analytical counterparts.
+
+To verify the numerical correctness of the distance computation $D$, a controlled experiment was conducted by selecting intermediate points between pairs of tags in the YZ plane. For each point, the distance returned by the relocalization algorithm was compared against the corresponding ground-truth Euclidean distance computed directly from the simulator reference.
+
+Table~\ref{tab:distance_validation} summarizes the results obtained for eight representative points.
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		Point & Algorithm (m) & Ground Truth (m) & Abs Error (m) \\ \hline
+		1 & 2.287075 & 2.287075074 & $7.4\times10^{-8}$ \\
+		2 & 2.253073 & 2.253073406 & $4.1\times10^{-7}$ \\
+		3 & 2.218159 & 2.218159425 & $4.3\times10^{-7}$ \\
+		4 & 2.183157 & 2.183157183 & $1.8\times10^{-7}$ \\
+		5 & 2.091149 & 2.091148509 & $4.9\times10^{-7}$ \\
+		6 & 1.993383 & 1.993382550 & $4.5\times10^{-7}$ \\
+		7 & 1.896037 & 1.896037078 & $7.8\times10^{-8}$ \\
+		8 & 1.798917 & 1.798916689 & $3.1\times10^{-7}$ \\ \hline
+	\end{tabular}
+	\caption{Comparison between algorithm distance $D$ and ground-truth Euclidean distance.}
+	\label{tab:distance_validation}
+\end{table}
+
+The mean absolute error was $3.02\times10^{-7}\text{ m}$, with a maximum deviation of $4.91\times10^{-7}\text{ m}$. The mean algorithm distance and mean ground-truth distance differ only at the seventh decimal place.
+
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}{0.48\linewidth}
+		\centering
+		\includesvg[width=\linewidth,inkscapelatex=false]{Images/output_sim_between_tags_yz_01__relocalization_point_didactic}
+		\caption*{(a) Point 1}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.48\linewidth}
+		\centering
+		\includesvg[width=\linewidth,inkscapelatex=false]{Images/output_sim_between_tags_yz_04__relocalization_point_didactic}
+		\caption*{(b) Point 4}
+	\end{minipage}
+	
+	\vspace{2mm}
+	
+	\begin{minipage}{0.48\linewidth}
+		\centering
+		\includesvg[width=\linewidth,inkscapelatex=false]{Images/output_sim_between_tags_yz_08__relocalization_point_didactic}
+		\caption*{(c) Point 8}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.48\linewidth}
+		\centering
+		\includesvg[width=\linewidth,inkscapelatex=false]{Images/output_sim_between_tags_yz_03__relocalization_point_didactic}
+		\caption*{(d) Point 3}
+	\end{minipage}
+	\caption{Representative points used to validate the computation of $D$ in the YZ plane.}
+	\label{fig:distance_validation}
+\end{figure}
+
+This validation establishes the numerical correctness of the distance computation prior to evaluating the complete relocalization behavior. The residual differences are attributable to floating-point precision and do not reflect geometric error.
+
 \subsection{Relocalization Performance on the Real Platform}
 \label{subsec:real_results}
-
-\subsection{Validation of the Map Optimization under Controlled Conditions}
-
-\label{subsec:optimization_validation}
-
-
 
 \section{Conclusion}
 

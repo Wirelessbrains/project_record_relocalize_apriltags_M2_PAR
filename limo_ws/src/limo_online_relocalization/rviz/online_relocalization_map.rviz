@@ -38,7 +38,7 @@ Visualization Manager:
         X: 0
         Y: 0
         Z: 0
-      Plane: XZ
+      Plane: YZ
       Plane Cell Count: 40
       Reference Frame: map
       Value: true

@@ -16,7 +16,7 @@ Visualization Manager:
       Color: 160; 160; 164
       Enabled: true
       Name: Grid
-      Plane: XZ
+      Plane: YZ
       Plane Cell Count: 40
       Reference Frame: map
       Value: true

@@ -41,6 +41,11 @@ ros2 launch limo_online_relocalization online_relocalization.launch.py \
 
 ```bash
 bash profiles/launch_sim_online_relocalization.sh \
-  outputs/walls_tags_run_01_outputs/trajetoria_camera_xz.csv \
-  /tag_only_pose pose_stamped map xz
+  outputs/walls_tags_run_01_outputs/trajetoria_camera.csv \
+  /tag_only_pose pose_stamped map xy
 ```
+
+RViz simulation convention:
+- `Fixed Frame = map`
+- `Grid Plane = YZ`
+- map trajectory plane is `XY`

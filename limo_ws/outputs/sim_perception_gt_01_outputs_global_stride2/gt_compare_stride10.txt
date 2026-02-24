@@ -1,0 +1,4 @@
+output_dir=/home/jpdark/limo_autonomy_project_M2_PAR/limo_ws/outputs/sim_perception_gt_01_outputs_global_stride2
+rmse=0.480980
+opt_samples=223
+gt_samples=2877

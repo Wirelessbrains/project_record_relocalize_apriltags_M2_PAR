@@ -12,36 +12,19 @@
     <p class="eyebrow">Wireless Brains • Practical Robotics Project</p>
     <h1>Record, Map, and Relocalize with AprilTags</h1>
     <p class="lead">
-      A practical pipeline to learn a trajectory, rebuild references offline,
-      and measure online deviation from the learned path.
+      Practical assignment workflow: record a trajectory, rebuild references offline,
+      and evaluate relocalization with distance and heading metrics.
     </p>
     <div class="hero-actions">
-      <a class="btn primary" href="#quickstart">Quick Start</a>
+      <a class="btn primary" href="#quickstart">Start Practical Work</a>
       <a class="btn ghost" href="#results">See Results</a>
+      <a class="btn ghost" href="https://github.com/Wirelessbrains/project_record_relocalize_apriltags_M2_PAR" target="_blank" rel="noopener noreferrer">Open on GitHub</a>
     </div>
   </header>
 
   <main>
-    <section class="section reveal" id="features">
-      <h2>What This System Does</h2>
-      <div class="grid-3">
-        <article class="card">
-          <h3>Offline Build</h3>
-          <p>Extract trajectory and map artifacts from rosbag datasets.</p>
-        </article>
-        <article class="card">
-          <h3>Online Relocalization</h3>
-          <p>Compute nearest-point distance and heading error in real time.</p>
-        </article>
-        <article class="card">
-          <h3>Simulation Demo</h3>
-          <p>Validate end-to-end behavior and control integration before field tests.</p>
-        </article>
-      </div>
-    </section>
-
     <section class="section reveal" id="pipeline">
-      <h2>Pipeline</h2>
+      <h2>Practical Work Flow</h2>
       <ol class="steps">
         <li><strong>Record</strong> telemetry and tag detections.</li>
         <li><strong>Build</strong> reference trajectory and tag map offline.</li>
@@ -52,26 +35,153 @@
 
     <section class="section reveal" id="results">
       <h2>Results</h2>
-      <p class="muted">Replace placeholders below with your final videos, screenshots, and metrics.</p>
+      <p class="muted">Organized by real-robot scenarios and simulation validation (walls AprilTag SDF).</p>
 
-      <div class="grid-2">
-        <article class="media-card">
-          <h3>Offline Analysis</h3>
-          <img src="assets/results/offline_plot_placeholder.png" alt="Offline analysis plot placeholder" onerror="this.style.display='none'" />
-          <p class="placeholder">Expected files: trajectory/map plot, distance-angle charts, summary tables.</p>
-        </article>
+      <div class="result-group">
+        <h3>Real-Robot Scenario 1: Recording + Offline Relocalization</h3>
+        <div class="grid-2">
+          <article class="media-card">
+            <h4>Recording / Driving Session</h4>
+            <video controls preload="metadata">
+              <source src="assets/media/scenario1_video.mp4" type="video/mp4" />
+            </video>
+          </article>
+          <article class="media-card">
+            <h4>Scenario View</h4>
+            <img src="assets/media/scenario_real.jpg" alt="Real robot scenario 1 overview" />
+          </article>
+        </div>
+        <div class="grid-2">
+          <article class="media-card">
+            <h4>Recording Output 027 (Basic)</h4>
+            <img src="assets/results/real_s1_recording_trajectory_basic.svg" alt="Real scenario 1 recording trajectory output 027 basic" />
+          </article>
+          <article class="media-card">
+            <h4>Recording Output 027 (With Axes)</h4>
+            <img src="assets/results/real_s1_recording_trajectory_with_axes.svg" alt="Real scenario 1 recording trajectory output 027 with axes" />
+          </article>
+        </div>
+        <h4>Relocalization (Didactic Plots)</h4>
+        <div class="grid-3">
+          <article class="media-card"><img src="assets/results/real_s1_reloc_001.svg" alt="Real scenario 1 relocalization output 001" /></article>
+          <article class="media-card"><img src="assets/results/real_s1_reloc_002.svg" alt="Real scenario 1 relocalization output 002" /></article>
+          <article class="media-card"><img src="assets/results/real_s1_reloc_010.svg" alt="Real scenario 1 relocalization output 010" /></article>
+          <article class="media-card"><img src="assets/results/real_s1_reloc_012.svg" alt="Real scenario 1 relocalization output 012" /></article>
+          <article class="media-card"><img src="assets/results/real_s1_reloc_013.svg" alt="Real scenario 1 relocalization output 013" /></article>
+          <article class="media-card"><img src="assets/results/real_s1_reloc_014.svg" alt="Real scenario 1 relocalization output 014" /></article>
+          <article class="media-card"><img src="assets/results/real_s1_reloc_015.svg" alt="Real scenario 1 relocalization output 015" /></article>
+          <article class="media-card"><img src="assets/results/real_s1_reloc_016.svg" alt="Real scenario 1 relocalization output 016" /></article>
+          <article class="media-card"><img src="assets/results/real_s1_reloc_017.svg" alt="Real scenario 1 relocalization output 017" /></article>
+          <article class="media-card"><img src="assets/results/real_s1_reloc_018.svg" alt="Real scenario 1 relocalization output 018" /></article>
+          <article class="media-card"><img src="assets/results/real_s1_reloc_019.svg" alt="Real scenario 1 relocalization output 019" /></article>
+        </div>
+        <h4>Relocalization (Photo Evidence)</h4>
+        <div class="grid-3">
+          <article class="media-card"><img src="assets/media/reloc1.jpg" alt="Real scenario 1 relocalization frame 1" /></article>
+          <article class="media-card"><img src="assets/media/reloc2.jpg" alt="Real scenario 1 relocalization frame 2" /></article>
+          <article class="media-card"><img src="assets/media/reloc3.jpg" alt="Real scenario 1 relocalization frame 3" /></article>
+          <article class="media-card"><img src="assets/media/reloc4.jpg" alt="Real scenario 1 relocalization frame 4" /></article>
+          <article class="media-card"><img src="assets/media/reloc5.jpg" alt="Real scenario 1 relocalization frame 5" /></article>
+          <article class="media-card"><img src="assets/media/reloc5_outroangulo.jpg" alt="Real scenario 1 relocalization frame 5 alternate angle" /></article>
+          <article class="media-card"><img src="assets/media/reloc6.jpg" alt="Real scenario 1 relocalization frame 6" /></article>
+          <article class="media-card"><img src="assets/media/reloc6_outroangulo.jpg" alt="Real scenario 1 relocalization frame 6 alternate angle" /></article>
+          <article class="media-card"><img src="assets/media/reloc7.jpg" alt="Real scenario 1 relocalization frame 7" /></article>
+          <article class="media-card"><img src="assets/media/reloc8.jpg" alt="Real scenario 1 relocalization frame 8" /></article>
+        </div>
+        <div class="grid-3">
+          <article class="media-card"><img src="assets/media/outro_angulo_scenario.jpg" alt="Real scenario 1 alternate view 1" /></article>
+          <article class="media-card"><img src="assets/media/outro_angulo_scnario.jpg" alt="Real scenario 1 alternate view 2" /></article>
+          <article class="media-card"><img src="assets/media/Outro_angulo_scneario_real.jpg" alt="Real scenario 1 alternate view 3" /></article>
+        </div>
+        <p><a class="btn ghost" href="practical_work_real_robot.md">Open Real-Robot Practical Work Guide</a></p>
+      </div>
 
-        <article class="media-card">
-          <h3>Online Relocalization</h3>
-          <video controls preload="metadata" poster="assets/results/online_poster_placeholder.png">
-            <source src="assets/videos/online_relocalization_demo.mp4" type="video/mp4" />
-          </video>
-          <p class="placeholder">Expected video: nearest point tracking + distance/heading markers in RViz.</p>
-        </article>
+      <div class="result-group">
+        <h3>Real-Robot Scenario 2: Recording</h3>
+        <div class="grid-2">
+          <article class="media-card">
+            <h4>Recording / Driving Session</h4>
+            <video controls preload="metadata">
+              <source src="assets/media/segundo_snario_real_recordin.mp4" type="video/mp4" />
+            </video>
+          </article>
+          <article class="media-card">
+            <h4>Recording Output 020 (Basic)</h4>
+            <img src="assets/results/real_s2_recording_trajectory_basic.svg" alt="Real scenario 2 recording trajectory output 020 basic" />
+          </article>
+        </div>
+        <div class="grid-2">
+          <article class="media-card">
+            <h4>Recording Output 020 (With Axes)</h4>
+            <img src="assets/results/real_s2_recording_trajectory_with_axes.svg" alt="Real scenario 2 recording trajectory output 020 with axes" />
+          </article>
+        </div>
+        <p><a class="btn ghost" href="practical_work_real_robot.md">Open Real-Robot Practical Work Guide</a></p>
+      </div>
+
+      <div class="result-group">
+        <h3>Simulation Scenario: Walls AprilTag World</h3>
+        <p class="muted">Reference world: <code>limo_ws/src/gz_apriltag_env/worlds/walls_apriltag_limo.sdf</code></p>
+        <div class="grid-2">
+          <article class="media-card">
+            <h4>Simulation Environment</h4>
+            <img src="assets/media/sim_walls_environment.png" alt="Walls AprilTag simulation environment" />
+          </article>
+          <article class="media-card">
+            <h4>Trajectory Basic (Global Stride 2)</h4>
+            <img src="assets/results/sim_walls_trajectory_basic_global_stride2.svg" alt="Simulation trajectory basic global stride 2" />
+          </article>
+        </div>
+        <div class="grid-2">
+          <article class="media-card">
+            <h4>Trajectory with Axes (Global Stride 2)</h4>
+            <img src="assets/results/sim_walls_trajectory_with_axes_global_stride2.svg" alt="Simulation trajectory with axes global stride 2" />
+          </article>
+          <article class="media-card">
+            <h4>Optimized vs Ground Truth</h4>
+            <img src="assets/results/sim_walls_trajectory_comparison_optimized_vs_gt.svg" alt="Simulation optimized trajectory vs ground truth" />
+          </article>
+        </div>
+        <div class="grid-2">
+          <article class="media-card">
+            <h4>Detected vs Ground-Truth Tags</h4>
+            <img src="assets/results/sim_walls_tags_detected_vs_groundtruth_only.svg" alt="Simulation detected tags vs ground-truth tags" />
+          </article>
+          <article class="media-card">
+            <h4>Trajectory with Detected and Ground-Truth Tags</h4>
+            <img src="assets/results/sim_walls_trajectory_with_detected_and_groundtruth_tags.svg" alt="Simulation trajectory with detected and ground-truth tags" />
+          </article>
+        </div>
+        <div class="grid-2">
+          <article class="media-card">
+            <h4>Trajectory Basic (Default)</h4>
+            <img src="assets/results/sim_walls_trajectory_basic_default.svg" alt="Simulation trajectory basic default mode" />
+          </article>
+          <article class="media-card">
+            <h4>Trajectory with Axes (Default)</h4>
+            <img src="assets/results/sim_walls_trajectory_with_axes_default.svg" alt="Simulation trajectory with axes default mode" />
+          </article>
+        </div>
+        <h4>Relocalization Demos (Simulation)</h4>
+        <div class="grid-2">
+          <article class="media-card">
+            <h4>Demo 1</h4>
+            <video controls preload="metadata">
+              <source src="assets/media/reloc_demo1.webm" type="video/webm" />
+            </video>
+          </article>
+          <article class="media-card">
+            <h4>Demo 2</h4>
+            <video controls preload="metadata">
+              <source src="assets/media/reloc_demo2.webm" type="video/webm" />
+            </video>
+          </article>
+        </div>
+        <p><a class="btn ghost" href="practical_work_simulation.md">Open Simulation Practical Work Guide (Bonus Annex)</a></p>
       </div>
 
       <div class="metrics">
-        <h3>Key Metrics (Example Table)</h3>
+        <h3>Key Metrics (Fill with final numbers)</h3>
         <table>
           <thead>
             <tr>
@@ -145,10 +255,10 @@ bash profiles/build_sim.sh</code></pre>
     </section>
 
     <section class="section reveal" id="docs-links">
-      <h2>Documentation</h2>
+      <h2>Practical Work Documentation</h2>
       <ul class="links">
         <li><a href="../README.md">Repository README</a></li>
-        <li><a href="../limo_ws/README.md">Workspace Technical Guide</a></li>
+        <li><a href="../limo_ws/README.md">Workspace Run Guide</a></li>
         <li><a href="practical_work_real_robot.md">Practical Work - Real Robot</a></li>
         <li><a href="practical_work_simulation.md">Practical Work - Simulation (Bonus Annex)</a></li>
         <li><a href="roadmap_2025_2026.md">Roadmap (2025-2026)</a></li>

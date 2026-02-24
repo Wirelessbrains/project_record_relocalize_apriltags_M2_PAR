@@ -1,0 +1,11 @@
+point_id,source_index,query_csv
+1,0,outputs/sim_record_points_relocalization/queries/query_point_01.csv
+2,25,outputs/sim_record_points_relocalization/queries/query_point_02.csv
+3,49,outputs/sim_record_points_relocalization/queries/query_point_03.csv
+4,74,outputs/sim_record_points_relocalization/queries/query_point_04.csv
+5,99,outputs/sim_record_points_relocalization/queries/query_point_05.csv
+6,123,outputs/sim_record_points_relocalization/queries/query_point_06.csv
+7,148,outputs/sim_record_points_relocalization/queries/query_point_07.csv
+8,173,outputs/sim_record_points_relocalization/queries/query_point_08.csv
+9,197,outputs/sim_record_points_relocalization/queries/query_point_09.csv
+10,222,outputs/sim_record_points_relocalization/queries/query_point_10.csv

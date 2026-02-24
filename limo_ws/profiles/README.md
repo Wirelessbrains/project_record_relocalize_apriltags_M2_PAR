@@ -139,29 +139,25 @@ python3 scripts/trajectory_analysis/build_tag_map_offline.py \
   outputs/walls_tags_run_01_outputs
 ```
 
-5) Optional transform (trajectory + map):
-
-```bash
-python3 profiles/rotate_reference_frame.py \
-  --traj-in outputs/walls_tags_run_01_outputs/trajetoria_camera.csv \
-  --traj-out outputs/walls_tags_run_01_outputs/trajetoria_camera_xz.csv \
-  --map-in outputs/walls_tags_run_01_outputs/tag_map.yaml \
-  --map-out outputs/walls_tags_run_01_outputs/tag_map_walls_xz.yaml
-```
-
-6) Launch simulation with selected YAML:
+5) Launch simulation with selected YAML:
 
 ```bash
 bash profiles/launch_sim_tags_online_detection.sh \
-  outputs/walls_tags_run_01_outputs/tag_map_walls_xz.yaml
+  outputs/walls_tags_run_01_outputs/tag_map.yaml
 ```
 
-7) Start online relocalization + RViz:
+6) Start online relocalization + RViz:
 
 ```bash
 bash profiles/launch_sim_online_relocalization.sh \
-  outputs/walls_tags_run_01_outputs/trajetoria_camera_xz.csv \
-  /tag_only_pose pose_stamped map xz
+  outputs/walls_tags_run_01_outputs/trajetoria_camera.csv \
+  /tag_only_pose pose_stamped map xy
+```
+
+7) Keep teleop running while testing relocalization:
+
+```bash
+bash profiles/launch_teleop_joy_sim.sh
 ```
 
 ---
@@ -173,8 +169,11 @@ bash profiles/launch_sim_online_relocalization.sh \
   - `pose_topic=/tag_only_pose`
   - `pose_msg_type=pose_stamped`
   - `frame_id=map`
-  - `trajectory_plane=xz`
-- If you do not use transformed `*_xz` outputs, keep original CSV and YAML together.
+  - `trajectory_plane=xy`
+- RViz simulation convention for online relocalization:
+  - `Fixed Frame = map`
+  - `Grid Plane = YZ`
+  - map trajectory lives in `XY`
 - `src/control_limo` is an optional support package for control demos; it is not the project core.
 - For additional control-law study:
   - https://github.com/AtsushiSakai/PythonRobotics/tree/master

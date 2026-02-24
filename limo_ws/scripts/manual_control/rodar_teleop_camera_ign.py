@@ -11,6 +11,14 @@ def start(cmd):
 
 
 def main() -> int:
+    ws_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+    default_calib = os.path.join(
+        ws_root, "src", "limo_apriltag_tools", "config", "webcam_calibration_robot.yaml"
+    )
+    default_apriltag = os.path.join(
+        ws_root, "src", "limo_apriltag_tools", "config", "apriltag_params.yaml"
+    )
+
     parser = argparse.ArgumentParser(
         description="Start teleop + camera + apriltag for real robot (no Ignition)."
     )
@@ -52,12 +60,12 @@ def main() -> int:
     parser.add_argument("--video-device", default="/dev/video0", help="V4L2 device.")
     parser.add_argument(
         "--camera-info-url",
-        default="file:///home/agilex/robot_ws/src/limo_apriltag_tools/config/webcam_calibration_robo.yaml",
+        default=f"file://{default_calib}",
         help="Camera calibration YAML (file://...).",
     )
     parser.add_argument(
         "--apriltag-params",
-        default="/home/agilex/robot_ws/src/limo_apriltag_tools/config/apriltag_params.yaml",
+        default=default_apriltag,
         help="apriltag_ros params file.",
     )
     parser.add_argument(

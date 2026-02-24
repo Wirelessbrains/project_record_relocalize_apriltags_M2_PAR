@@ -14,3 +14,6 @@ limo_ws/dataset/**
 # Optional safety filters for bag artifacts
 *.db3
 *.bag
+
+docs/assets/media/scenario1_video.mp4
+docs/assets/media/segundo_snario_real_recordin.mp4
