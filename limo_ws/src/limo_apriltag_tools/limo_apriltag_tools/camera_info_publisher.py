@@ -40,18 +40,26 @@ class SynchronizedCameraInfoPublisher(Node):
             self.get_logger().error("Node startup aborted: invalid calibration data.")
             return
 
+        # Publish with RELIABLE QoS to match consumers that require reliability
+        # (e.g., apriltag/image_transport in some real-camera setups).
+        pub_qos = QoSProfile(
+            reliability=ReliabilityPolicy.RELIABLE,
+            history=HistoryPolicy.KEEP_LAST,
+            depth=10,
+        )
+
         # 3) Configure publishers.
         self.pub_camera_info = self.create_publisher(
             CameraInfo,
             camera_info_topic,
-            qos_profile_sensor_data,
+            pub_qos,
         )
         self.pub_image = None
         if relay_image:
             self.pub_image = self.create_publisher(
                 Image,
                 image_output_topic,
-                qos_profile_sensor_data,
+                pub_qos,
             )
 
         # 4) Subscribe to image topic for timestamp sync.

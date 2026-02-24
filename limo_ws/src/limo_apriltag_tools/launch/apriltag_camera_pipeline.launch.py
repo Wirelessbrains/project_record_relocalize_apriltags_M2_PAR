@@ -25,6 +25,7 @@ def generate_launch_description():
     tag_size = LaunchConfiguration('tag_size')
     use_sim_time = LaunchConfiguration('use_sim_time')
     enable_camera_info_publisher = LaunchConfiguration('enable_camera_info_publisher')
+    relay_image = LaunchConfiguration('relay_image')
     calibration_file = LaunchConfiguration('calibration_file')
 
     apriltag_node = Node(
@@ -52,7 +53,7 @@ def generate_launch_description():
             {'image_topic': camera_image_topic},
             {'camera_info_topic': camera_info_topic},
             {'image_output_topic': image_topic},
-            {'relay_image': True},
+            {'relay_image': relay_image},
         ],
         condition=IfCondition(enable_camera_info_publisher),
     )
@@ -114,6 +115,11 @@ def generate_launch_description():
             'enable_camera_info_publisher',
             default_value='true',
             description='Publish CameraInfo from YAML',
+        ),
+        DeclareLaunchArgument(
+            'relay_image',
+            default_value='true',
+            description='Relay image from camera_image_topic to image_topic',
         ),
         camera_info_publisher_node,
         apriltag_node,

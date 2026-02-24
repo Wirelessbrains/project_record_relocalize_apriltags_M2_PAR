@@ -32,10 +32,16 @@ Start perception first:
 bash profiles/launch_real_perception.sh 0.16
 ```
 
+Recommended for class/demo use (camera + perception + RViz):
+
+```bash
+bash profiles/launch_real_camera_perception_rviz.sh 0.16
+```
+
 Camera calibration YAML must be available at:
 
 ```bash
-limo_ws/src/limo_apriltag_tools/config/webcam_calibration_robot.yaml
+src/limo_apriltag_tools/config/webcam_calibration_robot.yaml
 ```
 
 Or pass a custom file explicitly:

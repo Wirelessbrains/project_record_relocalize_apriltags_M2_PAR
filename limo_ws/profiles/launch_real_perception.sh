@@ -57,4 +57,8 @@ echo "[config] tag_size=${TAG_SIZE_METERS} m"
 echo "[config] calibration_file=${CALIBRATION_FILE}"
 ros2 launch limo_apriltag_tools apriltag_camera_pipeline.launch.py \
   tag_size:="${TAG_SIZE_METERS}" \
-  calibration_file:="${CALIBRATION_FILE}"
+  calibration_file:="${CALIBRATION_FILE}" \
+  camera_image_topic:=/image_raw \
+  image_topic:=/image_raw \
+  camera_info_topic:=/camera_info \
+  relay_image:=false

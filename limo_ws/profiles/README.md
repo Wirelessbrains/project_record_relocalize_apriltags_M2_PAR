@@ -23,6 +23,24 @@ Run perception only (camera + AprilTag detector):
 bash profiles/launch_real_perception.sh 0.16
 ```
 
+Run camera + perception + RViz together (recommended):
+
+```bash
+bash profiles/launch_real_camera_perception_rviz.sh 0.16
+```
+
+Custom camera device example:
+
+```bash
+bash profiles/launch_real_camera_perception_rviz.sh 0.16 /dev/video1
+```
+
+Custom calibration file with one-command startup:
+
+```bash
+bash profiles/launch_real_camera_perception_rviz.sh 0.16 /dev/video0 src/limo_apriltag_tools/config/webcam_calibration_robot.yaml
+```
+
 Default calibration file path used by the script:
 
 ```bash

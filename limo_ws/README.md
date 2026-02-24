@@ -82,6 +82,12 @@ The dataset recording phase requires manual driving (joystick/teleop controller)
 bash profiles/launch_real_perception.sh 0.16
 ```
 
+Recommended one-command startup (camera + perception + RViz):
+
+```bash
+bash profiles/launch_real_camera_perception_rviz.sh 0.16
+```
+
 Camera calibration file (default expected path):
 
 ```bash
