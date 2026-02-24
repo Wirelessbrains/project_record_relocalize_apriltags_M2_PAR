@@ -1181,8 +1181,124 @@ The mean absolute error was $3.02\times10^{-7}\text{ m}$, with a maximum deviati
 
 This validation establishes the numerical correctness of the distance computation prior to evaluating the complete relocalization behavior. The residual differences are attributable to floating-point precision and do not reflect geometric error.
 
+\subsection{Recording Phase Validation on the Real Platform}
+
+Notwithstanding, as the algorithms were validated with synthetic data and simulation, the next step was to use them in a real scenario. In Figure \ref{fig:real_enviroment_teste}, the real robot was controlled with a remote controller in an environment full of tags, to avoid points where the robot would not be able to detect markers. It is worth emphasizing that ground markers were placed for the beginning, a triangle, and the end, a black X, of the executed trajectory.
+
+For the validation of the first recording stage, the robot was driven while the detection node was responsible for extracting all detections over time and storing them in a rosbag. With the rosbag as database, it was possible to extract the YAML file and the images with detections and, thus, estimate the tags map and the trajectory performed by the robot camera.
+
+Notwithstanding, the files with the detections of the tags must be sent to a computer with computational power greater than that of the LIMO robot, since, to perform the optimization of all tags and also of all trajectory positions per frame, we increase the number of parameters to a level that would be costly for the LIMO robot to compute.
+
+In Figure \ref{fig:real_enviroment_vs_estimated}, one can observe the shape of tag map reconstructed in a way very close to the real one when compared with the image captured at the moment of the experiment and with the plotted graph. In the graph, the tags are in coherent relative positions, both for those that are on the same board and for those that are on different boards. The optimized trajectory performed by the robot also became similar to the real trajectory, in exclamation format, as can be verified in the experiment video.
+
+
+
+For the real scenario, we do not have ground truth to verify whether the tags are close to the positions in which they were placed. To evaluate whether the algorithm made a good estimation of the tag positions, a tape-measure measurement was performed for the distance between tag 16 and the other tags of the model. Table \ref{tab:tag16_est_vs_meas} presents the comparison between the estimated distances and the measured ones.
+
+\begin{table}[h!]
+\centering
+\scriptsize
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\textbf{Source tag} & \textbf{Target tag} & \textbf{Estimated [m]} & \textbf{Measured [m]} & \textbf{Absolute error [m]} \\ \hline
+16 & 2  & 1.385 & 1.380 & 0.005 \\ \hline
+16 & 3  & 1.368 & 1.360 & 0.008 \\ \hline
+16 & 4  & 1.728 & 1.820 & 0.092 \\ \hline
+16 & 5  & 1.613 & 1.690 & 0.077 \\ \hline
+16 & 9  & 1.527 & 1.450 & 0.077 \\ \hline
+16 & 10 & 1.691 & 1.680 & 0.011 \\ \hline
+16 & 14 & 0.481 & 0.480 & 0.001 \\ \hline
+16 & 15 & 1.011 & 1.110 & 0.099 \\ \hline
+16 & 17 & 1.115 & 1.090 & 0.025 \\ \hline
+16 & 18 & 1.216 & 1.220 & 0.004 \\ \hline
+16 & 19 & 1.054 & 1.040 & 0.014 \\ \hline
+16 & 22 & 1.412 & 1.410 & 0.002 \\ \hline
+16 & 23 & 1.571 & 1.560 & 0.011 \\ \hline
+16 & 24 & 1.925 & 1.900 & 0.025 \\ \hline
+16 & 25 & 1.328 & 1.300 & 0.028 \\ \hline
+16 & 26 & 1.249 & 1.220 & 0.029 \\ \hline
+16 & 27 & 1.871 & 1.800 & 0.071 \\ \hline
+16 & 28 & 1.436 & 1.470 & 0.034 \\ \hline
+16 & 31 & 1.608 & 1.660 & 0.052 \\ \hline
+16 & 33 & 1.886 & 1.870 & 0.016 \\ \hline
+\textbf{Mean} & - & - & - & \textbf{0.039} \\ \hline
+\textbf{Max} & - & - & - & \textbf{0.099} \\ \hline
+\textbf{Min} & - & - & - & \textbf{0.001} \\ \hline
+\end{tabular}
+\caption{Comparison between estimated and measured distances from tag 16.}
+\label{tab:tag16_est_vs_meas}
+\end{table}
+
+Analyzing Table \ref{tab:tag16_est_vs_meas}, a maximum error of 0.099 m is observed in the distance between tags 16 and 15, a minimum error of 0.001 m between tags 16 and 14 and an average of 0.039 m. These values indicate good overall precision. The minimum error between tags 16 and 14 is coherent with the fact that these tags are close and are observed together in several frames. The largest error can be related to the observation angle and to the low number of frames observed for this tag, besides possible imprecision in the real measurement.Notwithstanding, as the algorithms were validated with synthetic data and simulation, the next step was to use them in a real scenario. In Figure \ref{fig:real_enviroment_teste}, the real robot was controlled with a remote controller in an environment full of tags, to avoid points where the robot would not be able to detect markers. It is worth emphasizing that ground markers were placed for the beginning, a triangle, and the end, a black X, of the executed trajectory.
+
+For the validation of the first recording stage, the robot was driven while the detection node was responsible for extracting all detections over time and storing them in a rosbag. With the rosbag as database, it was possible to extract the YAML file and the images with detections and, thus, estimate the tags map and the trajectory performed by the robot camera.Notwithstanding, the files with the detections of the tags must be sent to a computer with computational power greater than that of the LIMO robot, since, to perform the optimization of all tags and also of all trajectory positions per frame, we increase the number of parameters to a level that would be costly for the LIMO robot to compute.
+
+In Figure \ref{fig:real_enviroment_vs_estimated}, one can observe the shape of tag map reconstructed in a way very close to the real one when compared with the image captured at the moment of the experiment and with the plotted graph. In the graph, the tags are in coherent relative positions, both for those that are on the same board and for those that are on different boards. The optimized trajectory performed by the robot also became similar to the real trajectory, in exclamation format, as can be verified in the experiment video.
+
+
+For the real scenario, we do not have ground truth to verify whether the tags are close to the positions in which they were placed. To evaluate whether the algorithm made a good estimation of the tag positions, a tape-measure measurement was performed for the distance between tag 16 and the other tags of the model. Table \ref{tab:tag16_est_vs_meas} presents the comparison between the estimated distances and the measured ones.
+
+\begin{table}[h!]
+	\centering
+	\scriptsize
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		\textbf{Source tag} & \textbf{Target tag} & \textbf{Estimated [m]} & \textbf{Measured [m]} & \textbf{Absolute error [m]} \\ \hline
+		16 & 2  & 1.385 & 1.380 & 0.005 \\ \hline
+		16 & 3  & 1.368 & 1.360 & 0.008 \\ \hline
+		16 & 4  & 1.728 & 1.820 & 0.092 \\ \hline
+		16 & 5  & 1.613 & 1.690 & 0.077 \\ \hline
+		16 & 9  & 1.527 & 1.450 & 0.077 \\ \hline
+		16 & 10 & 1.691 & 1.680 & 0.011 \\ \hline
+		16 & 14 & 0.481 & 0.480 & 0.001 \\ \hline
+		16 & 15 & 1.011 & 1.110 & 0.099 \\ \hline
+		16 & 17 & 1.115 & 1.090 & 0.025 \\ \hline
+		16 & 18 & 1.216 & 1.220 & 0.004 \\ \hline
+		16 & 19 & 1.054 & 1.040 & 0.014 \\ \hline
+		16 & 22 & 1.412 & 1.410 & 0.002 \\ \hline
+		16 & 23 & 1.571 & 1.560 & 0.011 \\ \hline
+		16 & 24 & 1.925 & 1.900 & 0.025 \\ \hline
+		16 & 25 & 1.328 & 1.300 & 0.028 \\ \hline
+		16 & 26 & 1.249 & 1.220 & 0.029 \\ \hline
+		16 & 27 & 1.871 & 1.800 & 0.071 \\ \hline
+		16 & 28 & 1.436 & 1.470 & 0.034 \\ \hline
+		16 & 31 & 1.608 & 1.660 & 0.052 \\ \hline
+		16 & 33 & 1.886 & 1.870 & 0.016 \\ \hline
+		\textbf{Mean} & - & - & - & \textbf{0.039} \\ \hline
+		\textbf{Max} & - & - & - & \textbf{0.099} \\ \hline
+		\textbf{Min} & - & - & - & \textbf{0.001} \\ \hline
+	\end{tabular}
+	\caption{Comparison between estimated and measured distances from tag 16.}
+	\label{tab:tag16_est_vs_meas}
+\end{table}
+
+Analyzing Table \ref{tab:tag16_est_vs_meas}, a maximum error of 0.099 m is observed in the distance between tags 16 and 15, a minimum error of 0.001 m between tags 16 and 14 and an average of 0.039 m. These values indicate good overall precision. The minimum error between tags 16 and 14 is coherent with the fact that these tags are close and are observed together in several frames. The largest error can be related to the observation angle and to the low number of frames observed for this tag, besides possible imprecision in the real measurement.
+
+WARNING: VOU RECOLOCAR A IMAGENS O CODEX FEZ MERDA E ACABOU APAGANDO POR SORTE CONSGUI RECUPERAR O TEXTO 
+
 \subsection{Relocalization Performance on the Real Platform}
 \label{subsec:real_results}
+
+In the same way, for the relocalization part, again we do not have ground truth nor a reference scenario to compare the algorithms response. Thus, we defined metrics based on tape-measure measurements between the point at which the robot passes on the trajectory and the closest point of the trajectory where the robot is placed. To perform these measurements, we placed markers on the floor. One marker indicates the pose at which the robot passes during trajectory recording and another marker indicates the pose at which the robot is placed outside the recorded trajectory. As can be observed in Figure \ref{fig:real_enviroment_teste_outside_poses}, the arrow markers and the white X marker represent poses equivalent to the trajectory, while the square marker and the figure-eight marker represent positions outside the trajectory.
+
+Thus, for this trial, three points were marked on the trajectory and three points in which the robot was placed during the relocalization phase. The distances between points measured in the real environment and the estimated distances for the same poses with optimized data are in Table~\ref{tab:compare_three_cases_points}.
+
+\begin{table}[h!]
+	\centering
+	\small
+	\begin{tabular}{|l|c|c|c|c|}
+		\hline
+		\textbf{Case} & \textbf{Estimated D [m]} & \textbf{Measured D [m]} & \textbf{Error [m]} & \textbf{$\phi$ [deg]} \\ \hline
+		Trajetory and Realocalization 1 & 0.2998 & 0.3100 & 0.0102 & -31.38 \\ \hline
+		Trajetory and Realocalization 2 & 0.4284 & 0.4200 & 0.0084 & -10.34 \\ \hline
+		Trajetory and Realocalization 3 & 0.3567 & 0.3600 & 0.0033 & -1.63 \\ \hline
+	\end{tabular}
+	\caption{Summary table with the distance between the pose on the trajectory and a position outside the trajectory, besides the orientation error between the poses.}
+	\label{tab:compare_three_cases_points}
+\end{table}
+
+Analyzing Table \ref{tab:compare_three_cases_points}, we verify that, in relocalization with respect to the trajectory, the maximum distance error is 0.01 m and the minimum is 0.003 m between estimated and measured distances. This can be explained by the fact that position estimation uses the visualization of several tags at the same time, which increases precision. In the same way, orientation is estimated from the tags seen by the robot, which also contributes to a good orientation.
+
 
 \section{Conclusion}
 
