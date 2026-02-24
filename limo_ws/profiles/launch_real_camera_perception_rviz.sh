@@ -1,16 +1,18 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-if [ $# -lt 1 ] || [ $# -gt 3 ]; then
-  echo "Usage: $0 <tag_size> [video_device] [calibration_yaml]"
+if [ $# -lt 1 ] || [ $# -gt 4 ]; then
+  echo "Usage: $0 <tag_size> [video_device] [calibration_yaml] [no_rviz]"
   echo "  tag_size can be meters (0.16) or centimeters (16)"
   echo "  video_device defaults to /dev/video0"
+  echo "  no_rviz: true|false (default: false)"
   exit 1
 fi
 
 TAG_SIZE="$1"
 VIDEO_DEVICE="${2:-/dev/video0}"
 CALIBRATION_YAML="${3:-}"
+NO_RVIZ="${4:-false}"
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 WS_ROOT="$(dirname "$SCRIPT_DIR")"
@@ -58,5 +60,10 @@ PER_PID=$!
 
 sleep 2
 
-echo "[3/3] Starting RViz..."
-rviz2 -d "$RVIZ_CFG"
+if [ "$NO_RVIZ" = "true" ]; then
+  echo "[3/3] RViz disabled (no_rviz=true)."
+  wait "$PER_PID"
+else
+  echo "[3/3] Starting RViz..."
+  rviz2 -d "$RVIZ_CFG"
+fi
