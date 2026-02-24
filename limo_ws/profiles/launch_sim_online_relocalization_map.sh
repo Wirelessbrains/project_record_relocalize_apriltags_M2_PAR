@@ -9,12 +9,19 @@ fi
 
 REFERENCE_CSV="$1"
 
-cd /home/jpdark/Downloads/robot_ws
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+WS_ROOT="$(dirname "$SCRIPT_DIR")"
+cd "$WS_ROOT"
 export AMENT_TRACE_SETUP_FILES=${AMENT_TRACE_SETUP_FILES-}
 export AMENT_PYTHON_EXECUTABLE=${AMENT_PYTHON_EXECUTABLE-$(command -v python3)}
 set +u
 source /opt/ros/humble/setup.bash
-source install/setup.bash
+if [ -f "install/setup.bash" ]; then
+  source install/setup.bash
+else
+  echo "Error: workspace is not built. Run 'bash profiles/build_sim.sh' first."
+  exit 1
+fi
 set -u
 
 if [ ! -f "$REFERENCE_CSV" ]; then
@@ -22,7 +29,7 @@ if [ ! -f "$REFERENCE_CSV" ]; then
   exit 1
 fi
 
-RVIZ_CFG="/home/jpdark/Downloads/robot_ws/src/limo_online_relocalization/rviz/online_relocalization_map.rviz"
+RVIZ_CFG="$WS_ROOT/src/limo_online_relocalization/rviz/online_relocalization_map.rviz"
 
 echo "[1/2] Starting online relocalization (map/tag_only_base_pose)..."
 ros2 launch limo_online_relocalization online_relocalization.launch.py \

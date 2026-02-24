@@ -2,7 +2,7 @@
   <name>limo_apriltag_tools</name>
   <version>0.0.1</version>
   <description>Utilities for AprilTag detection, camera info publishing, and tag-only localization in ROS 2.</description>
-  <maintainer email="jpdark@example.com">jpdark</maintainer>
+  <maintainer email="contact@wirelessbrains.dev">Wireless Brains</maintainer>
   <license>Apache-2.0</license>
 
   <depend>rclpy</depend>

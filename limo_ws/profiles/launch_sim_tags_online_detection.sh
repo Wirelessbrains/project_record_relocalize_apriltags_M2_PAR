@@ -10,12 +10,19 @@ fi
 
 MAP_YAML="$1"
 
-cd /home/jpdark/Downloads/robot_ws
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+WS_ROOT="$(dirname "$SCRIPT_DIR")"
+cd "$WS_ROOT"
 export AMENT_TRACE_SETUP_FILES=${AMENT_TRACE_SETUP_FILES-}
 export AMENT_PYTHON_EXECUTABLE=${AMENT_PYTHON_EXECUTABLE-$(command -v python3)}
 set +u
 source /opt/ros/humble/setup.bash
-source install/setup.bash
+if [ -f "install/setup.bash" ]; then
+  source install/setup.bash
+else
+  echo "Error: workspace is not built. Run 'bash profiles/build_sim.sh' first."
+  exit 1
+fi
 set -u
 
 if [ ! -f "$MAP_YAML" ]; then
@@ -23,8 +30,5 @@ if [ ! -f "$MAP_YAML" ]; then
   exit 1
 fi
 
-ros2 launch control_limo sim_unified.launch.py \
-  world:=/home/jpdark/Downloads/robot_ws/src/gz_apriltag_env/worlds/walls_apriltag_limo.sdf \
-  parking_mode:=false \
-  run_ippe_localization:=true \
+ros2 launch control_limo sim_tags_localization.launch.py \
   map_yaml:="$MAP_YAML"

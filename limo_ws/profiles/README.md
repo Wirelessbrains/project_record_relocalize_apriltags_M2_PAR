@@ -9,6 +9,8 @@ This folder provides helper scripts for two workflows:
 
 ## REAL (Primary)
 
+Manual driving is required for dataset recording (joystick/teleop controller).
+
 Build:
 
 ```bash
@@ -44,6 +46,8 @@ bash profiles/launch_real_online_relocalization.sh \
 ---
 
 ## SIM (Bonus)
+
+Manual driving is required in simulation as well to generate the teach trajectory.
 
 Build:
 
@@ -121,3 +125,6 @@ bash profiles/launch_sim_online_relocalization.sh \
   - `frame_id=map`
   - `trajectory_plane=xz`
 - If you do not use transformed `*_xz` outputs, keep original CSV and YAML together.
+- `src/control_limo` is an optional support package for control demos; it is not the project core.
+- For additional control-law study:
+  - https://github.com/AtsushiSakai/PythonRobotics/tree/master

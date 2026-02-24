@@ -3,8 +3,8 @@
 <package format="3">
   <name>limo_msgs</name>
   <version>0.0.0</version>
-  <description>message for limo base</description>
-  <maintainer email="tx@todo.todo">tx</maintainer>
+  <description>ROS 2 message definitions for LIMO base status and interfaces.</description>
+  <maintainer email="contact@wirelessbrains.dev">Wireless Brains</maintainer>
   <license>BSD</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>

@@ -17,15 +17,22 @@ TRAJECTORY_PLANE="${5:-xz}"
 REFERENCE_AXIS_MODE_DEFAULT="identity"
 AUTO_ALIGN_DEFAULT="false"
 
-cd /home/jpdark/Downloads/robot_ws
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+WS_ROOT="$(dirname "$SCRIPT_DIR")"
+cd "$WS_ROOT"
 export AMENT_TRACE_SETUP_FILES=${AMENT_TRACE_SETUP_FILES-}
 export AMENT_PYTHON_EXECUTABLE=${AMENT_PYTHON_EXECUTABLE-$(command -v python3)}
 set +u
 source /opt/ros/humble/setup.bash
-source install/setup.bash
+if [ -f "install/setup.bash" ]; then
+  source install/setup.bash
+else
+  echo "Error: workspace is not built. Run 'bash profiles/build_sim.sh' first."
+  exit 1
+fi
 set -u
 
-RVIZ_CFG="/home/jpdark/Downloads/robot_ws/src/limo_online_relocalization/rviz/online_relocalization_map.rviz"
+RVIZ_CFG="$WS_ROOT/src/limo_online_relocalization/rviz/online_relocalization_map.rviz"
 
 echo "[config] pose_topic=$POSE_TOPIC"
 echo "[config] pose_msg_type=$POSE_MSG_TYPE"
@@ -42,7 +49,7 @@ if [ ! -f "$REFERENCE_CSV" ]; then
   else
     echo "[error] Reference CSV not found: $REFERENCE_CSV"
     echo "[hint] Example existing file:"
-    find /home/jpdark/Downloads/robot_ws/outputs -type f -name trajetoria_camera.csv 2>/dev/null | head -n 3
+    find "$WS_ROOT/outputs" -type f -name trajetoria_camera.csv 2>/dev/null | head -n 3
     exit 1
   fi
 fi

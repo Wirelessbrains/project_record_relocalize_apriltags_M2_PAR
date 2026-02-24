@@ -19,8 +19,8 @@ setup(
     zip_safe=True,
     maintainer='yann',
     maintainer_email='yannkelvem40@gmail.com',
-    description='Package for launching LIMO simulation with joystick teleoperation.',
-    license='TODO: License declaration',
+    description='Control nodes and launch files for LIMO parking and goal-to-pose navigation.',
+    license='MIT',
     extras_require={
         'test': [
             'pytest',

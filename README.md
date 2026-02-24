@@ -39,6 +39,8 @@ Bonus track: simulation workflow for validation.
 - Full technical guide: `limo_ws/README.md`
 - Profile scripts guide: `limo_ws/profiles/README.md`
 - Offline analysis guide: `limo_ws/scripts/trajectory_analysis/README.md`
+- Practical work (real robot): `docs/practical_work_real_robot.md`
+- Practical work (simulation bonus annex): `docs/practical_work_simulation.md`
 
 ---
 
@@ -70,3 +72,12 @@ bash profiles/build_sim.sh
 
 This repository is focused on AprilTag-based trajectory learning and relocalization (offline + online).  
 It is not a full generic navigation stack for arbitrary unknown environments.
+
+## Control Package Positioning
+
+`limo_ws/src/control_limo` is provided as an optional didactic support package (example control integration in simulation).  
+It is not the core objective of the project.
+
+Students who want to study or implement additional control laws can use:
+
+- https://github.com/AtsushiSakai/PythonRobotics/tree/master

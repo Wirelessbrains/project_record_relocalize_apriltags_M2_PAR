@@ -8,7 +8,7 @@ Main scripts:
 ## 1) Build map + trajectory from rosbag2
 
 ```bash
-cd /home/jpdark/Downloads/robot_ws
+cd <workspace_root>/limo_ws
 source /opt/ros/humble/setup.bash
 source install/setup.bash
 python3 scripts/trajectory_analysis/build_tag_map_offline.py <bag_path> <output_dir>

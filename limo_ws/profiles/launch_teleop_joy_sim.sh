@@ -1,12 +1,19 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd /home/jpdark/Downloads/robot_ws
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+WS_ROOT="$(dirname "$SCRIPT_DIR")"
+cd "$WS_ROOT"
 export AMENT_TRACE_SETUP_FILES=${AMENT_TRACE_SETUP_FILES-}
 export AMENT_PYTHON_EXECUTABLE=${AMENT_PYTHON_EXECUTABLE-$(command -v python3)}
 set +u
 source /opt/ros/humble/setup.bash
-source install/setup.bash
+if [ -f "install/setup.bash" ]; then
+  source install/setup.bash
+else
+  echo "Error: workspace is not built. Run 'bash profiles/build_sim.sh' first."
+  exit 1
+fi
 set -u
 
 # Terminal-friendly launcher: run this in a separate terminal after simulation starts.

@@ -3,9 +3,9 @@
 <package format="3">
   <name>control_limo</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
+  <description>Control nodes and launch files for LIMO parking and goal-to-pose navigation.</description>
   <maintainer email="yannkelvem40@gmail.com">yann</maintainer>
-  <license>TODO: License declaration</license>
+  <license>MIT</license>
 
   <exec_depend>rclpy</exec_depend>
   <exec_depend>geometry_msgs</exec_depend>

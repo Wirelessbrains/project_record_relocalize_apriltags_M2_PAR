@@ -23,7 +23,7 @@ Online relocalization node that compares live robot pose against a recorded refe
 
 ```bash
 ros2 launch limo_online_relocalization online_relocalization.launch.py \
-  reference_csv:=/home/jpdark/Downloads/robot_ws/outputs/<run>/trajetoria_camera.csv \
+  reference_csv:=outputs/<run>/trajetoria_camera.csv \
   pose_topic:=/tag_only_base_pose \
   pose_msg_type:=pose_stamped \
   frame_id:=map \

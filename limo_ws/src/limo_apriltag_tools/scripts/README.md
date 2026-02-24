@@ -15,4 +15,4 @@ These wrappers call Python entry points defined in `setup.py`.
 
 For offline trajectory/map/relocalization analysis, see:
 
-- `scripts/trajectory_analysis/README.md`
+- `../../scripts/trajectory_analysis/README.md`

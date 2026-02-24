@@ -24,7 +24,7 @@ find_package(sensor_msgs REQUIRED)
 find_package(tf2 REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(limo_msgs REQUIRED)
-find_package(tf2_geometry_msgs)
+find_package(tf2_geometry_msgs REQUIRED)
 
 include_directories(
   include
@@ -57,7 +57,7 @@ install(TARGETS
   limo_base  
   DESTINATION lib/${PROJECT_NAME})
 
-install(DIRECTORY launch src 
+install(DIRECTORY launch src param
   DESTINATION share/${PROJECT_NAME}/)
   
 ament_export_include_directories(

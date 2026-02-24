@@ -26,7 +26,7 @@ import os
 
 
 def generate_launch_description():
-    share_dir = get_package_share_directory('limo_bringup')
+    share_dir = get_package_share_directory('limo_base')
     parameter_file = LaunchConfiguration('params_file')
     node_name = 'ydlidar_ros2_driver_node'
 

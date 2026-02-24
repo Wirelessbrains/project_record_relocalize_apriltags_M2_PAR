@@ -11,7 +11,7 @@ This world is used for dataset collection and relocalization validation.
 ## Run directly with Ignition
 
 ```bash
-cd /home/jpdark/Downloads/robot_ws
+cd <workspace_root>/limo_ws
 export IGN_GAZEBO_RESOURCE_PATH=$PWD/src/gz_apriltag_env/models
 ign gazebo -r $PWD/src/gz_apriltag_env/worlds/walls_apriltag_limo.sdf
 ```

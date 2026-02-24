@@ -72,6 +72,10 @@ bash profiles/build_sim.sh
 
 ## 4) Real Robot Workflow (Primary)
 
+### 4.0 Manual control is required
+
+The dataset recording phase requires manual driving (joystick/teleop controller).
+
 ### 4.1 Run perception/localization stack
 
 ```bash
@@ -125,6 +129,8 @@ bash profiles/launch_sim_tags_dataset.sh 7
 ```bash
 bash profiles/launch_teleop_joy_sim.sh
 ```
+
+Manual driving is mandatory here as well to generate the teach trajectory used by relocalization.
 
 ### 5.3 Record compact dataset
 
@@ -210,11 +216,16 @@ The workspace includes an example control stack in `src/control_limo`:
 - `tags_parking_full.launch.py`: complete simulation orchestration.
 
 This is provided as a practical control example linked to localization/perception.
+It is not the core objective of this repository.
 
 It is useful for:
 - observing closed-loop behavior in simulation,
 - understanding interaction between localization and command generation,
 - testing parameter sensitivity.
+
+For additional trajectory-control law references, students can use:
+
+- https://github.com/AtsushiSakai/PythonRobotics/tree/master
 
 ---
 
@@ -288,5 +299,7 @@ ros2 topic echo /tag_only_base_pose --once
 
 - `../docs/roadmap_2025_2026.md`
 - `../docs/project_scope_requirements.md`
+- `../docs/practical_work_real_robot.md`
+- `../docs/practical_work_simulation.md`
 - `profiles/README.md`
 - `scripts/trajectory_analysis/README.md`

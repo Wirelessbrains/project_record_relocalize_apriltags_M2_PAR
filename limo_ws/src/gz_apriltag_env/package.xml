@@ -5,7 +5,7 @@
   <version>0.0.0</version>
   <description>Gazebo environment with AprilTags for Limo robot</description>
   <maintainer email="yannkelvem40@gmail.com">yann</maintainer>
-  <license>TODO: License declaration</license>
+  <license>MIT</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
