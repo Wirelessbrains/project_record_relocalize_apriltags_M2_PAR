@@ -1,7 +1,7 @@
 :root {
-  --bg: #0b1118;
-  --panel: #111a25;
-  --panel-soft: #182435;
+  --bg: #070c13;
+  --panel: #0d1724;
+  --panel-soft: #152233;
   --text: #ecf2f8;
   --muted: #a7b6c8;
   --line: #2b3d56;
@@ -15,9 +15,11 @@ html, body {
   margin: 0;
   padding: 0;
   background:
-    radial-gradient(1200px 600px at 100% -10%, rgba(31,191,143,.14), transparent 45%),
-    radial-gradient(1000px 500px at -10% 0%, rgba(255,179,71,.12), transparent 45%),
+    radial-gradient(1200px 600px at 100% -10%, rgba(31,191,143,.10), transparent 45%),
+    radial-gradient(1000px 500px at -10% 0%, rgba(255,179,71,.08), transparent 45%),
     var(--bg);
+  background-size: 140% 140%, 130% 130%, auto;
+  animation: pageBgShift 16s ease-in-out infinite alternate;
   color: var(--text);
   font-family: "Segoe UI", "Noto Sans", "Helvetica Neue", sans-serif;
 }
@@ -29,6 +31,46 @@ main, .hero, .footer {
 
 .hero {
   padding: 72px 0 24px;
+  animation: heroIn .8s ease-out both;
+}
+
+.brand-banner {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 14px;
+  max-width: 980px;
+}
+
+.brand-hero-image {
+  width: 280px;
+  height: auto;
+  display: block;
+  border-radius: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  object-fit: contain;
+  filter: brightness(1.14) contrast(1.15) saturate(1.06);
+  flex: 0 0 auto;
+}
+
+.brand-text h1 {
+  margin: 6px 0 0;
+  max-width: 16ch;
+}
+
+.brand-icon {
+  width: 58px;
+  height: 58px;
+  flex: 0 0 auto;
+  border-radius: 14px;
+  box-shadow: 0 8px 26px rgba(12, 25, 42, 0.35);
+}
+
+.brand-logo {
+  width: min(620px, 100%);
+  height: auto;
 }
 
 .eyebrow {
@@ -74,6 +116,18 @@ h1 {
 .btn.ghost {
   border-color: var(--line);
   background: rgba(255,255,255,.02);
+}
+
+.btn.secondary {
+  background: var(--accent-2);
+  color: #2a1900;
+}
+
+.action-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .section {
@@ -122,6 +176,68 @@ h4 {
 
 .media-card img,
 .media-card video {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: #000;
+  min-height: 170px;
+}
+
+.media-card iframe {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: #000;
+  min-height: 315px;
+}
+
+.media-center {
+  text-align: center;
+}
+
+.locked-embed {
+  pointer-events: none;
+}
+
+.phase-title {
+  margin: 10px 0 12px;
+  color: var(--accent-2);
+}
+
+.carousel-wrap {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scroll-snap-type: x mandatory;
+}
+
+.carousel-track::-webkit-scrollbar {
+  height: 8px;
+}
+
+.carousel-track::-webkit-scrollbar-thumb {
+  background: #355173;
+  border-radius: 8px;
+}
+
+.carousel-item {
+  flex: 0 0 min(430px, 85vw);
+  scroll-snap-align: start;
+}
+
+.carousel-item img {
   width: 100%;
   border-radius: 10px;
   border: 1px solid var(--line);
@@ -176,9 +292,9 @@ pre {
 }
 
 .reveal {
-  opacity: 1;
-  transform: none;
-  transition: opacity .35s ease, transform .35s ease;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .45s ease, transform .45s ease;
 }
 
 .reveal.visible {
@@ -186,7 +302,36 @@ pre {
   transform: translateY(0);
 }
 
+@keyframes heroIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pageBgShift {
+  0% {
+    background-position: 100% -10%, -10% 0%, 0 0;
+  }
+  100% {
+    background-position: 90% -5%, -5% 10%, 0 0;
+  }
+}
+
 @media (max-width: 900px) {
+  .brand-banner {
+    gap: 12px;
+  }
+
+  .brand-hero-image {
+    width: 220px;
+    height: auto;
+  }
+
   .grid-2, .grid-3 {
     grid-template-columns: 1fr;
   }

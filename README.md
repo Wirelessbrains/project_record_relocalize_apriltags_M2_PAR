@@ -1,6 +1,6 @@
 # Record, Map, and Relocalize with AprilTags
 
-![Project Avatar](https://www.generationrobots.com/19724-product_cover/robot-mobile-open-source-limo-compatible-ros1-et-ros2-limo-standard-version.jpg)
+![Project Logo](docs/assets/brand/brand_identity.png)
 
 Primary track: real LIMO robot pipeline (offline + online relocalization).  
 Bonus track: simulation workflow for validation.
