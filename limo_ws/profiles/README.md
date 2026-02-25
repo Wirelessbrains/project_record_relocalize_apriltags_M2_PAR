@@ -67,10 +67,11 @@ bash profiles/launch_real_perception.sh 0.16
 bash profiles/launch_real_perception.sh 16
 ```
 
-Start localization only when needed (map + IPPE):
+Start localization only when needed (map + IPPE).
+The script requires a generated map YAML (it prompts if omitted):
 
 ```bash
-bash profiles/launch_real_localization.sh 0.16
+bash profiles/launch_real_localization.sh 0.16 outputs/real_run_01_outputs/tag_map.yaml
 ```
 
 Run minimal navigation:
@@ -82,7 +83,7 @@ bash profiles/launch_real_nav_minimal.sh
 Run online relocalization:
 
 ```bash
-bash profiles/launch_real_online_relocalization.sh <reference_csv_path> [pose_topic]
+bash profiles/launch_real_online_relocalization.sh <reference_csv_path> [pose_topic] [pose_msg_type] [mode]
 ```
 
 Example:
@@ -90,8 +91,46 @@ Example:
 ```bash
 bash profiles/launch_real_online_relocalization.sh \
   outputs/real_run_01_outputs/trajetoria_camera.csv \
-  /tag_only_base_pose
+  /tag_only_pose
 ```
+
+If `pose_msg_type` is omitted, the script auto-detects the topic type.
+`mode` can be:
+- `full` (default): reference path + nearest point + distance + heading + markers
+- `progress`: reference path + current pose only (clean step-by-step visualization)
+
+Run online relocalization + RViz together (recommended for rosbag validation):
+
+```bash
+bash profiles/launch_real_online_relocalization_map.sh \
+  outputs/real_run_01_outputs/trajetoria_camera.csv \
+  /tag_only_pose pose_stamped full
+```
+
+Rosbag replay with map/tags visible (no topic conflict):
+
+1. Start map + tag TFs from generated YAML:
+
+```bash
+bash profiles/launch_real_localization.sh 0.20 outputs/<run>_outputs/tag_map.yaml
+```
+
+2. Start online relocalization reading a dedicated replay topic:
+
+```bash
+bash profiles/launch_real_online_relocalization_map.sh \
+  outputs/<run>_outputs/trajetoria_camera.csv \
+  /tag_only_pose_bag pose_stamped full
+```
+
+3. Replay bag remapping pose topic:
+
+```bash
+ros2 bag play <bag_path> --clock \
+  --remap /tag_only_pose:=/tag_only_pose_bag
+```
+
+This avoids two publishers on `/tag_only_pose` (`localization` + `bag`) and keeps distance/heading consistent.
 
 ---
 
@@ -172,7 +211,7 @@ bash profiles/launch_teleop_joy_sim.sh
   - `trajectory_plane=xy`
 - RViz simulation convention for online relocalization:
   - `Fixed Frame = map`
-  - `Grid Plane = YZ`
+  - `Grid Plane = XZ`
   - map trajectory lives in `XY`
 - `src/control_limo` is an optional support package for control demos; it is not the project core.
 - For additional control-law study:

@@ -111,7 +111,7 @@ bash profiles/launch_real_perception.sh 16
 ### 4.2 Start localization only when required
 
 ```bash
-bash profiles/launch_real_localization.sh 0.16
+bash profiles/launch_real_localization.sh 0.16 outputs/real_run_01_outputs/tag_map.yaml
 ```
 
 ### 4.3 Record a dataset
@@ -124,7 +124,9 @@ ros2 bag record \
   -o dataset/real_run_01
 ```
 
-If you also want pose from map-based localization in the bag, add `/tag_only_base_pose`.
+If needed, also record pose topics:
+- camera pose (recommended with `trajetoria_camera.csv`): `/tag_only_pose`
+- base pose (optional): `/tag_only_base_pose`
 
 ### 4.4 Build offline reference artifacts
 
@@ -139,7 +141,7 @@ python3 scripts/trajectory_analysis/build_tag_map_offline.py \
 ```bash
 bash profiles/launch_real_online_relocalization.sh \
   outputs/real_run_01_outputs/trajetoria_camera.csv \
-  /tag_only_base_pose
+  /tag_only_pose
 ```
 
 ---
@@ -202,7 +204,7 @@ bash profiles/launch_teleop_joy_sim.sh
 
 RViz simulation convention:
 - `Fixed Frame = map`
-- `Grid Plane = YZ`
+- `Grid Plane = XZ`
 - map trajectory plane is `XY`
 
 ---
@@ -289,7 +291,7 @@ During runs, students should observe:
 - camera info availability.
 
 2. Pose stream quality
-- continuity of `/tag_only_base_pose` (or configured pose topic),
+- continuity of `/tag_only_pose` (or configured pose topic),
 - absence of long gaps and severe jumps.
 
 3. Offline artifacts quality
@@ -335,7 +337,7 @@ ros2 topic list
 
 ```bash
 ros2 topic echo /detections --once
-ros2 topic echo /tag_only_base_pose --once
+ros2 topic echo /tag_only_pose --once
 ```
 
 3. Confirm reference CSV path exists before online relocalization.

@@ -6,7 +6,7 @@ This practical work focuses on **AprilTag-based trajectory recording and relocal
 
 Students must:
 
-1. Drive the robot manually (teach run).
+1. Drive the robot manually.
 2. Record a dataset.
 3. Build an offline reference trajectory/map.
 4. Run online relocalization.
@@ -61,7 +61,7 @@ bash profiles/launch_real_perception.sh 20
 Start localization only when needed:
 
 ```bash
-bash profiles/launch_real_localization.sh 0.16
+bash profiles/launch_real_localization.sh 0.16 outputs/real_run_01_outputs/tag_map.yaml
 ```
 
 Record a run while manually driving:
@@ -89,7 +89,7 @@ Run online relocalization:
 ```bash
 bash profiles/launch_real_online_relocalization.sh \
   outputs/real_run_01_outputs/trajetoria_camera.csv \
-  /tag_only_base_pose
+  /tag_only_pose
 ```
 
 ## Expected Outputs

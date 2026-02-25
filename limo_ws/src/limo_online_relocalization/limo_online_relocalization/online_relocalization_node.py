@@ -59,11 +59,12 @@ class OnlineRelocalizationNode(Node):
 
         self.declare_parameter('reference_csv', '')
         self.declare_parameter('frame_id', 'map')
-        self.declare_parameter('pose_topic', '/tag_only_base_pose')
+        self.declare_parameter('pose_topic', '/tag_only_pose')
         self.declare_parameter('pose_msg_type', 'pose_stamped')  # pose_stamped | pose | odom
         self.declare_parameter('publish_rate', 10.0)
         self.declare_parameter('distance_mode', '2d')  # 2d | 3d
         self.declare_parameter('path_downsample_step', 5)
+        self.declare_parameter('relocalization_mode', 'full')  # full | progress
         self.declare_parameter('auto_align_xyyaw', False)
         self.declare_parameter('trajectory_plane', 'xy')  # xy | xz
         self.declare_parameter('reference_axis_mode', 'identity')  # identity | yz_to_xz
@@ -75,6 +76,11 @@ class OnlineRelocalizationNode(Node):
         self.publish_rate = max(self.get_parameter('publish_rate').get_parameter_value().double_value, 1.0)
         self.distance_mode = self.get_parameter('distance_mode').get_parameter_value().string_value.lower()
         self.path_downsample_step = max(int(self.get_parameter('path_downsample_step').value), 1)
+        self.relocalization_mode = (
+            self.get_parameter('relocalization_mode').get_parameter_value().string_value.lower()
+        )
+        if self.relocalization_mode not in ('full', 'progress'):
+            self.relocalization_mode = 'full'
         self.auto_align_xyyaw = bool(self.get_parameter('auto_align_xyyaw').value)
         self.trajectory_plane = self.get_parameter('trajectory_plane').get_parameter_value().string_value.lower()
         if self.trajectory_plane not in ('xy', 'xz'):
@@ -96,10 +102,15 @@ class OnlineRelocalizationNode(Node):
 
         self.path_pub = self.create_publisher(PathMsg, '/relocalization/reference_path', 10)
         self.current_pose_pub = self.create_publisher(PoseStamped, '/relocalization/current_pose', 10)
-        self.nearest_pose_pub = self.create_publisher(PoseStamped, '/relocalization/nearest_pose', 10)
-        self.distance_pub = self.create_publisher(Float64, '/relocalization/distance_m', 10)
-        self.heading_pub = self.create_publisher(Float64, '/relocalization/heading_error_deg', 10)
-        self.marker_pub = self.create_publisher(MarkerArray, '/relocalization/markers', 10)
+        self.nearest_pose_pub = None
+        self.distance_pub = None
+        self.heading_pub = None
+        self.marker_pub = None
+        if self.relocalization_mode == 'full':
+            self.nearest_pose_pub = self.create_publisher(PoseStamped, '/relocalization/nearest_pose', 10)
+            self.distance_pub = self.create_publisher(Float64, '/relocalization/distance_m', 10)
+            self.heading_pub = self.create_publisher(Float64, '/relocalization/heading_error_deg', 10)
+            self.marker_pub = self.create_publisher(MarkerArray, '/relocalization/markers', 10)
 
         self._alignment_initialized = False
         self._align_cos = 1.0
@@ -121,7 +132,8 @@ class OnlineRelocalizationNode(Node):
 
         self.create_timer(1.0 / self.publish_rate, self.timer_cb)
         self.get_logger().info(
-            f'Online relocalization started. reference_csv={self.reference_csv}, points={len(self.ref_points)}'
+            f'Online relocalization started. mode={self.relocalization_mode}, '
+            f'reference_csv={self.reference_csv}, points={len(self.ref_points)}'
         )
 
     def _load_reference(self, csv_path: Path) -> List[RefPoint]:
@@ -350,6 +362,9 @@ class OnlineRelocalizationNode(Node):
         current_pose.pose.orientation.w = math.cos(0.5 * robot_yaw)
         self.current_pose_pub.publish(current_pose)
 
+        if self.relocalization_mode == 'progress':
+            return
+
         idx = self._nearest_index(rx, ry, rz)
         rp = self.ref_points[idx]
 
@@ -366,15 +381,18 @@ class OnlineRelocalizationNode(Node):
         nearest_pose.pose.position.z = npz
         nearest_pose.pose.orientation.z = math.sin(0.5 * rp.yaw)
         nearest_pose.pose.orientation.w = math.cos(0.5 * rp.yaw)
-        self.nearest_pose_pub.publish(nearest_pose)
+        if self.nearest_pose_pub is not None:
+            self.nearest_pose_pub.publish(nearest_pose)
 
         d_msg = Float64()
         d_msg.data = dist
-        self.distance_pub.publish(d_msg)
+        if self.distance_pub is not None:
+            self.distance_pub.publish(d_msg)
 
         h_msg = Float64()
         h_msg.data = heading_error_deg
-        self.heading_pub.publish(h_msg)
+        if self.heading_pub is not None:
+            self.heading_pub.publish(h_msg)
 
         markers = MarkerArray()
 
@@ -447,7 +465,8 @@ class OnlineRelocalizationNode(Node):
         text.text = f'dist={dist:.3f} m | angle={heading_error_deg:.1f} deg'
         markers.markers.append(text)
 
-        self.marker_pub.publish(markers)
+        if self.marker_pub is not None:
+            self.marker_pub.publish(markers)
 
 
 def main(args=None) -> None:

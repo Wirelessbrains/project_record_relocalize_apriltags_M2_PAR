@@ -4,7 +4,7 @@ set -euo pipefail
 if [ $# -lt 1 ] || [ $# -gt 3 ]; then
   echo "Usage: $0 <tag_size> [map_yaml] [base_frame]"
   echo "  tag_size can be meters (0.16) or centimeters (16)"
-  echo "  map_yaml defaults to parking map from package if omitted"
+  echo "  map_yaml should be the generated map file (required; prompted if omitted)"
   echo "  base_frame defaults to base_footprint"
   exit 1
 fi
@@ -42,19 +42,19 @@ set -u
 echo "[config] tag_size=${TAG_SIZE_METERS} m"
 echo "[config] base_frame=${BASE_FRAME}"
 
-if [ -n "$MAP_YAML" ]; then
-  if [ ! -f "$MAP_YAML" ]; then
-    echo "Error: map_yaml file not found: $MAP_YAML"
-    exit 1
-  fi
-  echo "[config] map_yaml=${MAP_YAML}"
-  ros2 launch limo_apriltag_tools ippe_parking_localization.launch.py \
-    tag_size:="${TAG_SIZE_METERS}" \
-    map_yaml:="${MAP_YAML}" \
-    base_frame:="${BASE_FRAME}"
-else
-  echo "[config] map_yaml=(package default)"
-  ros2 launch limo_apriltag_tools ippe_parking_localization.launch.py \
-    tag_size:="${TAG_SIZE_METERS}" \
-    base_frame:="${BASE_FRAME}"
+if [ -z "$MAP_YAML" ]; then
+  echo ""
+  echo "Map YAML is required."
+  read -r -p "Enter generated map YAML path: " MAP_YAML
 fi
+
+if [ ! -f "$MAP_YAML" ]; then
+  echo "Error: map_yaml file not found: $MAP_YAML"
+  exit 1
+fi
+
+echo "[config] map_yaml=${MAP_YAML}"
+ros2 launch limo_apriltag_tools ippe_parking_localization.launch.py \
+  tag_size:="${TAG_SIZE_METERS}" \
+  map_yaml:="${MAP_YAML}" \
+  base_frame:="${BASE_FRAME}"

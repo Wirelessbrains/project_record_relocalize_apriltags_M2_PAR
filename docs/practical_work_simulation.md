@@ -65,7 +65,7 @@ Run online relocalization:
 ```bash
 bash profiles/launch_sim_online_relocalization.sh \
   outputs/walls_tags_run_01_outputs/trajetoria_camera.csv \
-  /tag_only_pose pose_stamped map xz
+  /tag_only_pose pose_stamped map xy
 ```
 
 ## Expected Outputs
@@ -84,4 +84,3 @@ It is not the main purpose of this repository.
 For students exploring trajectory-control laws, a useful reference is:
 
 - https://github.com/AtsushiSakai/PythonRobotics/tree/master
-
