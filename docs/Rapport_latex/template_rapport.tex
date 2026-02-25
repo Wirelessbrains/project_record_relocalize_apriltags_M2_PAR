@@ -164,6 +164,7 @@ headheight=1.5cm,headsep=0.8cm,heightrounded=true
 % Figuras
 %========================================================
 \usepackage{graphicx}
+\usepackage{qrcode}
 \graphicspath{{Images/}}
 
 \counterwithin{figure}{section}
@@ -342,18 +343,23 @@ headheight=1.5cm,headsep=0.8cm,heightrounded=true
 			
 			\vfill
 			
-			\begin{minipage}{0.45\textwidth}
-				\begin{flushleft}\large
-					\emph{Authors:}\\
-					Joao Pedro \textsc{Martins do Lago Reis}\\
-					Yann Kelvem \textsc{Da Silva Ramos}
-				\end{flushleft}
-			\end{minipage}
-			\hfill
-				\begin{minipage}{0.45\textwidth}
-					\begin{flushright}\large
-						\emph{Supervisor:}\\
-						Dr. Sébastien \textsc{Lengagne}\\
+				\begin{minipage}[t]{0.45\textwidth}
+					\vspace{0pt}
+					\begin{flushleft}\large
+						\emph{Authors:}\\
+						Joao Pedro \textsc{Martins do Lago Reis}\\
+						Yann Kelvem \textsc{Da Silva Ramos}
+					\end{flushleft}
+				\end{minipage}
+				\hfill
+					\begin{minipage}[t]{0.45\textwidth}
+						\vspace{0pt}
+						\begin{flushright}\large
+							\emph{Supervisor:}\\
+							Dr. Sébastien \textsc{Lengagne}\\
+						\vspace{0.4cm}
+						\emph{Evaluator:}\\
+						Dr. Aufrère \textsc{Romuald}\\
 						\vspace{0.5cm}
 						\emph{Defense Date:}\\
 						March 02, 2026
@@ -371,18 +377,18 @@ headheight=1.5cm,headsep=0.8cm,heightrounded=true
 	
 	\newpage
 	\thispagestyle{empty}
-	\begin{center}
-		\vspace*{1cm}
-		{\huge \bfseries An AprilTag-Based Approach to Trajectory Recording and Relocalization for Mobile Robots}
+		\begin{center}
+			\vspace*{1cm}
+			{\huge \bfseries An AprilTag-Based Approach to Trajectory Recording and Relocalization for Mobile Robots}
+		\end{center}
+
+	\begin{abstract}
+		This work presents a ROS~2 pipeline for trajectory recording and trajectory-relative relocalization using AprilTags on the AgileX LIMO platform. The method processes recorded rosbag2 data offline to estimate a marker map and a reference camera trajectory through nonlinear least-squares optimization. During relocalization, new pose estimates are compared with the stored reference in order to compute the distance to the nearest trajectory sample $D$ and the heading deviation relative to the local path direction $\phi$.
 		
-		\vspace{1.5cm}
-		{\large \bfseries Abstract}
-	\end{center}
+		The pipeline was evaluated using synthetic data, simulation, and real experiments. In simulation, comparison with ground truth yielded a mean trajectory error of $0.051\,\mathrm{m}$ and a mean tag-position error of $0.087\,\mathrm{m}$. In real recording experiments, map consistency was assessed through tape measurements from one reference tag to 20 other tags, resulting in absolute errors of $0.001\,\mathrm{m}$, $0.099\,\mathrm{m}$, and $0.039\,\mathrm{m}$ for minimum, maximum, and mean values, respectively. In real relocalization tests, the discrepancy between estimated and manually measured distances ranged from $0.0033\,\mathrm{m}$ to $0.0102\,\mathrm{m}$ across three off-trajectory cases. An additional real recording dataset was processed under a different traversal configuration to further evaluate the estimation procedure.
+	\end{abstract}
 	
-	\begin{quote}
-		\itshape
-		\blindtext
-	\end{quote}
+	\noindent\textbf{Keywords:} ROS~2, AprilTags, trajectory recording, relocalization, nonlinear least squares, pose estimation, marker map, mobile robotics
 	
 	%========================================================
 	% TOC & listas (relatório “completo”)
@@ -406,7 +412,9 @@ headheight=1.5cm,headsep=0.8cm,heightrounded=true
 \newpage
 \section{Introduction}
 
-	Mobile robots operating in indoor laboratory environments cannot rely on satellite-based positioning systems and must instead estimate their pose using locally defined spatial references. Reliable localization therefore remains a fundamental requirement for controlled experimentation and autonomous operation, particularly in structured environments where repeatability and spatial consistency are expected \cite{ULLAH2024100651}. Within this context, the objective of this project is to design a two-phase framework in which a mobile robot first records a reference trajectory during an initial run and subsequently estimates its pose with respect to that same reference. The purpose of this relocalization stage is to provide the geometric quantities required for the later implementation of a trajectory tracking control law. The scope of the work is thus not the design of the controller itself, but the establishment of a consistent and reproducible spatial framework that enables such control strategies to be developed and evaluated.
+	Mobile robots operating in indoor laboratory environments cannot rely on satellite-based positioning systems and must instead estimate their pose using locally defined spatial references. Reliable localization therefore remains a fundamental requirement for controlled experimentation and autonomous operation, particularly in structured environments where repeatability and spatial consistency are expected \cite{ULLAH2024100651}. Within this context, the objective of this project is to design a two-phase framework in which a mobile robot first records a reference trajectory during an initial run and subsequently estimates its pose with respect to that same reference. 
+	
+	The purpose of this relocalization stage is to provide the geometric quantities required for the later implementation of a trajectory tracking control law. The scope of the work is thus not the design of the controller itself, but the establishment of a consistent and reproducible spatial framework that enables such control strategies to be developed and evaluated. Thus, the creation of this framework aims to establish a reusable scenario for practical work by students at Polytech, in which they can record a trajectory with the robot and, after positioning it outside of that trajectory, use location data to implement a control law that allows the robot to follow the previously recorded trajectory..
 	
 	Although a trajectory can be recorded during an initial traversal, this action alone does not ensure that the same spatial path can be consistently referenced at a later time. In practice, odometry based motion estimation accumulates error over time due to sensor noise and unmodeled effects such as wheel slip, which leads to drift even in repeated runs \cite{elhoushi2019odometry_survey}. Consequently, successive executions of the same nominal motion may produce trajectories that are not directly comparable in a common frame. To mitigate this, the recorded motion must be associated with stable spatial references so that the robot can reconstruct a consistent relationship between its current pose and the previously recorded path, which is a recurring requirement in mobile robot localization pipelines \cite{ULLAH2024100651}. The technical problem therefore lies in defining a trajectory representation that remains coherent over time and in establishing a method to estimate the robot’s pose relative to that reference during subsequent runs.
 	
@@ -509,7 +517,7 @@ The implementation is developed in ROS~2 Humble and organized as a modular works
 \section{System Architecture}
 \label{sec:system_architecture}
 
-The system is implemented on the AgileX LIMO wheeled platform and uses a calibrated monocular RGB camera to observe AprilTags placed at fixed locations in the workspace and the Figures \ref{fig:environment_setu} illustrate the system in simulation and its corresponding real-world deployment. An initial traversal is recorded as a rosbag2 dataset so that the same sensor stream and time-stamped measurements can be processed offline to build a geometric reference. 
+The system is implemented on the AgileX LIMO wheeled platform and uses a calibrated monocular RGB camera to observe AprilTags placed at fixed locations in the workspace. Figures~\ref{fig:environment_setu} illustrate the experimental setup in simulation and in its corresponding real-world deployment. An initial traversal is recorded as a rosbag2 dataset so that AprilTag detections and camera intrinsics can be processed offline to build a geometric reference.
 
 \begin{figure}[h]
 	\centering
@@ -529,7 +537,8 @@ The system is implemented on the AgileX LIMO wheeled platform and uses a calibra
 	\label{fig:environment_setu}
 \end{figure}
 
-The workflow is exercised in two settings, namely a real-robot setup and a simulation setup that reproduces the same sensor configuration and marker arrangement. Because the camera is rigidly mounted on the robot and the tags are treated as static landmarks in both settings, the same processing steps apply without changing the underlying formulation. The architecture is therefore presented as two consecutive phases. In the recording phase, the recorded traversal is processed to estimate an optimized tag map and a reference trajectory expressed consistently with that map. In the relocalization phase, new pose estimates are compared to the reference in order to compute the distance to the trajectory and the heading deviation relative to the local path direction, which are published as outputs for a trajectory tracking controller implemented outside the scope of this work.
+The workflow is exercised in two settings, namely a real-robot setup and a simulation environment designed to replicate the perception pipeline under controlled conditions. Although the geometric layouts and operational details differ between scenarios, both settings rely on a rigidly mounted camera observing static AprilTags and follow the same estimation and optimization procedures. The architecture is therefore presented as two consecutive phases. In the recording phase, the traversal is processed to estimate an optimized tag map and a reference trajectory expressed consistently with that map. In the relocalization phase, new pose estimates are compared to the stored reference in order to compute the distance to the trajectory and the heading deviation relative to the local path direction. These quantities are published as outputs and may be used by a trajectory tracking controller implemented outside the scope of this work.
+
 
 \begin{figure}[h]
 	\centering
@@ -549,11 +558,13 @@ The workflow is exercised in two settings, namely a real-robot setup and a simul
 \end{figure}
 
 Figure \ref{fig:apriltag_detection} illustrates representative camera frames acquired during both real and simulated executions. Detected markers are outlined and identified, and their estimated poses are expressed with respect to the camera frame. These per-frame relative transformations constitute the primary measurements used in the recording phase. Although each detection provides a six-degree-of-freedom estimate, the resulting poses are inherently local and subject to noise. As a result, consistent global structure must be recovered by integrating observations across multiple viewpoints.
-\newpage
+
+
+
 \subsection{Recording Phase}
 \label{subsec:recording_phase}
 
-The recording phase processes the data collected during the initial traversal in order to construct a reference tag map and a corresponding camera trajectory. Figure~\ref{fig:recording_pipeline} summarizes the computational steps involved. Each block in the pipeline corresponds to a specific estimation stage, which is detailed in the following subsections.
+The recording phase processes the data collected during the initial traversal in order to construct a reference tag map and a corresponding camera trajectory. Figure~\ref{fig:recording_pipeline} summarizes the computational steps involved. Each block in the pipeline corresponds to a specific estimation stage, which is detailed in the discussion below.
 
 % --- TIKZ DIAGRAM (LuaLaTeX) of the Recording pipeline (fixed directions)
 \begin{figure}[h]
@@ -572,7 +583,7 @@ The recording phase processes the data collected during the initial traversal in
 			
 			% --- Sources BELOW the dataset
 			\node[proc, below left=16mm and 1mm of bag] (det)
-			{Detections\\April\_Tag};
+			{Detections\\AprilTag};
 			
 			\node[proc, below right=16mm and 1mm of bag] (caminfo)
 			{Camera intrinsics\\Camera\_Info};
@@ -652,7 +663,7 @@ The recording phase processes the data collected during the initial traversal in
 
 As indicated in block~\textbf{(1)} of Figure~\ref{fig:recording_pipeline}, the first step of the recording phase estimates camera-to-tag relative poses by solving a Perspective-n-Point problem under calibrated intrinsics \cite{Hartley2004} using the logged detections.
 
-To construct a globally consistent representation of the environment, the local camera-to-tag measurements must be expressed in a common reference frame. In this work, rigid-body transformations are denoted by ${}^{A}\!T_{B} \in SE(3)$, representing the pose of frame $B$ with respect to frame $A$ \cite{barfoot2017state}. Each detection provides a relative transformation ${}^{\text{cam}}\!T_{\text{tag}_i}(t)$ at time $t$. Since the camera pose varies along the traversal, each measurement relates a tag pose to a different camera coordinate system. If the pose of a marker $\text{tag}_0$ in the world frame is known or fixed, the camera pose follows from the inverse of the observed camera-to-tag transformation, as written in :
+To construct a globally consistent representation of the environment, the local camera-to-tag measurements must be expressed in a common reference frame. In this work, rigid-body transformations are denoted by ${}^{A}\!T_{B} \in SE(3)$, representing the pose of frame $B$ with respect to frame $A$ \cite{barfoot2017state}. Each detection provides a relative transformation ${}^{\text{cam}}\!T_{\text{tag}_i}(t)$ at time $t$. Since the camera pose varies along the traversal, each measurement relates a tag pose to a different camera coordinate system. If one marker is fixed as the map reference (gauge anchor), the camera pose follows from the inverse of the observed camera-to-tag transformation, as written in:
 
 \begin{equation}
 	{}^{\text{world}}\!T_{\text{cam}}(t)
@@ -662,7 +673,7 @@ To construct a globally consistent representation of the environment, the local 
 	\label{eq:teach_worldTcam_from_anchor}
 \end{equation}
 
-Equation~\eqref{eq:teach_worldTcam_from_anchor} highlights both the utility and the limitation of single-frame detections. This map provides the global geometric reference required to express camera poses consistently across time. In this context, the tag map is defined as the set of world-referenced poses $\{{}^{\text{world}}\!T_{\text{tag}_i}\}$ estimated from all pairwise relative constraints accumulated along the traversal when an anchored tag is visible, a world-referenced camera pose estimate follows immediately. In practice, however, most tags do not have a pre-defined world pose. The recording phase therefore estimates the set of tag poses $\{{}^{\text{world}}\!T_{\text{tag}_i}\}$ that best explains the collection of camera-to-tag observations acquired along the traversal.
+Equation~\eqref{eq:teach_worldTcam_from_anchor} highlights both the utility and the limitation of single-frame detections. The optimized tag map provides a globally consistent geometric reference for expressing camera poses across time. In this work, the map frame (denoted as world) is internally defined by the selected gauge anchor rather than by an absolute ground-truth origin. The tag map is therefore estimated as the set of poses $\{{}^{\text{world}}\!T_{\text{tag}_i}\}$ that best explains the pairwise constraints accumulated along the traversal. Whenever the anchor tag is visible, a world-referenced camera pose estimate follows immediately from Eq.~\eqref{eq:teach_worldTcam_from_anchor}.
 
 As illustrated in block~\textbf{(2)}, frames containing multiple visible tags allow the construction of pairwise constraints. When two tags $i$ and $j$ are simultaneously detected, their relative transformation can be computed from the camera-centered estimates. Using the composition and inversion properties of rigid transformations \cite{Hartley2004,barfoot2017state}, the observed relation is given by :
 
@@ -725,7 +736,7 @@ The minimization in Eq.~\eqref{eq:tagmap_nlsq} can be generalized to include a r
 \end{equation}
 where $\rho(\cdot)$ denotes a robust loss function. In contrast to a purely quadratic penalty, robust losses reduce the influence of large residuals that may arise from occasional misdetections, partial occlusions, or inaccurate corner localization. Such formulations belong to the class of M-estimators commonly used in robust least-squares estimation \cite{huber1964robust}.
 
-In this implementation, a soft-$\ell_1$ loss is employed, this loss behaves quadratically for small residuals, preserving the local convergence properties of standard least squares, and transitions to approximately linear growth for larger errors. As a result, residuals with large magnitude contribute less aggressively to the total cost, preventing them from dominating the optimization process. This choice is consistent with the presence of occasional inconsistent tag observations while maintaining sensitivity to well-conditioned measurements.
+In this implementation, a soft-$\ell_1$ loss is employed. This loss behaves quadratically for small residuals, preserving the local convergence properties of standard least squares, and transitions to approximately linear growth for larger errors. As a result, residuals with large magnitude contribute less aggressively to the total cost, preventing them from dominating the optimization process. This choice is consistent with the presence of occasional inconsistent tag observations while maintaining sensitivity to well-conditioned measurements.
 
 The solution is obtained iteratively by updating the pose parameters so as to decrease the total residual error. One tag pose is held fixed throughout the optimization in order to eliminate the global gauge freedom discussed previously. The nonlinear least-squares problem is solved using an iterative trust-region method, as implemented in standard numerical optimization libraries. At each iteration, the pose parameters are updated so as to reduce the total robust cost defined in Eq.~\eqref{eq:tagmap_robust}. This procedure follows the classical Gauss–Newton framework for nonlinear least squares, adapted to the chosen minimal pose parametrization \cite{triggs1999ba}.
 
@@ -739,7 +750,7 @@ Finally, as indicated in block~\textbf{(4)}, the optimized tag map is used to re
 	\label{eq:world_cam_from_mapi}
 \end{equation}
 
-When multiple tags are detected in the same frame, several estimates $\{{}^{\text{world}}\!T_{\text{cam}}^{(i)}(t)\}$ are obtained. In the absence of noise, these estimates would coincide, in practice, small discrepancies arise due to measurement uncertainty and residual map errors. A single pose per frame is obtained either by averaging the rigid transformations, by selecting the estimate with the smallest reprojection residual, or by solving a local nonlinear least-squares problem that minimizes the residual error between predicted and observed camera-to-tag transformations.
+When multiple tags are detected in the same frame, several estimates $\{{}^{\text{world}}\!T_{\text{cam}}^{(i)}(t)\}$ are obtained. In the absence of noise, these estimates would coincide; in practice, small discrepancies arise due to measurement uncertainty and residual map errors. A single pose per frame is obtained either by averaging the rigid transformations or by solving a local nonlinear least-squares problem that minimizes the residual error between predicted and observed camera-to-tag transformations.
 
 The resulting sequence $\{{}^{\text{world}}\!T_{\text{cam}}(t)\}$ defines the reference trajectory recorded during the initial traversal. Since frame-wise estimation may introduce high-frequency variations, the trajectory is optionally regularized in time prior to export. 
 
@@ -752,9 +763,11 @@ The temporal regularization is applied directly to the discrete sequence $\{{}^{
 \subsection{Relocalization Phase}
 \label{subsec:relocalization_phase}
 
-The relocalization phase evaluates the geometric deviation between an estimated camera pose and the optimized reference trajectory obtained in the recording phase. In this stage, both the tag map $\{{}^{world}T_{tag_i}\}$ and the reference trajectory $\{{}^{world}T_{cam}(t_k)\}$ are assumed to be fixed and previously computed. Figure~\ref{fig:relocalization_pipeline} summarizes the computational structure adopted for relocalization, separating offline analysis from online execution.
+The relocalization phase evaluates the geometric deviation between an estimated camera pose and the optimized reference trajectory obtained in the recording phase. In this stage, the reference trajectory $\{{}^{\text{world}}\!T_{\text{cam}}(t_k)\}$ is assumed to be fixed and previously computed, while the tag map may be used upstream by the localization source that provides live poses. Figure~\ref{fig:relocalization_pipeline} summarizes the computational structure adopted for relocalization, separating offline analysis from online execution.
 
-In contrast to the recording phase, no map optimization or trajectory reconstruction is performed here. Instead, the system receives a query pose ${}^{world}T_{cam}^{q} \in SE(3)$ and computes its geometric relationship with respect to the discrete reference trajectory. The resulting quantities are a distance-to-trajectory metric and a heading deviation, which are defined formally in the following subsection.
+In contrast to the recording phase, no map optimization or trajectory reconstruction is performed here. Instead, the system receives a query pose ${}^{\text{world}}\!T_{\text{cam}}^{q} \in SE(3)$ and computes its geometric relationship with respect to the discrete reference trajectory. The resulting quantities are a distance-to-trajectory metric and a heading deviation, which are defined formally in the following subsection.
+
+From a methodological standpoint, the online relocalization node is intentionally limited to geometric comparison against a fixed reference trajectory. Its inputs are the stored trajectory $\mathcal{T}_{ref}$ and a live query pose stream; the map YAML is not consumed directly in this stage. The map remains part of the upstream localization source that estimates the live pose, while the relocalization node computes only the association and error quantities defined by Eqs.~\eqref{eq:relocal_nearest_index}, \eqref{eq:relocal_D}, and \eqref{eq:relocal_phi}. This separation preserves a clear boundary between pose estimation and trajectory-deviation evaluation.
 
 \begin{figure}[h]
 	\centering
@@ -778,7 +791,7 @@ In contrast to the recording phase, no map optimization or trajectory reconstruc
 			{Query poses\\(offline dataset)};
 			
 			\node[proc, right=28mm of queryoff] (align)
-			{\textbf{(1)} Optional alignment\\(XY or XZ + yaw)};
+			{\textbf{(1)} Optional planar alignment\\(rigid/similarity + RANSAC)};
 			
 			\node[pose, right=22mm of align] (nearestoff)
 			{\textbf{(2)} Nearest point search};
@@ -791,7 +804,7 @@ In contrast to the recording phase, no map optimization or trajectory reconstruc
 			
 			% ------------------ ONLINE BRANCH ------------------
 			\node[io, below=26mm of queryoff] (livepose)
-			{Estimated robot pose\\(Pose)};
+			{Estimated robot pose\\(PoseStamped / Pose / Odometry)};
 			
 			\node[proc, right=28mm of livepose] (loadref)
 			{\textbf{(4*)} Load reference\\trajectory (CSV)};
@@ -803,7 +816,7 @@ In contrast to the recording phase, no map optimization or trajectory reconstruc
 			{\textbf{(6)} Output errors\\$D$ and $\phi$};
 			
 			\node[store, right=22mm of errorson] (topics)
-			{ROS topics\\\texttt{/distance\_m}\\\texttt{/heading\_error\_deg}};
+			{ROS topics\\\texttt{/relocalization/distance\_m}\\\texttt{/relocalization/heading\_error\_deg}};
 			
 			% ------------------ CLEAN CONNECTIONS ------------------
 			
@@ -870,7 +883,7 @@ In contrast to the recording phase, no map optimization or trajectory reconstruc
 
 As presented in block~\textbf{(1)}, the first operation in the relocalization workflow optionally performs a planar alignment between the query dataset and the stored reference trajectory. This step compensates for possible coordinate discrepancies arising from independent reconstructions or scale differences during map generation.
 
-Let $\{p_k^{ref}\}\subset\mathbb{R}^2$ denote the planar positions extracted from the reference trajectory $\{{}^{world}T_{cam}(t_k)\}$ and let $\{p_\ell^{q}\}\subset\mathbb{R}^2$ denote the planar positions of the query dataset. When a set of common tags is available in both datasets, a transformation is estimated so that the transformed query positions best match the reference positions in a least-squares sense.
+Let $\{p_k^{ref}\}\subset\mathbb{R}^2$ denote the planar positions extracted from the reference trajectory $\{{}^{\text{world}}\!T_{\text{cam}}(t_k)\}$ and let $\{p_\ell^{q}\}\subset\mathbb{R}^2$ denote the planar positions of the query dataset. When a set of common tags is available in both datasets, a transformation is estimated so that the transformed query positions best match the reference positions in a least-squares sense.
 
 In the most general case considered here, the alignment is modeled as a planar similarity transformation,
 \begin{equation}
@@ -903,11 +916,11 @@ Let the reference trajectory exported in the recording phase be represented by t
 	\mathcal{T}_{ref}
 	=
 	\left\{
-	{}^{world}T_{cam}(t_k)
+		{}^{\text{world}}\!T_{\text{cam}}(t_k)
 	\right\}_{k=1}^{N}
 	\label{eq:relocal_ref_set}
 \end{equation}
-and let $p_k^{ref}\in\mathbb{R}^2$ denote the planar position extracted from each pose. Given a query pose ${}^{world}T_{cam}^{q}$ with planar position $p^{q}\in\mathbb{R}^2$, the nearest reference association is defined as:
+and let $p_k^{ref}\in\mathbb{R}^2$ denote the planar position extracted from each pose. Given a query pose ${}^{\text{world}}\!T_{\text{cam}}^{q}$ with planar position $p^{q}\in\mathbb{R}^2$, the nearest reference association is defined as:
 \begin{equation}
 	k^{*}
 	=
@@ -918,7 +931,7 @@ and let $p_k^{ref}\in\mathbb{R}^2$ denote the planar position extracted from eac
 	\label{eq:relocal_nearest_index}
 \end{equation}
 
-Equation~\eqref{eq:relocal_nearest_index} defines the reference sample whose planar position is closest to the query position in the Euclidean sense. The selected index $k^{*}$ serves as the geometric anchor for evaluating the deviation between the live pose and the stored reference trajectory.Based on this association, the relocalization phase proceeds to quantify the positional and angular discrepancy with respect to the selected reference pose.
+Equation~\eqref{eq:relocal_nearest_index} defines the reference sample whose planar position is closest to the query position in the Euclidean sense. The selected index $k^{*}$ serves as the geometric anchor for evaluating the deviation between the live pose and the stored reference trajectory. Based on this association, the relocalization phase proceeds to quantify the positional and angular discrepancy with respect to the selected reference pose.
 
 
 As presented in block~\textbf{(3)}, once the nearest association index $k^{*}$ is available, the relocalization pipeline evaluates two geometric error metrics defined with respect to the associated reference sample.
@@ -960,7 +973,7 @@ where $\mathrm{wrap}_{(-\pi,\pi]}(\cdot)$ maps the angular difference to the pri
 
 Equations~\eqref{eq:relocal_D}--\eqref{eq:relocal_phi} specify the outputs computed at this stage for each evaluated query pose. These values are then forwarded to the reporting stage in the offline workflow.
 
-As presented in block~\textbf{(3)} of the offline branch, the computed values of $D$ and $\phi$ are exported for quantitative assessment. Given a sequence of query poses $\{{}^{world}T_{cam}^{q}(t_\ell)\}$, Equations~\eqref{eq:relocal_D} and~\eqref{eq:relocal_phi} are evaluated for each timestamp. This produces two discrete time series:
+As presented in block~\textbf{(3)} of the offline branch, the computed values of $D$ and $\phi$ are exported for quantitative assessment. Given a sequence of query poses $\{{}^{\text{world}}\!T_{\text{cam}}^{q}(t_\ell)\}$, Equations~\eqref{eq:relocal_D} and~\eqref{eq:relocal_phi} are evaluated for each timestamp. This produces two discrete time series:
 \begin{equation}
 	\{ D(t_\ell) \}_{\ell=1}^{M}
 	\qquad
@@ -974,11 +987,11 @@ These sequences are stored together with the associated timestamps and reference
 \subsubsection{Online execution}
 \label{subsubsec:relocal_online}
 
-As depicted in block~\textbf{(4*)}, the online branch starts by loading the reference trajectory generated in the recording phase. The file \texttt{trajetoria\_camera.csv} provides the discrete sequence $\mathcal{T}_{ref}=\{{}^{world}T_{cam}(t_k)\}_{k=1}^{N}$ .
+As depicted in block~\textbf{(4*)}, the online branch starts by loading the reference trajectory generated in the recording phase. The file \texttt{trajetoria\_camera.csv} provides the discrete sequence $\mathcal{T}_{ref}=\{{}^{\text{world}}\!T_{\text{cam}}(t_k)\}_{k=1}^{N}$.
 
 In online execution, $\mathcal{T}_{ref}$ is treated as fixed data. The node parses the file once and stores the planar reference samples $\{p_k^{ref}\}_{k=1}^{N}$ together with their associated local headings $\{\theta_k^{ref}\}_{k=1}^{N}$, computed from the discrete trajectory tangent as in Eq.~\eqref{eq:relocal_ref_heading}. This initialization establishes the reference set required to evaluate incoming pose estimates without modifying the stored trajectory. Once the reference trajectory is available in memory, each incoming pose is processed by evaluating the nearest-neighbor association in Eq.~\eqref{eq:relocal_nearest_index} and subsequently computing $D$ and $\phi$.
 
-As presented in block~\textbf{(5)}, the online node performs a nearest-sample association between the current pose estimate and the fixed reference set. At each time $t$, the node receives a query pose ${}^{world}T_{cam}^{q}(t)$ and extracts its planar position $p^{q}(t)$. The association index is then obtained by directly applying the nearest-neighbor criterion in Eq.~\eqref{eq:relocal_nearest_index}, yielding:
+As presented in block~\textbf{(5)}, the online node performs a nearest-sample association between the current pose estimate and the fixed reference set. At each time $t$, the node receives a query pose ${}^{\text{world}}\!T_{\text{cam}}^{q}(t)$ and extracts its planar position $p^{q}(t)$. The association index is then obtained by directly applying the nearest-neighbor criterion in Eq.~\eqref{eq:relocal_nearest_index}, yielding:
 \begin{equation}
 	k^{*}(t)
 	=
@@ -991,28 +1004,24 @@ As presented in block~\textbf{(5)}, the online node performs a nearest-sample as
 
 The reference sample indexed by $k^{*}(t)$ provides the corresponding stored heading $\theta^{ref}_{k^{*}(t)}$, which anchors the frame-by-frame evaluation of the geometric errors defined in Eqs.~\eqref{eq:relocal_D} and~\eqref{eq:relocal_phi}. The resulting association $\big(p^{q}(t), p^{ref}_{k^{*}(t)}\big)$ is therefore the immediate input to the error output stage described next.
 
-As summarized in block~\textbf{(6)}, the online execution evaluates the geometric errors for each incoming pose and makes them available as real-time outputs.
+As summarized in block~\textbf{(6)}, the online execution evaluates the geometric errors for each incoming pose and makes them available as real-time outputs. Given the association index $k^{*}(t)$, the positional and angular deviations are computed. These quantities are evaluated independently at each time step and therefore define two time-varying signals, $D(t)$ and $\phi(t)$, describing the instantaneous geometric discrepancy between the current pose estimate and the stored reference trajectory.
 
-Given the association index $k^{*}(t)$, the positional and angular deviations are computed. These quantities are evaluated independently at each time step and therefore define two time-varying signals, $D(t)$ and $\phi(t)$, describing the instantaneous geometric discrepancy between the current pose estimate and the stored reference trajectory.
-
-The online node publishes these values as scalar outputs, together with visualization elements that indicate the current pose, the associated reference sample, and the geometric connection between them. This structure enables direct inspection of relocalization behavior during execution and provides the signals required for potential control integration.
-
-The experimental section evaluates these outputs quantitatively by analyzing their temporal evolution under different traversal conditions, thereby assessing the consistency between live pose estimates and the reference trajectory established during the recording phase.
+The online node publishes these values as scalar outputs, together with visualization elements that indicate the current pose, the associated reference sample, and the geometric connection between them. This structure enables direct inspection of relocalization behavior during execution and provides the signals required for potential control integration. The experimental section evaluates these outputs quantitatively by analyzing their temporal evolution under different traversal conditions, thereby assessing the consistency between live pose estimates and the reference trajectory established during the recording phase.
 
 
 
 
 
-\section{Experimental Validation and Results}
+\section{Experimental Validation}
 \label{sec:results}
 
 
-\subsection{Recording Phase Validation in under Controlled Conditions}
+\subsection{Recording Phase Validation under Controlled Conditions}
 \label{subsec:optimization_validation}
 
 Before integrating the relocalization stage in simulation and real-world experiments, the map optimization procedure described in Section~\ref{subsec:recording_phase} was validated under controlled conditions. The objective of this validation was to isolate the nonlinear least-squares formulation and verify its ability to recover consistent tag poses from noisy relative observations.
 
-A synthetic dataset was constructed in which tag positions were manually defined in a known global frame. From this ground-truth configuration, camera-to-tag observations were generated and subsequently perturbed by controlled noise injection. This setup enabled direct comparison between the optimized tag poses and the known ground-truth solution, allowing quantitative evaluation of estimation error.
+A synthetic dataset was constructed in which tag positions were manually defined in a known global frame and camera poses were sampled along a reference trajectory. From this ground-truth configuration, camera-to-tag relative observations were generated from rigid transformations and subsequently perturbed by controlled noise injection. This setup enabled direct comparison between the optimized tag poses and the known ground-truth solution, allowing quantitative evaluation of estimation error.
 
 Initially, the system was evaluated using noise-free detections. Under this condition, the residual error was zero within numerical precision, indicating consistency between the optimized solution and the ground-truth configuration. The corresponding error statistics are reported in Table~\ref{tab:results_ideal}.
 
@@ -1037,7 +1046,7 @@ Figure~\ref{fig:results_ideal} illustrates the alignment between the optimized s
 	\label{fig:results_ideal}
 \end{figure}
 
-To evaluate the behavior under perturbation, zero-mean Gaussian noise with standard deviation of $10\text{ cm}$ was added to the position measurements. The resulting optimization errors are reported in Table~\ref{tab:results_noise}.
+To evaluate the behavior under perturbation, zero-mean Gaussian noise with standard deviation of $10\text{ cm}$ was injected into the translational components of the synthetic camera-to-tag observations. The resulting optimization errors are reported in Table~\ref{tab:results_noise}.
 
 \begin{table}[h]
 	\centering
@@ -1050,6 +1059,8 @@ To evaluate the behavior under perturbation, zero-mean Gaussian noise with stand
 	\caption{Error statistics under 10 cm Gaussian noise.}
 	\label{tab:results_noise}
 \end{table}
+
+The identical angular values reported for Tag Poses in Table~\ref{tab:results_noise} are due to rounding at the displayed precision for this synthetic configuration.
 
 Figure~\ref{fig:results_noise} presents the corresponding visual comparison. Although the measurements were perturbed, the optimized tag map preserves the geometric structure of the environment and the reconstructed trajectory remains consistent with the underlying ground-truth configuration within the error bounds reported in Table~\ref{tab:results_noise}.
 
@@ -1107,42 +1118,23 @@ The local frames shown in Fig.~\ref{fig:sim_recording_basic}(b) exhibit smooth o
 	\label{fig:sim_recording_comparison}
 \end{figure}
 
-A direct comparison with the simulator reference is provided in Fig.~\ref{fig:sim_recording_comparison}(a). The trajectory error was computed as the 3D distance between each optimized pose and its nearest ground-truth counterpart. Over the complete traversal, the mean error was $0.051\text{ m}$, with RMSE of $0.0566\text{ m}$ and a 95th percentile of $0.0902\text{ m}$.
+A direct comparison with the simulator reference is provided in Fig.~\ref{fig:sim_recording_comparison}(a). The trajectory error was computed as the 3D distance between each optimized pose and its nearest ground-truth counterpart in Euclidean space. Over the complete traversal, the mean error was $0.0510\text{ m}$, with RMSE of $0.0566\text{ m}$ and a 95th percentile of $0.0902\text{ m}$.
 
 The tag reconstruction can be assessed in Fig.~\ref{fig:sim_recording_comparison}(b), where optimized tag poses are shown together with their ground-truth positions. For the $N=24$ detected tags, the translational error relative to ground truth yielded a mean of $0.0873\text{ m}$, a median of $0.0908\text{ m}$, and an RMSE of $0.0879\text{ m}$, consistent with the global solution obtained from the robust least-squares formulation in Eq.~\eqref{eq:tagmap_robust}.
 
-Taken together, the reported trajectory and tag errors indicate that the reconstruction obtained in simulation remains geometrically coherent with the imposed environment while following the same estimation process defined in the recording phase. Although the simulator provides ground-truth poses, the pipeline operates exclusively on image-based detections and solves the PnP problem using the simulated camera intrinsics, followed by the nonlinear least-squares optimization of relative constraints. Consequently, the solution minimizes residuals between observed tag pairs rather than absolute deviation from ground truth. The resulting mean trajectory error of approximately $5\text{ cm}$ and mean tag error of approximately $8\text{ cm}$ therefore reflect the behavior of the relative formulation under simulated sensing. At the scale of the circular trajectory and tag distribution considered in this experiment, these deviations remain small relative to the environment dimensions and do not modify the recovered global structure.
+Taken together, the reported trajectory and tag errors indicate that the reconstruction obtained in simulation remains geometrically coherent with the imposed environment while following the same estimation process defined in the recording phase. Although the simulator provides ground-truth poses, the pipeline operates exclusively on image-based detections and solves the PnP problem using the simulated camera intrinsics, followed by nonlinear least-squares optimization of relative constraints. 
+Consequently, the solution minimizes residuals between observed tag pairs rather than absolute deviation from ground truth. The resulting mean trajectory error of approximately $5\text{ cm}$ and mean tag error of approximately $8\text{ cm}$ reflect the behavior of the relative formulation under simulated sensing. At the scale of the circular trajectory and tag distribution considered in this experiment, these deviations remain small relative to the environment dimensions and do not modify the recovered global structure.
 
-\subsection{Relocalization Performance in Simulation}
+\subsection{Relocalization Validation in Simulation}
 \label{subsec:simulation_results}
 
-The relocalization stage was evaluated in the Ignition Gazebo environment using the reference trajectory generated during the recording phase. Since the simulator provides ground-truth poses, the computed geometric deviations can be directly compared against their analytical counterparts.
+The relocalization stage was evaluated in the Ignition Gazebo environment using the reference trajectory generated during the recording phase. Since the simulator provides ground-truth poses, the computed geometric quantities can be directly compared against analytical values.
 
-To verify the numerical correctness of the distance computation $D$, a controlled experiment was conducted by selecting intermediate points between pairs of tags in the YZ plane. For each point, the distance returned by the relocalization algorithm was compared against the corresponding ground-truth Euclidean distance computed directly from the simulator reference.
+To verify the numerical consistency of the distance computation $D$, we selected synthetic test points between tag pairs in the YZ plane and compared algorithm outputs with simulator ground truth.
 
-Table~\ref{tab:distance_validation} summarizes the results obtained for eight representative points.
+Across the eight tested points, the observed absolute distance error remained at numerical-precision scale (order of $10^{-7}$ m), which confirms that the implemented distance formulation is consistent with the simulator geometry.
 
-\begin{table}[h]
-	\centering
-	\begin{tabular}{|c|c|c|c|}
-		\hline
-		Point & Algorithm (m) & Ground Truth (m) & Abs Error (m) \\ \hline
-		1 & 2.287075 & 2.287075074 & $7.4\times10^{-8}$ \\
-		2 & 2.253073 & 2.253073406 & $4.1\times10^{-7}$ \\
-		3 & 2.218159 & 2.218159425 & $4.3\times10^{-7}$ \\
-		4 & 2.183157 & 2.183157183 & $1.8\times10^{-7}$ \\
-		5 & 2.091149 & 2.091148509 & $4.9\times10^{-7}$ \\
-		6 & 1.993383 & 1.993382550 & $4.5\times10^{-7}$ \\
-		7 & 1.896037 & 1.896037078 & $7.8\times10^{-8}$ \\
-		8 & 1.798917 & 1.798916689 & $3.1\times10^{-7}$ \\ \hline
-	\end{tabular}
-	\caption{Comparison between algorithm distance $D$ and ground-truth Euclidean distance.}
-	\label{tab:distance_validation}
-\end{table}
-
-The mean absolute error was $3.02\times10^{-7}\text{ m}$, with a maximum deviation of $4.91\times10^{-7}\text{ m}$. The mean algorithm distance and mean ground-truth distance differ only at the seventh decimal place.
-
-\begin{figure}[ht]
+\begin{figure}[h]
 	\centering
 	\begin{minipage}{0.48\linewidth}
 		\centering
@@ -1152,28 +1144,15 @@ The mean absolute error was $3.02\times10^{-7}\text{ m}$, with a maximum deviati
 	\hfill
 	\begin{minipage}{0.48\linewidth}
 		\centering
-		\includesvg[width=\linewidth,inkscapelatex=false]{Images/output_sim_between_tags_yz_04__relocalization_point_didactic}
-		\caption*{(b) Point 4}
-	\end{minipage}
-	
-	\vspace{2mm}
-	
-	\begin{minipage}{0.48\linewidth}
-		\centering
 		\includesvg[width=\linewidth,inkscapelatex=false]{Images/output_sim_between_tags_yz_08__relocalization_point_didactic}
-		\caption*{(c) Point 8}
+		\caption*{(b) Point 8}
 	\end{minipage}
-	\hfill
-	\begin{minipage}{0.48\linewidth}
-		\centering
-		\includesvg[width=\linewidth,inkscapelatex=false]{Images/output_sim_between_tags_yz_03__relocalization_point_didactic}
-		\caption*{(d) Point 3}
-	\end{minipage}
-	\caption{Representative points used to validate the computation of $D$ in the YZ plane.}
+	\caption{Representative synthetic points used to validate the computation of $D$ in the YZ plane.}
 	\label{fig:distance_validation}
 \end{figure}
 
-This validation establishes the numerical correctness of the distance computation prior to evaluating the complete relocalization behavior. The residual differences are attributable to floating-point precision and do not reflect geometric error.
+In these synthetic examples, the displayed heading $\phi$ is consistent with the expected angle because the test orientations were intentionally defined during point generation. This validation therefore confirms both the distance metric and the angle convention before full relocalization experiments.
+
 
 \subsection{Recording Phase Validation on the Real Platform}
 
@@ -1183,116 +1162,174 @@ For the validation of the first recording stage, the robot was driven while the 
 
 Notwithstanding, the files with the detections of the tags must be sent to a computer with computational power greater than that of the LIMO robot, since, to perform the optimization of all tags and also of all trajectory positions per frame, we increase the number of parameters to a level that would be costly for the LIMO robot to compute.
 
-In Figure \ref{fig:real_enviroment_vs_estimated}, one can observe the shape of tag map reconstructed in a way very close to the real one when compared with the image captured at the moment of the experiment and with the plotted graph. In the graph, the tags are in coherent relative positions, both for those that are on the same board and for those that are on different boards. The optimized trajectory performed by the robot also became similar to the real trajectory, in exclamation format, as can be verified in the experiment video.
-
-\begin{figure}[ht!]
+\begin{figure}[h]
 	\centering
 	\captionsetup[subfigure]{justification=centering}
 	\begin{subfigure}[t]{0.48\textwidth}
 		\centering
 		\includegraphics[width=\linewidth,height=5cm,keepaspectratio]{Images/recording_fase.jpg}
-		\caption{Real-world experimental setup to recornding fase.}
+		\caption{Real-world experimental setup for the recording phase.}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[t]{0.48\textwidth}
 		\centering
 		\includesvg[width=\linewidth,height=5cm,keepaspectratio,inkscapelatex=false]{Images/mapa_trajetoria_xz}
-		\caption{Simulation environment used for dataset generation and validation.}
+		\caption{Reconstructed map and estimated camera trajectory from the recorded rosbag.}
 	\end{subfigure}
-	\caption{Recostruction of the tag map and trajetory.}
-	\label{fig:real_enviroment_vs_estimated}
+	\caption{Real recording setup and corresponding reconstructed trajectory result.}
+	\label{fig:real_enviroment_teste}
 \end{figure}
 
-For the real scenario, we do not have ground truth to verify whether the tags are close to the positions in which they were placed. To evaluate whether the algorithm made a good estimation of the tag positions, a tape-measure measurement was performed for the distance between tag 16 and the other tags of the model. Table \ref{tab:tag16_est_vs_meas} presents the comparison between the estimated distances and the measured ones.
-
-\begin{table}[h!]
-\centering
-\scriptsize
-\begin{tabular}{|c|c|c|c|c|}
-\hline
-\textbf{Source tag} & \textbf{Target tag} & \textbf{Estimated [m]} & \textbf{Measured [m]} & \textbf{Absolute error [m]} \\ \hline
-16 & 2  & 1.385 & 1.380 & 0.005 \\ \hline
-16 & 3  & 1.368 & 1.360 & 0.008 \\ \hline
-16 & 4  & 1.728 & 1.820 & 0.092 \\ \hline
-16 & 5  & 1.613 & 1.690 & 0.077 \\ \hline
-16 & 9  & 1.527 & 1.450 & 0.077 \\ \hline
-16 & 10 & 1.691 & 1.680 & 0.011 \\ \hline
-16 & 14 & 0.481 & 0.480 & 0.001 \\ \hline
-16 & 15 & 1.011 & 1.110 & 0.099 \\ \hline
-16 & 17 & 1.115 & 1.090 & 0.025 \\ \hline
-16 & 18 & 1.216 & 1.220 & 0.004 \\ \hline
-16 & 19 & 1.054 & 1.040 & 0.014 \\ \hline
-16 & 22 & 1.412 & 1.410 & 0.002 \\ \hline
-16 & 23 & 1.571 & 1.560 & 0.011 \\ \hline
-16 & 24 & 1.925 & 1.900 & 0.025 \\ \hline
-16 & 25 & 1.328 & 1.300 & 0.028 \\ \hline
-16 & 26 & 1.249 & 1.220 & 0.029 \\ \hline
-16 & 27 & 1.871 & 1.800 & 0.071 \\ \hline
-16 & 28 & 1.436 & 1.470 & 0.034 \\ \hline
-16 & 31 & 1.608 & 1.660 & 0.052 \\ \hline
-16 & 33 & 1.886 & 1.870 & 0.016 \\ \hline
-\textbf{Mean} & - & - & - & \textbf{0.039} \\ \hline
-\textbf{Max} & - & - & - & \textbf{0.099} \\ \hline
-\textbf{Min} & - & - & - & \textbf{0.001} \\ \hline
-\end{tabular}
-\caption{Comparison between estimated and measured distances from tag 16.}
-\label{tab:tag16_est_vs_meas}
-\end{table}
-
-Analyzing Table \ref{tab:tag16_est_vs_meas}, a maximum error of 0.099 m is observed in the distance between tags 16 and 15, a minimum error of 0.001 m between tags 16 and 14 and an average of 0.039 m. These values indicate good overall precision. The minimum error between tags 16 and 14 is coherent with the fact that these tags are close and are observed together in several frames. The largest error can be related to the observation angle and to the low number of frames observed for this tag, besides possible imprecision in the real measurement.Notwithstanding, as the algorithms were validated with synthetic data and simulation, the next step was to use them in a real scenario. In Figure \ref{fig:real_enviroment_teste}, the real robot was controlled with a remote controller in an environment full of tags, to avoid points where the robot would not be able to detect markers. It is worth emphasizing that ground markers were placed for the beginning, a triangle, and the end, a black X, of the executed trajectory.
+In Figure \ref{fig:real_enviroment_teste}, one can observe the shape of tag map reconstructed in a way very close to the real one when compared with the image captured at the moment of the experiment and with the plotted graph. In the graph, the tags are in coherent relative positions, both for those that are on the same board and for those that are on different boards. The optimized trajectory performed by the robot also became similar to the real trajectory, in exclamation format, as can be verified in the experiment  \href{https://wirelessbrains.github.io/project_record_relocalize_apriltags_M2_PAR/}{video}.
 
 
-\subsection{Relocalization Performance on the Real Platform}
+
+For the real scenario, we do not have full ground truth to verify whether the tags are exactly at their physical placements. To evaluate map consistency, tape-measure measurements were performed from tag 16 to the other tags. The complete comparison between estimated and measured distances is provided in Table~\ref{tab:tag16_est_vs_meas_appendix}.
+
+Analyzing Table \ref{tab:tag16_est_vs_meas_appendix}, a maximum error of 0.099 m is observed between tags 16 and 15, a minimum error of 0.001 m between tags 16 and 14, and a mean error of 0.039 m. These values indicate centimeter-level consistency overall. The minimum error for tags 16 and 14 is coherent with their frequent joint visibility, while the largest error can be related to observation angle, fewer supporting frames, and manual measurement uncertainty.
+
+\subsection{Relocalization Validation on the Real Platform}
 \label{subsec:real_results}
 
-In the same way, for the relocalization part, again we do not have ground truth nor a reference scenario to compare the algorithms response. Thus, we defined metrics based on tape-measure measurements between the point at which the robot passes on the trajectory and the closest point of the trajectory where the robot is placed. To perform these measurements, we placed markers on the floor. One marker indicates the pose at which the robot passes during trajectory recording and another marker indicates the pose at which the robot is placed outside the recorded trajectory. As can be observed in Figure \ref{fig:real_enviroment_teste_outside_poses}, the arrow markers and the white X marker represent poses equivalent to the trajectory, while the square marker and the figure-eight marker represent positions outside the trajectory.
+For the relocalization stage on the real robot, we do not have global pose ground truth. Therefore, we defined a local metric reference using tape-measure measurements between each robot test pose (outside the recorded trajectory) and the nearest point on the recorded path. To perform these measurements, markers were placed on the floor. As shown in Figure \ref{fig:real_enviroment_teste_outside_poses}, arrow markers and the white X marker represent poses on the recorded trajectory, while the square marker and the figure-eight marker represent poses outside the trajectory.
 
 \begin{figure}[ht!]
 	\centering
 	\captionsetup[subfigure]{justification=centering}
-	\begin{subfigure}[t]{0.48\textwidth}
-		\centering
-		\includegraphics[width=\linewidth,height=5cm,keepaspectratio]{Images/relocalization_experiment.jpg}
-		\caption{Real-world experimental setup to recornding fase.}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[t]{0.48\textwidth}
-		\centering
-		\includesvg[width=\linewidth,height=5cm,keepaspectratio,inkscapelatex=false]{Images/compare_three_letric_three_cases_points}
-		\caption{Simulation environment used for dataset generation and validation.}
-	\end{subfigure}
-	\caption{Recostruction of the tag map and trajetory.}
-	\label{fig:real_enviroment_teste_outside_poses}
-\end{figure}
+		\begin{subfigure}[t]{0.48\textwidth}
+			\centering
+			\includegraphics[width=\linewidth,height=5cm,keepaspectratio]{Images/relocalization_experiment.jpg}
+			\caption{Real-world setup for relocalization evaluation with marked test poses.}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}[t]{0.48\textwidth}
+			\centering
+			\includesvg[width=\linewidth,height=5cm,keepaspectratio,inkscapelatex=false]{Images/compare_three_letric_three_cases_points}
+			\caption{Measured and estimated relocalization distances for three real test cases.}
+		\end{subfigure}
+		\caption{Real relocalization validation setup and corresponding distance comparison.}
+		\label{fig:real_enviroment_teste_outside_poses}
+	\end{figure}
 
 Thus, for this trial, three points were marked on the trajectory and three points in which the robot was placed during the relocalization phase. The distances between points measured in the real environment and the estimated distances for the same poses with optimized data are in Table~\ref{tab:compare_three_cases_points}.
 
 \begin{table}[h!]
 	\centering
 	\small
-	\begin{tabular}{|l|c|c|c|c|}
+	\begin{tabular}{|c|c|c|c|c|}
 		\hline
-		\textbf{Case} & \textbf{Estimated D [m]} & \textbf{Measured D [m]} & \textbf{Error [m]} & \textbf{$\phi$ [deg]} \\ \hline
-		Trajetory and Realocalization 1 & 0.2998 & 0.3100 & 0.0102 & -31.38 \\ \hline
-		Trajetory and Realocalization 2 & 0.4284 & 0.4200 & 0.0084 & -10.34 \\ \hline
-		Trajetory and Realocalization 3 & 0.3567 & 0.3600 & 0.0033 & -1.63 \\ \hline
+			\textbf{Relocalization Case} & \textbf{Estimated D [m]} & \textbf{Measured D [m]} & \textbf{Error [m]} & \textbf{$\phi$ [deg]} \\ \hline
+		1 & 0.2998 & 0.3100 & 0.0102 & -31.38 \\ \hline
+		2 & 0.4284 & 0.4200 & 0.0084 & -10.34 \\ \hline
+		3 & 0.3567 & 0.3600 & 0.0033 & -1.63 \\ \hline
 	\end{tabular}
-	\caption{Summary table with the distance between the pose on the trajectory and a position outside the trajectory, besides the orientation error between the poses.}
-	\label{tab:compare_three_cases_points}
-\end{table}
+		\caption{Summary table with estimated versus measured distance to the recorded trajectory and the estimated heading offset $\phi$.}
+		\label{tab:compare_three_cases_points}
+	\end{table}
 
-Analyzing Table \ref{tab:compare_three_cases_points}, we verify that, in relocalization with respect to the trajectory, the maximum distance error is 0.01 m and the minimum is 0.003 m between estimated and measured distances. This can be explained by the fact that position estimation uses the visualization of several tags at the same time without being in motion, which increases precision. In the same way, orientation is estimated from the tags seen by the robot, which also contributes to a good orientation.
+Analyzing Table \ref{tab:compare_three_cases_points}, the distance error in relocalization with respect to the recorded trajectory ranges from 0.003 m to 0.010 m between estimated and measured values. This centimeter-level consistency is coherent with multi-tag observations acquired while the robot is stationary at each test pose. The reported $\phi$ values are consistent estimated heading offsets for these cases; however, without external angular ground truth, they should not be interpreted as absolute orientation error metrics.
 
+\subsection{Second Real Recording Experiment}
+\label{subsubsec:real_recording_second}
 
-\section{Conclusion}
+To complement the first real recording result, an additional real dataset from the second scenario was processed using the same offline recording pipeline. This trajectory was acquired under different practical conditions and used to assess whether the same estimation procedure produced consistent outputs when the traversal shape and marker observations changed.
 
+\begin{figure}[h!]
+	\centering
+	\begin{minipage}{0.48\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{Images/output_020_recording_trajectory_basic.pdf}
+		\caption*{(a) Second scenario reconstructed trajectory}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.48\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{Images/output_020_recording_trajectory_with_axes.pdf}
+		\caption*{(b) Second scenario trajectory with local frames}
+	\end{minipage}
+	\caption{Additional real recording result processed with the same offline pipeline.}
+	\label{fig:real_recording_output020}
+\end{figure}
 
+As shown in Fig.~\ref{fig:real_recording_output020}, the reconstructed path follows the executed route, and the orientation frames evolve smoothly along the trajectory samples. This complementary case indicates that the same pairwise-constraint accumulation and nonlinear least-squares optimization described in Section~\ref{subsec:recording_phase} produce consistent map-and-trajectory estimates under more than one real recording condition, without modifying the estimation formulation.
 
 \newpage
 
+\section{Conclusion}
+
+This work implements a ROS~2 pipeline for trajectory recording and trajectory-relative relocalization using AprilTags on the AgileX LIMO platform. The workflow is organized in two phases. The first phase processes a recorded rosbag2 traversal offline to estimate an optimized tag map and an associated reference trajectory. The second phase performs relocalization in offline analysis and in online execution by comparing new pose estimates to the stored reference and computing two control-oriented quantities, namely the distance to the nearest trajectory point and the heading offset with respect to the local trajectory direction. The implementation is limited to geometric reference construction and metric computation, while trajectory tracking control is treated as external to this work.
+
+The pipeline was evaluated progressively using synthetic data, simulation, and real experiments. In controlled synthetic tests, the map optimization stage produced solutions consistent with the expected behavior under ideal observations and under injected noise. In simulation, comparison against ground truth yielded mean errors of $0.051\text{ m}$ for the reconstructed trajectory and $0.087\text{ m}$ for the reconstructed tag positions, with bounded deviations at the scale of the simulated environment.
+
+In real recording experiments, where full global ground truth is not available, map consistency was assessed by comparing tape-measure distances from tag~16 to $20$ other tags against the corresponding distances computed from the estimated map. The resulting absolute error ranged from $0.001\text{ m}$ to $0.099\text{ m}$, with a mean of $0.039\text{ m}$. In real relocalization tests performed off the reference trajectory, the distance output was compared against manual measurements, producing discrepancies between $0.0033\text{ m}$ and $0.0102\text{ m}$. The heading offsets reported by the system in these trials ($\phi=-31.38^\circ$, $-10.34^\circ$, and $-1.63^\circ$) are internal relocalization outputs and are not treated as absolute angular errors due to the absence of an external orientation reference.
+
+These results support the internal consistency of the recording and relocalization stages under the available references, while also delimiting the scope of the evaluation. Future work should extend the set of real-world trials, include an external orientation reference for validating $\phi$, and integrate a trajectory tracking controller that consumes the validated relocalization outputs.
+
+\section{Difficulties and Use of Artificial Intelligence}
+
+During the development of the project, several practical difficulties were encountered. A primary limitation was the incompatibility between the ROS version installed on the Polytech robots and the ROS distribution supported by the AprilTag package used in this work. This required adjustments in the software environment and constrained direct reuse of certain components across platforms.
+
+Another limitation was the restricted time available for extensive experimental validation. Although additional trials in different environments were planned, including experiments at PAVIN, these tests could not be conducted due to unfavorable weather conditions and the proximity of the report submission deadline. Consequently, the experimental campaign was limited to the scenarios described in this document.
+
+Artificial intelligence tools were used during the project in a supportive capacity. They assisted in identifying implementation issues in the code and in suggesting alternative design approaches that were subsequently evaluated and refined by the authors. AI tools were also used for language revision and translation, as the initial drafts of several sections were written in the author's native language.
+
+\newpage
 \printbibliography
+\newpage
+\appendix
+\addappheadtotoc
+\appendixpage
+\section{Tag Distance Validation Table}
+\label{app:tag16_distance_table}
+
+\begin{table}[h!]
+		\centering
+		\scriptsize
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		\textbf{Source tag} & \textbf{Target tag} & \textbf{Estimated [m]} & \textbf{Measured [m]} & \textbf{Absolute error [m]} \\ \hline
+		16 & 2  & 1.385 & 1.380 & 0.005 \\ \hline
+		16 & 3  & 1.368 & 1.360 & 0.008 \\ \hline
+		16 & 4  & 1.728 & 1.820 & 0.092 \\ \hline
+		16 & 5  & 1.613 & 1.690 & 0.077 \\ \hline
+		16 & 9  & 1.527 & 1.450 & 0.077 \\ \hline
+		16 & 10 & 1.691 & 1.680 & 0.011 \\ \hline
+		16 & 14 & 0.481 & 0.480 & 0.001 \\ \hline
+		16 & 15 & 1.011 & 1.110 & 0.099 \\ \hline
+		16 & 17 & 1.115 & 1.090 & 0.025 \\ \hline
+		16 & 18 & 1.216 & 1.220 & 0.004 \\ \hline
+		16 & 19 & 1.054 & 1.040 & 0.014 \\ \hline
+		16 & 22 & 1.412 & 1.410 & 0.002 \\ \hline
+		16 & 23 & 1.571 & 1.560 & 0.011 \\ \hline
+		16 & 24 & 1.925 & 1.900 & 0.025 \\ \hline
+		16 & 25 & 1.328 & 1.300 & 0.028 \\ \hline
+		16 & 26 & 1.249 & 1.220 & 0.029 \\ \hline
+		16 & 27 & 1.871 & 1.800 & 0.071 \\ \hline
+		16 & 28 & 1.436 & 1.470 & 0.034 \\ \hline
+		16 & 31 & 1.608 & 1.660 & 0.052 \\ \hline
+		16 & 33 & 1.886 & 1.870 & 0.016 \\ \hline
+		\textbf{Mean} & - & - & - & \textbf{0.039} \\ \hline
+		\textbf{Max} & - & - & - & \textbf{0.099} \\ \hline
+		\textbf{Min} & - & - & - & \textbf{0.001} \\ \hline
+	\end{tabular}
+	\caption{Comparison between estimated and measured distances from tag 16.}
+		\label{tab:tag16_est_vs_meas_appendix}
+\end{table}
+
+\section{Project Website QR Code}
+\label{app:project_qr}
+
+\begin{figure}[h!]
+	\centering
+	\qrcode[height=4cm]{https://wirelessbrains.github.io/project_record_relocalize_apriltags_M2_PAR/}
+	\caption{QR code linking to the project website and complete media/results page.}
+\end{figure}
+
+
+
 
 \end{document}
+
 
 %*=============================================================================*
 %* Fin du document LaTeX
