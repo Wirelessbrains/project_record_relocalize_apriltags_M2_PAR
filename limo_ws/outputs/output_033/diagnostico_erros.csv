@@ -1,8 +1,0 @@
-metric,value
-frames_total,62
-frames_with_pose,62
-tags_detected,2
-tags_mapped,2
-pairwise_edges,62
-map_residual_rmse,0.0041732312787902
-relocalization_mode,lsq

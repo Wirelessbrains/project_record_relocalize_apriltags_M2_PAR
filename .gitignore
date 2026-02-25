@@ -17,3 +17,7 @@ limo_ws/dataset/**
 
 docs/assets/media/scenario1_video.mp4
 docs/assets/media/segundo_snario_real_recordin.mp4
+
+# Outputs are local run artifacts (do not version)
+limo_ws/outputs/**
+!limo_ws/outputs/.gitkeep
