@@ -61,7 +61,6 @@ headheight=1.5cm,headsep=0.8cm,heightrounded=true
 \usepackage{svg}
 \usepackage{chngcntr}
 \usepackage{tocloft}
-\usepackage{titlesec}
 
 % --- Figuras e TikZ
 \usepackage{tikz}
@@ -87,15 +86,6 @@ headheight=1.5cm,headsep=0.8cm,heightrounded=true
 \setlength{\cftbeforesubsecskip}{0.3em}
 \setlength{\cftbeforesubsubsecskip}{0.0em}
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
-
-\titleformat{\section}{\normalfont\huge\bfseries}{\thesection}{1em}{}
-\titlespacing*{\section}{0pt}{1.2cm}{0.8cm}
-
-\titleformat{\subsection}{\normalfont\Large\bfseries}{\thesubsection}{1em}{}
-\titlespacing*{\subsection}{0pt}{1.0cm}{0.2cm}
-
-\titleformat{\subsubsection}{\normalfont\large\bfseries}{\thesubsubsection}{1em}{}
-\titlespacing*{\subsubsection}{0pt}{0.5cm}{0.2cm}
 
 % Se você quiser seção sempre em nova página, use \newsection{...} (mais seguro)
 \newcommand{\newsection}[1]{\clearpage\section{#1}}
@@ -334,8 +324,8 @@ headheight=1.5cm,headsep=0.8cm,heightrounded=true
 	\hypersetup{pageanchor=false}
 	\begin{titlepage}
 		\begin{center}
-			\includegraphics[scale=0.16]{uca.png}\hfill
-			\includegraphics[scale=0.02]{eupi_long.png}
+			\includegraphics[scale=0.02]{eupi_long.png}\hfill
+			\includegraphics[scale=1.2]{logo_inp_polytech_2023.png}
 			\\[2cm]
 			
 			{\Large \textsc{Université Clermont Auvergne}}\\[0.5cm]
@@ -360,20 +350,24 @@ headheight=1.5cm,headsep=0.8cm,heightrounded=true
 				\end{flushleft}
 			\end{minipage}
 			\hfill
-			\begin{minipage}{0.45\textwidth}
-				\begin{flushright}\large
-					\emph{Supervisor:}\\
-					Dr. Sébastien \textsc{Lengagne}\\
-					\vspace{0.5cm}
-					\emph{Defense Date:}\\
-					March 02, 2026
-				\end{flushright}
-			\end{minipage}
-			
-			\vfill
-			Aubière, Clermont-Ferrand
-		\end{center}
-	\end{titlepage}
+				\begin{minipage}{0.45\textwidth}
+					\begin{flushright}\large
+						\emph{Supervisor:}\\
+						Dr. Sébastien \textsc{Lengagne}\\
+						\vspace{0.5cm}
+						\emph{Defense Date:}\\
+						March 02, 2026
+					\end{flushright}
+				\end{minipage}
+				
+				\vspace{0.9cm}
+				
+				\includegraphics[width=0.32\textwidth]{Images/branding/brand_identity.png}
+				
+				\vfill
+				Aubière, Clermont-Ferrand
+			\end{center}
+		\end{titlepage}
 	
 	\newpage
 	\thispagestyle{empty}
