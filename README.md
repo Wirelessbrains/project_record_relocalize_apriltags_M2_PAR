@@ -7,6 +7,10 @@ Bonus track: simulation workflow for validation.
 
 [![ROS 2 Humble](https://img.shields.io/badge/ROS%202-Humble-blue.svg)](https://docs.ros.org/en/humble/index.html)
 
+## Live Site
+
+- Project website (GitHub Pages): https://wirelessbrains.github.io/project_record_relocalize_apriltags_M2_PAR/
+
 ---
 
 ## Authors
