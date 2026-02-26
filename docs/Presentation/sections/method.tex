@@ -1,13 +1,100 @@
-% Template only — Method
-\ScopeBadge
-\vspace{0.2cm}
-\begin{outlinecard}[Method — Template]
-\small
-\textbf{To fill later:}
-\begin{itemize}
-  \item Objective of the method
-  \item Pipeline blocks
-  \item Main equations
-  \item Expected outputs
-\end{itemize}
+\vspace{0.00cm}
+\begin{outlinecard}[Three-Stage Method]
+  \centering
+  \begin{tikzpicture}[x=1cm,y=1cm,>=Latex]
+    % Stage 1: Record
+    \node<1->[draw=NavyBlue!70, fill=white, rounded corners=1.4pt, line width=0.8pt,
+      minimum width=3.3cm, minimum height=1.35cm, align=center] (s1) at (2.0,1.35)
+      {\scriptsize\textbf{1) Record}\\[-0.4mm]\scriptsize detections dataset};
+    \fill<1->[AccentBlue] ($(s1.north west)+(0.05,-0.05)$) rectangle ($(s1.north west)+(0.18,-0.54)$);
+    % icon: database
+    \draw<1->[NavyBlue, line width=0.7pt] ($(s1.center)+(-1.20,0.36)$) ellipse (0.21 and 0.065);
+    \draw<1->[NavyBlue, line width=0.7pt] ($(s1.center)+(-1.41,0.36)$) -- ($(s1.center)+(-1.41,0.10)$);
+    \draw<1->[NavyBlue, line width=0.7pt] ($(s1.center)+(-0.99,0.36)$) -- ($(s1.center)+(-0.99,0.10)$);
+    \draw<1->[NavyBlue, line width=0.7pt] ($(s1.center)+(-1.20,0.10)$) ellipse (0.21 and 0.065);
+
+    % Stage 2: Build + Optimize
+    \node<2->[draw=NavyBlue!70, fill=white, rounded corners=1.4pt, line width=0.8pt,
+      minimum width=3.65cm, minimum height=1.30cm, align=center] (s2) at (6.2,1.35)
+      {\scriptsize\textbf{2) Build + Optimize}\\[-0.4mm]\scriptsize map + trajectory};
+    \fill<2->[AccentBlue] ($(s2.north west)+(0.05,-0.05)$) rectangle ($(s2.north west)+(0.18,-0.54)$);
+    % icon: AprilTag (same style used in Outline)
+    \begin{scope}[shift={($(s2.center)+(-1.4,0.31)$)}]
+      \draw<2->[fill=white, draw=DarkBlue!60, line width=0.45pt, rounded corners=0.02cm]
+        (-0.16,-0.16) rectangle (0.16,0.16);
+      \fill<2->[black] (-0.12,-0.12) rectangle (0.12,0.12);
+      \fill<2->[white] (-0.09, 0.09) rectangle ( 0.00,0.06);
+      \fill<2->[white] ( 0.05, 0.09) rectangle ( 0.09,0.02);
+      \fill<2->[white] (-0.09, 0.06) rectangle (-0.06,0.00);
+      \fill<2->[white] (-0.01, 0.06) rectangle ( 0.04,0.00);
+      \fill<2->[white] (-0.09,-0.00) rectangle (-0.04,-0.05);
+      \fill<2->[white] (-0.02,-0.00) rectangle ( 0.01,-0.03);
+      \fill<2->[white] ( 0.03,-0.00) rectangle ( 0.09,-0.07);
+      \fill<2->[white] (-0.06,-0.08) rectangle (-0.01,-0.04);
+      \fill<2->[white] ( 0.01,-0.08) rectangle ( 0.04,-0.06);
+    \end{scope}
+
+    % Stage 3: Relocalize
+    \node<3->[draw=NavyBlue!70, fill=white, rounded corners=1.4pt, line width=0.8pt,
+      minimum width=3.15cm, minimum height=1.30cm, align=center] (s3) at (10.2,1.35)
+      {\scriptsize\textbf{3) Relocalize}\\[-0.4mm]\scriptsize nearest point};
+    \fill<3->[AccentGold] ($(s3.north west)+(0.05,-0.05)$) rectangle ($(s3.north west)+(0.18,-0.54)$);
+    % icon: location pin
+    \draw<3->[NavyBlue, line width=0.8pt, fill=white] ($(s3.center)+(-1.16,0.35)$) circle (0.09);
+    \draw<3->[NavyBlue, line width=0.8pt] ($(s3.center)+(-1.16,0.26)$) -- ($(s3.center)+(-1.16,0.10)$);
+    \fill<3->[NavyBlue] ($(s3.center)+(-1.16,0.07)$) -- ($(s3.center)+(-1.23,-0.03)$) -- ($(s3.center)+(-1.09,-0.03)$) -- cycle;
+
+    % Arrows
+    \draw<2->[NavyBlue!65, line width=1.0pt, -{Latex[length=2.5mm,width=1.8mm]}] (3.75,1.35) -- (4.28,1.35);
+    \draw<3->[NavyBlue!65, line width=1.0pt, -{Latex[length=2.5mm,width=1.8mm]}] (8.15,1.35) -- (8.60,1.35);
+  \end{tikzpicture}
+\end{outlinecard}
+
+\vspace{0.08cm}
+\begin{outlinecard}[Main Equation]
+  \scriptsize
+  \only<1>{
+    \textbf{Recording}
+    \[
+      {}^{\mathrm{cam}}T_{\mathrm{tag}}(t)
+    \]
+  }
+  \only<2>{
+    \textbf{Build + Optimize}
+    \[
+      \min_{\{{}^{w}T_{\mathrm{tag}_i}\}}
+      \sum_{(i,j)\in\mathcal{E}}
+      \rho\!\left(\|\mathrm{err}_{ij}\|^2\right)
+    \]
+  }
+  \only<3->{
+    \textbf{Relocalization}
+    \[
+      D=\|\mathbf{p}_{\mathrm{cur}}-\mathbf{p}_{\mathrm{nearest}}\|
+    \]
+    \[
+      \phi=\mathrm{wrap}(\psi_{\mathrm{cur}}-\psi_{\mathrm{nearest}})
+    \]
+  }
+\end{outlinecard}
+
+\vspace{0.03cm}
+\begin{outlinecard}[Artifacts]
+  \scriptsize
+  \begin{tikzpicture}[x=1cm,y=1cm]
+    % item 1 (left)
+    \draw<4->[NavyBlue, line width=0.7pt, rounded corners=0.6pt, fill=white] (0.20,0.72) rectangle (0.62,1.08);
+    \draw<4->[NavyBlue, line width=0.6pt] (0.28,1.00) -- (0.54,1.00);
+    \node<4->[anchor=west, font=\scriptsize\ttfamily] at (0.75,0.90) {tag\_map.yaml};
+
+    % item 2 (center)
+    \draw<5->[NavyBlue, line width=0.7pt, rounded corners=0.6pt, fill=white] (4.10,0.72) rectangle (4.52,1.08);
+    \draw<5->[NavyBlue, line width=0.6pt] (4.18,1.00) -- (4.44,1.00);
+    \draw<5->[NavyBlue, line width=0.6pt] (4.18,0.92) -- (4.44,0.92);
+    \node<5->[anchor=west, font=\scriptsize\ttfamily] at (4.65,0.90) {trajetoria\_camera.csv};
+
+    % item 3 (right)
+    \draw<6->[AccentBlue, line width=0.85pt] (8.60,0.76) -- (8.75,0.92) -- (8.90,0.80) -- (9.05,1.02);
+    \node<6->[anchor=west, font=\scriptsize] at (9.18,0.90) {$D$ [m], $\phi$ [deg]};
+  \end{tikzpicture}
 \end{outlinecard}

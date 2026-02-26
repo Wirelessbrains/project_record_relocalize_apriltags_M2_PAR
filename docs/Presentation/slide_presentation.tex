@@ -135,16 +135,7 @@
 	borderline west={1.4mm}{0mm}{NavyBlue}
 }
 
-% --- Scope badge shown on content slides ---
-\newcommand{\ScopeBadge}{
-	\begin{tikzpicture}[remember picture,overlay]
-		\node[visible on=<2->, anchor=north east,
-		draw=NavyBlue!45, fill=white, rounded corners=1.2pt, line width=0.6pt,
-		inner xsep=2.8pt, inner ysep=1.6pt, text=DarkBlue, font=\scriptsize]
-		at ($(current page.north east)+(-0.45cm,-1.05cm)$)
-		{\textbf{Scope:} control law design is future work};
-	\end{tikzpicture}
-}
+
 
 
 
@@ -329,45 +320,41 @@
 % SLIDE 2 — PROBLEM AND SCOPE
 % ============================================================
 \begin{frame}[label=slide-problem]{Problem and Scope}
-\ScopeBadge
+
 \vspace{0.05cm}
 \begin{center}
 \begin{tikzpicture}[x=1cm,y=1cm]
   \fill[white] (0.2,0.3) rectangle (12.4,6.35);
 
   % Top-left card
-  \node[draw=NavyBlue!70, fill=white, rounded corners=1.6pt, line width=0.85pt,
+  \node[visible on=<1->, draw=NavyBlue!70, fill=white, rounded corners=1.6pt, line width=0.85pt,
         anchor=north west, minimum width=5.55cm, minimum height=2.35cm, text width=5.15cm, align=left] (c1)
         at (0.55,6.10) {\textbf{For whom}\par\vspace{0.08cm}\footnotesize Polytech practical-work students using AgileX LIMO in indoor AprilTag setups.};
-  \fill[AccentBlue] ($(c1.north west)+(0.05,-0.05)$) rectangle ($(c1.north west)+(0.20,-0.26)$);
-  \node[anchor=west, text=white, font=\scriptsize\bfseries] at ($(c1.north west)+(0.08,-0.15)$) {1};
+  \fill<1->[AccentBlue] ($(c1.north west)+(0.05,-0.05)$) rectangle ($(c1.north west)+(0.20,-0.26)$);
+  \node<1->[anchor=west, text=white, font=\scriptsize\bfseries] at ($(c1.north west)+(0.08,-0.15)$) {1};
 
   % Top-right card
-  \node[draw=NavyBlue!70, fill=white, rounded corners=1.6pt, line width=0.85pt,
+  \node[visible on=<2->, draw=NavyBlue!70, fill=white, rounded corners=1.6pt, line width=0.85pt,
         anchor=north west, minimum width=5.55cm, minimum height=2.35cm, text width=5.15cm, align=left] (c2)
         at (6.30,6.10) {\textbf{Why}\par\vspace{0.08cm}\footnotesize Need a reproducible workflow to record a path and recover pose relative to it for control-law exercises.};
-  \fill[AccentBlue] ($(c2.north west)+(0.05,-0.05)$) rectangle ($(c2.north west)+(0.20,-0.26)$);
-  \node[anchor=west, text=white, font=\scriptsize\bfseries] at ($(c2.north west)+(0.08,-0.15)$) {2};
+  \fill<2->[AccentBlue] ($(c2.north west)+(0.05,-0.05)$) rectangle ($(c2.north west)+(0.20,-0.26)$);
+  \node<2->[anchor=west, text=white, font=\scriptsize\bfseries] at ($(c2.north west)+(0.08,-0.15)$) {2};
 
   % Bottom-left card
-  \node[draw=NavyBlue!70, fill=white, rounded corners=1.6pt, line width=0.85pt,
+  \node[visible on=<3->, draw=NavyBlue!70, fill=white, rounded corners=1.6pt, line width=0.85pt,
         anchor=north west, minimum width=5.55cm, minimum height=2.35cm, text width=5.15cm, align=left] (c3)
         at (0.55,3.35) {\textbf{Problem}\par\vspace{0.08cm}\footnotesize Recording alone is insufficient because odometry drift breaks trajectory consistency across runs.};
-  \fill[AccentBlue] ($(c3.north west)+(0.05,-0.05)$) rectangle ($(c3.north west)+(0.20,-0.26)$);
-  \node[anchor=west, text=white, font=\scriptsize\bfseries] at ($(c3.north west)+(0.08,-0.15)$) {3};
+  \fill<3->[AccentBlue] ($(c3.north west)+(0.05,-0.05)$) rectangle ($(c3.north west)+(0.20,-0.26)$);
+  \node<3->[anchor=west, text=white, font=\scriptsize\bfseries] at ($(c3.north west)+(0.08,-0.15)$) {3};
 
   % Bottom-right card
-  \node[draw=NavyBlue!70, fill=white, rounded corners=1.6pt, line width=0.85pt,
+  \node[visible on=<4->, draw=NavyBlue!70, fill=white, rounded corners=1.6pt, line width=0.85pt,
         anchor=north west, minimum width=5.55cm, minimum height=2.35cm, text width=5.15cm, align=left] (c4)
-        at (6.30,3.35) {\textbf{Scope}\par\vspace{0.06cm}\footnotesize In: offline reconstruction and relocalization outputs ($D$, $\phi$).\par\footnotesize Not delivered here: trajectory tracking controller implementation.};
-  \fill[AccentGold] ($(c4.north west)+(0.05,-0.05)$) rectangle ($(c4.north west)+(0.20,-0.26)$);
-  \node[anchor=west, text=white, font=\scriptsize\bfseries] at ($(c4.north west)+(0.08,-0.15)$) {4};
+        at (6.30,3.35) {\textbf{Scope}\par\vspace{0.06cm}\footnotesize In: offline reconstruction and relocalization outputs ($D$, $\phi$).\par\footnotesize Out: control-law and trajectory replay.};
+  \fill<4->[AccentGold] ($(c4.north west)+(0.05,-0.05)$) rectangle ($(c4.north west)+(0.20,-0.26)$);
+  \node<4->[anchor=west, text=white, font=\scriptsize\bfseries] at ($(c4.north west)+(0.08,-0.15)$) {4};
 
-  % Connectors
-  \draw[NavyBlue!35, line width=0.75pt] ($(c1.south east)+(-0.10,0.18)$) -- ($(c2.south west)+(0.10,0.18)$);
-  \draw[NavyBlue!35, line width=0.75pt] ($(c3.north east)+(-0.10,-0.18)$) -- ($(c4.north west)+(0.10,-0.18)$);
-  \draw[NavyBlue!35, line width=0.75pt] ($(c1.south)+(0,-0.08)$) -- ($(c3.north)+(0,0.08)$);
-  \draw[NavyBlue!35, line width=0.75pt] ($(c2.south)+(0,-0.08)$) -- ($(c4.north)+(0,0.08)$);
+  % (No connectors, by design)
 \end{tikzpicture}
 \end{center}
 \end{frame}
