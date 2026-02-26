@@ -1,0 +1,426 @@
+% !TeX program = pdflatex
+% -----------------------------------------------------------------------------
+% APRESENTAÇÃO: AprilTag-based Trajectory Tracking for the LIMOS Robot
+% -----------------------------------------------------------------------------
+
+\documentclass[aspectratio=169, 10pt]{beamer}
+
+% --- PACOTES ---
+\usepackage[T1]{fontenc}      % Re-added for pdflatex
+\usepackage[utf8]{inputenc}   % Re-added for pdflatex
+\usepackage[english]{babel}
+\usepackage{microtype}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{qrcode}
+\tcbuselibrary{skins, breakable}
+
+% --- TIKZ ---
+\usepackage{tikz}
+\usetikzlibrary{calc, positioning, arrows.meta, shadows, overlay-beamer-styles, fit}
+
+% Estilo para animações
+\tikzset{
+    invisible/.style={opacity=0, text opacity=0},
+    visible on/.style={alt={#1{}{invisible}}},
+    alt/.code args={<#1>#2#3}{\alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}}},
+}
+
+% --- FONTES (STANDARD) ---
+% We use Helvet (similar to Arial) instead of fontspec/TeX Gyre
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% --- THEME + COLORS (aligned with report identity) ---
+\usetheme{default}
+\definecolor{NavyBlue}{HTML}{004B87}      % report techblue
+\definecolor{DarkBlue}{HTML}{003264}
+\definecolor{CoolGray}{HTML}{5D6D7E}
+\definecolor{CleanWhite}{HTML}{FFFFFF}
+\definecolor{LightBg}{HTML}{FFFFFF}
+\definecolor{AccentBlue}{HTML}{1FA8FF}
+\definecolor{AccentGold}{HTML}{F4B63F}
+\definecolor{AlertRed}{HTML}{C0392B}
+
+% --- CONFIGURAÇÃO BEAMER ---
+\setbeamercolor{background canvas}{bg=CleanWhite}
+\setbeamercolor{normal text}{fg=black!85}
+\setbeamercolor{frametitle}{bg=CleanWhite, fg=NavyBlue}
+\setbeamercolor{title}{fg=NavyBlue}
+\setbeamercolor{structure}{fg=NavyBlue}
+\setbeamercolor{block title}{fg=CleanWhite,bg=NavyBlue}
+\setbeamercolor{block body}{fg=black!85,bg=LightBg}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{headline}{} 
+\setbeamercovered{invisible} % Itens futuros não aparecem
+\setbeamertemplate{itemize item}{\color{NavyBlue}$\blacktriangleright$}
+\setbeamertemplate{itemize subitem}{\color{AccentBlue}$\bullet$}
+
+% --- RODAPÉ (AUTOR + TÍTULO DO PROJETO) ---
+\setbeamertemplate{footline}{%
+	\leavevmode%
+	\hbox{%
+		% Caixa 1: Autor
+		\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+			\color{CoolGray}\tiny\bfseries Martins do Lago Reis; Da Silva Ramos
+		\end{beamercolorbox}%
+			% Caixa 2: Título
+			\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+				\color{NavyBlue}\tiny\bfseries Record \textbullet{} Map \textbullet{} Relocalize
+			\end{beamercolorbox}%
+		% Caixa 3: Número da Página
+		\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+			\color{CoolGray}\tiny\insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+	\end{beamercolorbox}}%
+	\vskip0pt%
+	% Barra de Progresso
+	\ifnum\inserttotalframenumber>0
+	\nointerlineskip
+	\makebox[\paperwidth][l]{%
+		\color{gray!10}\rule{\paperwidth}{2pt}%
+		\hspace{-\paperwidth}%
+		\color{AccentGold}\rule{\dimexpr\paperwidth * \insertframenumber / \inserttotalframenumber\relax}{2pt}%
+	}%
+	\fi
+}
+
+% --- Logos from report cover (EUPI + Polytech) ---
+\newcommand{\EUPILogoPath}{assets/report_eupi_long.png}
+\newcommand{\PolytechLogoPath}{assets/report_polytech_logo.png}
+\newcommand{\BrandIdentityPath}{assets/report_brand_identity.png}
+
+% --- LOGOS EM TODOS OS SLIDES (CANTO SUPERIOR DIREITO) ---
+\setbeamertemplate{frametitle}{
+	\vspace{0.3cm}
+	\begin{tikzpicture}[remember picture,overlay]
+		\node[anchor=north west] at ($(current page.north west)+(0.4cm,-0.25cm)$) {%
+			\includegraphics[height=0.42cm]{\PolytechLogoPath}
+		};
+		\node[anchor=north east] at ($(current page.north east)+(-0.4cm,-0.25cm)$) {%
+			\includegraphics[height=0.42cm]{\EUPILogoPath}
+		};
+	\end{tikzpicture}
+	
+	\hspace{0.5cm}
+	\textbf{\insertframetitle} \\
+	{\color{AccentGold}\rule{2cm}{1.6pt}}
+}
+
+% --- CAIXAS ---
+\newtcolorbox{bluebox}[1][]{
+	enhanced, colback=LightBg, colframe=NavyBlue, coltitle=white,
+	fonttitle=\bfseries\small, title=#1, sharp corners, boxrule=0mm,
+	leftrule=1mm, rightrule=0mm, toprule=0mm, bottomrule=0mm,
+	titlerule=0mm, toptitle=1mm, bottomtitle=1mm, arc=0mm
+}
+
+\newtcolorbox{alertbox}[1][]{
+	enhanced, colback=white, colframe=gray!30, coltitle=NavyBlue,
+	fonttitle=\bfseries, title=#1, sharp corners, boxrule=0.5pt,
+	attach boxed title to top left={yshift=-2mm, xshift=2mm},
+	boxed title style={colback=white, colframe=white}
+}
+
+\newtcolorbox{outlinecard}[1][]{
+	enhanced,
+	colback=white,
+	colframe=NavyBlue!22,
+	boxrule=0.6pt,
+	arc=1.8mm,
+	left=2.5mm,right=2.5mm,top=2.0mm,bottom=2.0mm,
+	fonttitle=\bfseries\small,
+	coltitle=NavyBlue,
+	title=#1,
+	borderline west={1.4mm}{0mm}{NavyBlue}
+}
+
+% --- Scope badge shown on content slides ---
+\newcommand{\ScopeBadge}{
+	\begin{tikzpicture}[remember picture,overlay]
+		\node[visible on=<2->, anchor=north east,
+		draw=NavyBlue!45, fill=white, rounded corners=1.2pt, line width=0.6pt,
+		inner xsep=2.8pt, inner ysep=1.6pt, text=DarkBlue, font=\scriptsize]
+		at ($(current page.north east)+(-0.45cm,-1.05cm)$)
+		{\textbf{Scope:} control law design is future work};
+	\end{tikzpicture}
+}
+
+
+
+% ==================/// START PRESENTATION ///==================///
+
+% --- DADOS DA APRESENTAÇÃO ---
+\title{An AprilTag-Based Approach to Trajectory Recording and Relocalization for Mobile Robots}
+
+\author{Joao Pedro Martins do Lago Reis and Yann Kelvem da Silva Ramos}
+\date{\today}
+
+\begin{document}
+	
+		% -----------------------------------------------------------------------------
+			\begin{frame}[plain]
+				% --- Subtle background composition ---
+				\begin{tikzpicture}[remember picture,overlay]
+					\fill[LightBg] (current page.south west) rectangle (current page.north east);
+					\draw[NavyBlue!12, line width=0.8pt] ($(current page.south west)+(0.8cm,1.05cm)$) -- ($(current page.south east)+(-0.8cm,1.05cm)$);
+				\end{tikzpicture}
+				
+				% --- LOGOS NOS CANTOS SUPERIORES ---
+					\begin{tikzpicture}[remember picture,overlay]
+					\node[anchor=north west]
+					at ($(current page.north west)+(0.7cm,-0.55cm)$)
+					{
+						\includegraphics[height=0.82cm]{\PolytechLogoPath}
+					};
+					\node[anchor=north east]
+					at ($(current page.north east)+(-0.7cm,-0.55cm)$)
+					{
+						\includegraphics[height=0.82cm]{\EUPILogoPath}
+					};
+				\end{tikzpicture}
+
+				% --- BRAND + TITLE (SIDE-BY-SIDE) ---
+				\vspace{1.4cm}
+				\begin{columns}[c,onlytextwidth]
+					\begin{column}{0.36\textwidth}
+						\centering
+						\includegraphics[width=0.95\linewidth]{\BrandIdentityPath}
+					\end{column}
+						\begin{column}{0.64\textwidth}
+							{\footnotesize\textcolor{AccentGold}{\textbf{SYNTHESIS PROJECT}}}\\[0.20cm]
+							{\Large\bfseries \textcolor{NavyBlue}{An AprilTag-Based Approach to Trajectory}}\\[0.15cm]
+							{\Large\bfseries \textcolor{NavyBlue}{Recording and Relocalization}}\\[0.18cm]
+							{\large\textcolor{DarkBlue}{for Mobile Robots}}
+						\end{column}
+					\end{columns}
+				\vspace{0.85cm}
+			
+			% --- PROJECT CONTEXT + AUTHORS ---
+		
+			{\normalsize\textbf{Joao Pedro Martins do Lago Reis and Yann Kelvem da Silva Ramos}}\\[0.20cm]
+			{\footnotesize\textcolor{CoolGray}{Master's degree in artificial perception and robotics}}\\[0.16cm]
+			{\footnotesize\textcolor{CoolGray}{March 02, 2026}}\\[0.52cm]
+			
+			{\footnotesize\textcolor{CoolGray}{\textbf{Supervisor:} Dr. Sébastien Lengagne \hspace{1.2em} \textbf{Evaluator:} Dr. Aufrère Romuald}}
+			
+		\end{frame}
+
+\begin{frame}{Outline}
+
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=1cm]
+  % White panel (no blue tint)
+  \fill[white] (0.2,0.3) rectangle (12.4,6.35);
+
+  % Sinuous road (extended to increase spacing between milestones)
+  \draw[line width=17pt, color=black!70, line cap=round]
+    (0.52,0.92) .. controls (1.95,0.58) and (2.95,2.12) .. (4.30,2.60)
+                .. controls (5.70,3.02) and (6.35,1.78) .. (7.92,2.68)
+                .. controls (9.28,3.52) and (9.72,5.12) .. (11.16,5.46)
+                .. controls (11.70,5.58) and (12.10,5.52) .. (12.35,5.38);
+  \draw[line width=2.0pt, color=white, dash pattern=on 5pt off 6pt, line cap=round]
+    (0.52,0.92) .. controls (1.95,0.58) and (2.95,2.12) .. (4.30,2.60)
+                .. controls (5.70,3.02) and (6.35,1.78) .. (7.92,2.68)
+                .. controls (9.28,3.52) and (9.72,5.12) .. (11.16,5.46)
+                .. controls (11.70,5.58) and (12.10,5.52) .. (12.35,5.38);
+
+  % Visual start cue (cold ring)
+  \fill[AccentBlue!18] (0.52,0.92) circle (0.22);
+  \draw[AccentBlue, line width=1.1pt] (0.52,0.92) circle (0.16);
+  \fill[AccentBlue] (0.52,0.92) circle (0.06);
+
+  % Visual finish cue (warm ring + check)
+  \fill[AccentGold!22] (12.35,5.38) circle (0.24);
+  \draw[AccentGold!85!black, line width=1.1pt] (12.35,5.38) circle (0.17);
+  \draw[AccentGold!85!black, line width=0.9pt] (12.35,5.38) circle (0.11);
+  \draw[AccentGold!85!black, line width=1.1pt, line cap=round]
+    (12.29,5.37) -- (12.34,5.31) -- (12.43,5.42);
+
+  % Robot icon (integrated, minimal)
+  \begin{scope}[shift={(7.5,2.3)}, rotate=34]
+    \draw[fill=white, draw=DarkBlue, line width=0.9pt, rounded corners=1.2pt]
+      (-0.20,-0.12) rectangle (0.24,0.12);
+    \draw[DarkBlue, line width=1.0pt] (-0.18,-0.16) -- (-0.02,-0.16);
+    \draw[DarkBlue, line width=1.0pt] (-0.18, 0.16) -- (-0.02, 0.16);
+    \draw[DarkBlue, line width=1.0pt] ( 0.06,-0.16) -- ( 0.22,-0.16);
+    \draw[DarkBlue, line width=1.0pt] ( 0.06, 0.16) -- ( 0.22, 0.16);
+    % front camera icon (replaces the direction triangle)
+    \draw[fill=white, draw=DarkBlue, line width=0.75pt, rounded corners=0.6pt]
+      (0.235,-0.035) rectangle (0.295,0.035);
+    \draw[fill=AccentBlue!75, draw=DarkBlue, line width=0.55pt]
+      (0.295,-0.02) -- (0.328,0) -- (0.295,0.02) -- cycle;
+  \end{scope}
+
+  % AprilTag cue integrated with scene
+  \draw[DarkBlue, line width=0.8pt] (9.70,4.35) -- (9.70,4.60);
+  \begin{scope}[shift={(9.70,4.5)}]
+    % white rounded holder + black tag body (closer to real marker look)
+    \draw[fill=white, draw=DarkBlue!60, line width=0.6pt, rounded corners=0.03cm]
+      (-0.26,-0.26) rectangle (0.26,0.26);
+    \fill[black] (-0.20,-0.20) rectangle (0.20,0.20);
+    % white modules (closer to the real tag pattern shown)
+    \fill[white] (-0.15, 0.15) rectangle ( 0.00,0.11); % top-left bar
+    \fill[white] ( 0.08, 0.15) rectangle ( 0.15,0.05); % top-right column
+    \fill[white] (-0.15, 0.11) rectangle (-0.11,0.01); % left vertical
+    \fill[white] (-0.02, 0.11) rectangle ( 0.06,0.01); % center top block
+    \fill[white] (-0.15,-0.01) rectangle (-0.07,-0.09); % left mid block
+    \fill[white] (-0.03,-0.01) rectangle ( 0.01,-0.05); % center small
+    \fill[white] ( 0.05,-0.01) rectangle ( 0.15,-0.11); % right big
+    \fill[white] (-0.11,-0.13) rectangle (-0.03,-0.05); % bottom-left
+    \fill[white] ( 0.01,-0.13) rectangle ( 0.05,-0.09); % bottom center
+  \end{scope}
+  % camera rays from camera center to AprilTag frame corners
+  \coordinate (camera_center) at (7.74,2.48);
+  \draw[fill=AccentGold!90, draw=DarkBlue, line width=0.75pt] (camera_center) circle (0.055);
+  \fill[DarkBlue] (camera_center) circle (0.022);
+  \draw[AccentBlue!75, line width=0.75pt, dashed] (camera_center) -- (9.44,4.24); % bottom-left corner
+  \draw[AccentBlue!75, line width=0.75pt, dashed] (camera_center) -- (9.96,4.24); % bottom-right corner
+
+  % Signposts (aligned with actual slide sequence)
+  \draw[DarkBlue, line width=0.90pt] (1.40,1.08) -- (1.40,2.14);
+  \node[draw=NavyBlue!65, fill=white, rounded corners=1.2pt, line width=0.75pt,
+        align=center, minimum width=2.10cm, minimum height=0.88cm, anchor=south] (s1)
+        at (1.40,2.14) {\scriptsize\hyperlink{slide-problem}{\shortstack{\textbf{Problem}\\and Scope}}};
+  \fill[AccentBlue] ($(s1.south west)+(0.04,0.04)$) rectangle ($(s1.north west)+(0.14,-0.04)$);
+  \node[anchor=west, text=white, font=\scriptsize\bfseries] at ($(s1.west)+(0.06,0)$) {1};
+
+  \draw[DarkBlue, line width=0.90pt] (3.05,2.18) -- (3.05,3.02);
+  \node[draw=NavyBlue!65, fill=white, rounded corners=1.2pt, line width=0.75pt,
+        align=center, minimum width=2.00cm, minimum height=0.88cm, anchor=south] (s2)
+        at (3.05,3.02) {\scriptsize\hyperlink{slide-method}{\textbf{Method}}};
+  \fill[AccentBlue] ($(s2.south west)+(0.04,0.04)$) rectangle ($(s2.north west)+(0.14,-0.04)$);
+  \node[anchor=west, text=white, font=\scriptsize\bfseries] at ($(s2.west)+(0.06,0)$) {2};
+
+  \draw[DarkBlue, line width=0.90pt] (5.15,2.7) -- (5.15,3.34);
+  \node[draw=NavyBlue!65, fill=white, rounded corners=1.2pt, line width=0.75pt,
+        align=center, minimum width=2.20cm, minimum height=0.88cm, anchor=south] (s3)
+        at (5.15,3.34) {\scriptsize\hyperlink{slide-recording}{\shortstack{\textbf{Recording}\\Phase}}};
+  \fill[AccentBlue] ($(s3.south west)+(0.04,0.04)$) rectangle ($(s3.north west)+(0.14,-0.04)$);
+  \node[anchor=west, text=white, font=\scriptsize\bfseries] at ($(s3.west)+(0.06,0)$) {3};
+
+  \draw[DarkBlue, line width=0.90pt] (7.05,2.5) -- (7.05,4.54);
+  \node[draw=NavyBlue!65, fill=white, rounded corners=1.2pt, line width=0.75pt,
+        align=center, minimum width=2.30cm, minimum height=0.88cm, anchor=south] (s4)
+        at (7.05,4.54) {\scriptsize\hyperlink{slide-relocalization}{\shortstack{\textbf{Relocalization}\\Phase}}};
+  \fill[AccentGold] ($(s4.south west)+(0.04,0.04)$) rectangle ($(s4.north west)+(0.14,-0.04)$);
+  \node[anchor=west, text=white, font=\scriptsize\bfseries] at ($(s4.west)+(0.06,0)$) {4};
+
+  \draw[DarkBlue, line width=0.90pt] (9.75,5.02) -- (9.75,5.82);
+  \node[draw=NavyBlue!65, fill=white, rounded corners=1.2pt, line width=0.75pt,
+        align=center, minimum width=1.90cm, minimum height=0.88cm, anchor=south] (s5)
+        at (9.75,5.82) {\scriptsize\hyperlink{slide-validation}{\textbf{Validation}}};
+  \fill[AccentBlue] ($(s5.south west)+(0.04,0.04)$) rectangle ($(s5.north west)+(0.14,-0.04)$);
+  \node[anchor=west, text=white, font=\scriptsize\bfseries] at ($(s5.west)+(0.06,0)$) {5};
+
+  \draw[DarkBlue, line width=0.90pt] (11.95,5.25) -- (11.95,6.02);
+  \node[draw=NavyBlue!65, fill=white, rounded corners=1.2pt, line width=0.75pt,
+        align=center, minimum width=2.20cm, minimum height=0.88cm, anchor=south] (s6)
+        at (11.95,6.02) {\scriptsize\hyperlink{slide-discussion}{\shortstack{\textbf{Discussion}\\and Closing}}};
+  \fill[AccentGold] ($(s6.south west)+(0.04,0.04)$) rectangle ($(s6.north west)+(0.14,-0.04)$);
+  \node[anchor=west, text=white, font=\scriptsize\bfseries] at ($(s6.west)+(0.06,0)$) {6};
+\end{tikzpicture}
+\end{center}
+\end{frame}
+
+
+
+% ============================================================
+% SLIDE 2 — PROBLEM AND SCOPE
+% ============================================================
+\begin{frame}[label=slide-problem]{Problem and Scope}
+\ScopeBadge
+\vspace{0.05cm}
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \fill[white] (0.2,0.3) rectangle (12.4,6.35);
+
+  % Top-left card
+  \node[draw=NavyBlue!70, fill=white, rounded corners=1.6pt, line width=0.85pt,
+        anchor=north west, minimum width=5.55cm, minimum height=2.35cm, text width=5.15cm, align=left] (c1)
+        at (0.55,6.10) {\textbf{For whom}\par\vspace{0.08cm}\footnotesize Polytech practical-work students using AgileX LIMO in indoor AprilTag setups.};
+  \fill[AccentBlue] ($(c1.north west)+(0.05,-0.05)$) rectangle ($(c1.north west)+(0.20,-0.26)$);
+  \node[anchor=west, text=white, font=\scriptsize\bfseries] at ($(c1.north west)+(0.08,-0.15)$) {1};
+
+  % Top-right card
+  \node[draw=NavyBlue!70, fill=white, rounded corners=1.6pt, line width=0.85pt,
+        anchor=north west, minimum width=5.55cm, minimum height=2.35cm, text width=5.15cm, align=left] (c2)
+        at (6.30,6.10) {\textbf{Why}\par\vspace{0.08cm}\footnotesize Need a reproducible workflow to record a path and recover pose relative to it for control-law exercises.};
+  \fill[AccentBlue] ($(c2.north west)+(0.05,-0.05)$) rectangle ($(c2.north west)+(0.20,-0.26)$);
+  \node[anchor=west, text=white, font=\scriptsize\bfseries] at ($(c2.north west)+(0.08,-0.15)$) {2};
+
+  % Bottom-left card
+  \node[draw=NavyBlue!70, fill=white, rounded corners=1.6pt, line width=0.85pt,
+        anchor=north west, minimum width=5.55cm, minimum height=2.35cm, text width=5.15cm, align=left] (c3)
+        at (0.55,3.35) {\textbf{Problem}\par\vspace{0.08cm}\footnotesize Recording alone is insufficient because odometry drift breaks trajectory consistency across runs.};
+  \fill[AccentBlue] ($(c3.north west)+(0.05,-0.05)$) rectangle ($(c3.north west)+(0.20,-0.26)$);
+  \node[anchor=west, text=white, font=\scriptsize\bfseries] at ($(c3.north west)+(0.08,-0.15)$) {3};
+
+  % Bottom-right card
+  \node[draw=NavyBlue!70, fill=white, rounded corners=1.6pt, line width=0.85pt,
+        anchor=north west, minimum width=5.55cm, minimum height=2.35cm, text width=5.15cm, align=left] (c4)
+        at (6.30,3.35) {\textbf{Scope}\par\vspace{0.06cm}\footnotesize In: offline reconstruction and relocalization outputs ($D$, $\phi$).\par\footnotesize Not delivered here: trajectory tracking controller implementation.};
+  \fill[AccentGold] ($(c4.north west)+(0.05,-0.05)$) rectangle ($(c4.north west)+(0.20,-0.26)$);
+  \node[anchor=west, text=white, font=\scriptsize\bfseries] at ($(c4.north west)+(0.08,-0.15)$) {4};
+
+  % Connectors
+  \draw[NavyBlue!35, line width=0.75pt] ($(c1.south east)+(-0.10,0.18)$) -- ($(c2.south west)+(0.10,0.18)$);
+  \draw[NavyBlue!35, line width=0.75pt] ($(c3.north east)+(-0.10,-0.18)$) -- ($(c4.north west)+(0.10,-0.18)$);
+  \draw[NavyBlue!35, line width=0.75pt] ($(c1.south)+(0,-0.08)$) -- ($(c3.north)+(0,0.08)$);
+  \draw[NavyBlue!35, line width=0.75pt] ($(c2.south)+(0,-0.08)$) -- ($(c4.north)+(0,0.08)$);
+\end{tikzpicture}
+\end{center}
+\end{frame}
+
+\begin{frame}[label=slide-method]{Method}
+\end{frame}
+
+\begin{frame}[label=slide-recording]{Recording Phase}
+\end{frame}
+
+\begin{frame}[label=slide-relocalization]{Relocalization Phase}
+\end{frame}
+
+\begin{frame}[label=slide-validation]{Validation}
+\end{frame}
+
+\begin{frame}[label=slide-discussion]{Discussion}
+\end{frame}
+
+\begin{frame}{Conclusion}
+\end{frame}
+
+
+
+% ==================/// END PRESENTATION
+% ==================///==================///==================///
+
+\begin{frame}[plain]
+	
+	% Logos no canto superior direito (como nos outros slides)
+	\begin{tikzpicture}[remember picture,overlay]
+		\node[anchor=north east] 
+		at ($(current page.north east)+(-0.8cm,-0.6cm)$) {
+			\includegraphics[height=1.0cm]{assets/logo_UCA.jpg}
+
+		};
+	\end{tikzpicture}
+	
+	\centering
+	\vspace*{2.2cm}
+	
+	{\Huge\bfseries\textcolor{NavyBlue}{Thank you for listening!}\par}
+	\vspace{0.4cm}
+	{\Large\textcolor{CoolGray}{Any questions?}\par}
+	
+	\vspace{0.9cm}
+	{\color{AccentBlue}\rule{3cm}{1.5pt}\par}
+	
+	\vspace{0.7cm}
+	{\small\textcolor{CoolGray}{ Joao Pedro Martins do Lago Reis \quad|\quad Yann Kelvem da Silva Ramos}\par}
+	{\small\textcolor{CoolGray}{Record, Map, and Relocalize with AprilTags}\par}
+	
+\end{frame}
+
+
+\end{document}
