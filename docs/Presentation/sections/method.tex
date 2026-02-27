@@ -1,4 +1,4 @@
-\vspace{0.00cm}
+\vspace{-0.05cm}
 \begin{outlinecard}[Three-Stage Method]
   \centering
   \begin{tikzpicture}[x=1cm,y=1cm,>=Latex]
@@ -34,23 +34,29 @@
       \fill<2->[white] ( 0.01,-0.08) rectangle ( 0.04,-0.06);
     \end{scope}
 
-    % Stage 3: Relocalize
-    \node<3->[draw=NavyBlue!70, fill=white, rounded corners=1.4pt, line width=0.8pt,
-      minimum width=3.15cm, minimum height=1.30cm, align=center] (s3) at (10.2,1.35)
-      {\scriptsize\textbf{3) Relocalize}\\[-0.4mm]\scriptsize nearest point};
-    \fill<3->[AccentGold] ($(s3.north west)+(0.05,-0.05)$) rectangle ($(s3.north west)+(0.18,-0.54)$);
-    % icon: location pin
-    \draw<3->[NavyBlue, line width=0.8pt, fill=white] ($(s3.center)+(-1.16,0.35)$) circle (0.09);
-    \draw<3->[NavyBlue, line width=0.8pt] ($(s3.center)+(-1.16,0.26)$) -- ($(s3.center)+(-1.16,0.10)$);
-    \fill<3->[NavyBlue] ($(s3.center)+(-1.16,0.07)$) -- ($(s3.center)+(-1.23,-0.03)$) -- ($(s3.center)+(-1.09,-0.03)$) -- cycle;
-
+	% Stage 3: Relocalize
+	\node<3->[draw=NavyBlue!70, fill=white, rounded corners=1.4pt, line width=0.8pt,
+	minimum width=3.15cm, minimum height=1.30cm, align=center] (s3) at (10.2,1.35)
+	{\scriptsize\textbf{3) Relocalize}\\[-0.4mm]\scriptsize nearest point};
+	\fill<3->[AccentGold] ($(s3.north west)+(0.05,-0.05)$) rectangle ($(s3.north west)+(0.18,-0.54)$);
+	
+	% icon: location pin (Google Maps–like, menor)
+	\path<3->[draw=NavyBlue, fill=white, line width=0.8pt, even odd rule]
+	% corpo externo (topo circular + corpo suave + ponta fina)
+	($(s3.center)+(-1.055,0.255)$) arc (320:220:0.155)
+	.. controls ($(s3.center)+(-1.33,0.22)$) and ($(s3.center)+(-1.24,0.02)$)
+	.. ($(s3.center)+(-1.16,-0.08)$)
+	.. controls ($(s3.center)+(-1.08,0.02)$) and ($(s3.center)+(-0.99,0.22)$)
+	.. cycle
+	% furo interno
+	($(s3.center)+(-1.16,0.35)$) circle (0.065);
     % Arrows
     \draw<2->[NavyBlue!65, line width=1.0pt, -{Latex[length=2.5mm,width=1.8mm]}] (3.75,1.35) -- (4.28,1.35);
     \draw<3->[NavyBlue!65, line width=1.0pt, -{Latex[length=2.5mm,width=1.8mm]}] (8.15,1.35) -- (8.60,1.35);
   \end{tikzpicture}
 \end{outlinecard}
 
-\vspace{0.08cm}
+\vspace{-0.05cm}
 \begin{outlinecard}[Main Equation]
   \scriptsize
   \only<1>{
@@ -78,7 +84,7 @@
   }
 \end{outlinecard}
 
-\vspace{0.03cm}
+\vspace{-0.05cm}
 \begin{outlinecard}[Artifacts]
   \scriptsize
   \begin{tikzpicture}[x=1cm,y=1cm]
@@ -88,13 +94,13 @@
     \node<4->[anchor=west, font=\scriptsize\ttfamily] at (0.75,0.90) {tag\_map.yaml};
 
     % item 2 (center)
-    \draw<5->[NavyBlue, line width=0.7pt, rounded corners=0.6pt, fill=white] (4.10,0.72) rectangle (4.52,1.08);
-    \draw<5->[NavyBlue, line width=0.6pt] (4.18,1.00) -- (4.44,1.00);
-    \draw<5->[NavyBlue, line width=0.6pt] (4.18,0.92) -- (4.44,0.92);
-    \node<5->[anchor=west, font=\scriptsize\ttfamily] at (4.65,0.90) {trajetoria\_camera.csv};
+    \draw<5->[NavyBlue, line width=0.7pt, rounded corners=0.6pt, fill=white] (5.10,0.72) rectangle (5.52,1.08);
+    \draw<5->[NavyBlue, line width=0.6pt] (5.18,1.00) -- (5.44,1.00);
+    \draw<5->[NavyBlue, line width=0.6pt] (5.18,0.92) -- (5.44,0.92);
+    \node<5->[anchor=west, font=\scriptsize\ttfamily] at (5.65,0.90) {trajetoria\_camera.csv};
 
     % item 3 (right)
-    \draw<6->[AccentBlue, line width=0.85pt] (8.60,0.76) -- (8.75,0.92) -- (8.90,0.80) -- (9.05,1.02);
-    \node<6->[anchor=west, font=\scriptsize] at (9.18,0.90) {$D$ [m], $\phi$ [deg]};
+    \draw<6->[AccentBlue, line width=0.85pt] (10.60,0.76) -- (10.75,0.92) -- (10.90,0.80) -- (11.05,1.02);
+    \node<6->[anchor=west, font=\scriptsize] at (11.18,0.90) {$D$ [m], $\phi$ [deg]};
   \end{tikzpicture}
 \end{outlinecard}
