@@ -1,0 +1,3016 @@
+This is LuaHBTeX, Version 1.14.0 (TeX Live 2022/dev/Debian)  (format=lualatex 2026.1.30)  28 FEB 2026 13:22
+ restricted system commands enabled.
+**recordin_phase.tex
+(./recordin_phase.tex
+LaTeX2e <2021-11-15> patch level 1
+Lua module: luaotfload 2021-05-21 3.18 Lua based OpenType font support
+Lua module: lualibs 2021-05-20 2.74 ConTeXt Lua standard libraries.
+Lua module: lualibs-extended 2021-05-20 2.74 ConTeXt Lua libraries -- extended c
+ollection.
+luaotfload | conf : Root cache directory is "/home/jpdark/.texlive2021/texmf-var
+/luatex-cache/generic/names".
+luaotfload | init : Loading fontloader "fontloader-2021-05-20.lua" from kpse-res
+olved path "/usr/share/texlive/texmf-dist/tex/luatex/luaotfload/fontloader-2021-
+05-20.lua".
+Lua-only attribute luaotfload@noligature = 1
+Lua-only attribute luaotfload@syllabe = 2
+luaotfload | init : Context OpenType loader version 3.116
+Inserting `luaotfload.node_processor' at position 1 in `pre_linebreak_filter'.
+Inserting `luaotfload.node_processor' at position 1 in `hpack_filter'.
+Inserting `luaotfload.glyph_stream' at position 1 in `glyph_stream_provider'.
+Inserting `luaotfload.define_font' at position 1 in `define_font'.
+Lua-only attribute luaotfload_color_attribute = 3
+luaotfload | conf : Root cache directory is "/home/jpdark/.texlive2021/texmf-var
+/luatex-cache/generic/names".
+Inserting `luaotfload.harf.strip_prefix' at position 1 in `find_opentype_file'.
+Inserting `luaotfload.harf.strip_prefix' at position 1 in `find_truetype_file'.
+Inserting `luaotfload.harf.finalize_vlist' at position 1 in `post_linebreak_filt
+er'.
+Inserting `luaotfload.harf.finalize_hlist' at position 2 in `hpack_filter'.
+Inserting `luaotfload.cleanup_files' at position 1 in `wrapup_run'.
+Inserting `luaotfload.harf.finalize_unicode' at position 1 in `finish_pdffile'.
+Inserting `luaotfload.glyphinfo' at position 1 in `glyph_info'.
+Lua-only attribute luaotfload.letterspace_done = 4
+Inserting `luaotfload.aux.set_sscale_dimens' at position 1 in `luaotfload.patch_
+font'.
+Inserting `luaotfload.aux.set_font_index' at position 2 in `luaotfload.patch_fon
+t'.
+Inserting `luaotfload.aux.patch_cambria_domh' at position 3 in `luaotfload.patch
+_font'.
+Inserting `luaotfload.aux.fixup_fontdata' at position 1 in `luaotfload.patch_fon
+t_unsafe'.
+Inserting `luaotfload.aux.set_capheight' at position 4 in `luaotfload.patch_font
+'.
+Inserting `luaotfload.aux.set_xheight' at position 5 in `luaotfload.patch_font'.
+Inserting `luaotfload.rewrite_fontname' at position 6 in `luaotfload.patch_font'
+. L3 programming layer <2022-01-21>
+Inserting `tracingstacklevels' at position 1 in `input_level_string'.
+
+! LaTeX Error: Environment columns undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.8 \begin{columns}
+                 [T,onlytextwidth]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.8 \begin{columns}[
+                  T,onlytextwidth]
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Environment column undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.10   \begin{column}
+                   {0.63\textwidth}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Missing number, treated as zero.
+<to be read again> 
+}
+l.10   \begin{column}{0.63\textwidth}
+                                   
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+}
+l.10   \begin{column}{0.63\textwidth}
+                                   
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+
+! LaTeX Error: Environment outlinecard undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.11     \begin{outlinecard}
+                          [Recording Phase Visual Flow]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 8--13
+ [][T,onlytextwidth] 
+ []
+
+! Undefined control sequence.
+l.15       \only
+              <1>{
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.15       \only<
+               1>{
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Environment tikzpicture undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.16         \begin{tikzpicture}
+                              [x=1cm,y=1cm]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.17           \draw
+                  [draw=NavyBlue!45, line width=0.9pt, rounded corners=1.4pt...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.19           \node
+                  [inner sep=0pt, anchor=south west] at (0.24,0.36)
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.20           {\includegraphics
+                              [width=6.95cm]{../assets/media/scenario_real.j...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing $ inserted.
+<inserted text> 
+$
+l.20 ...hics[width=6.95cm]{../assets/media/scenario_
+                                                  real.jpg}};
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 20.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 20.
+! Extra }, or forgotten $.
+l.20 ...h=6.95cm]{../assets/media/scenario_real.jpg}
+                                                  };
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+! Extra }, or forgotten $.
+l.20 ...=6.95cm]{../assets/media/scenario_real.jpg}}
+                                                  ;
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+! Missing number, treated as zero.
+<to be read again> 
+[
+l.21           \fill[
+                   black, opacity=0.18] (0.24,0.36) rectangle (7.19,3.86);
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+[
+l.21           \fill[
+                   black, opacity=0.18] (0.24,0.36) rectangle (7.19,3.86);
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+[
+l.22           \fill[
+                   white, opacity=0.92] (3.72,2.10) circle (0.30);
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+[
+l.22           \fill[
+                   white, opacity=0.92] (3.72,2.10) circle (0.30);
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+[
+l.23           \fill[
+                   NavyBlue] (3.63,1.98) -- (3.63,2.22) -- (3.84,2.10) -- cy...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+[
+l.23           \fill[
+                   NavyBlue] (3.63,1.98) -- (3.63,2.22) -- (3.84,2.10) -- cy...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+! Undefined control sequence.
+l.24           \node
+                  [anchor=north west, text=white, font=\scriptsize\bfseries]...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.24 ...hor=north west, text=white, font=\scriptsize
+                                                  \bfseries] at (0.40,3.70) ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Command \bfseries invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.24 ... west, text=white, font=\scriptsize\bfseries
+                                                  ] at (0.40,3.70) {Step 1: ...
+Please use the math alphabet \mathbf instead of the \bfseries command. 
+
+luaotfload | db : Font names database loaded from /home/jpdark/.texlive2021/texm
+f-var/luatex-cache/generic/names/luaotfload-names.luc
+
+! LaTeX Error: \begin{document} ended by \end{tikzpicture}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.25         \end{tikzpicture}
+                            
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Missing $ inserted.
+<inserted text> 
+$
+l.25         \end{tikzpicture}
+                            
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing } inserted.
+<inserted text> 
+}
+l.25         \end{tikzpicture}
+                            
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing } inserted.
+<inserted text> 
+}
+l.25         \end{tikzpicture}
+                            
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (111.81738pt too wide) in paragraph at lines 15--27
+ [width=6.95cm]../assets/media/scenario$[][]\OML/cmm/m/it/10 eal:jpg\OT1/cmr/m/
+n/10 ; [\OML/cmm/m/it/10 black; opacity \OT1/cmr/m/n/10 = 
+ []
+
+
+Overfull \hbox (236.68346pt too wide) in paragraph at lines 15--27
+ \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 18](0\OML/cmm/m/it/10 :\OT1
+/cmr/m/n/10 24\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/
+n/10 36)\OML/cmm/m/it/10 rectangle\OT1/cmr/m/n/10 (7\OML/cmm/m/it/10 :\OT1/cmr/
+m/n/10 19\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 3\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 
+86); [\OML/cmm/m/it/10 white; opacity \OT1/cmr/m/n/10 = 
+ []
+
+
+Overfull \hbox (230.69794pt too wide) in paragraph at lines 15--27
+ \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 92](3\OML/cmm/m/it/10 :\OT1
+/cmr/m/n/10 72\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 2\OML/cmm/m/it/10 :\OT1/cmr/m/
+n/10 10)\OML/cmm/m/it/10 circle\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 :\OT1/cmr/m/n
+/10 30); [\OML/cmm/m/it/10 NavyBlue\OT1/cmr/m/n/10 ](3\OML/cmm/m/it/10 :\OT1/cm
+r/m/n/10 63\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/1
+0 98) \OMS/cmsy/m/n/10 ^^@ 
+ []
+
+
+Overfull \hbox (63.33348pt too wide) in paragraph at lines 15--27
+ \OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 (3\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 63\OML
+/cmm/m/it/10 ; \OT1/cmr/m/n/10 2\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 22) \OMS/cmsy
+/m/n/10 ^^@ 
+ []
+
+
+Overfull \hbox (63.33348pt too wide) in paragraph at lines 15--27
+ \OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 (3\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 84\OML
+/cmm/m/it/10 ; \OT1/cmr/m/n/10 2\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 10) \OMS/cmsy
+/m/n/10 ^^@ 
+ []
+
+
+Overfull \hbox (78.32304pt too wide) in paragraph at lines 15--27
+ \OMS/cmsy/m/n/10 ^^@\OML/cmm/m/it/10 cycle\OT1/cmr/m/n/10 ; [\OML/cmm/m/it/10 
+anchor \OT1/cmr/m/n/10 = 
+ []
+
+
+Overfull \hbox (77.98846pt too wide) in paragraph at lines 15--27
+ \OML/cmm/m/it/10 northwest; text \OT1/cmr/m/n/10 = 
+ []
+
+
+Overfull \hbox (60.33522pt too wide) in paragraph at lines 15--27
+ \OML/cmm/m/it/10 white; font \OT1/cmr/m/n/10 = 
+ []
+
+
+Overfull \hbox (179.09193pt too wide) in paragraph at lines 15--27
+ \OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 at\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 :\OT1/c
+mr/m/n/10 40\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 3\OML/cmm/m/it/10 :\OT1/cmr/m/n/
+10 70)[];$ 
+ []
+
+! Undefined control sequence.
+l.29       \only
+              <2>{
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.29       \only<
+               2>{
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Environment tikzpicture undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.30         \begin{tikzpicture}
+                              [x=1cm,y=1cm]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.31           \draw
+                  [draw=NavyBlue!45, line width=0.9pt, rounded corners=1.4pt...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.33           \node
+                  [font=\scriptsize\bfseries, text=NavyBlue] at (3.72,3.70) ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.33           \node[font=\scriptsize
+                                   \bfseries, text=NavyBlue] at (3.72,3.70) ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.34           \draw
+                  [draw=NavyBlue!35, line width=0.7pt] (0.32,0.42) rectangle...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.35           \node
+                  [font=\scriptsize, text=CoolGray] at (3.72,1.95) {Plot pla...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.35           \node[font=\scriptsize
+                                   , text=CoolGray] at (3.72,1.95) {Plot pla...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.36           \draw
+                  [AccentBlue!45, line width=1.0pt]
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: \begin{document} ended by \end{tikzpicture}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.39         \end{tikzpicture}
+                            
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (3.19pt too wide) in paragraph at lines 29--41
+ [font=\TU/lmr/bx/n/10 , 
+ []
+
+
+Overfull \hbox (59.46002pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 text=Navy- 
+ []
+
+
+Overfull \hbox (26.22pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 Blue] 
+ []
+
+
+Overfull \hbox (10.06pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 at 
+ []
+
+
+Overfull \hbox (53.01001pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 (3.72,3.70) 
+ []
+
+
+Overfull \hbox (22.52pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 Step 
+ []
+
+
+Overfull \hbox (17.63pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 2A: 
+ []
+
+
+Overfull \hbox (15.81001pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 be- 
+ []
+
+
+Overfull \hbox (19.27pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 fore 
+ []
+
+
+Overfull \hbox (15.97pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 op- 
+ []
+
+
+Overfull \hbox (11.49pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 ti- 
+ []
+
+
+Overfull \hbox (27.3pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 miza- 
+ []
+
+
+Overfull \hbox (22.99pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 tion; 
+ []
+
+
+Overfull \hbox (67.08pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 [draw=Navy- 
+ []
+
+
+Overfull \hbox (41.22pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 Blue!35, 
+ []
+
+
+Overfull \hbox (18.04001pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 line 
+ []
+
+
+Overfull \hbox (66.43001pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 width=0.7pt] 
+ []
+
+
+Overfull \hbox (53.01001pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 (0.32,0.42) 
+ []
+
+
+Overfull \hbox (23.42001pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 rect- 
+ []
+
+
+Overfull \hbox (15.81pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 an- 
+ []
+
+
+Overfull \hbox (14.21pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 gle 
+ []
+
+
+Overfull \hbox (56.20001pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 (7.13,3.42); 
+ []
+
+
+Overfull \hbox (35.12pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 [font=, 
+ []
+
+
+Overfull \hbox (80.85002pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 text=CoolGray] 
+ []
+
+
+Overfull \hbox (10.06pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 at 
+ []
+
+
+Overfull \hbox (53.01001pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 (3.72,1.95) 
+ []
+
+
+Overfull \hbox (21.27pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 Plot 
+ []
+
+
+Overfull \hbox (29.38pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 place- 
+ []
+
+
+Overfull \hbox (31.73001pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 holder 
+ []
+
+
+Overfull \hbox (20.28001pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 (be- 
+ []
+
+
+Overfull \hbox (26.93001pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 fore); 
+ []
+
+
+Overfull \hbox (20.5pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 [Ac- 
+ []
+
+
+Overfull \hbox (24.75pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 cent- 
+ []
+
+
+Overfull \hbox (41.22pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 Blue!45, 
+ []
+
+
+Overfull \hbox (18.04001pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 line 
+ []
+
+
+Overfull \hbox (66.43001pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 width=1.0pt] 
+ []
+
+
+Overfull \hbox (53.01001pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 (0.55,0.72) 
+ []
+
+
+Overfull \hbox (6.38pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 .. 
+ []
+
+
+Overfull \hbox (21.08pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 con- 
+ []
+
+
+Overfull \hbox (22.69pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 trols 
+ []
+
+
+Overfull \hbox (53.01001pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 (1.40,3.00) 
+ []
+
+
+Overfull \hbox (18.37pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 and 
+ []
+
+
+Overfull \hbox (53.01001pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 (2.85,3.05) 
+ []
+
+
+Overfull \hbox (6.38pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 .. 
+ []
+
+
+Overfull \hbox (53.01001pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 (3.65,2.30) 
+ []
+
+
+Overfull \hbox (6.38pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 .. 
+ []
+
+
+Overfull \hbox (21.08pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 con- 
+ []
+
+
+Overfull \hbox (22.69pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 trols 
+ []
+
+
+Overfull \hbox (53.01001pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 (4.55,1.45) 
+ []
+
+
+Overfull \hbox (18.37pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 and 
+ []
+
+
+Overfull \hbox (53.01001pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 (5.60,1.55) 
+ []
+
+
+Overfull \hbox (6.38pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 .. 
+ []
+
+
+Overfull \hbox (56.20001pt too wide) in paragraph at lines 29--41
+ \TU/lmr/bx/n/10 (6.85,2.65); 
+ []
+
+! Undefined control sequence.
+l.43       \only
+              <3>{
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.43       \only<
+               3>{
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Environment tikzpicture undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.44         \begin{tikzpicture}
+                              [x=1cm,y=1cm]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.45           \draw
+                  [draw=NavyBlue!45, line width=0.9pt, rounded corners=1.4pt...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.47           \node
+                  [font=\scriptsize\bfseries, text=NavyBlue] at (3.72,3.70) ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.47           \node[font=\scriptsize
+                                   \bfseries, text=NavyBlue] at (3.72,3.70) ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.48           \draw
+                  [draw=NavyBlue!35, line width=0.7pt] (0.32,0.42) rectangle...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.49           \node
+                  [font=\scriptsize, text=CoolGray] at (3.72,1.95) {Plot pla...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.49           \node[font=\scriptsize
+                                   , text=CoolGray] at (3.72,1.95) {Plot pla...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.50           \draw
+                  [AccentBlue, line width=1.15pt]
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: \begin{document} ended by \end{tikzpicture}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.53         \end{tikzpicture}
+                            
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (3.19pt too wide) in paragraph at lines 43--55
+ [font=\TU/lmr/bx/n/10 , 
+ []
+
+
+Overfull \hbox (59.46002pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 text=Navy- 
+ []
+
+
+Overfull \hbox (26.22pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 Blue] 
+ []
+
+
+Overfull \hbox (10.06pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 at 
+ []
+
+
+Overfull \hbox (53.01001pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 (3.72,3.70) 
+ []
+
+
+Overfull \hbox (22.52pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 Step 
+ []
+
+
+Overfull \hbox (17.12pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 2B: 
+ []
+
+
+Overfull \hbox (12.93pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 af- 
+ []
+
+
+Overfull \hbox (14.48001pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 ter 
+ []
+
+
+Overfull \hbox (15.97pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 op- 
+ []
+
+
+Overfull \hbox (11.49pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 ti- 
+ []
+
+
+Overfull \hbox (27.3pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 miza- 
+ []
+
+
+Overfull \hbox (22.99pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 tion; 
+ []
+
+
+Overfull \hbox (67.08pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 [draw=Navy- 
+ []
+
+
+Overfull \hbox (41.22pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 Blue!35, 
+ []
+
+
+Overfull \hbox (18.04001pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 line 
+ []
+
+
+Overfull \hbox (66.43001pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 width=0.7pt] 
+ []
+
+
+Overfull \hbox (53.01001pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 (0.32,0.42) 
+ []
+
+
+Overfull \hbox (23.42001pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 rect- 
+ []
+
+
+Overfull \hbox (15.81pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 an- 
+ []
+
+
+Overfull \hbox (14.21pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 gle 
+ []
+
+
+Overfull \hbox (56.20001pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 (7.13,3.42); 
+ []
+
+
+Overfull \hbox (35.12pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 [font=, 
+ []
+
+
+Overfull \hbox (80.85002pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 text=CoolGray] 
+ []
+
+
+Overfull \hbox (10.06pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 at 
+ []
+
+
+Overfull \hbox (53.01001pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 (3.72,1.95) 
+ []
+
+
+Overfull \hbox (21.27pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 Plot 
+ []
+
+
+Overfull \hbox (29.38pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 place- 
+ []
+
+
+Overfull \hbox (31.73001pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 holder 
+ []
+
+
+Overfull \hbox (17.4pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 (af- 
+ []
+
+
+Overfull \hbox (22.14001pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 ter); 
+ []
+
+
+Overfull \hbox (20.5pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 [Ac- 
+ []
+
+
+Overfull \hbox (24.75pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 cent- 
+ []
+
+
+Overfull \hbox (26.22pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 Blue, 
+ []
+
+
+Overfull \hbox (18.04001pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 line 
+ []
+
+
+Overfull \hbox (72.18001pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 width=1.15pt] 
+ []
+
+
+Overfull \hbox (53.01001pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 (0.55,0.76) 
+ []
+
+
+Overfull \hbox (6.38pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 .. 
+ []
+
+
+Overfull \hbox (21.08pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 con- 
+ []
+
+
+Overfull \hbox (22.69pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 trols 
+ []
+
+
+Overfull \hbox (53.01001pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 (1.30,2.85) 
+ []
+
+
+Overfull \hbox (18.37pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 and 
+ []
+
+
+Overfull \hbox (53.01001pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 (2.90,2.95) 
+ []
+
+
+Overfull \hbox (6.38pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 .. 
+ []
+
+
+Overfull \hbox (53.01001pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 (3.70,2.35) 
+ []
+
+
+Overfull \hbox (6.38pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 .. 
+ []
+
+
+Overfull \hbox (21.08pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 con- 
+ []
+
+
+Overfull \hbox (22.69pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 trols 
+ []
+
+
+Overfull \hbox (53.01001pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 (4.52,1.72) 
+ []
+
+
+Overfull \hbox (18.37pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 and 
+ []
+
+
+Overfull \hbox (53.01001pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 (5.68,1.80) 
+ []
+
+
+Overfull \hbox (6.38pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 .. 
+ []
+
+
+Overfull \hbox (56.20001pt too wide) in paragraph at lines 43--55
+ \TU/lmr/bx/n/10 (6.85,2.52); 
+ []
+
+! Undefined control sequence.
+l.57       \only
+              <4->{
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.57       \only<
+               4->{
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Environment tikzpicture undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.58         \begin{tikzpicture}
+                              [x=1cm,y=1cm]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.59           \draw
+                  [draw=NavyBlue!45, line width=0.9pt, rounded corners=1.4pt...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.61           \node
+                  [font=\scriptsize\bfseries, text=NavyBlue] at (3.72,3.70) ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.61           \node[font=\scriptsize
+                                   \bfseries, text=NavyBlue] at (3.72,3.70) ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.62           \draw
+                  [draw=NavyBlue!35, line width=0.7pt] (0.32,0.42) rectangle...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.63           \node
+                  [font=\scriptsize, text=CoolGray] at (3.72,1.95) {Final pl...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.63           \node[font=\scriptsize
+                                   , text=CoolGray] at (3.72,1.95) {Final pl...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.64           \draw
+                  [AccentBlue, line width=1.20pt]
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: \begin{document} ended by \end{tikzpicture}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.68         \end{tikzpicture}
+                            
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \begin{document} ended by \end{outlinecard}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70     \end{outlinecard}
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \begin{document} ended by \end{column}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.71   \end{column}
+                 
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (3.19pt too wide) in paragraph at lines 57--72
+[font=\TU/lmr/bx/n/10 ,
+ []
+
+
+Overfull \hbox (59.46002pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 text=Navy-
+ []
+
+
+Overfull \hbox (26.22pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 Blue]
+ []
+
+
+Overfull \hbox (10.06pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 at
+ []
+
+
+Overfull \hbox (53.01001pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 (3.72,3.70)
+ []
+
+
+Overfull \hbox (22.52pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 Step
+ []
+
+
+Overfull \hbox (8.94pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 3:
+ []
+
+
+Overfull \hbox (10.22pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 fi-
+ []
+
+
+Overfull \hbox (15.17pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 nal
+ []
+
+
+Overfull \hbox (15.17001pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 ex-
+ []
+
+
+Overfull \hbox (33.33002pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 ported
+ []
+
+
+Overfull \hbox (18.63pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 tra-
+ []
+
+
+Overfull \hbox (17.72pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 jec-
+ []
+
+
+Overfull \hbox (24.22002pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 tory;
+ []
+
+
+Overfull \hbox (67.08pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 [draw=Navy-
+ []
+
+
+Overfull \hbox (41.22pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 Blue!35,
+ []
+
+
+Overfull \hbox (18.04001pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 line
+ []
+
+
+Overfull \hbox (66.43001pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 width=0.7pt]
+ []
+
+
+Overfull \hbox (53.01001pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 (0.32,0.42)
+ []
+
+
+Overfull \hbox (23.42001pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 rect-
+ []
+
+
+Overfull \hbox (15.81pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 an-
+ []
+
+
+Overfull \hbox (14.21pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 gle
+ []
+
+
+Overfull \hbox (56.20001pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 (7.13,3.42);
+ []
+
+
+Overfull \hbox (35.12pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 [font=,
+ []
+
+
+Overfull \hbox (80.85002pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 text=CoolGray]
+ []
+
+
+Overfull \hbox (10.06pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 at
+ []
+
+
+Overfull \hbox (53.01001pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 (3.72,1.95)
+ []
+
+
+Overfull \hbox (14.26001pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 Fi-
+ []
+
+
+Overfull \hbox (15.17pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 nal
+ []
+
+
+Overfull \hbox (19.8pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 plot
+ []
+
+
+Overfull \hbox (29.38pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 place-
+ []
+
+
+Overfull \hbox (31.73001pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 holder
+ []
+
+
+Overfull \hbox (20.75pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 (full
+ []
+
+
+Overfull \hbox (13.84001pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 re-
+ []
+
+
+Overfull \hbox (26.25pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 sult);
+ []
+
+
+Overfull \hbox (20.5pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 [Ac-
+ []
+
+
+Overfull \hbox (24.75pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 cent-
+ []
+
+
+Overfull \hbox (26.22pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 Blue,
+ []
+
+
+Overfull \hbox (18.04001pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 line
+ []
+
+
+Overfull \hbox (72.18001pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 width=1.20pt]
+ []
+
+
+Overfull \hbox (53.01001pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 (0.55,0.76)
+ []
+
+
+Overfull \hbox (6.38pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 ..
+ []
+
+
+Overfull \hbox (21.08pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 con-
+ []
+
+
+Overfull \hbox (22.69pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 trols
+ []
+
+
+Overfull \hbox (53.01001pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 (1.20,3.10)
+ []
+
+
+Overfull \hbox (18.37pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 and
+ []
+
+
+Overfull \hbox (53.01001pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 (2.80,3.20)
+ []
+
+
+Overfull \hbox (6.38pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 ..
+ []
+
+
+Overfull \hbox (53.01001pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 (3.72,2.42)
+ []
+
+
+Overfull \hbox (6.38pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 ..
+ []
+
+
+Overfull \hbox (21.08pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 con-
+ []
+
+
+Overfull \hbox (22.69pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 trols
+ []
+
+
+Overfull \hbox (53.01001pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 (4.60,1.68)
+ []
+
+
+Overfull \hbox (18.37pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 and
+ []
+
+
+Overfull \hbox (53.01001pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 (5.45,1.52)
+ []
+
+
+Overfull \hbox (6.38pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 ..
+ []
+
+
+Overfull \hbox (53.01001pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 (6.20,2.68)
+ []
+
+
+Overfull \hbox (6.38pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 ..
+ []
+
+
+Overfull \hbox (21.08pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 con-
+ []
+
+
+Overfull \hbox (22.69pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 trols
+ []
+
+
+Overfull \hbox (53.01001pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 (6.48,3.08)
+ []
+
+
+Overfull \hbox (18.37pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 and
+ []
+
+
+Overfull \hbox (53.01001pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 (6.82,2.90)
+ []
+
+
+Overfull \hbox (6.38pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 ..
+ []
+
+
+Overfull \hbox (56.20001pt too wide) in paragraph at lines 57--72
+\TU/lmr/bx/n/10 (7.00,2.20);
+ []
+
+
+! LaTeX Error: The font size command \normalsize is not defined:
+               there is probably something wrong with the class file.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.72 
+   
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[1
+Missing character: There is no [ (U+005B) in font nullfont!
+Missing character: There is no T (U+0054) in font nullfont!
+Missing character: There is no , (U+002C) in font nullfont!
+Missing character: There is no o (U+006F) in font nullfont!
+Missing character: There is no n (U+006E) in font nullfont!
+Missing character: There is no l (U+006C) in font nullfont!
+Missing character: There is no y (U+0079) in font nullfont!
+Missing character: There is no t (U+0074) in font nullfont!
+Missing character: There is no e (U+0065) in font nullfont!
+Missing character: There is no x (U+0078) in font nullfont!
+Missing character: There is no t (U+0074) in font nullfont!
+Missing character: There is no w (U+0077) in font nullfont!
+Missing character: There is no i (U+0069) in font nullfont!
+Missing character: There is no d (U+0064) in font nullfont!
+Missing character: There is no t (U+0074) in font nullfont!
+Missing character: There is no h (U+0068) in font nullfont!
+Missing character: There is no ] (U+005D) in font nullfont!
+Missing character: There is no 0 (U+0030) in font nullfont!
+Missing character: There is no . (U+002E) in font nullfont!
+Missing character: There is no 6 (U+0036) in font nullfont!
+Missing character: There is no 3 (U+0033) in font nullfont!
+Missing character: There is no [ (U+005B) in font nullfont!
+Missing character: There is no R (U+0052) in font nullfont!
+Missing character: There is no e (U+0065) in font nullfont!
+Missing character: There is no c (U+0063) in font nullfont!
+Missing character: There is no o (U+006F) in font nullfont!
+Missing character: There is no r (U+0072) in font nullfont!
+Missing character: There is no d (U+0064) in font nullfont!
+Missing character: There is no i (U+0069) in font nullfont!
+Missing character: There is no n (U+006E) in font nullfont!
+Missing character: There is no g (U+0067) in font nullfont!
+Missing character: There is no P (U+0050) in font nullfont!
+Missing character: There is no h (U+0068) in font nullfont!
+Missing character: There is no a (U+0061) in font nullfont!
+Missing character: There is no s (U+0073) in font nullfont!
+Missing character: There is no e (U+0065) in font nullfont!
+Missing character: There is no V (U+0056) in font nullfont!
+Missing character: There is no i (U+0069) in font nullfont!
+Missing character: There is no s (U+0073) in font nullfont!
+Missing character: There is no u (U+0075) in font nullfont!
+Missing character: There is no a (U+0061) in font nullfont!
+Missing character: There is no l (U+006C) in font nullfont!
+Missing character: There is no F (U+0046) in font nullfont!
+Missing character: There is no l (U+006C) in font nullfont!
+Missing character: There is no o (U+006F) in font nullfont!
+Missing character: There is no w (U+0077) in font nullfont!
+Missing character: There is no ] (U+005D) in font nullfont!
+Missing character: There is no < (U+003C) in font nullfont!
+Missing character: There is no 1 (U+0031) in font nullfont!
+Missing character: There is no > (U+003E) in font nullfont!
+Missing character: There is no [ (U+005B) in font nullfont!
+Missing character: There is no x (U+0078) in font nullfont!
+Missing character: There is no = (U+003D) in font nullfont!
+Missing character: There is no 1 (U+0031) in font nullfont!
+Missing character: There is no c (U+0063) in font nullfont!
+Missing character: There is no m (U+006D) in font nullfont!
+Missing character: There is no , (U+002C) in font nullfont!
+Missing character: There is no y (U+0079) in font nullfont!
+Missing character: There is no = (U+003D) in font nullfont!
+Missing character: There is no 1 (U+0031) in font nullfont!
+Missing character: There is no c (U+0063) in font nullfont!
+Missing character: There is no m (U+006D) in font nullfont!
+Missing character: There is no ] (U+005D) in font nullfont!
+Missing character: There is no [ (U+005B) in font nullfont!
+Missing character: There is no d (U+0064) in font nullfont!
+Missing character: There is no r (U+0072) in font nullfont!
+Missing character: There is no a (U+0061) in font nullfont!
+Missing character: There is no w (U+0077) in font nullfont!
+Missing character: There is no = (U+003D) in font nullfont!
+Missing character: There is no N (U+004E) in font nullfont!
+Missing character: There is no a (U+0061) in font nullfont!
+Missing character: There is no v (U+0076) in font nullfont!
+Missing character: There is no y (U+0079) in font nullfont!
+Missing character: There is no B (U+0042) in font nullfont!
+Missing character: There is no l (U+006C) in font nullfont!
+Missing character: There is no u (U+0075) in font nullfont!
+Missing character: There is no e (U+0065) in font nullfont!
+Missing character: There is no ! (U+0021) in font nullfont!
+Missing character: There is no 4 (U+0034) in font nullfont!
+Missing character: There is no 5 (U+0035) in font nullfont!
+Missing character: There is no , (U+002C) in font nullfont!
+Missing character: There is no l (U+006C) in font nullfont!
+Missing character: There is no i (U+0069) in font nullfont!
+Missing character: There is no n (U+006E) in font nullfont!
+Missing character: There is no e (U+0065) in font nullfont!
+Missing character: There is no w (U+0077) in font nullfont!
+Missing character: There is no i (U+0069) in font nullfont!
+Missing character: There is no d (U+0064) in font nullfont!
+Missing character: There is no t (U+0074) in font nullfont!
+Missing character: There is no h (U+0068) in font nullfont!
+Missing character: There is no = (U+003D) in font nullfont!
+Missing character: There is no 0 (U+0030) in font nullfont!
+Missing character: There is no . (U+002E) in font nullfont!
+Missing character: There is no 9 (U+0039) in font nullfont!
+Missing character: There is no p (U+0070) in font nullfont!
+Missing character: There is no t (U+0074) in font nullfont!
+Missing character: There is no , (U+002C) in font nullfont!
+Missing character: There is no r (U+0072) in font nullfont!
+Missing character: There is no o (U+006F) in font nullfont!
+Missing character: There is no u (U+0075) in font nullfont!
+Missing character: There is no n (U+006E) in font nullfont!
+Missing character: There is no d (U+0064) in font nullfont!
+Missing character: There is no e (U+0065) in font nullfont!
+Missing character: There is no d (U+0064) in font nullfont!
+Missing character: There is no c (U+0063) in font nullfont!
+Missing character: There is no o (U+006F) in font nullfont!
+Missing character: There is no r (U+0072) in font nullfont!
+Missing character: There is no n (U+006E) in font nullfont!
+Missing character: There is no e (U+0065) in font nullfont!
+Missing character: There is no r (U+0072) in font nullfont!
+Missing character: There is no s (U+0073) in font nullfont!
+Missing character: There is no = (U+003D) in font nullfont!
+Missing character: There is no 1 (U+0031) in font nullfont!
+Missing character: There is no . (U+002E) in font nullfont!
+Missing character: There is no 4 (U+0034) in font nullfont!
+Missing character: There is no p (U+0070) in font nullfont!
+Missing character: There is no t (U+0074) in font nullfont!
+Missing character: There is no , (U+002C) in font nullfont!
+Missing character: There is no f (U+0066) in font nullfont!
+Missing character: There is no i (U+0069) in font nullfont!
+Missing character: There is no l (U+006C) in font nullfont!
+Missing character: There is no l (U+006C) in font nullfont!
+Missing character: There is no = (U+003D) in font nullfont!
+Missing character: There is no w (U+0077) in font nullfont!
+Missing character: There is no h (U+0068) in font nullfont!
+Missing character: There is no i (U+0069) in font nullfont!
+Missing character: There is no t (U+0074) in font nullfont!
+Missing character: There is no e (U+0065) in font nullfont!
+Missing character: There is no ] (U+005D) in font nullfont!
+Missing character: There is no ( (U+0028) in font nullfont!
+Missing character: There is no 0 (U+0030) in font nullfont!
+Missing character: There is no . (U+002E) in font nullfont!
+Missing character: There is no 1 (U+0031) in font nullfont!
+Missing character: There is no 0 (U+0030) in font nullfont!
+Missing character: There is no , (U+002C) in font nullfont!
+Missing character: There is no 0 (U+0030) in font nullfont!
+Missing character: There is no . (U+002E) in font nullfont!
+Missing character: There is no 2 (U+0032) in font nullfont!
+Missing character: There is no 2 (U+0032) in font nullfont!
+Missing character: There is no ) (U+0029) in font nullfont!
+Missing character: There is no r (U+0072) in font nullfont!
+Missing character: There is no e (U+0065) in font nullfont!
+Missing character: There is no c (U+0063) in font nullfont!
+Missing character: There is no t (U+0074) in font nullfont!
+Missing character: There is no a (U+0061) in font nullfont!
+Missing character: There is no n (U+006E) in font nullfont!
+Missing character: There is no g (U+0067) in font nullfont!
+Missing character: There is no l (U+006C) in font nullfont!
+Missing character: There is no e (U+0065) in font nullfont!
+Missing character: There is no ( (U+0028) in font nullfont!
+Missing character: There is no 7 (U+0037) in font nullfont!
+Missing character: There is no . (U+002E) in font nullfont!
+Missing character: There is no 3 (U+0033) in font nullfont!
+Missing character: There is no 5 (U+0035) in font nullfont!
+Missing character: There is no , (U+002C) in font nullfont!
+Missing character: There is no 4 (U+0034) in font nullfont!
+Missing character: There is no . (U+002E) in font nullfont!
+Missing character: There is no 0 (U+0030) in font nullfont!
+Missing character: There is no 2 (U+0032) in font nullfont!
+Missing character: There is no ) (U+0029) in font nullfont!
+Missing character: There is no ; (U+003B) in font nullfont!
+Missing character: There is no [ (U+005B) in font nullfont!
+Missing character: There is no i (U+0069) in font nullfont!
+Missing character: There is no n (U+006E) in font nullfont!
+Missing character: There is no n (U+006E) in font nullfont!
+Missing character: There is no e (U+0065) in font nullfont!
+Missing character: There is no r (U+0072) in font nullfont!
+Missing character: There is no s (U+0073) in font nullfont!
+Missing character: There is no e (U+0065) in font nullfont!
+Missing character: There is no p (U+0070) in font nullfont!
+Missing character: There is no = (U+003D) in font nullfont!
+Missing character: There is no 0 (U+0030) in font nullfont!
+Missing character: There is no p (U+0070) in font nullfont!
+Missing character: There is no t (U+0074) in font nullfont!
+Missing character: There is no , (U+002C) in font nullfont!
+Missing character: There is no a (U+0061) in font nullfont!
+Missing character: There is no n (U+006E) in font nullfont!
+Missing character: There is no c (U+0063) in font nullfont!
+Missing character: There is no h (U+0068) in font nullfont!
+Missing character: There is no o (U+006F) in font nullfont!
+Missing character: There is no r (U+0072) in font nullfont!
+Missing character: There is no = (U+003D) in font nullfont!
+Missing character: There is no s (U+0073) in font nullfont!
+Missing character: There is no o (U+006F) in font nullfont!
+Missing character: There is no u (U+0075) in font nullfont!
+Missing character: There is no t (U+0074) in font nullfont!
+Missing character: There is no h (U+0068) in font nullfont!
+Missing character: There is no w (U+0077) in font nullfont!
+Missing character: There is no e (U+0065) in font nullfont!
+Missing character: There is no s (U+0073) in font nullfont!
+Missing character: There is no t (U+0074) in font nullfont!
+Missing character: There is no ] (U+005D) in font nullfont!
+Missing character: There is no a (U+0061) in font nullfont!
+Missing character: There is no t (U+0074) in font nullfont!
+Missing character: There is no ( (U+0028) in font nullfont!
+Missing character: There is no 0 (U+0030) in font nullfont!
+Missing character: There is no . (U+002E) in font nullfont!
+Missing character: There is no 2 (U+0032) in font nullfont!
+Missing character: There is no 4 (U+0034) in font nullfont!
+Missing character: There is no , (U+002C) in font nullfont!
+Missing character: There is no 0 (U+0030) in font nullfont!
+Missing character: There is no . (U+002E) in font nullfont!
+Missing character: There is no 3 (U+0033) in font nullfont!
+Missing character: There is no 6 (U+0036) in font nullfont!
+Missing character: There is no ) (U+0029) in font nullfont!
+Missing character: There is no [ (U+005B) in font nullfont!
+Missing character: There is no w (U+0077) in font nullfont!
+Missing character: There is no i (U+0069) in font nullfont!
+Missing character: There is no d (U+0064) in font nullfont!
+Missing character: There is no t (U+0074) in font nullfont!
+Missing character: There is no h (U+0068) in font nullfont!
+Missing character: There is no = (U+003D) in font nullfont!
+Missing character: There is no 6 (U+0036) in font nullfont!
+Missing character: There is no . (U+002E) in font nullfont!
+Missing character: There is no 9 (U+0039) in font nullfont!
+Missing character: There is no 5 (U+0035) in font nullfont!
+Missing character: There is no c (U+0063) in font nullfont!
+Missing character: There is no m (U+006D) in font nullfont!
+Missing character: There is no ] (U+005D) in font nullfont!
+Missing character: There is no . (U+002E) in font nullfont!
+Missing character: There is no . (U+002E) in font nullfont!
+Missing character: There is no / (U+002F) in font nullfont!
+Missing character: There is no a (U+0061) in font nullfont!
+Missing character: There is no s (U+0073) in font nullfont!
+Missing character: There is no s (U+0073) in font nullfont!
+Missing character: There is no e (U+0065) in font nullfont!
+Missing character: There is no t (U+0074) in font nullfont!
+Missing character: There is no s (U+0073) in font nullfont!
+Missing character: There is no / (U+002F) in font nullfont!
+Missing character: There is no m (U+006D) in font nullfont!
+Missing character: There is no e (U+0065) in font nullfont!
+Missing character: There is no d (U+0064) in font nullfont!
+Missing character: There is no i (U+0069) in font nullfont!
+Missing character: There is no a (U+0061) in font nullfont!
+Missing character: There is no / (U+002F) in font nullfont!
+Missing character: There is no s (U+0073) in font nullfont!
+Missing character: There is no c (U+0063) in font nullfont!
+Missing character: There is no e (U+0065) in font nullfont!
+Missing character: There is no n (U+006E) in font nullfont!
+Missing character: There is no a (U+0061) in font nullfont!
+Missing character: There is no r (U+0072) in font nullfont!
+Missing character: There is no i (U+0069) in font nullfont!
+Missing character: There is no o (U+006F) in font nullfont!
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+Missing character: There is no < (U+003C) in font nullfont!
+Missing character: There is no 2 (U+0032) in font nullfont!
+Missing character: There is no > (U+003E) in font nullfont!
+Missing character: There is no [ (U+005B) in font nullfont!
+Missing character: There is no x (U+0078) in font nullfont!
+Missing character: There is no = (U+003D) in font nullfont!
+Missing character: There is no 1 (U+0031) in font nullfont!
+Missing character: There is no c (U+0063) in font nullfont!
+Missing character: There is no m (U+006D) in font nullfont!
+Missing character: There is no , (U+002C) in font nullfont!
+Missing character: There is no y (U+0079) in font nullfont!
+Missing character: There is no = (U+003D) in font nullfont!
+Missing character: There is no 1 (U+0031) in font nullfont!
+Missing character: There is no c (U+0063) in font nullfont!
+Missing character: There is no m (U+006D) in font nullfont!
+Missing character: There is no ] (U+005D) in font nullfont!
+Missing character: There is no [ (U+005B) in font nullfont!
+Missing character: There is no d (U+0064) in font nullfont!
+Missing character: There is no r (U+0072) in font nullfont!
+Missing character: There is no a (U+0061) in font nullfont!
+Missing character: There is no w (U+0077) in font nullfont!
+Missing character: There is no = (U+003D) in font nullfont!
+Missing character: There is no N (U+004E) in font nullfont!
+Missing character: There is no a (U+0061) in font nullfont!
+Missing character: There is no v (U+0076) in font nullfont!
+Missing character: There is no y (U+0079) in font nullfont!
+Missing character: There is no B (U+0042) in font nullfont!
+Missing character: There is no l (U+006C) in font nullfont!
+Missing character: There is no u (U+0075) in font nullfont!
+Missing character: There is no e (U+0065) in font nullfont!
+Missing character: There is no ! (U+0021) in font nullfont!
+Missing character: There is no 4 (U+0034) in font nullfont!
+Missing character: There is no 5 (U+0035) in font nullfont!
+Missing character: There is no , (U+002C) in font nullfont!
+Missing character: There is no l (U+006C) in font nullfont!
+Missing character: There is no i (U+0069) in font nullfont!
+Missing character: There is no n (U+006E) in font nullfont!
+Missing character: There is no e (U+0065) in font nullfont!
+Missing character: There is no w (U+0077) in font nullfont!
+Missing character: There is no i (U+0069) in font nullfont!
+Missing character: There is no d (U+0064) in font nullfont!
+Missing character: There is no t (U+0074) in font nullfont!
+Missing character: There is no h (U+0068) in font nullfont!
+Missing character: There is no = (U+003D) in font nullfont!
+Missing character: There is no 0 (U+0030) in font nullfont!
+Missing character: There is no . (U+002E) in font nullfont!
+Missing character: There is no 9 (U+0039) in font nullfont!
+Missing character: There is no p (U+0070) in font nullfont!
+Missing character: There is no t (U+0074) in font nullfont!
+Missing character: There is no , (U+002C) in font nullfont!
+Missing character: There is no r (U+0072) in font nullfont!
+Missing character: There is no o (U+006F) in font nullfont!
+Missing character: There is no u (U+0075) in font nullfont!
+Missing character: There is no n (U+006E) in font nullfont!
+Missing character: There is no d (U+0064) in font nullfont!
+Missing character: There is no e (U+0065) in font nullfont!
+Missing character: There is no d (U+0064) in font nullfont!
+Missing character: There is no c (U+0063) in font nullfont!
+Missing character: There is no o (U+006F) in font nullfont!
+Missing character: There is no r (U+0072) in font nullfont!
+Missing character: There is no n (U+006E) in font nullfont!
+Missing character: There is no e (U+0065) in font nullfont!
+Missing character: There is no r (U+0072) in font nullfont!
+Missing character: There is no s (U+0073) in font nullfont!
+Missing character: There is no = (U+003D) in font nullfont!
+Missing character: There is no 1 (U+0031) in font nullfont!
+Missing character: There is no . (U+002E) in font nullfont!
+Missing character: There is no 4 (U+0034) in font nullfont!
+Missing character: There is no p (U+0070) in font nullfont!
+Missing character: There is no t (U+0074) in font nullfont!
+Missing character: There is no , (U+002C) in font nullfont!
+Missing character: There is no f (U+0066) in font nullfont!
+Missing character: There is no i (U+0069) in font nullfont!
+Missing character: There is no l (U+006C) in font nullfont!
+Missing character: There is no l (U+006C) in font nullfont!
+Missing character: There is no = (U+003D) in font nullfont!
+Missing character: There is no w (U+0077) in font nullfont!
+Missing character: There is no h (U+0068) in font nullfont!
+Missing character: There is no i (U+0069) in font nullfont!
+Missing character: There is no t (U+0074) in font nullfont!
+Missing character: There is no e (U+0065) in font nullfont!
+Missing character: There is no ] (U+005D) in font nullfont!
+Missing character: There is no ( (U+0028) in font nullfont!
+Missing character: There is no 0 (U+0030) in font nullfont!
+Missing character: There is no . (U+002E) in font nullfont!
+Missing character: There is no 1 (U+0031) in font nullfont!
+Missing character: There is no 0 (U+0030) in font nullfont!
+Missing character: There is no , (U+002C) in font nullfont!
+Missing character: There is no 0 (U+0030) in font nullfont!
+Missing character: There is no . (U+002E) in font nullfont!
+Missing character: There is no 2 (U+0032) in font nullfont!
+Missing character: There is no 2 (U+0032) in font nullfont!
+Missing character: There is no ) (U+0029) in font nullfont!
+Missing character: There is no r (U+0072) in font nullfont!
+Missing character: There is no e (U+0065) in font nullfont!
+Missing character: There is no c (U+0063) in font nullfont!
+Missing character: There is no t (U+0074) in font nullfont!
+Missing character: There is no a (U+0061) in font nullfont!
+Missing character: There is no n (U+006E) in font nullfont!
+Missing character: There is no g (U+0067) in font nullfont!
+Missing character: There is no l (U+006C) in font nullfont!
+Missing character: There is no e (U+0065) in font nullfont!
+Missing character: There is no ( (U+0028) in font nullfont!
+Missing character: There is no 7 (U+0037) in font nullfont!
+Missing character: There is no . (U+002E) in font nullfont!
+Missing character: There is no 3 (U+0033) in font nullfont!
+Missing character: There is no 5 (U+0035) in font nullfont!
+Missing character: There is no , (U+002C) in font nullfont!
+Missing character: There is no 4 (U+0034) in font nullfont!
+Missing character: There is no . (U+002E) in font nullfont!
+Missing character: There is no 0 (U+0030) in font nullfont!
+Missing character: There is no 2 (U+0032) in font nullfont!
+Missing character: There is no ) (U+0029) in font nullfont!
+Missing character: There is no ; (U+003B) in font nullfont!
+Missing character: There is no [ (U+005B) in font nullfont!
+Missing character: There is no f (U+0066) in font nullfont!
+Missing character: There is no o (U+006F) in font nullfont!
+Missing character: There is no n (U+006E) in font nullfont!
+Missing character: There is no t (U+0074) in font nullfont!
+Missing character: There is no = (U+003D) in font nullfont!
+Missing character: There is no < (U+003C) in font nullfont!
+Missing character: There is no 3 (U+0033) in font nullfont!
+Missing character: There is no > (U+003E) in font nullfont!
+Missing character: There is no [ (U+005B) in font nullfont!
+Missing character: There is no x (U+0078) in font nullfont!
+Missing character: There is no = (U+003D) in font nullfont!
+Missing character: There is no 1 (U+0031) in font nullfont!
+Missing character: There is no c (U+0063) in font nullfont!
+Missing character: There is no m (U+006D) in font nullfont!
+Missing character: There is no , (U+002C) in font nullfont!
+Missing character: There is no y (U+0079) in font nullfont!
+Missing character: There is no = (U+003D) in font nullfont!
+Missing character: There is no 1 (U+0031) in font nullfont!
+Missing character: There is no c (U+0063) in font nullfont!
+Missing character: There is no m (U+006D) in font nullfont!
+Missing character: There is no ] (U+005D) in font nullfont!
+Missing character: There is no [ (U+005B) in font nullfont!
+Missing character: There is no d (U+0064) in font nullfont!
+Missing character: There is no r (U+0072) in font nullfont!
+Missing character: There is no a (U+0061) in font nullfont!
+Missing character: There is no w (U+0077) in font nullfont!
+Missing character: There is no = (U+003D) in font nullfont!
+Missing character: There is no N (U+004E) in font nullfont!
+Missing character: There is no a (U+0061) in font nullfont!
+Missing character: There is no v (U+0076) in font nullfont!
+Missing character: There is no y (U+0079) in font nullfont!
+Missing character: There is no B (U+0042) in font nullfont!
+Missing character: There is no l (U+006C) in font nullfont!
+Missing character: There is no u (U+0075) in font nullfont!
+Missing character: There is no e (U+0065) in font nullfont!
+Missing character: There is no ! (U+0021) in font nullfont!
+Missing character: There is no 4 (U+0034) in font nullfont!
+Missing character: There is no 5 (U+0035) in font nullfont!
+Missing character: There is no , (U+002C) in font nullfont!
+Missing character: There is no l (U+006C) in font nullfont!
+Missing character: There is no i (U+0069) in font nullfont!
+Missing character: There is no n (U+006E) in font nullfont!
+Missing character: There is no e (U+0065) in font nullfont!
+Missing character: There is no w (U+0077) in font nullfont!
+Missing character: There is no i (U+0069) in font nullfont!
+Missing character: There is no d (U+0064) in font nullfont!
+Missing character: There is no t (U+0074) in font nullfont!
+Missing character: There is no h (U+0068) in font nullfont!
+Missing character: There is no = (U+003D) in font nullfont!
+Missing character: There is no 0 (U+0030) in font nullfont!
+Missing character: There is no . (U+002E) in font nullfont!
+Missing character: There is no 9 (U+0039) in font nullfont!
+Missing character: There is no p (U+0070) in font nullfont!
+Missing character: There is no t (U+0074) in font nullfont!
+Missing character: There is no , (U+002C) in font nullfont!
+Missing character: There is no r (U+0072) in font nullfont!
+Missing character: There is no o (U+006F) in font nullfont!
+Missing character: There is no u (U+0075) in font nullfont!
+Missing character: There is no n (U+006E) in font nullfont!
+Missing character: There is no d (U+0064) in font nullfont!
+Missing character: There is no e (U+0065) in font nullfont!
+Missing character: There is no d (U+0064) in font nullfont!
+Missing character: There is no c (U+0063) in font nullfont!
+Missing character: There is no o (U+006F) in font nullfont!
+Missing character: There is no r (U+0072) in font nullfont!
+Missing character: There is no n (U+006E) in font nullfont!
+Missing character: There is no e (U+0065) in font nullfont!
+Missing character: There is no r (U+0072) in font nullfont!
+Missing character: There is no s (U+0073) in font nullfont!
+Missing character: There is no = (U+003D) in font nullfont!
+Missing character: There is no 1 (U+0031) in font nullfont!
+Missing character: There is no . (U+002E) in font nullfont!
+Missing character: There is no 4 (U+0034) in font nullfont!
+Missing character: There is no p (U+0070) in font nullfont!
+Missing character: There is no t (U+0074) in font nullfont!
+Missing character: There is no , (U+002C) in font nullfont!
+Missing character: There is no f (U+0066) in font nullfont!
+Missing character: There is no i (U+0069) in font nullfont!
+Missing character: There is no l (U+006C) in font nullfont!
+Missing character: There is no l (U+006C) in font nullfont!
+Missing character: There is no = (U+003D) in font nullfont!
+Missing character: There is no w (U+0077) in font nullfont!
+Missing character: There is no h (U+0068) in font nullfont!
+Missing character: There is no i (U+0069) in font nullfont!
+Missing character: There is no t (U+0074) in font nullfont!
+Missing character: There is no e (U+0065) in font nullfont!
+Missing character: There is no ] (U+005D) in font nullfont!
+Missing character: There is no ( (U+0028) in font nullfont!
+Missing character: There is no 0 (U+0030) in font nullfont!
+Missing character: There is no . (U+002E) in font nullfont!
+Missing character: There is no 1 (U+0031) in font nullfont!
+Missing character: There is no 0 (U+0030) in font nullfont!
+Missing character: There is no , (U+002C) in font nullfont!
+Missing character: There is no 0 (U+0030) in font nullfont!
+Missing character: There is no . (U+002E) in font nullfont!
+Missing character: There is no 2 (U+0032) in font nullfont!
+Missing character: There is no 2 (U+0032) in font nullfont!
+Missing character: There is no ) (U+0029) in font nullfont!
+Missing character: There is no r (U+0072) in font nullfont!
+Missing character: There is no e (U+0065) in font nullfont!
+Missing character: There is no c (U+0063) in font nullfont!
+Missing character: There is no t (U+0074) in font nullfont!
+Missing character: There is no a (U+0061) in font nullfont!
+Missing character: There is no n (U+006E) in font nullfont!
+Missing character: There is no g (U+0067) in font nullfont!
+Missing character: There is no l (U+006C) in font nullfont!
+Missing character: There is no e (U+0065) in font nullfont!
+Missing character: There is no ( (U+0028) in font nullfont!
+Missing character: There is no 7 (U+0037) in font nullfont!
+Missing character: There is no . (U+002E) in font nullfont!
+Missing character: There is no 3 (U+0033) in font nullfont!
+Missing character: There is no 5 (U+0035) in font nullfont!
+Missing character: There is no , (U+002C) in font nullfont!
+Missing character: There is no 4 (U+0034) in font nullfont!
+Missing character: There is no . (U+002E) in font nullfont!
+Missing character: There is no 0 (U+0030) in font nullfont!
+Missing character: There is no 2 (U+0032) in font nullfont!
+Missing character: There is no ) (U+0029) in font nullfont!
+Missing character: There is no ; (U+003B) in font nullfont!
+Missing character: There is no [ (U+005B) in font nullfont!
+Missing character: There is no f (U+0066) in font nullfont!
+Missing character: There is no o (U+006F) in font nullfont!
+Missing character: There is no n (U+006E) in font nullfont!
+Missing character: There is no t (U+0074) in font nullfont!
+Missing character: There is no = (U+003D) in font nullfont!
+Missing character: There is no < (U+003C) in font nullfont!
+Missing character: There is no 4 (U+0034) in font nullfont!
+Missing character: There is no - (U+002D) in font nullfont!
+Missing character: There is no > (U+003E) in font nullfont!
+Missing character: There is no [ (U+005B) in font nullfont!
+Missing character: There is no x (U+0078) in font nullfont!
+Missing character: There is no = (U+003D) in font nullfont!
+Missing character: There is no 1 (U+0031) in font nullfont!
+Missing character: There is no c (U+0063) in font nullfont!
+Missing character: There is no m (U+006D) in font nullfont!
+Missing character: There is no , (U+002C) in font nullfont!
+Missing character: There is no y (U+0079) in font nullfont!
+Missing character: There is no = (U+003D) in font nullfont!
+Missing character: There is no 1 (U+0031) in font nullfont!
+Missing character: There is no c (U+0063) in font nullfont!
+Missing character: There is no m (U+006D) in font nullfont!
+Missing character: There is no ] (U+005D) in font nullfont!
+Missing character: There is no [ (U+005B) in font nullfont!
+Missing character: There is no d (U+0064) in font nullfont!
+Missing character: There is no r (U+0072) in font nullfont!
+Missing character: There is no a (U+0061) in font nullfont!
+Missing character: There is no w (U+0077) in font nullfont!
+Missing character: There is no = (U+003D) in font nullfont!
+Missing character: There is no N (U+004E) in font nullfont!
+Missing character: There is no a (U+0061) in font nullfont!
+Missing character: There is no v (U+0076) in font nullfont!
+Missing character: There is no y (U+0079) in font nullfont!
+Missing character: There is no B (U+0042) in font nullfont!
+Missing character: There is no l (U+006C) in font nullfont!
+Missing character: There is no u (U+0075) in font nullfont!
+Missing character: There is no e (U+0065) in font nullfont!
+Missing character: There is no ! (U+0021) in font nullfont!
+Missing character: There is no 4 (U+0034) in font nullfont!
+Missing character: There is no 5 (U+0035) in font nullfont!
+Missing character: There is no , (U+002C) in font nullfont!
+Missing character: There is no l (U+006C) in font nullfont!
+Missing character: There is no i (U+0069) in font nullfont!
+Missing character: There is no n (U+006E) in font nullfont!
+Missing character: There is no e (U+0065) in font nullfont!
+Missing character: There is no w (U+0077) in font nullfont!
+Missing character: There is no i (U+0069) in font nullfont!
+Missing character: There is no d (U+0064) in font nullfont!
+Missing character: There is no t (U+0074) in font nullfont!
+Missing character: There is no h (U+0068) in font nullfont!
+Missing character: There is no = (U+003D) in font nullfont!
+Missing character: There is no 0 (U+0030) in font nullfont!
+Missing character: There is no . (U+002E) in font nullfont!
+Missing character: There is no 9 (U+0039) in font nullfont!
+Missing character: There is no p (U+0070) in font nullfont!
+Missing character: There is no t (U+0074) in font nullfont!
+Missing character: There is no , (U+002C) in font nullfont!
+Missing character: There is no r (U+0072) in font nullfont!
+Missing character: There is no o (U+006F) in font nullfont!
+Missing character: There is no u (U+0075) in font nullfont!
+Missing character: There is no n (U+006E) in font nullfont!
+Missing character: There is no d (U+0064) in font nullfont!
+Missing character: There is no e (U+0065) in font nullfont!
+Missing character: There is no d (U+0064) in font nullfont!
+Missing character: There is no c (U+0063) in font nullfont!
+Missing character: There is no o (U+006F) in font nullfont!
+Missing character: There is no r (U+0072) in font nullfont!
+Missing character: There is no n (U+006E) in font nullfont!
+Missing character: There is no e (U+0065) in font nullfont!
+Missing character: There is no r (U+0072) in font nullfont!
+Missing character: There is no s (U+0073) in font nullfont!
+Missing character: There is no = (U+003D) in font nullfont!
+Missing character: There is no 1 (U+0031) in font nullfont!
+Missing character: There is no . (U+002E) in font nullfont!
+Missing character: There is no 4 (U+0034) in font nullfont!
+Missing character: There is no p (U+0070) in font nullfont!
+Missing character: There is no t (U+0074) in font nullfont!
+Missing character: There is no , (U+002C) in font nullfont!
+Missing character: There is no f (U+0066) in font nullfont!
+Missing character: There is no i (U+0069) in font nullfont!
+Missing character: There is no l (U+006C) in font nullfont!
+Missing character: There is no l (U+006C) in font nullfont!
+Missing character: There is no = (U+003D) in font nullfont!
+Missing character: There is no w (U+0077) in font nullfont!
+Missing character: There is no h (U+0068) in font nullfont!
+Missing character: There is no i (U+0069) in font nullfont!
+Missing character: There is no t (U+0074) in font nullfont!
+Missing character: There is no e (U+0065) in font nullfont!
+Missing character: There is no ] (U+005D) in font nullfont!
+Missing character: There is no ( (U+0028) in font nullfont!
+Missing character: There is no 0 (U+0030) in font nullfont!
+Missing character: There is no . (U+002E) in font nullfont!
+Missing character: There is no 1 (U+0031) in font nullfont!
+Missing character: There is no 0 (U+0030) in font nullfont!
+Missing character: There is no , (U+002C) in font nullfont!
+Missing character: There is no 0 (U+0030) in font nullfont!
+Missing character: There is no . (U+002E) in font nullfont!
+Missing character: There is no 2 (U+0032) in font nullfont!
+Missing character: There is no 2 (U+0032) in font nullfont!
+Missing character: There is no ) (U+0029) in font nullfont!
+Missing character: There is no r (U+0072) in font nullfont!
+Missing character: There is no e (U+0065) in font nullfont!
+Missing character: There is no c (U+0063) in font nullfont!
+Missing character: There is no t (U+0074) in font nullfont!
+Missing character: There is no a (U+0061) in font nullfont!
+Missing character: There is no n (U+006E) in font nullfont!
+Missing character: There is no g (U+0067) in font nullfont!
+Missing character: There is no l (U+006C) in font nullfont!
+Missing character: There is no e (U+0065) in font nullfont!
+Missing character: There is no ( (U+0028) in font nullfont!
+Missing character: There is no 7 (U+0037) in font nullfont!
+Missing character: There is no . (U+002E) in font nullfont!
+Missing character: There is no 3 (U+0033) in font nullfont!
+Missing character: There is no 5 (U+0035) in font nullfont!
+Missing character: There is no , (U+002C) in font nullfont!
+Missing character: There is no 4 (U+0034) in font nullfont!
+Missing character: There is no . (U+002E) in font nullfont!
+Missing character: There is no 0 (U+0030) in font nullfont!
+Missing character: There is no 2 (U+0032) in font nullfont!
+Missing character: There is no ) (U+0029) in font nullfont!
+Missing character: There is no ; (U+003B) in font nullfont!
+Missing character: There is no [ (U+005B) in font nullfont!
+Missing character: There is no f (U+0066) in font nullfont!
+Missing character: There is no o (U+006F) in font nullfont!
+Missing character: There is no n (U+006E) in font nullfont!
+Missing character: There is no t (U+0074) in font nullfont!
+Missing character: There is no = (U+003D) in font nullfont!
+]
+
+! LaTeX Error: Environment column undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.74   \begin{column}
+                   {0.35\textwidth}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.74   \begin{column}{0
+                     .35\textwidth}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Missing number, treated as zero.
+<to be read again> 
+}
+l.74   \begin{column}{0.35\textwidth}
+                                   
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+}
+l.74   \begin{column}{0.35\textwidth}
+                                   
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+
+! LaTeX Error: Environment outlinecard undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.75     \begin{outlinecard}
+                          [Pipeline]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Environment tikzpicture undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.77       \begin{tikzpicture}
+                            [x=1cm,y=1cm,>=Latex]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.78         \node
+                <1->[draw=NavyBlue!70, fill=white, rounded corners=1.2pt, li...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.80           {\scriptsize
+                         \textbf{1) Inputs}};
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.81         \node
+                <2->[draw=NavyBlue!70, fill=white, rounded corners=1.2pt, li...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.83           {\scriptsize
+                         \textbf{2) Build + Optimize}};
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.84         \node
+                <4->[draw=NavyBlue!70, fill=white, rounded corners=1.2pt, li...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.86           {\scriptsize
+                         \textbf{3) Export}};
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 74--87
+ []0.35 
+ []
+
+
+Overfull \hbox (10.22pt too wide) in paragraph at lines 74--87
+ \TU/lmr/bx/n/10 1) 
+ []
+
+
+Overfull \hbox (14.58pt too wide) in paragraph at lines 74--87
+ \TU/lmr/bx/n/10 In- 
+ []
+
+
+Overfull \hbox (21.79pt too wide) in paragraph at lines 74--87
+ \TU/lmr/bx/n/10 puts\nullfont ; 
+ []
+
+
+Overfull \hbox (10.22pt too wide) in paragraph at lines 74--87
+ \TU/lmr/bx/n/10 2) 
+ []
+
+
+Overfull \hbox (27.34pt too wide) in paragraph at lines 74--87
+ \TU/lmr/bx/n/10 Build 
+ []
+
+
+Overfull \hbox (8.94pt too wide) in paragraph at lines 74--87
+ \TU/lmr/bx/n/10 + 
+ []
+
+
+Overfull \hbox (18.86pt too wide) in paragraph at lines 74--87
+ \TU/lmr/bx/n/10 Op- 
+ []
+
+
+Overfull \hbox (11.49pt too wide) in paragraph at lines 74--87
+ \TU/lmr/bx/n/10 ti- 
+ []
+
+
+Overfull \hbox (23.15001pt too wide) in paragraph at lines 74--87
+ \TU/lmr/bx/n/10 mize\nullfont ; 
+ []
+
+
+Overfull \hbox (10.22pt too wide) in paragraph at lines 74--87
+ \TU/lmr/bx/n/10 3) 
+ []
+
+
+Overfull \hbox (17.46pt too wide) in paragraph at lines 74--87
+ \TU/lmr/bx/n/10 Ex- 
+ []
+
+
+Overfull \hbox (21.67001pt too wide) in paragraph at lines 74--87
+ \TU/lmr/bx/n/10 port\nullfont ; 
+ []
+
+! Missing number, treated as zero.
+<to be read again> 
+<
+l.89         \fill<
+                 1>[AccentGold] ($(p1.north west)+(0.04,-0.04)$) rectangle (...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+<
+l.89         \fill<
+                 1>[AccentGold] ($(p1.north west)+(0.04,-0.04)$) rectangle (...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.89         \fill<
+                 1>[AccentGold] ($(p1.north west)+(0.04,-0.04)$) rectangle (...
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Missing number, treated as zero.
+<to be read again> 
+<
+l.90         \fill<
+                 2-3>[AccentGold] ($(p2.north west)+(0.04,-0.04)$) rectangle...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+<
+l.90         \fill<
+                 2-3>[AccentGold] ($(p2.north west)+(0.04,-0.04)$) rectangle...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+<
+l.91         \fill<
+                 4->[AccentGold] ($(p3.north west)+(0.04,-0.04)$) rectangle ...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+<
+l.91         \fill<
+                 4->[AccentGold] ($(p3.north west)+(0.04,-0.04)$) rectangle ...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+<
+l.93         \fill<
+                 2->[AccentBlue] ($(p1.north west)+(0.04,-0.04)$) rectangle ...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+<
+l.93         \fill<
+                 2->[AccentBlue] ($(p1.north west)+(0.04,-0.04)$) rectangle ...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+<
+l.94         \fill<
+                 4->[AccentBlue] ($(p2.north west)+(0.04,-0.04)$) rectangle ...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+<
+l.94         \fill<
+                 4->[AccentBlue] ($(p2.north west)+(0.04,-0.04)$) rectangle ...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+
+Overfull \hbox (73.75943pt too wide) in paragraph at lines 89--95
+ ($\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 p\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :northwe
+st\OT1/cmr/m/n/10 ) + 
+ []
+
+
+Overfull \hbox (55.55568pt too wide) in paragraph at lines 89--95
+ \OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 04\OML/cmm/m/it/10 ; \OMS/
+cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 04)$\nullfont
+ ) 
+ []
+
+
+Overfull \hbox (73.75943pt too wide) in paragraph at lines 89--95
+ ($\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 p\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :northwe
+st\OT1/cmr/m/n/10 ) + 
+ []
+
+
+Overfull \hbox (55.55568pt too wide) in paragraph at lines 89--95
+ \OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 15\OML/cmm/m/it/10 ; \OMS/
+cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 36)$\nullfont
+ ); 
+ []
+
+
+Overfull \hbox (73.75943pt too wide) in paragraph at lines 89--95
+ ($\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 p\OT1/cmr/m/n/10 2\OML/cmm/m/it/10 :northwe
+st\OT1/cmr/m/n/10 ) + 
+ []
+
+
+Overfull \hbox (55.55568pt too wide) in paragraph at lines 89--95
+ \OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 04\OML/cmm/m/it/10 ; \OMS/
+cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 04)$\nullfont
+ ) 
+ []
+
+
+Overfull \hbox (73.75943pt too wide) in paragraph at lines 89--95
+ ($\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 p\OT1/cmr/m/n/10 2\OML/cmm/m/it/10 :northwe
+st\OT1/cmr/m/n/10 ) + 
+ []
+
+
+Overfull \hbox (55.55568pt too wide) in paragraph at lines 89--95
+ \OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 15\OML/cmm/m/it/10 ; \OMS/
+cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 36)$\nullfont
+ ); 
+ []
+
+
+Overfull \hbox (73.75943pt too wide) in paragraph at lines 89--95
+ ($\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 p\OT1/cmr/m/n/10 3\OML/cmm/m/it/10 :northwe
+st\OT1/cmr/m/n/10 ) + 
+ []
+
+
+Overfull \hbox (55.55568pt too wide) in paragraph at lines 89--95
+ \OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 04\OML/cmm/m/it/10 ; \OMS/
+cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 04)$\nullfont
+ ) 
+ []
+
+
+Overfull \hbox (73.75943pt too wide) in paragraph at lines 89--95
+ ($\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 p\OT1/cmr/m/n/10 3\OML/cmm/m/it/10 :northwe
+st\OT1/cmr/m/n/10 ) + 
+ []
+
+
+Overfull \hbox (55.55568pt too wide) in paragraph at lines 89--95
+ \OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 15\OML/cmm/m/it/10 ; \OMS/
+cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 36)$\nullfont
+ ); 
+ []
+
+
+Overfull \hbox (73.75943pt too wide) in paragraph at lines 89--95
+ ($\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 p\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :northwe
+st\OT1/cmr/m/n/10 ) + 
+ []
+
+
+Overfull \hbox (55.55568pt too wide) in paragraph at lines 89--95
+ \OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 04\OML/cmm/m/it/10 ; \OMS/
+cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 04)$\nullfont
+ ) 
+ []
+
+
+Overfull \hbox (73.75943pt too wide) in paragraph at lines 89--95
+ ($\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 p\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :northwe
+st\OT1/cmr/m/n/10 ) + 
+ []
+
+
+Overfull \hbox (55.55568pt too wide) in paragraph at lines 89--95
+ \OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 15\OML/cmm/m/it/10 ; \OMS/
+cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 36)$\nullfont
+ ); 
+ []
+
+
+Overfull \hbox (73.75943pt too wide) in paragraph at lines 89--95
+ ($\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 p\OT1/cmr/m/n/10 2\OML/cmm/m/it/10 :northwe
+st\OT1/cmr/m/n/10 ) + 
+ []
+
+
+Overfull \hbox (55.55568pt too wide) in paragraph at lines 89--95
+ \OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 04\OML/cmm/m/it/10 ; \OMS/
+cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 04)$\nullfont
+ ) 
+ []
+
+
+Overfull \hbox (73.75943pt too wide) in paragraph at lines 89--95
+ ($\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 p\OT1/cmr/m/n/10 2\OML/cmm/m/it/10 :northwe
+st\OT1/cmr/m/n/10 ) + 
+ []
+
+
+Overfull \hbox (55.55568pt too wide) in paragraph at lines 89--95
+ \OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 15\OML/cmm/m/it/10 ; \OMS/
+cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 36)$\nullfont
+ ); 
+ []
+
+! Undefined control sequence.
+l.96         \draw
+                <2->[NavyBlue!65, line width=0.9pt, -{Latex[length=2.2mm,wid...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.96         \draw<
+                 2->[NavyBlue!65, line width=0.9pt, -{Latex[length=2.2mm,wid...
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Undefined control sequence.
+l.97         \draw
+                <4->[NavyBlue!65, line width=0.9pt, -{Latex[length=2.2mm,wid...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: \begin{document} ended by \end{tikzpicture}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.98       \end{tikzpicture}
+                          
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \begin{document} ended by \end{outlinecard}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.99     \end{outlinecard}
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.102     \only
+             <1>{
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.102     \only<
+              1>{
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Environment outlinecard undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.103       \begin{outlinecard}
+                             [Step Notes]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.104         \scriptsize
+                       
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: \begin{document} ended by \end{outlinecard}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.106       \end{outlinecard}
+                           
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.108     \only
+             <2-3>{
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Environment outlinecard undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.109       \begin{outlinecard}
+                             [Optimization Equation]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.110         \scriptsize
+                       
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 102--111
+[]<1>
+ []
+
+
+Overfull \hbox (21.09001pt too wide) in paragraph at lines 102--111
+\TU/lmr/m/it/10 Data
+ []
+
+
+Overfull \hbox (13.29001pt too wide) in paragraph at lines 102--111
+\TU/lmr/m/it/10 ac-
+ []
+
+
+Overfull \hbox (16.62001pt too wide) in paragraph at lines 102--111
+\TU/lmr/m/it/10 qui-
+ []
+
+
+Overfull \hbox (10.74pt too wide) in paragraph at lines 102--111
+\TU/lmr/m/it/10 si-
+ []
+
+
+Overfull \hbox (17.12001pt too wide) in paragraph at lines 102--111
+\TU/lmr/m/it/10 tion
+ []
+
+
+Overfull \hbox (17.12001pt too wide) in paragraph at lines 102--111
+\TU/lmr/m/it/10 step
+ []
+
+
+Overfull \hbox (14.81999pt too wide) in paragraph at lines 102--111
+\TU/lmr/m/it/10 (no
+ []
+
+
+Overfull \hbox (13.8pt too wide) in paragraph at lines 102--111
+\TU/lmr/m/it/10 op-
+ []
+
+
+Overfull \hbox (9.97002pt too wide) in paragraph at lines 102--111
+\TU/lmr/m/it/10 ti-
+ []
+
+
+Overfull \hbox (24.03pt too wide) in paragraph at lines 102--111
+\TU/lmr/m/it/10 miza-
+ []
+
+
+Overfull \hbox (17.12001pt too wide) in paragraph at lines 102--111
+\TU/lmr/m/it/10 tion
+ []
+
+
+Overfull \hbox (19.94002pt too wide) in paragraph at lines 102--111
+\TU/lmr/m/it/10 yet).
+ []
+
+
+Overfull \hbox (108.80278pt too wide) detected at line 115
+[] [] \OML/cmm/m/it/10   []
+ []
+
+
+! LaTeX Error: \begin{document} ended by \end{outlinecard}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.116       \end{outlinecard}
+                           
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.118     \only
+             <4->{
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Environment outlinecard undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.119       \begin{outlinecard}
+                             [Exported Outputs]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.120         \scriptsize
+                       
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (63.0pt too wide) in paragraph at lines 122--123
+\TU/lmtt/m/n/10 tag_map.yaml 
+ []
+
+
+Overfull \hbox (110.25pt too wide) in paragraph at lines 123--124
+\TU/lmtt/m/n/10 trajetoria_camera.csv 
+ []
+
+
+Overfull \hbox (68.25pt too wide) in paragraph at lines 124--125
+\TU/lmtt/m/n/10 mapa_tags.csv 
+ []
+
+
+! LaTeX Error: \begin{document} ended by \end{outlinecard}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.126       \end{outlinecard}
+                           
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \begin{document} ended by \end{column}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.128   \end{column}
+                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \begin{document} ended by \end{columns}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.129 \end{columns}
+                 
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+)
+! Emergency stop.
+<*> recordin_phase.tex
+                   
+*** (job aborted, no legal \end found)
+
+
+
+Here is how much of LuaTeX's memory you used:
+ 34 strings out of 477805
+ 100000,383344 words of node,token memory allocated 17509 words of node memory still in use:
+   155 hlist, 2 vlist, 36 disc, 8 local_par, 1 dir, 20 math, 435 glue, 46 kern, 
+59 penalty, 1634 glyph, 89 attribute, 39 glue_spec, 89 attribute_list nodes
+   avail lists: 2:5,3:178,4:19,5:72,6:2,7:2426,8:234,9:201,10:18,11:41
+ 20849 multiletter control sequences out of 65536+600000
+ 28 fonts using 1734519 bytes
+ 25i,5n,25p,168b,150s stack positions out of 5000i,500n,10000p,200000b,80000s
+!  ==> Fatal error occurred, no output PDF file produced!

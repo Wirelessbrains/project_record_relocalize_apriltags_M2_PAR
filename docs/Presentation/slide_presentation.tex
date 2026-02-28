@@ -13,6 +13,7 @@
 \usepackage{tcolorbox}
 \usepackage{booktabs}
 \usepackage{qrcode}
+\usepackage{fontawesome5}
 \tcbuselibrary{skins, breakable}
 
 % --- TIKZ ---
@@ -272,44 +273,37 @@
   \draw[DarkBlue, line width=0.90pt] (1.40,1.08) -- (1.40,2.14);
   \node[draw=NavyBlue!65, fill=white, rounded corners=1.2pt, line width=0.75pt,
         align=center, minimum width=2.10cm, minimum height=0.88cm, anchor=south] (s1)
-        at (1.40,2.14) {\scriptsize\hyperlink{slide-problem}{\shortstack{\textbf{Problem}\\and Scope}}};
+        at (1.40,2.14) {\scriptsize\hyperlink{slide-problem}{\shortstack{\faQuestionCircle~\textbf{Problem}\\and Scope}}};
   \fill[AccentBlue] ($(s1.south west)+(0.04,0.04)$) rectangle ($(s1.north west)+(0.14,-0.04)$);
   \node[anchor=west, text=white, font=\scriptsize\bfseries] at ($(s1.west)+(0.06,0)$) {1};
 
   \draw[DarkBlue, line width=0.90pt] (3.05,2.18) -- (3.05,3.02);
   \node[draw=NavyBlue!65, fill=white, rounded corners=1.2pt, line width=0.75pt,
         align=center, minimum width=2.00cm, minimum height=0.88cm, anchor=south] (s2)
-        at (3.05,3.02) {\scriptsize\hyperlink{slide-method}{\textbf{Method}}};
+        at (3.05,3.02) {\scriptsize\hyperlink{slide-setup}{\faWrench~\textbf{Setup}}};
   \fill[AccentBlue] ($(s2.south west)+(0.04,0.04)$) rectangle ($(s2.north west)+(0.14,-0.04)$);
   \node[anchor=west, text=white, font=\scriptsize\bfseries] at ($(s2.west)+(0.06,0)$) {2};
 
   \draw[DarkBlue, line width=0.90pt] (5.15,2.7) -- (5.15,3.34);
   \node[draw=NavyBlue!65, fill=white, rounded corners=1.2pt, line width=0.75pt,
         align=center, minimum width=2.20cm, minimum height=0.88cm, anchor=south] (s3)
-        at (5.15,3.34) {\scriptsize\hyperlink{slide-recording}{\shortstack{\textbf{Recording}\\Phase}}};
+        at (5.15,3.34) {\scriptsize\hyperlink{slide-recording}{\shortstack{\faDatabase~\textbf{Recording}\\Phase}}};
   \fill[AccentBlue] ($(s3.south west)+(0.04,0.04)$) rectangle ($(s3.north west)+(0.14,-0.04)$);
   \node[anchor=west, text=white, font=\scriptsize\bfseries] at ($(s3.west)+(0.06,0)$) {3};
 
   \draw[DarkBlue, line width=0.90pt] (7.05,2.5) -- (7.05,4.54);
   \node[draw=NavyBlue!65, fill=white, rounded corners=1.2pt, line width=0.75pt,
         align=center, minimum width=2.30cm, minimum height=0.88cm, anchor=south] (s4)
-        at (7.05,4.54) {\scriptsize\hyperlink{slide-relocalization}{\shortstack{\textbf{Relocalization}\\Phase}}};
+        at (7.05,4.54) {\scriptsize\hyperlink{slide-relocalization}{\shortstack{\faMapMarker~\textbf{Relocalization}\\Phase}}};
   \fill[AccentGold] ($(s4.south west)+(0.04,0.04)$) rectangle ($(s4.north west)+(0.14,-0.04)$);
   \node[anchor=west, text=white, font=\scriptsize\bfseries] at ($(s4.west)+(0.06,0)$) {4};
 
-  \draw[DarkBlue, line width=0.90pt] (9.75,5.02) -- (9.75,5.82);
-  \node[draw=NavyBlue!65, fill=white, rounded corners=1.2pt, line width=0.75pt,
-        align=center, minimum width=1.90cm, minimum height=0.88cm, anchor=south] (s5)
-        at (9.75,5.82) {\scriptsize\hyperlink{slide-validation}{\textbf{Validation}}};
-  \fill[AccentBlue] ($(s5.south west)+(0.04,0.04)$) rectangle ($(s5.north west)+(0.14,-0.04)$);
-  \node[anchor=west, text=white, font=\scriptsize\bfseries] at ($(s5.west)+(0.06,0)$) {5};
-
-  \draw[DarkBlue, line width=0.90pt] (11.95,5.25) -- (11.95,6.02);
+  \draw[DarkBlue, line width=0.90pt] (10.90,5.18) -- (10.90,5.96);
   \node[draw=NavyBlue!65, fill=white, rounded corners=1.2pt, line width=0.75pt,
         align=center, minimum width=2.20cm, minimum height=0.88cm, anchor=south] (s6)
-        at (11.95,6.02) {\scriptsize\hyperlink{slide-discussion}{\shortstack{\textbf{Discussion}\\and Closing}}};
+        at (10.90,5.96) {\scriptsize\hyperlink{slide-conclusion}{\shortstack{\faComments~\textbf{Conclusion}\\and Closing}}};
   \fill[AccentGold] ($(s6.south west)+(0.04,0.04)$) rectangle ($(s6.north west)+(0.14,-0.04)$);
-  \node[anchor=west, text=white, font=\scriptsize\bfseries] at ($(s6.west)+(0.06,0)$) {6};
+  \node[anchor=west, text=white, font=\scriptsize\bfseries] at ($(s6.west)+(0.06,0)$) {5};
 \end{tikzpicture}
 \end{center}
 \end{frame}
@@ -359,9 +353,15 @@
 \end{center}
 \end{frame}
 
+\begin{frame}[label=slide-setup]{Setup}
+	\input{sections/setup.tex}
+			\end{frame}
+
 \begin{frame}[label=slide-method]{Method}
 \input{sections/method.tex}
 \end{frame}
+
+
 
 \begin{frame}[label=slide-recording]{Recording Phase}
 \input{sections/recordin_phase.tex}
@@ -371,15 +371,27 @@
 \input{sections/reloc_phase.tex}
 \end{frame}
 
-\begin{frame}[label=slide-validation]{Validation}
-\input{sections/validation.tex}
+\begin{frame}[label=slide-relocalization-demo]{Second Trajectory}
+\vspace{-0.15cm}
+\begin{center}
+\begin{outlinecard}[Pipeline Running on Second Trajectory]
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm]
+  % Clickable video thumbnail (2x version)
+  \node[inner sep=0pt, anchor=south west] at (0.45,0.55)
+    {\href{run:../assets/media/Reloc_scnerio2_2x.mp4}{\includegraphics[width=11.10cm,height=5.10cm]{../assets/media/scneario2.jpeg}}};
+
+  \fill[black, opacity=0.16] (0.45,0.55) rectangle (11.55,5.65);
+  \fill[white, opacity=0.95] (6.00,3.10) circle (0.35);
+  \fill[NavyBlue] (5.88,2.95) -- (5.88,3.25) -- (6.16,3.10) -- cycle;
+
+\end{tikzpicture}
+\end{outlinecard}
+\end{center}
 \end{frame}
 
-\begin{frame}[label=slide-discussion]{Discussion}
+\begin{frame}[label=slide-conclusion]{Conclusion}
 \input{sections/discution_conclusion.tex}
-\end{frame}
-
-\begin{frame}{Conclusion}
 \end{frame}
 
 

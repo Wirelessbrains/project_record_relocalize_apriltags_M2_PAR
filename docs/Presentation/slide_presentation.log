@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.1.30)  27 FEB 2026 12:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.1.30)  1 MAR 2026 00:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -827,7 +827,30 @@ File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 \qr@newforcount=\count361
 \c@qr@divisionsremaining=\count362
 )
-(/usr/share/texlive/texmf-dist/tex/latex/tcolorbox/tcbskins.code.tex
+(/usr/share/texlive/texmf-dist/tex/latex/fontawesome5/fontawesome5.sty
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2022-01-21 L3 programming layer (loader) 
+
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count363
+\l__pdf_internal_box=\box85
+))
+Package: fontawesome5 2021/06/04 v5.15.3 Font Awesome 5
+
+(/usr/share/texlive/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
+Package: l3keys2e 2022-01-12 LaTeX2e option processing using LaTeX3 keys
+)
+(/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+Package: xparse 2022-01-12 L3 Experimental document command parser
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fontawesome5/fontawesome5-generic-help
+er.sty
+Package: fontawesome5-generic-helper 2021/06/04 v5.15.3 non-uTeX helper for fon
+tawesome5
+
+(/usr/share/texlive/texmf-dist/tex/latex/fontawesome5/fontawesome5-mapping.def)
+)) (/usr/share/texlive/texmf-dist/tex/latex/tcolorbox/tcbskins.code.tex
 Library (tcolorbox): 'tcbskins.code.tex' version '5.0.2'
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
@@ -850,7 +873,7 @@ Package: tikz 2021/05/15 v3.1.9a (3.1.9a)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers
 .code.tex
 File: pgflibraryplothandlers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@plot@mark@count=\count363
+\pgf@plot@mark@count=\count364
 \pgfplotmarksize=\dimen303
 )
 \tikz@lastx=\dimen304
@@ -861,28 +884,28 @@ File: pgflibraryplothandlers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \tikz@lastmovetoy=\dimen309
 \tikzleveldistance=\dimen310
 \tikzsiblingdistance=\dimen311
-\tikz@figbox=\box85
-\tikz@figbox@bg=\box86
-\tikz@tempbox=\box87
-\tikz@tempbox@bg=\box88
-\tikztreelevel=\count364
-\tikznumberofchildren=\count365
-\tikznumberofcurrentchild=\count366
-\tikz@fig@count=\count367
+\tikz@figbox=\box86
+\tikz@figbox@bg=\box87
+\tikz@tempbox=\box88
+\tikz@tempbox@bg=\box89
+\tikztreelevel=\count365
+\tikznumberofchildren=\count366
+\tikznumberofcurrentchild=\count367
+\tikz@fig@count=\count368
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfmatrixcurrentrow=\count368
-\pgfmatrixcurrentcolumn=\count369
-\pgf@matrix@numberofcolumns=\count370
+\pgfmatrixcurrentrow=\count369
+\pgfmatrixcurrentcolumn=\count370
+\pgf@matrix@numberofcolumns=\count371
 )
-\tikz@expandcount=\count371
+\tikz@expandcount=\count372
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )))
-\tcb@waterbox=\box89
+\tcb@waterbox=\box90
 
 (/usr/share/texlive/texmf-dist/tex/latex/tcolorbox/tcbskinsjigsaw.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '5.0.2'
@@ -892,9 +915,9 @@ Library (tcolorbox): 'tcbbreakable.code.tex' version '5.0.2'
 Package: pdfcol 2019/12/29 v1.6 Handle new color stacks for pdfTeX (HO)
 )
 Package pdfcol Info: New color stack `tcb@breakable' = 1 on input line 23.
-\tcb@testbox=\box90
-\tcb@totalupperbox=\box91
-\tcb@totallowerbox=\box92
+\tcb@testbox=\box91
+\tcb@totalupperbox=\box92
+\tcb@totallowerbox=\box93
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibrarycalc.code.tex
@@ -934,37 +957,32 @@ File: tikzlibraryfit.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 Package: helvet 2020/03/25 PSNFSS-v9.3 (WaS) 
 )
 LaTeX Font Info:    Trying to load font information for T1+phv on input line 15
-0.
+1.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
 )
-(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count372
-\l__pdf_internal_box=\box93
-)
 (./slide_presentation.aux)
 \openout1 = `slide_presentation.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 150.
-LaTeX Font Info:    ... okay on input line 150.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 150.
-LaTeX Font Info:    ... okay on input line 150.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 150.
-LaTeX Font Info:    ... okay on input line 150.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 150.
-LaTeX Font Info:    ... okay on input line 150.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 150.
-LaTeX Font Info:    ... okay on input line 150.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 150.
-LaTeX Font Info:    ... okay on input line 150.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 150.
-LaTeX Font Info:    ... okay on input line 150.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 150.
-LaTeX Font Info:    ... okay on input line 150.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 150.
-LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 151.
+LaTeX Font Info:    ... okay on input line 151.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 151.
+LaTeX Font Info:    ... okay on input line 151.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 151.
+LaTeX Font Info:    ... okay on input line 151.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 151.
+LaTeX Font Info:    ... okay on input line 151.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 151.
+LaTeX Font Info:    ... okay on input line 151.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 151.
+LaTeX Font Info:    ... okay on input line 151.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 151.
+LaTeX Font Info:    ... okay on input line 151.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 151.
+LaTeX Font Info:    ... okay on input line 151.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 151.
+LaTeX Font Info:    ... okay on input line 151.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1022,7 +1040,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 150.
+Package hyperref Info: Link coloring OFF on input line 151.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -1035,56 +1053,56 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count379
 )
-LaTeX Info: Redefining \ref on input line 150.
-LaTeX Info: Redefining \pageref on input line 150.
-LaTeX Info: Redefining \nameref on input line 150.
+LaTeX Info: Redefining \ref on input line 151.
+LaTeX Info: Redefining \pageref on input line 151.
+LaTeX Info: Redefining \nameref on input line 151.
 
 (./slide_presentation.out) (./slide_presentation.out)
 \@outlinefile=\write5
 \openout5 = `slide_presentation.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 150.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 151.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 150.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 151.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> T1/cmr/m/n on input line 150.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 150.
+(Font)                  OT1/cmss/m/n --> T1/cmr/m/n on input line 151.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 151.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> T1/phv/b/n on input line 150.
+(Font)                  OT1/cmr/bx/n --> T1/phv/b/n on input line 151.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> T1/phv/b/n on input line 150.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 150.
+(Font)                  OT1/cmr/bx/n --> T1/phv/b/n on input line 151.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 151.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> T1/phv/m/n on input line 150.
+(Font)                  OT1/cmss/m/n --> T1/phv/m/n on input line 151.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> T1/phv/m/n on input line 150.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 150.
+(Font)                  OT1/cmss/bx/n --> T1/phv/m/n on input line 151.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 151.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> T1/phv/m/it on input line 150.
+(Font)                  OT1/cmr/m/it --> T1/phv/m/it on input line 151.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> T1/phv/m/it on input line 150.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 150.
+(Font)                  OT1/cmr/bx/it --> T1/phv/m/it on input line 151.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 151.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 150.
+(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 151.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 150.
+(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 151.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  T1/phv/m/n --> T1/phv/b/n on input line 150.
+(Font)                  T1/phv/m/n --> T1/phv/b/n on input line 151.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  T1/phv/m/it --> T1/phv/b/it on input line 150.
+(Font)                  T1/phv/m/it --> T1/phv/b/it on input line 151.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/b/n --> T1/cmr/b/n on input line 150.
+(Font)                  OT1/cmss/b/n --> T1/cmr/b/n on input line 151.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  T1/phv/b/n --> T1/phv/b/n on input line 150.
+(Font)                  T1/phv/b/n --> T1/phv/b/n on input line 151.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  T1/phv/m/n --> T1/phv/b/n on input line 150.
+(Font)                  T1/phv/m/n --> T1/phv/b/n on input line 151.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  T1/phv/m/it --> T1/phv/b/it on input line 150.
+(Font)                  T1/phv/m/it --> T1/phv/b/it on input line 151.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  T1/cmtt/m/n --> T1/cmtt/b/n on input line 150.
+(Font)                  T1/cmtt/m/n --> T1/cmtt/b/n on input line 151.
 
 (/usr/share/texlive/texmf-dist/tex/latex/translator/translator-basic-dictionary
 -English.dict
@@ -1110,13 +1128,13 @@ Dictionary: translator-numbers-dictionary, Language: English
 ry-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-LaTeX Info: Redefining \microtypecontext on input line 150.
-Package microtype Info: Applying patch `item' on input line 150.
-Package microtype Info: Applying patch `toc' on input line 150.
-Package microtype Info: Applying patch `eqnum' on input line 150.
+LaTeX Info: Redefining \microtypecontext on input line 151.
+Package microtype Info: Applying patch `item' on input line 151.
+Package microtype Info: Applying patch `toc' on input line 151.
+Package microtype Info: Applying patch `eqnum' on input line 151.
 
 
-Package microtype Warning: Unable to apply patch `footnote' on input line 150.
+Package microtype Warning: Unable to apply patch `footnote' on input line 151.
 
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
@@ -1124,7 +1142,7 @@ Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 150.
+LaTeX Info: Redefining \showhyphens on input line 151.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -1134,7 +1152,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             See the microtype manual for details.
 (./slide_presentation.nav)
 LaTeX Font Info:    Trying to load font information for TS1+phv on input line 1
-50.
+51.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1phv.fd
 File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
@@ -1147,24 +1165,24 @@ Package microtype Info: Loading generic protrusion settings for font family
 File: assets/report_polytech_logo.png Graphic file (type png)
 <use assets/report_polytech_logo.png>
 Package pdftex.def Info: assets/report_polytech_logo.png  used on input line 19
-8.
+9.
 (pdftex.def)             Requested size: 91.54176pt x 23.33147pt.
 <assets/report_eupi_long.png, id=38, 11286.165pt x 2296.58pt>
 File: assets/report_eupi_long.png Graphic file (type png)
 <use assets/report_eupi_long.png>
-Package pdftex.def Info: assets/report_eupi_long.png  used on input line 198.
+Package pdftex.def Info: assets/report_eupi_long.png  used on input line 199.
 (pdftex.def)             Requested size: 114.5215pt x 23.33147pt.
 <assets/report_brand_identity.png, id=39, 816.04875pt x 579.16376pt>
 File: assets/report_brand_identity.png Graphic file (type png)
 <use assets/report_brand_identity.png>
 Package pdftex.def Info: assets/report_brand_identity.png  used on input line 1
-98.
+99.
 (pdftex.def)             Requested size: 136.23158pt x 96.68022pt.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmss' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 198
+LaTeX Font Info:    Trying to load font information for U+msa on input line 199
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -1173,7 +1191,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 198
+LaTeX Font Info:    Trying to load font information for U+msb on input line 199
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -1183,82 +1201,199 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 198.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 199.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <7> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 198.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 199.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <5> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 198.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 199.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./assets/report_polytech_l
 ogo.png> <./assets/report_eupi_long.png (PNG copy)> <./assets/report_brand_iden
 tity.png>]
+LaTeX Font Info:    Trying to load font information for U+fontawesomefree2 on i
+nput line 309.
+
+(/usr/share/texlive/texmf-dist/tex/latex/fontawesome5/ufontawesomefree2.fd)
+LaTeX Font Info:    Trying to load font information for U+fontawesomefree3 on i
+nput line 309.
+
+(/usr/share/texlive/texmf-dist/tex/latex/fontawesome5/ufontawesomefree3.fd)
+LaTeX Font Info:    Trying to load font information for U+fontawesomefree0 on i
+nput line 309.
+
+(/usr/share/texlive/texmf-dist/tex/latex/fontawesome5/ufontawesomefree0.fd)
 File: assets/report_polytech_logo.png Graphic file (type png)
 <use assets/report_polytech_logo.png>
-Package pdftex.def Info: assets/report_polytech_logo.png  used on input line 31
-5.
+Package pdftex.def Info: assets/report_polytech_logo.png  used on input line 30
+9.
 (pdftex.def)             Requested size: 46.88504pt x 11.9501pt.
 File: assets/report_eupi_long.png Graphic file (type png)
 <use assets/report_eupi_long.png>
-Package pdftex.def Info: assets/report_eupi_long.png  used on input line 315.
+Package pdftex.def Info: assets/report_eupi_long.png  used on input line 309.
 (pdftex.def)             Requested size: 58.72455pt x 11.9501pt.
 
-Overfull \vbox (15.5313pt too high) detected at line 315
+Overfull \vbox (13.8242pt too high) detected at line 309
  []
 
 [2
 
 ]
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <8> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 360.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 354.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <6> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 360.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 354.
 File: assets/report_polytech_logo.png Graphic file (type png)
 <use assets/report_polytech_logo.png>
-Package pdftex.def Info: assets/report_polytech_logo.png  used on input line 36
-0.
+Package pdftex.def Info: assets/report_polytech_logo.png  used on input line 35
+4.
 (pdftex.def)             Requested size: 46.88504pt x 11.9501pt.
 File: assets/report_eupi_long.png Graphic file (type png)
 <use assets/report_eupi_long.png>
-Package pdftex.def Info: assets/report_eupi_long.png  used on input line 360.
+Package pdftex.def Info: assets/report_eupi_long.png  used on input line 354.
 (pdftex.def)             Requested size: 58.72455pt x 11.9501pt.
  [3
 
 ]
 File: assets/report_polytech_logo.png Graphic file (type png)
 <use assets/report_polytech_logo.png>
-Package pdftex.def Info: assets/report_polytech_logo.png  used on input line 36
-0.
+Package pdftex.def Info: assets/report_polytech_logo.png  used on input line 35
+4.
 (pdftex.def)             Requested size: 46.88504pt x 11.9501pt.
 File: assets/report_eupi_long.png Graphic file (type png)
 <use assets/report_eupi_long.png>
-Package pdftex.def Info: assets/report_eupi_long.png  used on input line 360.
+Package pdftex.def Info: assets/report_eupi_long.png  used on input line 354.
 (pdftex.def)             Requested size: 58.72455pt x 11.9501pt.
  [4
 
 ]
 File: assets/report_polytech_logo.png Graphic file (type png)
 <use assets/report_polytech_logo.png>
-Package pdftex.def Info: assets/report_polytech_logo.png  used on input line 36
-0.
+Package pdftex.def Info: assets/report_polytech_logo.png  used on input line 35
+4.
 (pdftex.def)             Requested size: 46.88504pt x 11.9501pt.
 File: assets/report_eupi_long.png Graphic file (type png)
 <use assets/report_eupi_long.png>
-Package pdftex.def Info: assets/report_eupi_long.png  used on input line 360.
+Package pdftex.def Info: assets/report_eupi_long.png  used on input line 354.
 (pdftex.def)             Requested size: 58.72455pt x 11.9501pt.
  [5
 
 ]
 File: assets/report_polytech_logo.png Graphic file (type png)
 <use assets/report_polytech_logo.png>
-Package pdftex.def Info: assets/report_polytech_logo.png  used on input line 36
-0.
+Package pdftex.def Info: assets/report_polytech_logo.png  used on input line 35
+4.
 (pdftex.def)             Requested size: 46.88504pt x 11.9501pt.
 File: assets/report_eupi_long.png Graphic file (type png)
 <use assets/report_eupi_long.png>
-Package pdftex.def Info: assets/report_eupi_long.png  used on input line 360.
+Package pdftex.def Info: assets/report_eupi_long.png  used on input line 354.
 (pdftex.def)             Requested size: 58.72455pt x 11.9501pt.
  [6
+
+] (./sections/setup.tex
+<../Report/Images/limo_real_environment.png, id=95, 1606.0pt x 903.375pt>
+File: ../Report/Images/limo_real_environment.png Graphic file (type png)
+<use ../Report/Images/limo_real_environment.png>
+Package pdftex.def Info: ../Report/Images/limo_real_environment.png  used on in
+put line 6.
+(pdftex.def)             Requested size: 150.31708pt x 84.55334pt.
+LaTeX Font Info:    Trying to load font information for U+fontawesomefree1 on i
+nput line 51.
+
+(/usr/share/texlive/texmf-dist/tex/latex/fontawesome5/ufontawesomefree1.fd))
+File: assets/report_polytech_logo.png Graphic file (type png)
+<use assets/report_polytech_logo.png>
+Package pdftex.def Info: assets/report_polytech_logo.png  used on input line 35
+8.
+(pdftex.def)             Requested size: 46.88504pt x 11.9501pt.
+File: assets/report_eupi_long.png Graphic file (type png)
+<use assets/report_eupi_long.png>
+Package pdftex.def Info: assets/report_eupi_long.png  used on input line 358.
+(pdftex.def)             Requested size: 58.72455pt x 11.9501pt.
+
+Overfull \vbox (4.70752pt too high) detected at line 358
+ []
+
+[7
+
+ <../Report/Images/limo_real_environment.png>] (./sections/setup.tex
+File: ../Report/Images/limo_real_environment.png Graphic file (type png)
+<use ../Report/Images/limo_real_environment.png>
+Package pdftex.def Info: ../Report/Images/limo_real_environment.png  used on in
+put line 6.
+(pdftex.def)             Requested size: 150.31708pt x 84.55334pt.
+<assets/detections.png, id=104, 1240.635pt x 928.46875pt>
+File: assets/detections.png Graphic file (type png)
+<use assets/detections.png>
+Package pdftex.def Info: assets/detections.png  used on input line 11.
+(pdftex.def)             Requested size: 112.97746pt x 84.5503pt.
+)
+File: assets/report_polytech_logo.png Graphic file (type png)
+<use assets/report_polytech_logo.png>
+Package pdftex.def Info: assets/report_polytech_logo.png  used on input line 35
+8.
+(pdftex.def)             Requested size: 46.88504pt x 11.9501pt.
+File: assets/report_eupi_long.png Graphic file (type png)
+<use assets/report_eupi_long.png>
+Package pdftex.def Info: assets/report_eupi_long.png  used on input line 358.
+(pdftex.def)             Requested size: 58.72455pt x 11.9501pt.
+
+Overfull \vbox (4.70752pt too high) detected at line 358
+ []
+
+[8
+
+ <./assets/detections.png>] (./sections/setup.tex
+File: ../Report/Images/limo_real_environment.png Graphic file (type png)
+<use ../Report/Images/limo_real_environment.png>
+Package pdftex.def Info: ../Report/Images/limo_real_environment.png  used on in
+put line 6.
+(pdftex.def)             Requested size: 150.31708pt x 84.55334pt.
+File: assets/detections.png Graphic file (type png)
+<use assets/detections.png>
+Package pdftex.def Info: assets/detections.png  used on input line 11.
+(pdftex.def)             Requested size: 112.97746pt x 84.5503pt.
+)
+File: assets/report_polytech_logo.png Graphic file (type png)
+<use assets/report_polytech_logo.png>
+Package pdftex.def Info: assets/report_polytech_logo.png  used on input line 35
+8.
+(pdftex.def)             Requested size: 46.88504pt x 11.9501pt.
+File: assets/report_eupi_long.png Graphic file (type png)
+<use assets/report_eupi_long.png>
+Package pdftex.def Info: assets/report_eupi_long.png  used on input line 358.
+(pdftex.def)             Requested size: 58.72455pt x 11.9501pt.
+
+Overfull \vbox (4.70752pt too high) detected at line 358
+ []
+
+[9
+
+] (./sections/setup.tex
+File: ../Report/Images/limo_real_environment.png Graphic file (type png)
+<use ../Report/Images/limo_real_environment.png>
+Package pdftex.def Info: ../Report/Images/limo_real_environment.png  used on in
+put line 6.
+(pdftex.def)             Requested size: 150.31708pt x 84.55334pt.
+File: assets/detections.png Graphic file (type png)
+<use assets/detections.png>
+Package pdftex.def Info: assets/detections.png  used on input line 11.
+(pdftex.def)             Requested size: 112.97746pt x 84.5503pt.
+)
+File: assets/report_polytech_logo.png Graphic file (type png)
+<use assets/report_polytech_logo.png>
+Package pdftex.def Info: assets/report_polytech_logo.png  used on input line 35
+8.
+(pdftex.def)             Requested size: 46.88504pt x 11.9501pt.
+File: assets/report_eupi_long.png Graphic file (type png)
+<use assets/report_eupi_long.png>
+Package pdftex.def Info: assets/report_eupi_long.png  used on input line 358.
+(pdftex.def)             Requested size: 58.72455pt x 11.9501pt.
+
+Overfull \vbox (4.70752pt too high) detected at line 358
+ []
+
+[10
 
 ] (./sections/method.tex
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg
@@ -1268,44 +1403,44 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 File: assets/report_polytech_logo.png Graphic file (type png)
 <use assets/report_polytech_logo.png>
 Package pdftex.def Info: assets/report_polytech_logo.png  used on input line 36
-4.
+2.
 (pdftex.def)             Requested size: 46.88504pt x 11.9501pt.
 File: assets/report_eupi_long.png Graphic file (type png)
 <use assets/report_eupi_long.png>
-Package pdftex.def Info: assets/report_eupi_long.png  used on input line 364.
+Package pdftex.def Info: assets/report_eupi_long.png  used on input line 362.
 (pdftex.def)             Requested size: 58.72455pt x 11.9501pt.
- [7
+ [11
 
 ]
 (./sections/method.tex)
 File: assets/report_polytech_logo.png Graphic file (type png)
 <use assets/report_polytech_logo.png>
 Package pdftex.def Info: assets/report_polytech_logo.png  used on input line 36
-4.
+2.
 (pdftex.def)             Requested size: 46.88504pt x 11.9501pt.
 File: assets/report_eupi_long.png Graphic file (type png)
 <use assets/report_eupi_long.png>
-Package pdftex.def Info: assets/report_eupi_long.png  used on input line 364.
+Package pdftex.def Info: assets/report_eupi_long.png  used on input line 362.
 (pdftex.def)             Requested size: 58.72455pt x 11.9501pt.
- [8
+ [12
 
 ] (./sections/method.tex)
 File: assets/report_polytech_logo.png Graphic file (type png)
 <use assets/report_polytech_logo.png>
 Package pdftex.def Info: assets/report_polytech_logo.png  used on input line 36
-4.
+2.
 (pdftex.def)             Requested size: 46.88504pt x 11.9501pt.
 File: assets/report_eupi_long.png Graphic file (type png)
 <use assets/report_eupi_long.png>
-Package pdftex.def Info: assets/report_eupi_long.png  used on input line 364.
+Package pdftex.def Info: assets/report_eupi_long.png  used on input line 362.
 (pdftex.def)             Requested size: 58.72455pt x 11.9501pt.
- [9
+ [13
 
-] (./sections/method.tex
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 9
-4.
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
+]
+(./sections/method.tex
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 6
+9.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 Package microtype Info: Loading generic protrusion settings for font family
@@ -1316,53 +1451,57 @@ Package microtype Info: Loading generic protrusion settings for font family
 File: assets/report_polytech_logo.png Graphic file (type png)
 <use assets/report_polytech_logo.png>
 Package pdftex.def Info: assets/report_polytech_logo.png  used on input line 36
-4.
+2.
 (pdftex.def)             Requested size: 46.88504pt x 11.9501pt.
 File: assets/report_eupi_long.png Graphic file (type png)
 <use assets/report_eupi_long.png>
-Package pdftex.def Info: assets/report_eupi_long.png  used on input line 364.
+Package pdftex.def Info: assets/report_eupi_long.png  used on input line 362.
 (pdftex.def)             Requested size: 58.72455pt x 11.9501pt.
 
-Overfull \vbox (4.56308pt too high) detected at line 364
+Overfull \vbox (5.28627pt too high) detected at line 362
  []
 
-[10
+[14
 
 ] (./sections/method.tex)
 File: assets/report_polytech_logo.png Graphic file (type png)
 <use assets/report_polytech_logo.png>
 Package pdftex.def Info: assets/report_polytech_logo.png  used on input line 36
-4.
+2.
 (pdftex.def)             Requested size: 46.88504pt x 11.9501pt.
 File: assets/report_eupi_long.png Graphic file (type png)
 <use assets/report_eupi_long.png>
-Package pdftex.def Info: assets/report_eupi_long.png  used on input line 364.
+Package pdftex.def Info: assets/report_eupi_long.png  used on input line 362.
 (pdftex.def)             Requested size: 58.72455pt x 11.9501pt.
 
-Overfull \vbox (4.56308pt too high) detected at line 364
+Overfull \vbox (5.28627pt too high) detected at line 362
  []
 
-[11
+[15
 
 ] (./sections/method.tex)
 File: assets/report_polytech_logo.png Graphic file (type png)
 <use assets/report_polytech_logo.png>
 Package pdftex.def Info: assets/report_polytech_logo.png  used on input line 36
-4.
+2.
 (pdftex.def)             Requested size: 46.88504pt x 11.9501pt.
 File: assets/report_eupi_long.png Graphic file (type png)
 <use assets/report_eupi_long.png>
-Package pdftex.def Info: assets/report_eupi_long.png  used on input line 364.
+Package pdftex.def Info: assets/report_eupi_long.png  used on input line 362.
 (pdftex.def)             Requested size: 58.72455pt x 11.9501pt.
 
-Overfull \vbox (4.83119pt too high) detected at line 364
+Overfull \vbox (5.28627pt too high) detected at line 362
  []
 
-[12
+[16
 
 ] (./sections/recordin_phase.tex
-LaTeX Font Info:    Font shape `T1/phv/m/it' in size <9> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 7.
+<../assets/media/scenario_real.jpg, id=172, 4111.36pt x 2312.64pt>
+File: ../assets/media/scenario_real.jpg Graphic file (type jpg)
+<use ../assets/media/scenario_real.jpg>
+Package pdftex.def Info: ../assets/media/scenario_real.jpg  used on input line 
+26.
+(pdftex.def)             Requested size: 187.76352pt x 91.04303pt.
 )
 File: assets/report_polytech_logo.png Graphic file (type png)
 <use assets/report_polytech_logo.png>
@@ -1373,9 +1512,94 @@ File: assets/report_eupi_long.png Graphic file (type png)
 <use assets/report_eupi_long.png>
 Package pdftex.def Info: assets/report_eupi_long.png  used on input line 368.
 (pdftex.def)             Requested size: 58.72455pt x 11.9501pt.
- [13
+ [17
 
-] (./sections/reloc_phase.tex)
+ <../assets/media/scenario_real.jpg>]
+(./sections/recordin_phase.tex
+<../assets/results/recording_before_no_opt_anchor24.png, id=180, 794.97pt x 578
+.16pt>
+File: ../assets/results/recording_before_no_opt_anchor24.png Graphic file (type
+ png)
+<use ../assets/results/recording_before_no_opt_anchor24.png>
+Package pdftex.def Info: ../assets/results/recording_before_no_opt_anchor24.png
+  used on input line 51.
+(pdftex.def)             Requested size: 199.16656pt x 142.26357pt.
+)
+File: assets/report_polytech_logo.png Graphic file (type png)
+<use assets/report_polytech_logo.png>
+Package pdftex.def Info: assets/report_polytech_logo.png  used on input line 36
+8.
+(pdftex.def)             Requested size: 46.88504pt x 11.9501pt.
+File: assets/report_eupi_long.png Graphic file (type png)
+<use assets/report_eupi_long.png>
+Package pdftex.def Info: assets/report_eupi_long.png  used on input line 368.
+(pdftex.def)             Requested size: 58.72455pt x 11.9501pt.
+
+Overfull \vbox (8.948pt too high) detected at line 368
+ []
+
+[18
+
+ <../assets/results/recording_before_no_opt_anchor24.png>]
+(./sections/recordin_phase.tex
+<../assets/results/recording_after_opt_anchor24.png, id=188, 794.97pt x 578.16p
+t>
+File: ../assets/results/recording_after_opt_anchor24.png Graphic file (type png
+)
+<use ../assets/results/recording_after_opt_anchor24.png>
+Package pdftex.def Info: ../assets/results/recording_after_opt_anchor24.png  us
+ed on input line 74.
+(pdftex.def)             Requested size: 199.16656pt x 142.26357pt.
+)
+File: assets/report_polytech_logo.png Graphic file (type png)
+<use assets/report_polytech_logo.png>
+Package pdftex.def Info: assets/report_polytech_logo.png  used on input line 36
+8.
+(pdftex.def)             Requested size: 46.88504pt x 11.9501pt.
+File: assets/report_eupi_long.png Graphic file (type png)
+<use assets/report_eupi_long.png>
+Package pdftex.def Info: assets/report_eupi_long.png  used on input line 368.
+(pdftex.def)             Requested size: 58.72455pt x 11.9501pt.
+
+Overfull \vbox (8.948pt too high) detected at line 368
+ []
+
+[19
+
+ <../assets/results/recording_after_opt_anchor24.png>]
+(./sections/recordin_phase.tex
+<../assets/results/recording_final_opt_with_tf_anchor24.png, id=197, 794.97pt x
+ 578.16pt>
+File: ../assets/results/recording_final_opt_with_tf_anchor24.png Graphic file (
+type png)
+<use ../assets/results/recording_final_opt_with_tf_anchor24.png>
+Package pdftex.def Info: ../assets/results/recording_final_opt_with_tf_anchor24
+.png  used on input line 100.
+(pdftex.def)             Requested size: 199.16656pt x 142.26357pt.
+)
+File: assets/report_polytech_logo.png Graphic file (type png)
+<use assets/report_polytech_logo.png>
+Package pdftex.def Info: assets/report_polytech_logo.png  used on input line 36
+8.
+(pdftex.def)             Requested size: 46.88504pt x 11.9501pt.
+File: assets/report_eupi_long.png Graphic file (type png)
+<use assets/report_eupi_long.png>
+Package pdftex.def Info: assets/report_eupi_long.png  used on input line 368.
+(pdftex.def)             Requested size: 58.72455pt x 11.9501pt.
+
+Overfull \vbox (11.4606pt too high) detected at line 368
+ []
+
+[20
+
+ <../assets/results/recording_final_opt_with_tf_anchor24.png>]
+(./sections/reloc_phase.tex
+<assets/relocphase_1.jpeg, id=206, 1606.0pt x 903.375pt>
+File: assets/relocphase_1.jpeg Graphic file (type jpg)
+<use assets/relocphase_1.jpeg>
+Package pdftex.def Info: assets/relocphase_1.jpeg  used on input line 22.
+(pdftex.def)             Requested size: 190.62871pt x 92.46558pt.
+)
 File: assets/report_polytech_logo.png Graphic file (type png)
 <use assets/report_polytech_logo.png>
 Package pdftex.def Info: assets/report_polytech_logo.png  used on input line 37
@@ -1385,53 +1609,224 @@ File: assets/report_eupi_long.png Graphic file (type png)
 <use assets/report_eupi_long.png>
 Package pdftex.def Info: assets/report_eupi_long.png  used on input line 372.
 (pdftex.def)             Requested size: 58.72455pt x 11.9501pt.
- [14
+ [21
 
-]
-(./sections/validation.tex)
+ <./assets/relocphase_1.jpeg>]
+(./sections/reloc_phase.tex
+<../assets/results/real_s1_reloc_002_foto.jpg, id=213, 4111.36pt x 2312.64pt>
+File: ../assets/results/real_s1_reloc_002_foto.jpg Graphic file (type jpg)
+<use ../assets/results/real_s1_reloc_002_foto.jpg>
+Package pdftex.def Info: ../assets/results/real_s1_reloc_002_foto.jpg  used on 
+input line 82.
+(pdftex.def)             Requested size: 95.29327pt x 93.86607pt.
+<assets/results/graph_002.png, id=214, 520.19344pt x 473.51906pt>
+File: assets/results/graph_002.png Graphic file (type png)
+<use assets/results/graph_002.png>
+Package pdftex.def Info: assets/results/graph_002.png  used on input line 82.
+(pdftex.def)             Requested size: 95.31352pt x 93.89288pt.
+)
 File: assets/report_polytech_logo.png Graphic file (type png)
 <use assets/report_polytech_logo.png>
 Package pdftex.def Info: assets/report_polytech_logo.png  used on input line 37
-6.
+2.
 (pdftex.def)             Requested size: 46.88504pt x 11.9501pt.
 File: assets/report_eupi_long.png Graphic file (type png)
 <use assets/report_eupi_long.png>
-Package pdftex.def Info: assets/report_eupi_long.png  used on input line 376.
+Package pdftex.def Info: assets/report_eupi_long.png  used on input line 372.
 (pdftex.def)             Requested size: 58.72455pt x 11.9501pt.
- [15
+ [22
 
-] (./sections/discution_conclusion.tex)
+ <../assets/results/real_s1_reloc_002_foto.jpg> <./assets/results/graph_002.png
+>] (./sections/reloc_phase.tex
+<../assets/results/real_s1_reloc_012_foto.jpg, id=222, 4111.36pt x 2312.64pt>
+File: ../assets/results/real_s1_reloc_012_foto.jpg Graphic file (type jpg)
+<use ../assets/results/real_s1_reloc_012_foto.jpg>
+Package pdftex.def Info: ../assets/results/real_s1_reloc_012_foto.jpg  used on 
+input line 82.
+(pdftex.def)             Requested size: 95.29327pt x 93.86607pt.
+<assets/results/graph_012.png, id=223, 520.19344pt x 473.51906pt>
+File: assets/results/graph_012.png Graphic file (type png)
+<use assets/results/graph_012.png>
+Package pdftex.def Info: assets/results/graph_012.png  used on input line 82.
+(pdftex.def)             Requested size: 95.31352pt x 93.89288pt.
+)
 File: assets/report_polytech_logo.png Graphic file (type png)
 <use assets/report_polytech_logo.png>
-Package pdftex.def Info: assets/report_polytech_logo.png  used on input line 38
-0.
+Package pdftex.def Info: assets/report_polytech_logo.png  used on input line 37
+2.
 (pdftex.def)             Requested size: 46.88504pt x 11.9501pt.
 File: assets/report_eupi_long.png Graphic file (type png)
 <use assets/report_eupi_long.png>
-Package pdftex.def Info: assets/report_eupi_long.png  used on input line 380.
+Package pdftex.def Info: assets/report_eupi_long.png  used on input line 372.
 (pdftex.def)             Requested size: 58.72455pt x 11.9501pt.
- [16
 
-]
+Overfull \vbox (9.57974pt too high) detected at line 372
+ []
+
+[23
+
+ <../assets/results/real_s1_reloc_012_foto.jpg> <./assets/results/graph_012.png
+>] (./sections/reloc_phase.tex
+<../assets/results/real_s1_reloc_13_foto.jpg, id=231, 4111.36pt x 2312.64pt>
+File: ../assets/results/real_s1_reloc_13_foto.jpg Graphic file (type jpg)
+<use ../assets/results/real_s1_reloc_13_foto.jpg>
+Package pdftex.def Info: ../assets/results/real_s1_reloc_13_foto.jpg  used on i
+nput line 82.
+(pdftex.def)             Requested size: 95.29327pt x 93.86607pt.
+<assets/results/graph_013.png, id=232, 520.19344pt x 473.51906pt>
+File: assets/results/graph_013.png Graphic file (type png)
+<use assets/results/graph_013.png>
+Package pdftex.def Info: assets/results/graph_013.png  used on input line 82.
+(pdftex.def)             Requested size: 95.31352pt x 93.89288pt.
+)
 File: assets/report_polytech_logo.png Graphic file (type png)
 <use assets/report_polytech_logo.png>
-Package pdftex.def Info: assets/report_polytech_logo.png  used on input line 38
-3.
+Package pdftex.def Info: assets/report_polytech_logo.png  used on input line 37
+2.
 (pdftex.def)             Requested size: 46.88504pt x 11.9501pt.
 File: assets/report_eupi_long.png Graphic file (type png)
 <use assets/report_eupi_long.png>
-Package pdftex.def Info: assets/report_eupi_long.png  used on input line 383.
+Package pdftex.def Info: assets/report_eupi_long.png  used on input line 372.
 (pdftex.def)             Requested size: 58.72455pt x 11.9501pt.
 
-[17
+Overfull \vbox (9.57974pt too high) detected at line 372
+ []
+
+[24
+
+ <../assets/results/real_s1_reloc_13_foto.jpg> <./assets/results/graph_013.png>
+] (./sections/reloc_phase.tex
+<../assets/results/real_s1_reloc_015_foto.jpg, id=240, 4111.36pt x 2312.64pt>
+File: ../assets/results/real_s1_reloc_015_foto.jpg Graphic file (type jpg)
+<use ../assets/results/real_s1_reloc_015_foto.jpg>
+Package pdftex.def Info: ../assets/results/real_s1_reloc_015_foto.jpg  used on 
+input line 82.
+(pdftex.def)             Requested size: 95.29327pt x 93.86607pt.
+<assets/results/graph_015.png, id=241, 520.19344pt x 473.51906pt>
+File: assets/results/graph_015.png Graphic file (type png)
+<use assets/results/graph_015.png>
+Package pdftex.def Info: assets/results/graph_015.png  used on input line 82.
+(pdftex.def)             Requested size: 95.31352pt x 93.89288pt.
+)
+File: assets/report_polytech_logo.png Graphic file (type png)
+<use assets/report_polytech_logo.png>
+Package pdftex.def Info: assets/report_polytech_logo.png  used on input line 37
+2.
+(pdftex.def)             Requested size: 46.88504pt x 11.9501pt.
+File: assets/report_eupi_long.png Graphic file (type png)
+<use assets/report_eupi_long.png>
+Package pdftex.def Info: assets/report_eupi_long.png  used on input line 372.
+(pdftex.def)             Requested size: 58.72455pt x 11.9501pt.
+
+Overfull \vbox (9.57974pt too high) detected at line 372
+ []
+
+[25
+
+ <../assets/results/real_s1_reloc_015_foto.jpg> <./assets/results/graph_015.png
+>] (./sections/reloc_phase.tex
+<../assets/results/real_s1_reloc_016_foto.jpg, id=250, 4111.36pt x 2312.64pt>
+File: ../assets/results/real_s1_reloc_016_foto.jpg Graphic file (type jpg)
+<use ../assets/results/real_s1_reloc_016_foto.jpg>
+Package pdftex.def Info: ../assets/results/real_s1_reloc_016_foto.jpg  used on 
+input line 82.
+(pdftex.def)             Requested size: 95.29327pt x 93.86607pt.
+<assets/results/graph_016.png, id=251, 520.19344pt x 473.51906pt>
+File: assets/results/graph_016.png Graphic file (type png)
+<use assets/results/graph_016.png>
+Package pdftex.def Info: assets/results/graph_016.png  used on input line 82.
+(pdftex.def)             Requested size: 95.31352pt x 93.89288pt.
+)
+File: assets/report_polytech_logo.png Graphic file (type png)
+<use assets/report_polytech_logo.png>
+Package pdftex.def Info: assets/report_polytech_logo.png  used on input line 37
+2.
+(pdftex.def)             Requested size: 46.88504pt x 11.9501pt.
+File: assets/report_eupi_long.png Graphic file (type png)
+<use assets/report_eupi_long.png>
+Package pdftex.def Info: assets/report_eupi_long.png  used on input line 372.
+(pdftex.def)             Requested size: 58.72455pt x 11.9501pt.
+
+Overfull \vbox (9.57974pt too high) detected at line 372
+ []
+
+[26
+
+ <../assets/results/real_s1_reloc_016_foto.jpg> <./assets/results/graph_016.png
+>] (./sections/reloc_phase.tex
+<../assets/results/real_s1_reloc_018_foto.jpg, id=259, 4111.36pt x 2312.64pt>
+File: ../assets/results/real_s1_reloc_018_foto.jpg Graphic file (type jpg)
+<use ../assets/results/real_s1_reloc_018_foto.jpg>
+Package pdftex.def Info: ../assets/results/real_s1_reloc_018_foto.jpg  used on 
+input line 82.
+(pdftex.def)             Requested size: 95.29327pt x 93.86607pt.
+<assets/results/graph_018.png, id=260, 520.19344pt x 473.51906pt>
+File: assets/results/graph_018.png Graphic file (type png)
+<use assets/results/graph_018.png>
+Package pdftex.def Info: assets/results/graph_018.png  used on input line 82.
+(pdftex.def)             Requested size: 95.31352pt x 93.89288pt.
+)
+File: assets/report_polytech_logo.png Graphic file (type png)
+<use assets/report_polytech_logo.png>
+Package pdftex.def Info: assets/report_polytech_logo.png  used on input line 37
+2.
+(pdftex.def)             Requested size: 46.88504pt x 11.9501pt.
+File: assets/report_eupi_long.png Graphic file (type png)
+<use assets/report_eupi_long.png>
+Package pdftex.def Info: assets/report_eupi_long.png  used on input line 372.
+(pdftex.def)             Requested size: 58.72455pt x 11.9501pt.
+
+Overfull \vbox (73.3203pt too high) detected at line 372
+ []
+
+[27
+
+ <../assets/results/real_s1_reloc_018_foto.jpg> <./assets/results/graph_018.png
+>]
+<../assets/media/scneario2.jpeg, id=269, 1729.46124pt x 1084.05pt>
+File: ../assets/media/scneario2.jpeg Graphic file (type jpg)
+<use ../assets/media/scneario2.jpeg>
+Package pdftex.def Info: ../assets/media/scneario2.jpeg  used on input line 391
+.
+(pdftex.def)             Requested size: 315.82857pt x 145.09984pt.
+File: assets/report_polytech_logo.png Graphic file (type png)
+<use assets/report_polytech_logo.png>
+Package pdftex.def Info: assets/report_polytech_logo.png  used on input line 39
+1.
+(pdftex.def)             Requested size: 46.88504pt x 11.9501pt.
+File: assets/report_eupi_long.png Graphic file (type png)
+<use assets/report_eupi_long.png>
+Package pdftex.def Info: assets/report_eupi_long.png  used on input line 391.
+(pdftex.def)             Requested size: 58.72455pt x 11.9501pt.
+
+Overfull \vbox (4.62187pt too high) detected at line 391
+ []
+
+[28
+
+ <../assets/media/scneario2.jpeg>] (./sections/discution_conclusion.tex
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <9> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 7.
+)
+File: assets/report_polytech_logo.png Graphic file (type png)
+<use assets/report_polytech_logo.png>
+Package pdftex.def Info: assets/report_polytech_logo.png  used on input line 39
+5.
+(pdftex.def)             Requested size: 46.88504pt x 11.9501pt.
+File: assets/report_eupi_long.png Graphic file (type png)
+<use assets/report_eupi_long.png>
+Package pdftex.def Info: assets/report_eupi_long.png  used on input line 395.
+(pdftex.def)             Requested size: 58.72455pt x 11.9501pt.
+
+[29
 
 ]
-<assets/logo_UCA.jpg, id=172, 276.0714pt x 267.399pt>
+<assets/logo_UCA.jpg, id=284, 276.0714pt x 267.399pt>
 File: assets/logo_UCA.jpg Graphic file (type jpg)
 <use assets/logo_UCA.jpg>
-Package pdftex.def Info: assets/logo_UCA.jpg  used on input line 415.
+Package pdftex.def Info: assets/logo_UCA.jpg  used on input line 427.
 (pdftex.def)             Requested size: 29.3738pt x 28.45274pt.
- [18
+ [30
 
  <./assets/logo_UCA.jpg>]
 \tf@nav=\write6
@@ -1448,31 +1843,37 @@ Package rerunfilecheck Info: File `slide_presentation.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 33725 strings out of 478287
- 684171 string characters out of 5849289
- 1043528 words of memory out of 5000000
- 51004 multiletter control sequences out of 15000+600000
- 547001 words of font info for 199 fonts, out of 8000000 for 9000
+ 37232 strings out of 478287
+ 764407 string characters out of 5849289
+ 1085894 words of memory out of 5000000
+ 54384 multiletter control sequences out of 15000+600000
+ 548523 words of font info for 204 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,15n,122p,1015b,1097s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 128i,15n,122p,1015b,1715s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texliv
-e/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></us
-r/share/texmf/fonts/type1/public/cm-super/sfrm0500.pfb></usr/share/texmf/fonts/
-type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-supe
-r/sftt0800.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on slide_presentation.pdf (18 pages, 4290733 bytes).
+e/texmf-dist/fonts/enc/dvips/fontawesome5/fa5free1.enc}{/usr/share/texlive/texm
+f-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvi
+ps/fontawesome5/fa5free0.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/fon
+tawesome5/fa5free3.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/fontaweso
+me5/fa5free2.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/fontawesome5
+/FontAwesome5Free-Solid.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cmextra/cmex7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/share/texmf/f
+onts/type1/public/cm-super/sfrm0500.pfb></usr/share/texmf/fonts/type1/public/cm
+-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt0800.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on slide_presentation.pdf (30 pages, 23205671 bytes).
 PDF statistics:
- 253 PDF objects out of 1000 (max. 8388607)
- 175 compressed objects within 2 object streams
- 57 named destinations out of 1000 (max. 500000)
- 95903 words of extra memory for PDF output out of 106986 (max. 10000000)
+ 391 PDF objects out of 1000 (max. 8388607)
+ 263 compressed objects within 3 object streams
+ 95 named destinations out of 1000 (max. 500000)
+ 96515 words of extra memory for PDF output out of 106986 (max. 10000000)
 

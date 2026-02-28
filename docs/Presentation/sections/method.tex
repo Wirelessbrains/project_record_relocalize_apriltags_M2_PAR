@@ -8,31 +8,15 @@
       {\scriptsize\textbf{1) Record}\\[-0.4mm]\scriptsize detections dataset};
     \fill<1->[AccentBlue] ($(s1.north west)+(0.05,-0.05)$) rectangle ($(s1.north west)+(0.18,-0.54)$);
     % icon: database
-    \draw<1->[NavyBlue, line width=0.7pt] ($(s1.center)+(-1.20,0.36)$) ellipse (0.21 and 0.065);
-    \draw<1->[NavyBlue, line width=0.7pt] ($(s1.center)+(-1.41,0.36)$) -- ($(s1.center)+(-1.41,0.10)$);
-    \draw<1->[NavyBlue, line width=0.7pt] ($(s1.center)+(-0.99,0.36)$) -- ($(s1.center)+(-0.99,0.10)$);
-    \draw<1->[NavyBlue, line width=0.7pt] ($(s1.center)+(-1.20,0.10)$) ellipse (0.21 and 0.065);
+    \node<1->[text=NavyBlue, font=\scriptsize] at ($(s1.center)+(-1.20,0.30)$) {\faDatabase};
 
     % Stage 2: Build + Optimize
     \node<2->[draw=NavyBlue!70, fill=white, rounded corners=1.4pt, line width=0.8pt,
       minimum width=3.65cm, minimum height=1.30cm, align=center] (s2) at (6.2,1.35)
       {\scriptsize\textbf{2) Build + Optimize}\\[-0.4mm]\scriptsize map + trajectory};
     \fill<2->[AccentBlue] ($(s2.north west)+(0.05,-0.05)$) rectangle ($(s2.north west)+(0.18,-0.54)$);
-    % icon: AprilTag (same style used in Outline)
-    \begin{scope}[shift={($(s2.center)+(-1.4,0.31)$)}]
-      \draw<2->[fill=white, draw=DarkBlue!60, line width=0.45pt, rounded corners=0.02cm]
-        (-0.16,-0.16) rectangle (0.16,0.16);
-      \fill<2->[black] (-0.12,-0.12) rectangle (0.12,0.12);
-      \fill<2->[white] (-0.09, 0.09) rectangle ( 0.00,0.06);
-      \fill<2->[white] ( 0.05, 0.09) rectangle ( 0.09,0.02);
-      \fill<2->[white] (-0.09, 0.06) rectangle (-0.06,0.00);
-      \fill<2->[white] (-0.01, 0.06) rectangle ( 0.04,0.00);
-      \fill<2->[white] (-0.09,-0.00) rectangle (-0.04,-0.05);
-      \fill<2->[white] (-0.02,-0.00) rectangle ( 0.01,-0.03);
-      \fill<2->[white] ( 0.03,-0.00) rectangle ( 0.09,-0.07);
-      \fill<2->[white] (-0.06,-0.08) rectangle (-0.01,-0.04);
-      \fill<2->[white] ( 0.01,-0.08) rectangle ( 0.04,-0.06);
-    \end{scope}
+    % icon: build/optimize
+    \node<2->[text=NavyBlue, font=\scriptsize] at ($(s2.center)+(-1.35,0.30)$) {\faCogs};
 
 	% Stage 3: Relocalize
 	\node<3->[draw=NavyBlue!70, fill=white, rounded corners=1.4pt, line width=0.8pt,
@@ -40,16 +24,8 @@
 	{\scriptsize\textbf{3) Relocalize}\\[-0.4mm]\scriptsize nearest point};
 	\fill<3->[AccentGold] ($(s3.north west)+(0.05,-0.05)$) rectangle ($(s3.north west)+(0.18,-0.54)$);
 	
-	% icon: location pin (Google Maps–like, menor)
-	\path<3->[draw=NavyBlue, fill=white, line width=0.8pt, even odd rule]
-	% corpo externo (topo circular + corpo suave + ponta fina)
-	($(s3.center)+(-1.055,0.255)$) arc (320:220:0.155)
-	.. controls ($(s3.center)+(-1.33,0.22)$) and ($(s3.center)+(-1.24,0.02)$)
-	.. ($(s3.center)+(-1.16,-0.08)$)
-	.. controls ($(s3.center)+(-1.08,0.02)$) and ($(s3.center)+(-0.99,0.22)$)
-	.. cycle
-	% furo interno
-	($(s3.center)+(-1.16,0.35)$) circle (0.065);
+	% icon: relocalization pin
+	\node<3->[text=NavyBlue, font=\scriptsize] at ($(s3.center)+(-1.15,0.30)$) {\faMapMarker};
     % Arrows
     \draw<2->[NavyBlue!65, line width=1.0pt, -{Latex[length=2.5mm,width=1.8mm]}] (3.75,1.35) -- (4.28,1.35);
     \draw<3->[NavyBlue!65, line width=1.0pt, -{Latex[length=2.5mm,width=1.8mm]}] (8.15,1.35) -- (8.60,1.35);
@@ -89,18 +65,15 @@
   \scriptsize
   \begin{tikzpicture}[x=1cm,y=1cm]
     % item 1 (left)
-    \draw<4->[NavyBlue, line width=0.7pt, rounded corners=0.6pt, fill=white] (0.20,0.72) rectangle (0.62,1.08);
-    \draw<4->[NavyBlue, line width=0.6pt] (0.28,1.00) -- (0.54,1.00);
+    \node<4->[text=NavyBlue, font=\scriptsize] at (0.41,0.90) {\faFile};
     \node<4->[anchor=west, font=\scriptsize\ttfamily] at (0.75,0.90) {tag\_map.yaml};
 
     % item 2 (center)
-    \draw<5->[NavyBlue, line width=0.7pt, rounded corners=0.6pt, fill=white] (5.10,0.72) rectangle (5.52,1.08);
-    \draw<5->[NavyBlue, line width=0.6pt] (5.18,1.00) -- (5.44,1.00);
-    \draw<5->[NavyBlue, line width=0.6pt] (5.18,0.92) -- (5.44,0.92);
+    \node<5->[text=NavyBlue, font=\scriptsize] at (5.31,0.90) {\faFile};
     \node<5->[anchor=west, font=\scriptsize\ttfamily] at (5.65,0.90) {trajetoria\_camera.csv};
 
     % item 3 (right)
-    \draw<6->[AccentBlue, line width=0.85pt] (10.60,0.76) -- (10.75,0.92) -- (10.90,0.80) -- (11.05,1.02);
+    \node<6->[text=AccentBlue, font=\scriptsize] at (10.83,0.90) {\faChartLine};
     \node<6->[anchor=west, font=\scriptsize] at (11.18,0.90) {$D$ [m], $\phi$ [deg]};
   \end{tikzpicture}
 \end{outlinecard}
