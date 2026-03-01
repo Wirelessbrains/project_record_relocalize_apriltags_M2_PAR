@@ -1,3 +1,25 @@
+\begin{frame}[label=appendix-project-links]{Appendix - Project Links}
+\transfade[duration=0.25]
+\vspace{-0.05cm}
+\begin{outlinecard}[Scan to Open]
+  \small
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.5\textwidth}
+      \centering
+      {\bfseries GitHub Repository}\\[1mm]
+      \qrcode[height=2.8cm]{https://github.com/Wirelessbrains/project_record_relocalize_apriltags_M2_PAR}\\[1mm]
+      \tiny\url{github.com/Wirelessbrains/project_record_relocalize_apriltags_M2_PAR}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \centering
+      {\bfseries Project Website}\\[1mm]
+      \qrcode[height=2.8cm]{https://wirelessbrains.github.io/project_record_relocalize_apriltags_M2_PAR/}\\[1mm]
+      \tiny\url{wirelessbrains.github.io/project_record_relocalize_apriltags_M2_PAR}
+    \end{column}
+  \end{columns}
+\end{outlinecard}
+\end{frame}
+
 \begin{frame}[label=appendix-recording-setup]{Appendix - Recording Simulation Setup}
 \transfade[duration=0.25]
 \vspace{-0.08cm}
@@ -10,8 +32,8 @@
     \end{column}
     \begin{column}{0.5\textwidth}
       \centering
-      \only<3->{\includegraphics[width=0.96\linewidth,height=0.30\textheight,keepaspectratio]{../Report/Images/apriltag_detection_sim.png}\\[-0.5mm]}
-      \only<3->{\tiny Simulated AprilTag detection input}
+      \includegraphics[width=0.96\linewidth,height=0.30\textheight,keepaspectratio]{../Report/Images/apriltag_detection_sim.png}\\[-0.5mm]
+      {\tiny Simulated AprilTag detection input}
     \end{column}
   \end{columns}
 \end{outlinecard}
@@ -20,9 +42,9 @@
 \begin{outlinecard}[Recording Inputs]
   \scriptsize
   \begin{itemize}
-    \item<1-> Initial traversal logged into \texttt{rosbag2}.
-    \item<2-> Camera intrinsics and AprilTag detections are stored frame-by-frame.
-    \item<3-> This dataset feeds the offline map-and-trajectory reconstruction.
+    \item Initial traversal logged into \texttt{rosbag2}.
+    \item Camera intrinsics and AprilTag detections are stored frame-by-frame.
+    \item This dataset feeds the offline map-and-trajectory reconstruction.
   \end{itemize}
 \end{outlinecard}
 \end{frame}
@@ -171,7 +193,7 @@
 \begin{outlinecard}[Reading Notes]
   \small
   \begin{itemize}
-    \item Real: map consistency (no full GT).
+    \item Real: map consistency .
     \item Sensitive to visibility and calibration.
   \end{itemize}
 \end{outlinecard}
@@ -234,6 +256,72 @@
 }
 \end{frame}
 
+\begin{frame}[label=appendix-design-apriltag-family]{Appendix - Why AprilTag tag36h11}
+\transfade[duration=0.25]
+\vspace{-0.05cm}
+\begin{columns}[T,onlytextwidth]
+  \column{0.5\textwidth}
+  \begin{outlinecard}[Paper Evidence - Figure 7]
+    \centering
+    \includegraphics[width=0.96\linewidth]{assets/papers/krogius2019_fig7.png}
+  \end{outlinecard}
+
+  \column{0.5\textwidth}
+  \begin{outlinecard}[Paper Evidence - Figure 8]
+    \centering
+    \includegraphics[width=0.96\linewidth]{assets/papers/krogius2019_fig8.png}
+  \end{outlinecard}
+\end{columns}
+
+\vspace{0.03cm}
+\raggedright\scriptsize Source: Krogius et al., IROS 2019 (Fig. 7 and Fig. 8).
+\end{frame}
+
+\begin{frame}[label=appendix-design-heading-anchor]{Appendix - Why Heading Deviation and Anchoring}
+\transfade[duration=0.25]
+\vspace{-0.06cm}
+\begin{outlinecard}[Heading Deviation $\phi$]
+  \small
+  \begin{itemize}
+    \item \textbf{Control-oriented output}: $\phi$ directly indicates turn direction and magnitude.
+    \item \textbf{Local path consistency}: compared to the nearest trajectory tangent, not a global absolute yaw.
+    \item \textbf{Low coupling}: computed online from nearest-point association with low overhead.
+  \end{itemize}
+\end{outlinecard}
+
+\vspace{-0.05cm}
+\begin{outlinecard}[Anchoring the Map]
+  \small
+  \begin{itemize}
+    \item The graph optimization has gauge freedom; one anchor fixes the reference frame.
+    \item Anchoring stabilizes map/trajectory outputs across runs and exports.
+    \item It does not claim absolute world truth; it defines a consistent internal frame.
+  \end{itemize}
+\end{outlinecard}
+\end{frame}
+
+\begin{frame}[label=appendix-design-estimation-stack]{Appendix - Why PnP + Graph + Procrustes}
+\transfade[duration=0.25]
+\vspace{-0.06cm}
+\begin{outlinecard}[Estimation Stack]
+  \small
+  \begin{itemize}
+    \item \textbf{PnP (per detection)}: gives camera-relative pose from image corners + intrinsics.
+    \item \textbf{Pose graph optimization}: fuses many observations globally and reduces drift/noise.
+    \item \textbf{Procrustes alignment}: optional planar alignment to compare trajectories in a common frame.
+  \end{itemize}
+\end{outlinecard}
+
+\vspace{-0.05cm}
+\begin{outlinecard}[Why This Combination]
+  \small
+  \begin{itemize}
+    \item Separates local geometric estimation from global consistency optimization.
+    \item Keeps online relocalization lightweight while preserving offline map quality.
+  \end{itemize}
+\end{outlinecard}
+\end{frame}
+
 \begin{frame}[label=appendix-table-20]{Table 2.0: Functional Requirements}
 \scriptsize
 \centering
@@ -290,7 +378,7 @@ TL2 & Localization precision depends on camera calibration quality, tag size, di
 \end{tabular}
 \end{frame}
 
-\begin{frame}[label=appendix-table-41]{Table 4.1: Residual errors in the ideal scenario (no noise).}
+\begin{frame}[label=appendix-table-41]{Table 4.1: Residual errors in the ideal scenario .}
 \small
 \centering
 \begin{tabular}{|l|c|c|c|}
@@ -362,16 +450,18 @@ Tag Poses & $0.0364\text{ m} / 0.73^\circ$ & $0.0156\text{ m} / 0.73^\circ$ & $0
 \edef\MediaRelocDemoTwoFile{\detokenize{assets/reloc_demo2.webm}}
 \edef\MediaRelocRealScenarioOneFile{\detokenize{assets/reloc_real_scneario_1.webm}}
 \edef\MediaRelocScenarioTwoFile{\detokenize{assets/Reloc_scnerio2.webm}}
+\edef\MediaControlLawFile{\detokenize{assets/test_with_control_law.webm}}
 \edef\MediaTrajectoryOneFile{\detokenize{assets/trajetory_1_4x_cropped.mp4}}
 \edef\MediaRelocDemoOneThumb{\detokenize{assets/media_reloc_demo1_thumb.jpg}}
 \edef\MediaRelocDemoTwoThumb{\detokenize{assets/media_reloc_demo2_thumb.jpg}}
 \edef\MediaRelocRealScenarioOneThumb{\detokenize{assets/media_reloc_real1_thumb.jpg}}
 \edef\MediaRelocScenarioTwoThumb{\detokenize{assets/media_reloc_scn2_thumb.jpg}}
+\edef\MediaControlLawThumb{\detokenize{assets/media_control_law_thumb.jpg}}
 \edef\MediaTrajectoryOneThumb{\detokenize{assets/media_traj1_thumb.jpg}}
 \edef\MediaValidationExpTwoFile{\detokenize{assets/trajetory_2_5x_cropped.mp4}}
 \edef\MediaValidationExpTwoThumb{\detokenize{assets/trajetory_2_thumb.jpg}}
 
-\begin{frame}[label=appendix-media-validation-exp2]{Appendix Media - Validation Experiment 2 (Large)}
+\begin{frame}[label=appendix-media-validation-exp2]{Appendix Media - Validation Experiment 2}
 \centering
 \vspace{0.05cm}
 \IfFileExists{\MediaValidationExpTwoFile}{
@@ -459,6 +549,23 @@ Tag Poses & $0.0364\text{ m} / 0.73^\circ$ & $0.0156\text{ m} / 0.73^\circ$ & $0
 }{
   \begin{alertbox}[Video Missing]
     Add the file \texttt{\MediaRelocScenarioTwoFile}.
+  \end{alertbox}
+}
+\end{frame}
+
+\begin{frame}[label=appendix-media-control-law]{Appendix Media - Control Law Experiment}
+\centering
+\IfFileExists{\MediaControlLawFile}{
+  \movie[
+    width=0.92\linewidth,
+    height=0.43\linewidth,
+    poster
+  ]{%
+    \fcolorbox{NavyBlue}{white}{\includegraphics[width=\linewidth,height=0.43\linewidth,keepaspectratio]{\MediaControlLawThumb}}%
+  }{\MediaControlLawFile}
+}{
+  \begin{alertbox}[Video Missing]
+    Add the file \texttt{\MediaControlLawFile}.
   \end{alertbox}
 }
 \end{frame}

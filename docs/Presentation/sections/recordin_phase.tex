@@ -4,21 +4,36 @@
 % <3> Step 2B after optimization
 % <4-> Step 3 final exported result
 
-\vspace{-0.3cm}
+\vspace{-0.4cm}
 \begin{columns}[T,onlytextwidth]
   % ---------------- LEFT: VISUAL PANEL (changes by step) ----------------
   \begin{column}{0.63\textwidth}
     \begin{outlinecard}[{\only<1>{Input Recording Run}\only<2>{Build Map}\only<3>{ Optimization}\only<4->{Optimized with Tf}}]
       \centering
 
-      % STEP 1
+% STEP 1
       \only<1>{
         \begin{tikzpicture}[x=1cm,y=1cm]
           \draw[draw=NavyBlue!45, line width=0.9pt, rounded corners=1.4pt, fill=white]
             (0.10,0.22) rectangle (7.3,3.9);
           % fixed inner media area (keeps image inside frame)
           \node[inner sep=0pt, anchor=south west] at (0.33,0.50)
-          {\href{run:assets/reloc_real_scneario_1_2x.mp4}{\includegraphics[width=6.6cm,height=3.20cm]{assets/scenario_real.jpg}}};
+          {%
+            \IfFileExists{assets/videotrack_fixed_traj_4x.mp4}{%
+              \movie[
+                width=6.6cm,
+                height=3.20cm,
+                poster
+              ]{%
+                \includegraphics[
+                  width=6.6cm,
+                  height=3.20cm
+                ]{assets/videotrack_fixed_traj_thumb.jpg}%
+              }{assets/videotrack_fixed_traj_4x.mp4}%
+            }{%
+              \includegraphics[width=6.6cm,height=3.20cm]{assets/videotrack_fixed_traj_thumb.jpg}%
+            }%
+          };
           \fill[black, opacity=0.18] (0.33,0.50) rectangle (6.93,3.70);
           \fill[white, opacity=0.92] (3.72,2.10) circle (0.30);
           \fill[NavyBlue] (3.63,1.98) -- (3.63,2.22) -- (3.84,2.10) -- cycle;
@@ -53,7 +68,7 @@
       % STEP 2B
       \only<3>{
         \begin{tikzpicture}[x=1cm,y=1cm]
-          \node[inner sep=0pt, anchor=south west] at (0.12,0.24)
+          \node[inner sep=0pt, anchor=south west] at (0.12,0.2)
             {\includegraphics[width=7cm,height=5cm]{../assets/results/recording_after_opt_anchor24.png}};
           \node[anchor=south east, inner sep=0pt] at (8.18,0.6){
             \begin{tikzpicture}[x=1cm,y=1cm]

@@ -387,9 +387,24 @@
 \begin{outlinecard}[Pipeline Running on Second Trajectory]
 \centering
 \begin{tikzpicture}[x=1cm,y=1cm]
-  % Clickable video thumbnail (2x version)
+  % Embedded video (annex style, with fallback)
   \node[inner sep=0pt, anchor=south west] at (0.45,0.55)
-    {\href{run:assets/Reloc_scnerio2_2x.mp4}{\includegraphics[width=11.10cm,height=5.10cm]{assets/scneario2.jpeg}}};
+    {%
+      \IfFileExists{assets/Reloc_scnerio2_2x.mp4}{%
+        \movie[
+          width=11.10cm,
+          height=5.10cm,
+          poster
+        ]{%
+          \includegraphics[
+            width=11.10cm,
+            height=5.10cm
+          ]{assets/scneario2.jpeg}%
+        }{assets/Reloc_scnerio2_2x.mp4}%
+      }{%
+        \includegraphics[width=11.10cm,height=5.10cm]{assets/scneario2.jpeg}%
+      }%
+    };
 
   \fill[black, opacity=0.16] (0.45,0.55) rectangle (11.55,5.65);
   \fill[white, opacity=0.95] (6.00,3.10) circle (0.35);
@@ -404,6 +419,40 @@
 \input{sections/discution_conclusion.tex}
 \end{frame}
 
+\begin{frame}{References}
+	\transfade[duration=0.25]
+	\scriptsize
+	\setbeamertemplate{bibliography item}{\insertbiblabel}
+	\begin{thebibliography}{9}
+		\bibitem{github}
+		Project Repository,
+		\textit{Record, Map, and Relocalize with AprilTags (ROS 2)},
+		GitHub. Available at: \url{https://github.com/Wirelessbrains/project_record_relocalize_apriltags_M2_PAR
+		}.
+		
+		\bibitem{report}
+		J. P. M. do Lago Reis and Y. K. da Silva Ramos,
+		\textit{An AprilTag-Based Approach to Trajectory
+			Recording and Relocalization for Mobile Robots},
+		M2 PAR Project Report, 2026.
+		
+		\bibitem{wang2016iros}
+		J. Wang and E. Olson,
+		\textit{AprilTag 2: Efficient and robust fiducial detection},
+		IEEE/RSJ IROS, 2016.
+		
+		\bibitem{Fischler1981}
+		M. A. Fischler and R. C. Bolles,
+		\textit{Random Sample Consensus: A Paradigm for Model Fitting with Applications to Image Analysis and Automated Cartography},
+		Communications of the ACM, 1981.
+		
+		\bibitem{triggs1999ba}
+		B. Triggs, P. McLauchlan, R. Hartley, and A. Fitzgibbon,
+		\textit{Bundle Adjustment: A Modern Synthesis},
+		Vision Algorithms Workshop, 1999.
+	\end{thebibliography}
+	\setbeamertemplate{bibliography item}[book]
+\end{frame}
 
 
 % ==================/// END PRESENTATION
@@ -423,8 +472,6 @@
 	\centering
 	\vspace*{2.2cm}
 	
-	{\Large\bfseries\textcolor{DarkBlue}{Acknowledgements}\par}
-	\vspace{0.25cm}
 	{\Huge\bfseries\textcolor{NavyBlue}{Thank you for listening!}\par}
 	\vspace{0.4cm}
 	{\Large\textcolor{CoolGray}{Any questions?}\par}
@@ -447,48 +494,53 @@
   \begin{columns}[T,onlytextwidth]
     \begin{column}{0.5\textwidth}
       \begin{itemize}
+        \item \hyperlink{appendix-project-links}{\textbf{Appendix - Project Links (QR Codes)}}
         \item \hyperlink{appendix-recording-setup}{\textbf{Appendix - Recording Simulation Setup}}
-        \item \hyperlink{appendix-synth-noisefree}{\textbf{Optimized tag map and reconstructed camera trajectory in the noise-free scenario.}}
-        \item \hyperlink{appendix-synth-noisy}{\textbf{Optimized tag map and reconstructed trajectory under 10 cm Gaussian noise.}}
-        \item \hyperlink{appendix-mosaic-architecture}{\textbf{Physical and simulated setups used to evaluate the proposed architecture.}}
-        \item \hyperlink{appendix-mosaic-detection}{\textbf{Representative detection, each detected tag yields a camera-relative pose estimate obtained through a PnP formulation.}}
-        \item \hyperlink{appendix-mosaic-rec-traj}{\textbf{Reconstructed camera trajectory obtained after map optimization.}}
-        \item \hyperlink{appendix-mosaic-compare-gt}{\textbf{Comparison between optimized reconstruction and ground-truth configuration.}}
-        \item \hyperlink{appendix-mosaic-synth-points}{\textbf{Representative synthetic points used to validate the computation of $D$ in the YZ plane.}}
-        \item \hyperlink{appendix-mosaic-real-recording}{\textbf{Real recording setup and corresponding reconstructed trajectory result.}}
+        \item \hyperlink{appendix-synth-noisefree}{\textbf{Appendix - Noise-Free Optimized Reconstruction}}
+        \item \hyperlink{appendix-synth-noisy}{\textbf{Appendix - Noisy Optimized Reconstruction (+10 cm)}}
+        \item \hyperlink{appendix-mosaic-architecture}{\textbf{Appendix - Evaluation Environments (Real and Simulated)}}
+        \item \hyperlink{appendix-mosaic-detection}{\textbf{Appendix - AprilTag Detection Samples}}
+        \item \hyperlink{appendix-mosaic-rec-traj}{\textbf{Appendix - Reconstructed Trajectory}}
+        \item \hyperlink{appendix-mosaic-compare-gt}{\textbf{Appendix - Optimized vs Ground Truth}}
+        \item \hyperlink{appendix-mosaic-synth-points}{\textbf{Appendix - Synthetic YZ Relocalization Points}}
+        \item \hyperlink{appendix-mosaic-real-recording}{\textbf{Appendix - Real Recording Result}}
       \end{itemize}
     \end{column}
     \begin{column}{0.5\textwidth}
       \begin{itemize}
-        \item \hyperlink{appendix-mosaic-real-relocal}{\textbf{Real relocalization validation setup and corresponding distance comparison.}}
-        \item \hyperlink{appendix-mosaic-second-recording}{\textbf{Additional real recording result processed with the same offline pipeline.}}
-        \item \hyperlink{appendix-discussion-recording-limitations}{\textbf{Discussion - Recording Limitations}}
-        \item \hyperlink{appendix-flowchart-recording}{\textbf{Architecture of the offline recording pipeline.}}
-        \item \hyperlink{appendix-flowchart-relocal}{\textbf{Architecture of the relocalization pipeline with separated offline analysis and online execution.}}
-        \item \hyperlink{appendix-table-20}{\textbf{Table 2.0: Functional Requirements}}
-        \item \hyperlink{appendix-table-21}{\textbf{Table 2.1: Non-Functional Requirements}}
-        \item \hyperlink{appendix-table-22}{\textbf{Table 2.2: Project Deliverables and Constraints}}
-        \item \hyperlink{appendix-table-23}{\textbf{Table 2.3: Technical Limitations}}
-        \item \hyperlink{appendix-table-41}{\textbf{Table 4.1: Residual errors in the ideal scenario (no noise).}}
-        \item \hyperlink{appendix-table-42}{\textbf{Table 4.2: Error statistics under 10 cm Gaussian noise.}}
-        \item \hyperlink{appendix-table-43}{\textbf{Table 4.3: Summary table with estimated versus measured distance to the recorded trajectory and the estimated heading offset $\phi$.}}
-        \item \hyperlink{appendix-table-a1}{\textbf{Table A.1: Comparison between estimated and measured distances from tag 16.}}
+        \item \hyperlink{appendix-mosaic-real-relocal}{\textbf{Appendix - Real Relocalization Validation}}
+        \item \hyperlink{appendix-mosaic-second-recording}{\textbf{Appendix - Second Real Recording Result}}
+        \item \hyperlink{appendix-discussion-recording-limitations}{\textbf{Appendix - Recording Limitations}}
+        \item \hyperlink{appendix-flowchart-recording}{\textbf{Appendix - Offline Recording Flowchart}}
+        \item \hyperlink{appendix-flowchart-relocal}{\textbf{Appendix - Relocalization Flowchart}}
+        \item \hyperlink{appendix-design-apriltag-family}{\textbf{Appendix - Why AprilTag tag36h11}}
+        \item \hyperlink{appendix-design-heading-anchor}{\textbf{Appendix - Why Heading Deviation and Anchoring}}
+        \item \hyperlink{appendix-design-estimation-stack}{\textbf{Appendix - Why PnP + Graph + Procrustes}}
+        \item \hyperlink{appendix-table-20}{\textbf{Appendix - Table 2.0 (Functional Requirements)}}
+        \item \hyperlink{appendix-table-21}{\textbf{Appendix - Table 2.1 (Non-Functional Requirements)}}
+        \item \hyperlink{appendix-table-22}{\textbf{Appendix - Table 2.2 (Deliverables and Constraints)}}
+        \item \hyperlink{appendix-table-23}{\textbf{Appendix - Table 2.3 (Technical Limitations)}}
+        \item \hyperlink{appendix-table-41}{\textbf{Appendix - Table 4.1 (Residual Errors, No Noise)}}
+        \item \hyperlink{appendix-table-42}{\textbf{Appendix - Table 4.2 (Errors, +10 cm Noise)}}
+        \item \hyperlink{appendix-table-43}{\textbf{Appendix - Table 4.3 (Estimated vs Measured $D,\phi$)}}
+        \item \hyperlink{appendix-table-a1}{\textbf{Appendix - Table A.1 (Tag 16 Distance Comparison)}}
       \end{itemize}
     \end{column}
   \end{columns}
 \end{outlinecard}
 \end{frame}
-\begin{frame}[noframenumbering]{Appendix Summary (Continued)}
+\begin{frame}[noframenumbering]{Appendix Summary}
 \transfade[duration=0.25]
 \begin{outlinecard}[Appendix Media]
   \tiny
   \begin{itemize}
-    \item \hyperlink{appendix-media-validation-exp2}{\textbf{Appendix Media - Validation Experiment 2 (Large)}}
-    \item \hyperlink{appendix-media-reloc-demo1}{\textbf{Appendix Media - reloc\_demo1.webm}}
-    \item \hyperlink{appendix-media-reloc-demo2}{\textbf{Appendix Media - reloc\_demo2.webm}}
-    \item \hyperlink{appendix-media-reloc-real1}{\textbf{Appendix Media - reloc\_real\_scneario\_1.webm}}
-    \item \hyperlink{appendix-media-reloc-scn2}{\textbf{Appendix Media - Reloc\_scnerio2.webm}}
-    \item \hyperlink{appendix-media-traj1}{\textbf{Appendix Media - trajetory\_1\_4x\_cropped.mp4}}
+    \item \hyperlink{appendix-media-validation-exp2}{\textbf{Appendix - Media: Validation Experiment 2}}
+    \item \hyperlink{appendix-media-reloc-demo1}{\textbf{Appendix - Media: Relocalization Demo 1}}
+    \item \hyperlink{appendix-media-reloc-demo2}{\textbf{Appendix - Media: Relocalization Demo 2}}
+    \item \hyperlink{appendix-media-reloc-real1}{\textbf{Appendix - Media: Real Relocalization Scenario 1}}
+    \item \hyperlink{appendix-media-reloc-scn2}{\textbf{Appendix - Media: Real Relocalization Scenario 2}}
+    \item \hyperlink{appendix-media-control-law}{\textbf{Appendix - Media: Control-Law Parking Experiment}}
+    \item \hyperlink{appendix-media-traj1}{\textbf{Appendix - Media: Trajectory Playback}}
   \end{itemize}
 \end{outlinecard}
 \end{frame}

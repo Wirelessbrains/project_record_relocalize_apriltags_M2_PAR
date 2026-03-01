@@ -7,7 +7,7 @@
 \begin{columns}[T,onlytextwidth]
   % ---------------- LEFT: VISUAL PANEL ----------------
   \begin{column}{0.63\textwidth}
-    \begin{outlinecard}[{\only<1>{Recorded Reference}\only<2-7>{Point Validation (Photo + Graph)}}]
+    \begin{outlinecard}[{\only<1>{Recorded Reference}\only<2-8>{Point Validation }}]
       \centering
 
       % STEP 1
@@ -22,7 +22,7 @@
       }
 
       % STEP 2
-      \only<2-7>{
+      \only<2-8>{
         \begin{tikzpicture}[x=1cm,y=1cm]
           % Pair 1: 002
           \only<2>{
@@ -30,8 +30,6 @@
               {\includegraphics[width=3.35cm,height=3.30cm]{../assets/results/real_s1_reloc_002_foto.jpg}};
             \node[anchor=south west, inner sep=0pt] at (3.85,0.34)
               {\includegraphics[width=3.35cm,height=3.30cm]{assets/results/graph_002.png}};
-            \node[font=\scriptsize\bfseries, text=NavyBlue, anchor=north] at (1.98,0.30) {Point 002};
-            \node[font=\scriptsize\bfseries, text=NavyBlue, anchor=north] at (5.53,0.30) {Graph 002};
           }
           % Pair 2: 012
           \only<3>{
@@ -39,8 +37,6 @@
               {\includegraphics[width=3.35cm,height=3.30cm]{../assets/results/real_s1_reloc_012_foto.jpg}};
             \node[anchor=south west, inner sep=0pt] at (3.85,0.34)
               {\includegraphics[width=3.35cm,height=3.30cm]{assets/results/graph_012.png}};
-            \node[font=\scriptsize\bfseries, text=NavyBlue, anchor=north] at (1.98,0.30) {Point 012};
-            \node[font=\scriptsize\bfseries, text=NavyBlue, anchor=north] at (5.53,0.30) {Graph 012};
           }
           % Pair 3: 013
           \only<4>{
@@ -48,8 +44,6 @@
               {\includegraphics[width=3.35cm,height=3.30cm]{../assets/results/real_s1_reloc_13_foto.jpg}};
             \node[anchor=south west, inner sep=0pt] at (3.85,0.34)
               {\includegraphics[width=3.35cm,height=3.30cm]{assets/results/graph_013.png}};
-            \node[font=\scriptsize\bfseries, text=NavyBlue, anchor=north] at (1.98,0.30) {Point 013};
-            \node[font=\scriptsize\bfseries, text=NavyBlue, anchor=north] at (5.53,0.30) {Graph 013};
           }
           % Pair 4: 015
           \only<5>{
@@ -57,8 +51,6 @@
               {\includegraphics[width=3.35cm,height=3.30cm]{../assets/results/real_s1_reloc_015_foto.jpg}};
             \node[anchor=south west, inner sep=0pt] at (3.85,0.34)
               {\includegraphics[width=3.35cm,height=3.30cm]{assets/results/graph_015.png}};
-            \node[font=\scriptsize\bfseries, text=NavyBlue, anchor=north] at (1.98,0.30) {Point 015};
-            \node[font=\scriptsize\bfseries, text=NavyBlue, anchor=north] at (5.53,0.30) {Graph 015};
           }
           % Pair 5: 016
           \only<6>{
@@ -66,17 +58,13 @@
               {\includegraphics[width=3.35cm,height=3.30cm]{../assets/results/real_s1_reloc_016_foto.jpg}};
             \node[anchor=south west, inner sep=0pt] at (3.85,0.34)
               {\includegraphics[width=3.35cm,height=3.30cm]{assets/results/graph_016.png}};
-            \node[font=\scriptsize\bfseries, text=NavyBlue, anchor=north] at (1.98,0.30) {Point 016};
-            \node[font=\scriptsize\bfseries, text=NavyBlue, anchor=north] at (5.53,0.30) {Graph 016};
           }
           % Pair 6: 018
-          \only<7>{
+          \only<7-8>{
             \node[anchor=south west, inner sep=0pt] at (0.30,0.34)
               {\includegraphics[width=3.35cm,height=3.30cm]{../assets/results/real_s1_reloc_018_foto.jpg}};
             \node[anchor=south west, inner sep=0pt] at (3.85,0.34)
               {\includegraphics[width=3.35cm,height=3.30cm]{assets/results/graph_018.png}};
-            \node[font=\scriptsize\bfseries, text=NavyBlue, anchor=north] at (1.98,0.30) {Point 018};
-            \node[font=\scriptsize\bfseries, text=NavyBlue, anchor=north] at (5.53,0.30) {Graph 018};
           }
         \end{tikzpicture}
       }
@@ -96,21 +84,21 @@
         \node<2->[draw=NavyBlue!70, fill=white, rounded corners=1.2pt, line width=0.75pt,
           minimum width=3.15cm, minimum height=0.90cm, align=center] (p2) at (1.6,1.85)
           {\scriptsize\textbf{2) Match Nearest}};
-        \node<3->[draw=NavyBlue!70, fill=white, rounded corners=1.2pt, line width=0.75pt,
+        \node<8->[draw=NavyBlue!70, fill=white, rounded corners=1.2pt, line width=0.75pt,
           minimum width=3.15cm, minimum height=0.90cm, align=center] (p3) at (1.6,0.65)
           {\scriptsize\textbf{3) Metrics}};
 
         % active marker
         \fill<1>[AccentGold] ($(p1.north west)+(0.04,-0.04)$) rectangle ($(p1.north west)+(0.15,-0.36)$);
-        \fill<2-6>[AccentGold] ($(p2.north west)+(0.04,-0.04)$) rectangle ($(p2.north west)+(0.15,-0.36)$);
-        \fill<7->[AccentGold] ($(p3.north west)+(0.04,-0.04)$) rectangle ($(p3.north west)+(0.15,-0.36)$);
+        \fill<2-7>[AccentGold] ($(p2.north west)+(0.04,-0.04)$) rectangle ($(p2.north west)+(0.15,-0.36)$);
+        \fill<8->[AccentGold] ($(p3.north west)+(0.04,-0.04)$) rectangle ($(p3.north west)+(0.15,-0.36)$);
 
         % non-active marker
         \fill<2->[AccentBlue] ($(p1.north west)+(0.04,-0.04)$) rectangle ($(p1.north west)+(0.15,-0.36)$);
-        \fill<7->[AccentBlue] ($(p2.north west)+(0.04,-0.04)$) rectangle ($(p2.north west)+(0.15,-0.36)$);
+        \fill<8->[AccentBlue] ($(p2.north west)+(0.04,-0.04)$) rectangle ($(p2.north west)+(0.15,-0.36)$);
 
         \draw<2->[NavyBlue!65, line width=0.9pt, -{Latex[length=2.2mm,width=1.6mm]}] (1.6,2.58) -- (1.6,2.30);
-        \draw<7->[NavyBlue!65, line width=0.9pt, -{Latex[length=2.2mm,width=1.6mm]}] (1.6,1.38) -- (1.6,1.10);
+        \draw<8->[NavyBlue!65, line width=0.9pt, -{Latex[length=2.2mm,width=1.6mm]}] (1.6,1.38) -- (1.6,1.10);
       \end{tikzpicture}
     \end{outlinecard}
 
@@ -142,7 +130,7 @@
       \end{outlinecard}
     }
 
-    \only<7->{
+    \only<8->{
       \begin{outlinecard}[Output Metrics]
         \scriptsize
         \[
