@@ -41,6 +41,7 @@ This command now enforces the project calibration file on the camera driver
 - `YUYV`
 - `30 fps`
 - `mono8` output (better for AprilTag CPU usage)
+- `io_method=read` (more stable on some Dabai DC1 setups)
 
 Custom camera device example:
 
@@ -57,7 +58,7 @@ bash profiles/launch_real_camera_perception_rviz.sh 0.16 /dev/video0 src/limo_ap
 Optional camera tuning (applies to `launch_real_camera_perception_rviz.sh`):
 
 ```bash
-CAM_WIDTH=640 CAM_HEIGHT=480 CAM_FPS=30 CAM_PIXEL_FORMAT=YUYV CAM_OUTPUT_ENCODING=mono8 \
+CAM_WIDTH=640 CAM_HEIGHT=480 CAM_FPS=30 CAM_PIXEL_FORMAT=YUYV CAM_OUTPUT_ENCODING=mono8 CAM_IO_METHOD=read \
 bash profiles/launch_real_camera_perception_rviz.sh 0.16 /dev/video0
 ```
 
