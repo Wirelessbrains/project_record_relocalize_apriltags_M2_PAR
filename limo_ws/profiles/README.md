@@ -41,19 +41,28 @@ If multiple joystick devices exist, force the correct one:
 bash profiles/launch_real_teleop_joy.sh --joy-device-id 0
 ```
 
-Run perception + joystick teleop together (single command):
+Run perception + joystick teleop together (single command, without `limo_base`):
 
 ```bash
 bash profiles/launch_real_perception_teleop.sh 0.16
 ```
 
-Run full teleop stack (known-good teleop flow):
+Run base + teleop stack (known-good teleop flow):
 - starts `limo_base`
 - starts joystick + teleop + `cmd_vel_curve`
 - does **not** start perception (run `launch_real_perception.sh` separately)
 
 ```bash
-bash profiles/launch_real_teleop_perception_full.sh
+bash profiles/launch_real_base_teleop.sh
+```
+
+Run complete real drive stack in one command:
+- starts perception
+- starts `limo_base`
+- starts joystick + teleop
+
+```bash
+JOY_DEVICE_ID=0 bash profiles/launch_real_perception_base_teleop.sh 0.16
 ```
 
 Run camera + perception + RViz together (recommended):
@@ -159,6 +168,30 @@ Run online relocalization + RViz together (recommended for rosbag validation):
 bash profiles/launch_real_online_relocalization_map.sh \
   outputs/real_run_01_outputs/trajetoria_camera.csv \
   /tag_only_pose pose_stamped full
+```
+
+### After optimization (real robot)
+
+When offline optimization is finished, run the validated online stack in this order:
+
+1. Start driving stack (perception + base + teleop):
+
+```bash
+JOY_DEVICE_ID=0 bash profiles/launch_real_perception_base_teleop.sh 0.20
+```
+
+2. Load the optimized map (`tag_map.yaml`) for localization:
+
+```bash
+bash profiles/launch_real_localization.sh 0.20 outputs/<run>_outputs/tag_map.yaml
+```
+
+3. Start online relocalization with optimized reference trajectory (`trajetoria_camera.csv`):
+
+```bash
+bash profiles/launch_real_online_relocalization_map.sh \
+  outputs/<run>_outputs/trajetoria_camera.csv \
+  /tag_only_base_pose pose_stamped full
 ```
 
 Rosbag replay with map/tags visible (no topic conflict):
