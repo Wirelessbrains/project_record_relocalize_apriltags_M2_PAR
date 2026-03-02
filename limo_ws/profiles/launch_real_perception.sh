@@ -29,13 +29,13 @@ CALIB_DEFAULT_INSTALL="$WS_ROOT/install/limo_apriltag_tools/share/limo_apriltag_
 VIDEO_DEVICE="${3:-/dev/video0}"
 START_CAMERA="${START_CAMERA:-true}"
 
-# Camera defaults tuned for higher FPS with lower CPU overhead.
+# Camera defaults tuned for robustness on Dabai DC1 (MJPG may fail on some v4l2 builds).
 CAM_WIDTH="${CAM_WIDTH:-640}"
 CAM_HEIGHT="${CAM_HEIGHT:-480}"
 CAM_FPS="${CAM_FPS:-30}"
-CAM_PIXEL_FORMAT="${CAM_PIXEL_FORMAT:-MJPG}"
-CAM_OUTPUT_ENCODING="${CAM_OUTPUT_ENCODING:-rgb8}"
-CAM_CAMERA_NAME="${CAM_CAMERA_NAME:-dabai_dc1}"
+CAM_PIXEL_FORMAT="${CAM_PIXEL_FORMAT:-YUYV}"
+CAM_OUTPUT_ENCODING="${CAM_OUTPUT_ENCODING:-mono8}"
+CAM_CAMERA_NAME="${CAM_CAMERA_NAME:-dabai_dc1:_dabai_dc1}"
 
 if [ -n "${2:-}" ]; then
   CALIBRATION_FILE="$2"

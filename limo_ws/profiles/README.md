@@ -38,9 +38,9 @@ bash profiles/launch_real_camera_perception_rviz.sh 0.16
 This command now enforces the project calibration file on the camera driver
 (`camera_info_url`) and uses a high-FPS default profile:
 - `640x480`
-- `MJPG`
+- `YUYV`
 - `30 fps`
-- `rgb8` output
+- `mono8` output (better for AprilTag CPU usage)
 
 Custom camera device example:
 
@@ -57,7 +57,7 @@ bash profiles/launch_real_camera_perception_rviz.sh 0.16 /dev/video0 src/limo_ap
 Optional camera tuning (applies to `launch_real_camera_perception_rviz.sh`):
 
 ```bash
-CAM_WIDTH=640 CAM_HEIGHT=480 CAM_FPS=30 CAM_PIXEL_FORMAT=MJPG CAM_OUTPUT_ENCODING=rgb8 \
+CAM_WIDTH=640 CAM_HEIGHT=480 CAM_FPS=30 CAM_PIXEL_FORMAT=YUYV CAM_OUTPUT_ENCODING=mono8 \
 bash profiles/launch_real_camera_perception_rviz.sh 0.16 /dev/video0
 ```
 

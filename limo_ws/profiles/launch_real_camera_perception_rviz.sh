@@ -40,13 +40,13 @@ if [ ! -f "$CALIBRATION_YAML" ]; then
   exit 1
 fi
 
-# Camera defaults tuned for higher FPS with lower CPU overhead.
+# Camera defaults tuned for robustness on Dabai DC1 (MJPG may fail on some v4l2 builds).
 CAM_WIDTH="${CAM_WIDTH:-640}"
 CAM_HEIGHT="${CAM_HEIGHT:-480}"
 CAM_FPS="${CAM_FPS:-30}"
-CAM_PIXEL_FORMAT="${CAM_PIXEL_FORMAT:-MJPG}"
-CAM_OUTPUT_ENCODING="${CAM_OUTPUT_ENCODING:-rgb8}"
-CAM_CAMERA_NAME="${CAM_CAMERA_NAME:-dabai_dc1}"
+CAM_PIXEL_FORMAT="${CAM_PIXEL_FORMAT:-YUYV}"
+CAM_OUTPUT_ENCODING="${CAM_OUTPUT_ENCODING:-mono8}"
+CAM_CAMERA_NAME="${CAM_CAMERA_NAME:-dabai_dc1:_dabai_dc1}"
 
 cd "$WS_ROOT"
 export AMENT_TRACE_SETUP_FILES=${AMENT_TRACE_SETUP_FILES-}
