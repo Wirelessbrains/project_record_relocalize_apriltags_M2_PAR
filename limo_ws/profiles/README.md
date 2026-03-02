@@ -17,10 +17,16 @@ Build:
 bash profiles/build_real.sh
 ```
 
-Run perception only (camera + AprilTag detector):
+Run perception in a single command (starts camera + AprilTag detector):
 
 ```bash
 bash profiles/launch_real_perception.sh 0.16
+```
+
+If camera is already running externally, disable internal camera startup:
+
+```bash
+START_CAMERA=false bash profiles/launch_real_perception.sh 0.16
 ```
 
 Run camera + perception + RViz together (recommended):

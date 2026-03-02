@@ -91,7 +91,7 @@ trap cleanup EXIT
 sleep 1
 
 echo "[2/3] Starting perception pipeline..."
-bash "$SCRIPT_DIR/launch_real_perception.sh" "$TAG_SIZE" "$CALIBRATION_YAML" &
+START_CAMERA=false bash "$SCRIPT_DIR/launch_real_perception.sh" "$TAG_SIZE" "$CALIBRATION_YAML" "$VIDEO_DEVICE" &
 PER_PID=$!
 
 sleep 2
