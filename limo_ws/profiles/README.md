@@ -35,10 +35,25 @@ Run joystick teleop for the real robot:
 bash profiles/launch_real_teleop_joy.sh
 ```
 
+If multiple joystick devices exist, force the correct one:
+
+```bash
+bash profiles/launch_real_teleop_joy.sh --joy-device-id 0
+```
+
 Run perception + joystick teleop together (single command):
 
 ```bash
 bash profiles/launch_real_perception_teleop.sh 0.16
+```
+
+Run full teleop stack (known-good teleop flow):
+- starts `limo_base`
+- starts joystick + teleop + `cmd_vel_curve`
+- does **not** start perception (run `launch_real_perception.sh` separately)
+
+```bash
+bash profiles/launch_real_teleop_perception_full.sh
 ```
 
 Run camera + perception + RViz together (recommended):
