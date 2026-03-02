@@ -47,7 +47,7 @@ CAM_FPS="${CAM_FPS:-30}"
 CAM_PIXEL_FORMAT="${CAM_PIXEL_FORMAT:-YUYV}"
 CAM_OUTPUT_ENCODING="${CAM_OUTPUT_ENCODING:-mono8}"
 CAM_CAMERA_NAME="${CAM_CAMERA_NAME:-dabai_dc1:_dabai_dc1}"
-CAM_IO_METHOD="${CAM_IO_METHOD:-mmap}"
+CAM_IO_METHOD="${CAM_IO_METHOD:-}"
 
 cd "$WS_ROOT"
 export AMENT_TRACE_SETUP_FILES=${AMENT_TRACE_SETUP_FILES-}
@@ -73,17 +73,26 @@ fi
 echo "[1/3] Starting v4l2 camera on ${VIDEO_DEVICE}..."
 echo "[config] camera calibration: ${CALIBRATION_YAML}"
 echo "[config] camera format: ${CAM_WIDTH}x${CAM_HEIGHT} ${CAM_PIXEL_FORMAT} @ ${CAM_FPS} fps (${CAM_OUTPUT_ENCODING})"
-echo "[config] camera io_method: ${CAM_IO_METHOD}"
-ros2 run v4l2_camera v4l2_camera_node --ros-args \
-  -p video_device:="${VIDEO_DEVICE}" \
-  -p camera_name:="${CAM_CAMERA_NAME}" \
-  -p camera_info_url:="file://${CALIBRATION_YAML}" \
-  -p image_size:="[${CAM_WIDTH},${CAM_HEIGHT}]" \
-  -p time_per_frame:="[1,${CAM_FPS}]" \
-  -p pixel_format:="${CAM_PIXEL_FORMAT}" \
-  -p output_encoding:="${CAM_OUTPUT_ENCODING}" \
-  -p io_method:="${CAM_IO_METHOD}" \
-  -r /camera_info:=/camera_info_raw &
+if [ -n "$CAM_IO_METHOD" ]; then
+  echo "[config] camera io_method: ${CAM_IO_METHOD}"
+else
+  echo "[config] camera io_method: driver default"
+fi
+V4L2_ARGS=(
+  --ros-args
+  -p "video_device:=${VIDEO_DEVICE}"
+  -p "camera_name:=${CAM_CAMERA_NAME}"
+  -p "camera_info_url:=file://${CALIBRATION_YAML}"
+  -p "image_size:=[${CAM_WIDTH},${CAM_HEIGHT}]"
+  -p "time_per_frame:=[1,${CAM_FPS}]"
+  -p "pixel_format:=${CAM_PIXEL_FORMAT}"
+  -p "output_encoding:=${CAM_OUTPUT_ENCODING}"
+  -r "/camera_info:=/camera_info_raw"
+)
+if [ -n "$CAM_IO_METHOD" ]; then
+  V4L2_ARGS+=(-p "io_method:=${CAM_IO_METHOD}")
+fi
+ros2 run v4l2_camera v4l2_camera_node "${V4L2_ARGS[@]}" &
 CAM_PID=$!
 
 cleanup() {
