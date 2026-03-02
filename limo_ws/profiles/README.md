@@ -29,6 +29,13 @@ Run camera + perception + RViz together (recommended):
 bash profiles/launch_real_camera_perception_rviz.sh 0.16
 ```
 
+This command now enforces the project calibration file on the camera driver
+(`camera_info_url`) and uses a high-FPS default profile:
+- `640x480`
+- `MJPG`
+- `30 fps`
+- `rgb8` output
+
 Custom camera device example:
 
 ```bash
@@ -39,6 +46,13 @@ Custom calibration file with one-command startup:
 
 ```bash
 bash profiles/launch_real_camera_perception_rviz.sh 0.16 /dev/video0 src/limo_apriltag_tools/config/webcam_calibration_robot.yaml
+```
+
+Optional camera tuning (applies to `launch_real_camera_perception_rviz.sh`):
+
+```bash
+CAM_WIDTH=640 CAM_HEIGHT=480 CAM_FPS=30 CAM_PIXEL_FORMAT=MJPG CAM_OUTPUT_ENCODING=rgb8 \
+bash profiles/launch_real_camera_perception_rviz.sh 0.16 /dev/video0
 ```
 
 Default calibration file path used by the script:
