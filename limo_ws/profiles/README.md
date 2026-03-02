@@ -29,6 +29,18 @@ If camera is already running externally, disable internal camera startup:
 START_CAMERA=false bash profiles/launch_real_perception.sh 0.16
 ```
 
+Run joystick teleop for the real robot:
+
+```bash
+bash profiles/launch_real_teleop_joy.sh
+```
+
+Run perception + joystick teleop together (single command):
+
+```bash
+bash profiles/launch_real_perception_teleop.sh 0.16
+```
+
 Run camera + perception + RViz together (recommended):
 
 ```bash

@@ -82,6 +82,18 @@ The dataset recording phase requires manual driving (joystick/teleop controller)
 bash profiles/launch_real_perception.sh 0.16
 ```
 
+Joystick teleop (real robot):
+
+```bash
+bash profiles/launch_real_teleop_joy.sh
+```
+
+Single command (perception + teleop):
+
+```bash
+bash profiles/launch_real_perception_teleop.sh 0.16
+```
+
 Recommended one-command startup (camera + perception + RViz):
 
 ```bash

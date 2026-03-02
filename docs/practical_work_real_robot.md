@@ -32,6 +32,18 @@ Start perception first:
 bash profiles/launch_real_perception.sh 0.16
 ```
 
+Joystick teleop (real robot):
+
+```bash
+bash profiles/launch_real_teleop_joy.sh
+```
+
+Single-command run (perception + teleop):
+
+```bash
+bash profiles/launch_real_perception_teleop.sh 0.16
+```
+
 Recommended for class/demo use (camera + perception + RViz):
 
 ```bash
