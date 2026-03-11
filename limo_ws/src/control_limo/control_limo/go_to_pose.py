@@ -2,9 +2,13 @@ import rclpy
 from rclpy.node import Node
 import math
 from geometry_msgs.msg import PoseStamped, Pose, Twist
-from gazebo_msgs.msg import ModelStates
 from nav_msgs.msg import Path
 from rcl_interfaces.msg import SetParametersResult
+
+try:
+    from gazebo_msgs.msg import ModelStates
+except ImportError:
+    ModelStates = None
 
 class GoToPoseNode(Node):
     def __init__(self):
@@ -132,6 +136,19 @@ class GoToPoseNode(Node):
                 Pose,
                 self.pose_topic,
                 self.pose_only_callback,
+                10)
+            return
+
+        if ModelStates is None:
+            self.get_logger().warn(
+                'gazebo_msgs is not available; falling back to PoseStamped subscription '
+                f'on {self.pose_topic}.',
+                throttle_duration_sec=5.0
+            )
+            self.subscription_pose = self.create_subscription(
+                PoseStamped,
+                self.pose_topic,
+                self.pose_callback,
                 10)
             return
 
